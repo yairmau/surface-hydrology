@@ -1,0 +1,84 @@
+---
+title: "Interannual variability of precipitation"
+execute:
+  freeze: auto  # re-render only when source changes
+jupyter: python3
+---
+
+![](/archive/figures/monthly_tel_aviv_1940-1999.png)
+
+## hydrological year
+
+A time period of 12 months for which precipitation totals are measured. The hydrological year is designated by the calendar year in which it **ends**.  
+Let's define the hydrological year for Tel Aviv from 1 October to 30 September.
+
+האם אקלים הגשם שלנו משתנה
+> youtube: https://youtu.be/v0uNpj03Rk4
+
+![](/archive/figures/annual_tel_aviv_with_mean.png)
+
+![](/archive/figures/histogram_tel_aviv_with_mean_and_std.png)
+
+## coefficient of variation
+
+$\langle{P}\rangle=$ average precipitation  
+$\sigma=$ standard deviation
+
+$$CV = \frac{\sigma}{\langle{P}\rangle}$$
+
+Assuming that the inter-annual distribution is a gaussian: 67% of the time, rainfall will vary +/- 30% from its long term average in Tel Aviv.
+
+Precipitation averages are [usually calculated for time intervals of 30 years](https://www.ncdc.noaa.gov/news/defining-climate-normals-new-ways).
+
+![](/archive/figures/mean_tel_aviv_2_windows.png)
+
+![](/archive/figures/mean_tel_aviv_4_windows.png)
+
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show/hide the code"
+
+import altair as alt
+import pandas as pd
+
+df = pd.read_csv("TEL_AVIV_READING_monthly.csv", sep=",")
+# make 'DATE' the dataframe index
+df['DATE'] = pd.to_datetime(df['DATE'])
+df = df.set_index('DATE')
+
+df_year_all = df['PRCP'].resample('A-SEP').sum().to_frame()  # annual frequency, anchored end of September
+df_year_all.columns = ['rain (mm)'] # rename 'PRCP' column to 'rain (mm)'
+df_year = df_year_all.iloc[:-1]  # exclude last row
+
+# Altair only recognizes column data; it ignores index values.
+# You can plot the index data by first resetting the index
+# I know that I've just made 'DATE' the index, but I want to have this here nonetheless so I can refer to this in the future
+source = df_year.reset_index()
+brush = alt.selection(type='interval', encodings=['x'])
+
+# T: temporal, a time or date value
+# Q: quantitative, a continuous real-valued quantity
+# https://altair-viz.github.io/user_guide/encoding.html#encoding-data-types
+bars = alt.Chart().mark_bar().encode(
+    x=alt.X('DATE:T', axis=alt.Axis(title='date')),
+    y=alt.Y('rain (mm):Q',  axis=alt.Axis(title='annual precipitation (mm) and average')),
+    opacity=alt.condition(brush, alt.OpacityValue(1), alt.OpacityValue(0.2)),
+).add_selection(
+    brush
+).properties(
+    title='Select year range and drag for rolling average of annual precipitation in Tel Aviv'
+).properties(
+    width=600,
+    height=400
+)
+
+line = alt.Chart().mark_rule(color='orange').encode(
+    y='mean(rain (mm)):Q',
+    size=alt.SizeValue(3)
+).transform_filter(
+    brush
+)
+
+alt.layer(bars, line, data=source)
+```

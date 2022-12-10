@@ -1,0 +1,45 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Surface Hydrology"
+  author: "Yair Mau"
+  # date: "10/18/2022"
+  chapters:
+    - index.qmd
+    - part: introduction/intro.qmd
+      chapters:
+        - introduction/introduction-lecture.qmd
+        - introduction/introduction-exercises.ipynb
+    - part: precipitation/precipitation.qmd
+      chapters:
+        - precipitation/interannual-lecture.qmd
+        - precipitation/interannual-exercises.ipynb
+        - precipitation/intra-annual-lecture.qmd
+        - precipitation/intra-annual-exercises.ipynb
+        - precipitation/return-period-lecture.qmd
+        - precipitation/return-period-exercises.ipynb
+        
+        # - precipitation/precipitation-exercises.ipynb
+    - summary.qmd
+    - references.qmd
+  repo-url: https://github.com/agrotech-lab/my-book-test
+  repo-actions: [source]
+  sidebar:
+    style: "docked"
+    collapse-level: 1
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    fontsize: 1.2em
+  pdf:
+    documentclass: scrreprt
+
+
+

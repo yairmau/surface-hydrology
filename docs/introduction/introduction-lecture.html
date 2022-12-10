@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Surface Hydrology - 1&nbsp; Water Cycle: Fluxes and Storage</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../introduction/introduction-exercises.html" rel="next">
+<link href="../introduction/intro.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Water Cycle: Fluxes and Storage</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Surface Hydrology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/agrotech-lab/my-book-test" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../introduction/intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/introduction-lecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Water Cycle: Fluxes and Storage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/introduction-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../precipitation/precipitation.html" class="sidebar-item-text sidebar-link">Precipitation</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../precipitation/interannual-lecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Interannual variability of precipitation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../precipitation/interannual-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../precipitation/intra-annual-lecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intra-annual variability of precipitation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../precipitation/intra-annual-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exercises</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../precipitation/return-period-lecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Return Period</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../precipitation/return-period-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#how-much-water-is-there-where" id="toc-how-much-water-is-there-where" class="nav-link active" data-scroll-target="#how-much-water-is-there-where"><span class="toc-section-number">1.1</span>  How much water is there? Where?</a></li>
+  <li><a href="#the-natural-water-cycle-2019" id="toc-the-natural-water-cycle-2019" class="nav-link" data-scroll-target="#the-natural-water-cycle-2019"><span class="toc-section-number">1.2</span>  The natural water cycle (2019)</a></li>
+  <li><a href="#the-new-water-cycle-2022" id="toc-the-new-water-cycle-2022" class="nav-link" data-scroll-target="#the-new-water-cycle-2022"><span class="toc-section-number">1.3</span>  The new water cycle (2022)</a></li>
+  <li><a href="#global-water-distribution" id="toc-global-water-distribution" class="nav-link" data-scroll-target="#global-water-distribution"><span class="toc-section-number">1.4</span>  Global water distribution</a></li>
+  <li><a href="#energy-drives-the-hydrologic-cycle" id="toc-energy-drives-the-hydrologic-cycle" class="nav-link" data-scroll-target="#energy-drives-the-hydrologic-cycle"><span class="toc-section-number">1.5</span>  Energy drives the hydrologic cycle</a></li>
+  <li><a href="#components-of-the-water-cycle" id="toc-components-of-the-water-cycle" class="nav-link" data-scroll-target="#components-of-the-water-cycle"><span class="toc-section-number">1.6</span>  Components of the water cycle</a>
+  <ul class="collapse">
+  <li><a href="#water-storage-in-oceans" id="toc-water-storage-in-oceans" class="nav-link" data-scroll-target="#water-storage-in-oceans"><span class="toc-section-number">1.6.1</span>  Water storage in oceans</a></li>
+  <li><a href="#evaporation-sublimation" id="toc-evaporation-sublimation" class="nav-link" data-scroll-target="#evaporation-sublimation"><span class="toc-section-number">1.6.2</span>  Evaporation / Sublimation</a></li>
+  <li><a href="#evapotranspiration" id="toc-evapotranspiration" class="nav-link" data-scroll-target="#evapotranspiration"><span class="toc-section-number">1.6.3</span>  Evapotranspiration</a></li>
+  <li><a href="#water-storage-in-the-atmosphere" id="toc-water-storage-in-the-atmosphere" class="nav-link" data-scroll-target="#water-storage-in-the-atmosphere"><span class="toc-section-number">1.6.4</span>  Water storage in the atmosphere</a></li>
+  <li><a href="#condensation" id="toc-condensation" class="nav-link" data-scroll-target="#condensation"><span class="toc-section-number">1.6.5</span>  Condensation</a></li>
+  <li><a href="#precipitation" id="toc-precipitation" class="nav-link" data-scroll-target="#precipitation"><span class="toc-section-number">1.6.6</span>  Precipitation</a></li>
+  <li><a href="#water-storage-in-ice-and-snow" id="toc-water-storage-in-ice-and-snow" class="nav-link" data-scroll-target="#water-storage-in-ice-and-snow"><span class="toc-section-number">1.6.7</span>  Water storage in ice and snow</a></li>
+  <li><a href="#snowmelt-runoff-to-streams" id="toc-snowmelt-runoff-to-streams" class="nav-link" data-scroll-target="#snowmelt-runoff-to-streams"><span class="toc-section-number">1.6.8</span>  Snowmelt runoff to streams</a></li>
+  <li><a href="#surface-runoff" id="toc-surface-runoff" class="nav-link" data-scroll-target="#surface-runoff"><span class="toc-section-number">1.6.9</span>  Surface runoff</a></li>
+  <li><a href="#streamflow" id="toc-streamflow" class="nav-link" data-scroll-target="#streamflow"><span class="toc-section-number">1.6.10</span>  Streamflow</a></li>
+  <li><a href="#lakes-and-rivers" id="toc-lakes-and-rivers" class="nav-link" data-scroll-target="#lakes-and-rivers"><span class="toc-section-number">1.6.11</span>  Lakes and rivers</a></li>
+  <li><a href="#infiltration" id="toc-infiltration" class="nav-link" data-scroll-target="#infiltration"><span class="toc-section-number">1.6.12</span>  Infiltration</a></li>
+  <li><a href="#groundwater-storage" id="toc-groundwater-storage" class="nav-link" data-scroll-target="#groundwater-storage"><span class="toc-section-number">1.6.13</span>  Groundwater storage</a></li>
+  <li><a href="#groundwater-flow-and-discharge" id="toc-groundwater-flow-and-discharge" class="nav-link" data-scroll-target="#groundwater-flow-and-discharge"><span class="toc-section-number">1.6.14</span>  Groundwater flow and discharge</a></li>
+  <li><a href="#spring" id="toc-spring" class="nav-link" data-scroll-target="#spring"><span class="toc-section-number">1.6.15</span>  Spring</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/agrotech-lab/my-book-test/blob/main/introduction/introduction-lecture.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Water Cycle: Fluxes and Storage</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="how-much-water-is-there-where" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="how-much-water-is-there-where"><span class="header-section-number">1.1</span> How much water is there? Where?</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2ObMyytxLz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<p></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/all-the-worlds-water.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_how_much_water">Water Science School (<a href="#ref-usgs_how_much_water" role="doc-biblioref">2019c</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/EarthsWater-BarChart.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_where_is_earths_water">Water Science School (<a href="#ref-usgs_where_is_earths_water" role="doc-biblioref">2018</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="the-natural-water-cycle-2019" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-natural-water-cycle-2019"><span class="header-section-number">1.2</span> The natural water cycle (2019)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/water-cycle.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_natural_water_cycle">Water Science School (<a href="#ref-usgs_natural_water_cycle" role="doc-biblioref">2019g</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="the-new-water-cycle-2022" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-new-water-cycle-2022"><span class="header-section-number">1.3</span> The new water cycle (2022)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/water-cycle-2022.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_water_cycle">Water Science School (<a href="#ref-usgs_water_cycle" role="doc-biblioref">2022</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>Interactive chart: <a href="https://labs.waterdata.usgs.gov/visualizations/pools-and-fluxes/index.html">Pools and fluxes in the water cycle</a></p>
+</section>
+<section id="global-water-distribution" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="global-water-distribution"><span class="header-section-number">1.4</span> Global water distribution</h2>
+<table class="table">
+<caption>Source: <span class="citation" data-cites="usgs_where_is_earths_water">Water Science School (<a href="#ref-usgs_where_is_earths_water" role="doc-biblioref">2018</a>)</span>. <strong>(Percents are rounded, so will not add to 100)</strong></caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Water source</th>
+<th>Volume (km<span class="math inline">\(^3\)</span>)</th>
+<th>% of freshwater</th>
+<th>% of total water</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Oceans, Seas, &amp; Bays</td>
+<td>1,338,000,000</td>
+<td>–</td>
+<td>96.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ice caps, Glaciers, &amp; Permanent Snow</td>
+<td>24,064,000</td>
+<td>68.7</td>
+<td>1.74</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Groundwater</td>
+<td>23,400,000</td>
+<td>–</td>
+<td>1.69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span>Fresh</td>
+<td>10,530,000</td>
+<td>30.1</td>
+<td>0.76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span>Saline</td>
+<td>12,870,000</td>
+<td>–</td>
+<td>0.93</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Soil Moisture</td>
+<td>16,500</td>
+<td>0.05</td>
+<td>0.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ground Ice &amp; Permafrost</td>
+<td>300,000</td>
+<td>0.86</td>
+<td>0.022</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lakes</td>
+<td>176,400</td>
+<td>–</td>
+<td>0.013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span>Fresh</td>
+<td>91,000</td>
+<td>0.26</td>
+<td>0.007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span>Saline</td>
+<td>85,400</td>
+<td>–</td>
+<td>0.006</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Atmosphere</td>
+<td>12,900</td>
+<td>0.04</td>
+<td>0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Swamp Water</td>
+<td>11,470</td>
+<td>0.03</td>
+<td>0.0008</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rivers</td>
+<td>2,120</td>
+<td>0.006</td>
+<td>0.0002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biological Water</td>
+<td>1,120</td>
+<td>0.003</td>
+<td>0.0001</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="energy-drives-the-hydrologic-cycle" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="energy-drives-the-hydrologic-cycle"><span class="header-section-number">1.5</span> Energy drives the hydrologic cycle</h2>
+<p>From <span class="citation" data-cites="margulis2019introduction">Margulis (<a href="#ref-margulis2019introduction" role="doc-biblioref">2019</a>)</span></p>
+<blockquote class="blockquote">
+<p>A key aspect of the hydrologic cycle is the fact that it is driven by energy inputs (primarily from the sun). At the global scale, the system is essentially closed with respect to water; negligible water is entering or leaving the system. In other words, there is no external forcing in terms of a water flux. Systems with no external forcing will generally eventually come to an equilibrium state. So what makes the hydrologic cycle so dynamic? The solar radiative energy input, which is external to the system, drives the hydrologic cycle. Averaged over the globe, 342 W m<span class="math inline">\(^{-2}\)</span> of solar radiative energy is being continuously input to the system at the top of the atmosphere. This energy input must be dissipated, and this is done, to a large extent, via the hydrologic cycle. Due to this fact, the study of hydrology is not isolated to the study of water storage and movement, but also must often include study of energy storage and movements.</p>
+</blockquote>
+</section>
+<section id="components-of-the-water-cycle" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="components-of-the-water-cycle"><span class="header-section-number">1.6</span> Components of the water cycle</h2>
+<section id="water-storage-in-oceans" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="water-storage-in-oceans"><span class="header-section-number">1.6.1</span> Water storage in oceans</h3>
+</section>
+<section id="evaporation-sublimation" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="evaporation-sublimation"><span class="header-section-number">1.6.2</span> Evaporation / Sublimation</h3>
+<p>Evaporation <span class="math inline">\(\longrightarrow\)</span> cooling</p>
+<p><img src="../archive/figures/evaporation_1.gif" title="Source: http://www.hk-phy.org/contextual/heat/cha/evapo02_e.html" class="img-fluid"></p>
+<p><img src="../archive/figures/evaporation_2.png" title="Source: https://courses.lumenlearning.com/cheminter/chapter/evaporation/" class="img-fluid"></p>
+<p><img src="../archive/figures/cooling-tower.png" title="Source: https://engineeringinsider.org/cooling-tower-types/" class="img-fluid"></p>
+<p><img src="../archive/figures/evaporation_slide0.jpg" title="Source: https://slideplayer.com/slide/7418126/" class="img-fluid"> <img src="../archive/figures/evaporation_slide1.jpg" title="Source: https://slideplayer.com/slide/7418126/" class="img-fluid"> <img src="../archive/figures/evaporation_slide2.jpg" title="Source: https://slideplayer.com/slide/7418126/" class="img-fluid"></p>
+</section>
+<section id="evapotranspiration" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="evapotranspiration"><span class="header-section-number">1.6.3</span> Evapotranspiration</h3>
+<p><img src="../archive/figures/evapotranspiration1.jpg" title="Source: http://www.eschooltoday.com/water-cycle/what-is-transpiration-and-evapotranspiration.html" class="img-fluid"></p>
+</section>
+<section id="water-storage-in-the-atmosphere" class="level3" data-number="1.6.4">
+<h3 data-number="1.6.4" class="anchored" data-anchor-id="water-storage-in-the-atmosphere"><span class="header-section-number">1.6.4</span> Water storage in the atmosphere</h3>
+<p>Cumulonimbus cloud over Africa <img src="../archive/figures/cumulonimbus.jpg" title="Source: https://commons.wikimedia.org/wiki/File:Cumulonimbus_Cloud_over_Africa_%28color%29.jpg" class="img-fluid"></p>
+<p>Picture of cumulonimbus taken from the International Space Station, over western Africa near the Senegal-Mali border.</p>
+<p>If all of the water in the atmosphere rained down at once, it would only cover the globe to a depth of 2.5 centimeters. <span class="math display">\[
+\begin{align}
+\text{amount of water in the atmosphere} &amp; \qquad V = 12\, 900\, \text{km}^3 \\
+\text{surface of Earth} &amp; \qquad S = 4 \pi R^2;\quad R=6371\,\text{km}\\
+&amp; \qquad V = S \times h \\
+\text{height} &amp; \qquad h = \frac{V}{S} \simeq 2.5\,\text{cm}
+\end{align}
+\]</span></p>
+<p>Try to calculate this yourself, and click on the button below to check how to do it.</p>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Show/hide the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># amount of water in the atmosphere</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> <span class="dv">12900</span> <span class="co"># km^3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Earth's radius</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="dv">6371</span> <span class="co"># km</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># surface of Earth = 4 pi Rˆ2</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> <span class="fl">3.141592</span> <span class="op">*</span> R<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Volume: V = S * h, therefore</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># height</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> V <span class="op">/</span> S <span class="co"># in km</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>h_cm <span class="op">=</span> h <span class="op">*</span> <span class="fl">1e5</span> <span class="co"># in cm</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The height would be ~ </span><span class="sc">{</span>h_cm<span class="sc">:.1f}</span><span class="ss"> cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The height would be ~ 2.5 cm</code></pre>
+</div>
+</div>
+</section>
+<section id="condensation" class="level3" data-number="1.6.5">
+<h3 data-number="1.6.5" class="anchored" data-anchor-id="condensation"><span class="header-section-number">1.6.5</span> Condensation</h3>
+</section>
+<section id="precipitation" class="level3" data-number="1.6.6">
+<h3 data-number="1.6.6" class="anchored" data-anchor-id="precipitation"><span class="header-section-number">1.6.6</span> Precipitation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/rain-burst1.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_rain_and_precipitation">Water Science School (<a href="#ref-usgs_rain_and_precipitation" role="doc-biblioref">2019f</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<table class="table">
+<caption>Source: <span class="citation" data-cites="usgs_precipitation_and_the_water_cycle">Water Science School (<a href="#ref-usgs_precipitation_and_the_water_cycle" role="doc-biblioref">2019e</a>)</span></caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th>Intensity (cm/h)</th>
+<th>Median diameter (mm)</th>
+<th>Velocity of fall (m/s)</th>
+<th>Drops s<span class="math inline">\(^{-1}\)</span> m<span class="math inline">\(^{-2}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fog</td>
+<td>0.013</td>
+<td>0.01</td>
+<td>0.003</td>
+<td>67,425,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mist</td>
+<td>0.005</td>
+<td>0.1</td>
+<td>0.21</td>
+<td>27,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Drizzle</td>
+<td>0.025</td>
+<td>0.96</td>
+<td>4.1</td>
+<td>151</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Light rain</td>
+<td>0.10</td>
+<td>1.24</td>
+<td>4.8</td>
+<td>280</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Moderate rain</td>
+<td>0.38</td>
+<td>1.60</td>
+<td>5.7</td>
+<td>495</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Heavy rain</td>
+<td>1.52</td>
+<td>2.05</td>
+<td>6.7</td>
+<td>495</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Excessive rain</td>
+<td>4.06</td>
+<td>2.40</td>
+<td>7.3</td>
+<td>818</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cloudburst</td>
+<td>10.2</td>
+<td>2.85</td>
+<td>7.9</td>
+<td>1,220</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="water-storage-in-ice-and-snow" class="level3" data-number="1.6.7">
+<h3 data-number="1.6.7" class="anchored" data-anchor-id="water-storage-in-ice-and-snow"><span class="header-section-number">1.6.7</span> Water storage in ice and snow</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/iceland-summer.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_ice_snow_and_glaciers_and_the_water_cycle">Water Science School (<a href="#ref-usgs_ice_snow_and_glaciers_and_the_water_cycle" role="doc-biblioref">2019d</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/iceland-winter.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_ice_snow_and_glaciers_and_the_water_cycle">Water Science School (<a href="#ref-usgs_ice_snow_and_glaciers_and_the_water_cycle" role="doc-biblioref">2019d</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="snowmelt-runoff-to-streams" class="level3" data-number="1.6.8">
+<h3 data-number="1.6.8" class="anchored" data-anchor-id="snowmelt-runoff-to-streams"><span class="header-section-number">1.6.8</span> Snowmelt runoff to streams</h3>
+</section>
+<section id="surface-runoff" class="level3" data-number="1.6.9">
+<h3 data-number="1.6.9" class="anchored" data-anchor-id="surface-runoff"><span class="header-section-number">1.6.9</span> Surface runoff</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/runoff-field.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="phys_org_modeling_choices">חדשות פתח תקווה (<a href="#ref-phys_org_modeling_choices" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p><img src="../archive/figures/runoff-city.jpg" title="Source: https://www.melabes.co.il/news/51773" class="img-fluid"></p>
+</section>
+<section id="streamflow" class="level3" data-number="1.6.10">
+<h3 data-number="1.6.10" class="anchored" data-anchor-id="streamflow"><span class="header-section-number">1.6.10</span> Streamflow</h3>
+<p>The Mississippi river basin is very large <img src="../archive/figures/Mississippi_River_Watershed_Map_North_America.png" class="img-fluid" alt="Source: National Park Service (2022)"></p>
+<p>The Amazon river basin is <strong>Huge</strong> <img src="../archive/figures/amazon-basin.jpg" class="img-fluid" alt="Source: Amazon Waters (2022)"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/amazon-basin-us.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: Yair Mau</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="lakes-and-rivers" class="level3" data-number="1.6.11">
+<h3 data-number="1.6.11" class="anchored" data-anchor-id="lakes-and-rivers"><span class="header-section-number">1.6.11</span> Lakes and rivers</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/rivers-africa.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="world_map_AFRICA">dreamstime (<a href="#ref-world_map_AFRICA" role="doc-biblioref">2022</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>Lake Malawi <img src="../archive/figures/lake-malawi.jpg" class="img-fluid" alt="Source: James Hall (2019)"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/lake-malawi2.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="Lake_Malawi_2">Fiona Bruce (<a href="#ref-Lake_Malawi_2" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="infiltration" class="level3" data-number="1.6.12">
+<h3 data-number="1.6.12" class="anchored" data-anchor-id="infiltration"><span class="header-section-number">1.6.12</span> Infiltration</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/infiltration.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="sumagroulx">Suma Groulx (<a href="#ref-sumagroulx" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="groundwater-storage" class="level3" data-number="1.6.13">
+<h3 data-number="1.6.13" class="anchored" data-anchor-id="groundwater-storage"><span class="header-section-number">1.6.13</span> Groundwater storage</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/groundwater.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_Groundwater">Water Science School (<a href="#ref-usgs_Groundwater" role="doc-biblioref">2019b</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/ogallala_aquifer_usgs.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="modernfarmer">(<a href="#ref-modernfarmer" role="doc-biblioref"><strong>modernfarmer?</strong></a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/ogallala_aquifer_wiki.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="ogallala1">(<a href="#ref-ogallala1" role="doc-biblioref"><strong>ogallala1?</strong></a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>Center Pivot irrigation in Nebraska taps the Ogallala Aquifer. <img src="../archive/figures/groundwater-ogallala-aquifer.jpg" class="img-fluid" alt="Source: (ogallala2?)"></p>
+</section>
+<section id="groundwater-flow-and-discharge" class="level3" data-number="1.6.14">
+<h3 data-number="1.6.14" class="anchored" data-anchor-id="groundwater-flow-and-discharge"><span class="header-section-number">1.6.14</span> Groundwater flow and discharge</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/groundwater-flow-diagram.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="usgs_Groundwater_flow">Water Science School (<a href="#ref-usgs_Groundwater_flow" role="doc-biblioref">2019a</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/groundwater-discharge.gif" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="What_is_Groundwater">Raymond, Lyle S. Jr. (<a href="#ref-What_is_Groundwater" role="doc-biblioref">1988</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/groundwater-discharge-submarine.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="Evaluating_Submarine">Valentí Rodellas (<a href="#ref-Evaluating_Submarine" role="doc-biblioref">1988</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="spring" class="level3" data-number="1.6.15">
+<h3 data-number="1.6.15" class="anchored" data-anchor-id="spring"><span class="header-section-number">1.6.15</span> Spring</h3>
+<p>Ein Gedi <img src="../archive/figures/spring-ein-gedi.png" class="img-fluid" alt="Source: Marty Friedlander (2015)"></p>
+<p>Thousand Springs, Idaho <img src="../archive/figures/spring-Thousand-Springs-Idaho.png" class="img-fluid" alt="Source: Water Science School (2016)"></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-amazon_waters" class="csl-entry" role="doc-biblioentry">
+Amazon Waters. 2022. <span>“Amazon Waters.”</span> <em>Amazon Waters</em>. <a href="https://amazonwaters.org/basins">https://amazonwaters.org/basins</a>.
+</div>
+<div id="ref-world_map_AFRICA" class="csl-entry" role="doc-biblioentry">
+dreamstime. 2022. <span>“World Map of AFRICA.”</span> <em>Dreamstime</em>. <a href="https://www.dreamstime.com/world-map-africa-egypt-libya-ethiopia-arabia-mauritania-nigeria-somalia-namibia-tanzania-madagascar-geographic-xxl-chart-image154799901">https://www.dreamstime.com/world-map-africa-egypt-libya-ethiopia-arabia-mauritania-nigeria-somalia-namibia-tanzania-madagascar-geographic-xxl-chart-image154799901</a>.
+</div>
+<div id="ref-Lake_Malawi_2" class="csl-entry" role="doc-biblioentry">
+Fiona Bruce. 2015. <span>“A Family Holiday in Lake Malawi: Zen and the Art of Paddleboarding.”</span> <em>The Telegraph</em>. <a href="https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&amp;t=SkH17UkWrNcXzIqRF0ic_A">https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&amp;t=SkH17UkWrNcXzIqRF0ic_A</a>.
+</div>
+<div id="ref-Lake_Malawi_1" class="csl-entry" role="doc-biblioentry">
+James Hall. 2019. <span>“Lake Malawi.”</span> <em>Twitter</em>. <a href="https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&amp;t=SkH17UkWrNcXzIqRF0ic_A">https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&amp;t=SkH17UkWrNcXzIqRF0ic_A</a>.
+</div>
+<div id="ref-margulis2019introduction" class="csl-entry" role="doc-biblioentry">
+Margulis, Steve. 2019. <span>“Introduction to Hydrology. eBook.”</span> <a href="https://margulis-group.github.io/textbook/">https://margulis-group.github.io/textbook/</a>.
+</div>
+<div id="ref-natural_springs" class="csl-entry" role="doc-biblioentry">
+Marty Friedlander. 2015. <span>“Natural Springs of Israel: Seven Cool Watering Holes to Visit This Summer.”</span> <em>Haaretz</em>. <a href="https://www.haaretz.com/israel-news/travel/seven-cool-natural-springs-of-israel-1.5388627">https://www.haaretz.com/israel-news/travel/seven-cool-natural-springs-of-israel-1.5388627</a>.
+</div>
+<div id="ref-mississippi_river_facts" class="csl-entry" role="doc-biblioentry">
+National Park Service. 2022. <span>“Mississippi River Facts.”</span> <em>National Park Service</em>. <a href="https://www.nps.gov/miss/riverfacts.htm">https://www.nps.gov/miss/riverfacts.htm</a>.
+</div>
+<div id="ref-What_is_Groundwater" class="csl-entry" role="doc-biblioentry">
+Raymond, Lyle S. Jr. 1988. <span>“What Is Groundwater?”</span> <em>Cornell eCommons</em>. <a href="https://ecommons.cornell.edu/handle/1813/3408">https://ecommons.cornell.edu/handle/1813/3408</a>.
+</div>
+<div id="ref-sumagroulx" class="csl-entry" role="doc-biblioentry">
+Suma Groulx. 2015. <span>“Water Infiltration.”</span> <em>Suma Groulx</em>. <a href="http://sumagroulx.com/water-infiltration/">http://sumagroulx.com/water-infiltration/</a>.
+</div>
+<div id="ref-Evaluating_Submarine" class="csl-entry" role="doc-biblioentry">
+Valentí Rodellas. 1988. <span>“Evaluating Submarine Groundwater Discharge to the Mediterranean Sea by Using Radium Isotopes.”</span> <em>Research Gate</em>. <a href="https://www.researchgate.net/figure/Principal-pathways-for-submarine-groundwater-discharge-to-the-coastal-ocean-including_fig1_274590439">https://www.researchgate.net/figure/Principal-pathways-for-submarine-groundwater-discharge-to-the-coastal-ocean-including_fig1_274590439</a>.
+</div>
+<div id="ref-usgs_springs" class="csl-entry" role="doc-biblioentry">
+Water Science School. 2016. <span>“Water Flowing Underground Can Find Openings Back to the Land Surface.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/media/images/water-flowing-underground-can-find-openings-back-land-surface">https://www.usgs.gov/media/images/water-flowing-underground-can-find-openings-back-land-surface</a>.
+</div>
+<div id="ref-usgs_where_is_earths_water" class="csl-entry" role="doc-biblioentry">
+———. 2018. <span>“Where Is Earth’s Water?”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/special-topics/water-science-school/science/where-earths-water">https://www.usgs.gov/special-topics/water-science-school/science/where-earths-water</a>.
+</div>
+<div id="ref-usgs_Groundwater_flow" class="csl-entry" role="doc-biblioentry">
+———. 2019a. <span>“Conceptual Groundwater-Flow Diagram.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/media/images/conceptual-groundwater-flow-diagram">https://www.usgs.gov/media/images/conceptual-groundwater-flow-diagram</a>.
+</div>
+<div id="ref-usgs_Groundwater" class="csl-entry" role="doc-biblioentry">
+———. 2019b. <span>“Groundwater Is the Area Underground Where Openings Are Full of Water.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/media/images/groundwater-area-underground-where-openings-are-full-water">https://www.usgs.gov/media/images/groundwater-area-underground-where-openings-are-full-water</a>.
+</div>
+<div id="ref-usgs_how_much_water" class="csl-entry" role="doc-biblioentry">
+———. 2019c. <span>“How Much Water Is There on Earth?”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth">https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth</a>.
+</div>
+<div id="ref-usgs_ice_snow_and_glaciers_and_the_water_cycle" class="csl-entry" role="doc-biblioentry">
+———. 2019d. <span>“Ice, Snow, and Glaciers and the Water Cycle.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/special-topics/water-science-school/science/ice-snow-and-glaciers-and-water-cycle">https://www.usgs.gov/special-topics/water-science-school/science/ice-snow-and-glaciers-and-water-cycle</a>.
+</div>
+<div id="ref-usgs_precipitation_and_the_water_cycle" class="csl-entry" role="doc-biblioentry">
+———. 2019e. <span>“Precipitation and the Water Cycle.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/special-topics/water-science-school/science/precipitation-and-water-cycle">https://www.usgs.gov/special-topics/water-science-school/science/precipitation-and-water-cycle</a>.
+</div>
+<div id="ref-usgs_rain_and_precipitation" class="csl-entry" role="doc-biblioentry">
+———. 2019f. <span>“Rain and Precipitation.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/special-topics/water-science-school/science/rain-and-precipitation">https://www.usgs.gov/special-topics/water-science-school/science/rain-and-precipitation</a>.
+</div>
+<div id="ref-usgs_natural_water_cycle" class="csl-entry" role="doc-biblioentry">
+———. 2019g. <span>“The Natural Water Cycle.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/media/images/natural-water-cycle-jpg">https://www.usgs.gov/media/images/natural-water-cycle-jpg</a>.
+</div>
+<div id="ref-usgs_water_cycle" class="csl-entry" role="doc-biblioentry">
+———. 2022. <span>“The Water Cycle.”</span> <em>U.S. Geological Survey</em>. <a href="https://www.usgs.gov/media/images/water-cycle-png">https://www.usgs.gov/media/images/water-cycle-png</a>.
+</div>
+<div id="ref-phys_org_modeling_choices" class="csl-entry" role="doc-biblioentry">
+חדשות פתח תקווה. 2020. <span>“אובך ומערכת גשמים כבדה נוספת.”</span> <em>Melabes</em>. <a href="https://www.melabes.co.il/news/51773">https://www.melabes.co.il/news/51773</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../introduction/intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../introduction/introduction-exercises.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

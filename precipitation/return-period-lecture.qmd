@@ -1,0 +1,213 @@
+---
+title: "Return Period"
+execute:
+  freeze: auto  # re-render only when source changes
+jupyter: python3
+---
+
+## Bilbao, Spain
+
+![](/archive/figures/bilbao-map.png)
+
+## Today
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/90/Guggenheim_museum_Bilbao_HDR-image.jpg)
+
+## August 1983
+
+![](/archive/figures/bilbao-flood-cars.jpg)
+
+On Friday, August 26, 1983, Bilbao was celebrating its Aste Nagusia or Great Week, the main annual festivity in the city, when it and other municipalities of the Basque Country, Burgos, and Cantabria suffered devastating flooding due to heavy rains. In 24 hours, the volume of water registered 600 liters per square meter. Across all the affected areas, the weather service recorded 1.5 billion tons of water. In areas of Bilbao, the water reached a height of 5 meters (15 feet). Transportation, electricity and gas services, drinking water, food, telephone, and many other basic services were severely affected. 32 people died in Biscay, 4 people died in Cantabria, 2 people died in Alava, and 2 people died Burgos. 5 more people went missing.
+
+## How often will such rainfall happen?
+
+How often does it rain 50 mm in 1 day? What about 100 mm in 1 day? How big is a "once-in-a-century event"?
+
+Let's examine Bilbao's daily rainfall (mm), between 1947 to 2021
+
+![](/archive/figures/bilbao-1947-2021.png)
+
+On the week of 22-28 August 1983, Bilbao's weather station measured 4.5 m of rainfall!
+
+![](/archive/figures/bilbao-august-1983.png)
+
+Let's analyze this data and find out how rare such events are. First we need to find the annual maximum for each hydrological year.
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show/hide the code"
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('BILBAO_daily.csv', sep=",")
+df['DATE'] = pd.to_datetime(df['DATE'])
+df = df.set_index('DATE')
+# IMPORTANT!! daily precipitation data is in tenths of mm, divide by 10 to get it in mm.
+df['PRCP'] = df['PRCP'] / 10
+
+import altair as alt
+alt.data_transformers.disable_max_rows()
+
+# Altair only recognizes column data; it ignores index values.
+# You can plot the index data by first resetting the index
+# I know that I've just made 'DATE' the index, but I want to have this here nonetheless so I can refer to this in the future
+df_new = df.reset_index()#.replace({0.0:np.nan})
+source = df_new[['DATE', 'PRCP']]
+
+brush = alt.selection(type='interval', encodings=['x'])
+
+base = alt.Chart(source).mark_line().encode(
+    x = 'DATE:T',
+    y = 'PRCP:Q'
+).properties(
+    width=600,
+    height=200
+)
+
+upper = base.encode(
+    alt.X('DATE:T', scale=alt.Scale(domain=brush)),
+    alt.Y('PRCP:Q', scale=alt.Scale(domain=(0,100)))
+)
+
+lower = base.properties(
+    height=60
+).add_selection(brush)
+
+alt.vconcat(upper, lower)
+```
+
+We will consider a hydrological year starting on 1 August.
+![](/archive/figures/monthly_average_bilbao.png)
+
+Histogram of annual maximum events
+![](/archive/figures/hist_count_cumulative_bilbao.png)
+
+![](/archive/figures/pdf_cdf_bilbao.png)
+
+How many years, **on average**, do we have to wait to get an annual maximum above a given threshold?
+
+![](/archive/figures/return_prob_050.png)
+
+![](/archive/figures/return_prob_033.png)
+
+![](/archive/figures/return_prob_020.png)
+
+![](/archive/figures/return_prob_010.png)
+
+![](/archive/figures/return_prob_005.png)
+
+Now everything together in one gif:
+
+![](/archive/figures/return_prob.gif)
+
+## Return Period
+
+We will follow @brutsaert2005hydrology, page 513. He defines quantities a little different from what we did above.
+
+$F(x)$ is the CDF of the PDF $f(x)$. $F(x)$ indicates the non-exceedance probability, i.e., the probability that a certain event above $x$ has **not** occurred (or that an event below $x$ has occurred, same thing). Modifying the graph shown above, we have
+
+![](/archive/figures/return_prob_050_reversed.png)
+
+
+$1-F(x)$ is the probability that a certain event above $x$ *has* occurred. It's reciprocal is the return period:
+
+$$
+T_r(x) = \frac{1}{1-F(x)}
+$$
+
+This return period is the expected number of observations required until $x$ is exceeded once.
+In our case, we can ask the question: how many years will pass (on average) until we see a rainfall event greater that that of 26 August 1983?
+
+Let's call $p=F(x)$ the probability that we measured once and that an event greater than $x$ has *not* occurred.
+What is the probability that a rainfall above $x$ will occur only on year number $k$?  
+* it hasn't occurred on year 1 (probability p)
+* it hasn't occurred on year 2 (probability p)
+* it hasn't occurred on year 3 (probability p)
+* ...
+* it has occurred on year k (probability 1-p)
+
+$P\{k \text{ trials until }X>x\} = p^{k-1}(1-p)$
+
+Every time the number $k$ will be different. What will be $k$ *on average*?
+
+$$\bar{k} = \displaystyle\sum_{k=1}^{\infty} k P(k) = \displaystyle\sum_{k=1}^{\infty} k p^{k-1}(1-p)$$
+
+Let's open that up:
+
+$$
+\begin{align}
+\bar{k} &= 1-p + 2p(1-p) + 3p^2(1-p) + 4p^3(1-p)+ \cdots\\
+\bar{k} &= 1-p + 2p - 2p^2 + 3p^2 - 3p^4 + 4p^3 - 4p^4+ \cdots \\
+\bar{k} &= 1 + p + p^2 + p^3 + p^4 + \cdots
+\end{align}
+$$
+
+For $p<1$, the series converges to
+$$
+1 + p + p^2 + p^3 + p^4 + \cdots = \frac{1}{1-p},
+$$
+therefore
+$$
+\bar{k} = \frac{1}{1-p}.
+$$
+
+We conclude that if we know the exceedance probability, we immediately can say what the return times are. We now need a way of estimating this exceedance probability.
+
+## Plotting Position
+
+Source: @brutsaert2005hydrology, pages 514-516  
+
+The **Plotting Position** is used as an estimate of the exceedance probability. Many formulas have been suggested (see source above), we will use the **Weibull plotting position**:
+
+$P_m=$ plotting position, or probability of occurence for each event  
+$n=$ total number of events  
+$m=$ rank of each event, where $m=1$ is the lowest value, and $m=n$ is the highest
+
+
+### Return period
+$$
+\text{Return period} = T_r = \frac{1}{1-P_m}
+$$
+
+#### Weibull plotting position:
+
+$$
+P_m = \frac{m}{n+1}
+$$
+
+Now let's calculate that for Bilbao:
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show/hide the code"
+
+# resample daily data into yearly data (maximum yearly value)
+max_annual = df['PRCP'].resample('A-JUL').max().to_frame()
+# sort yearly max from lowest to highest
+max_annual = max_annual.sort_values(by=['PRCP'], ascending=True)
+max_annual['m'] = np.arange(1, len(max_annual) + 1)
+n = len(max_annual['m'])
+max_annual['Pm'] = max_annual['m'] / (n+1)
+max_annual['Tr'] = 1 / (1 - max_annual['Pm'])
+max_annual
+```
+
+How well does $P_m$ approximate $F(x)$?
+
+![](/archive/figures/weibull_plotting_position.png)
+
+We can now see in this graph how long it takes, **on average**, for an annual maximum event above any threshold.
+
+![](/archive/figures/annual_max_vs_return_period.png)
+
+For times longer than $n$, we need to extrapolate from the curve above.
+
+![](/archive/figures/extrapolation_exceedance1.png)
+
+![](/archive/figures/extrapolation_exceedance2.png)
+
+![](/archive/figures/extrapolation_exceedance3.png)
+
+![](/archive/figures/extrapolation_exceedance4.png)

@@ -1,0 +1,199 @@
+---
+title: "Water Cycle: Fluxes and Storage"
+jupyter: python3
+---
+
+## How much water is there? Where?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2ObMyytxLz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+{{< video https://youtu.be/2ObMyytxLz8 >}}
+
+![Source: @usgs_how_much_water](/archive/figures/all-the-worlds-water.jpg)
+
+![Source: @usgs_where_is_earths_water](/archive/figures/EarthsWater-BarChart.png "")
+
+## The natural water cycle (2019)
+
+![Source: @usgs_natural_water_cycle](/archive/figures/water-cycle.jpg)
+
+## The new water cycle (2022)
+
+![Source: @usgs_water_cycle](/archive/figures/water-cycle-2022.png)
+
+
+Interactive chart: [Pools and fluxes in the water cycle](https://labs.waterdata.usgs.gov/visualizations/pools-and-fluxes/index.html)
+
+
+## Global water distribution
+
+| Water source                         | Volume (km$^3$) | % of freshwater | % of total water |
+|:--------------------------------------|-----------------------------------|-----------------------|------------------------|
+| Oceans, Seas, & Bays                 | 1,338,000,000                     | --                    | 96.54                  |
+| Ice caps, Glaciers, & Permanent Snow | 24,064,000                        | 68.7                  | 1.74                   |
+| Groundwater                          | 23,400,000                        | --                    | 1.69                   |
+|$\quad$Fresh                            | 10,530,000                        | 30.1                  |   0.76                 |
+|$\quad$Saline                           | 12,870,000                        | --                    |   0.93                 |
+| Soil Moisture                        | 16,500                            | 0.05                  | 0.001                  |
+| Ground Ice & Permafrost              | 300,000                           | 0.86                  | 0.022                  |
+| Lakes                                | 176,400                           | --                    | 0.013                  |
+|$\quad$Fresh                            | 91,000                            | 0.26                  | 0.007                  |
+|$\quad$Saline                           | 85,400                            | --                    | 0.006                  |
+| Atmosphere                           | 12,900                            | 0.04                  | 0.001                  |
+| Swamp Water                          | 11,470                            | 0.03                  | 0.0008                 |
+| Rivers                               | 2,120                             | 0.006                 | 0.0002                 |
+| Biological Water                     | 1,120                             | 0.003                 | 0.0001                 |
+
+: Source: @usgs_where_is_earths_water. **(Percents are rounded, so will not add to 100)** {tbl-colwidths="[30,30, 15, 15]"}
+
+
+## Energy drives the hydrologic cycle
+
+From @margulis2019introduction
+
+> A key aspect of the hydrologic cycle is the fact that it is driven by energy inputs (primarily from the sun). At the global scale, the system is essentially closed with respect to water; negligible water is entering or leaving the system. In other words, there is no external forcing in terms of a water flux. Systems with no external forcing will generally eventually come to an equilibrium state. So what makes the hydrologic cycle so dynamic? The solar radiative energy input, which is external to the system, drives the hydrologic cycle. Averaged over the globe, 342 W m$^{-2}$ of solar radiative energy is being continuously input to the system at the top of the atmosphere. This energy input must be dissipated, and this is done, to a large extent, via the hydrologic cycle. Due to this fact, the study of hydrology is not isolated to the study of water storage and movement, but also must often include study of energy storage and movements.
+
+## Components of the water cycle
+
+### Water storage in oceans
+
+### Evaporation / Sublimation
+
+Evaporation $\longrightarrow$ cooling
+
+![](/archive/figures/evaporation_1.gif "Source: http://www.hk-phy.org/contextual/heat/cha/evapo02_e.html")
+
+![](/archive/figures/evaporation_2.png "Source: https://courses.lumenlearning.com/cheminter/chapter/evaporation/")
+
+![](/archive/figures/cooling-tower.png "Source: https://engineeringinsider.org/cooling-tower-types/")
+
+![](/archive/figures/evaporation_slide0.jpg "Source: https://slideplayer.com/slide/7418126/")
+![](/archive/figures/evaporation_slide1.jpg "Source: https://slideplayer.com/slide/7418126/")
+![](/archive/figures/evaporation_slide2.jpg "Source: https://slideplayer.com/slide/7418126/")
+
+### Evapotranspiration
+
+![](/archive/figures/evapotranspiration1.jpg "Source: http://www.eschooltoday.com/water-cycle/what-is-transpiration-and-evapotranspiration.html")
+
+### Water storage in the atmosphere
+
+Cumulonimbus cloud over Africa
+![](/archive/figures/cumulonimbus.jpg "Source: https://commons.wikimedia.org/wiki/File:Cumulonimbus_Cloud_over_Africa_%28color%29.jpg")
+
+Picture of cumulonimbus taken from the International Space Station, over western Africa near the Senegal-Mali border.
+
+If all of the water in the atmosphere rained down at once, it would only cover the globe to a depth of 2.5 centimeters.
+$$
+\begin{align}
+\text{amount of water in the atmosphere} & \qquad V = 12\, 900\, \text{km}^3 \\
+\text{surface of Earth} & \qquad S = 4 \pi R^2;\quad R=6371\,\text{km}\\
+& \qquad V = S \times h \\
+\text{height} & \qquad h = \frac{V}{S} \simeq 2.5\,\text{cm}
+\end{align}
+$$
+
+Try to calculate this yourself, and click on the button below to check how to do it.
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show/hide the code"
+
+
+# amount of water in the atmosphere
+V = 12900 # km^3
+# Earth's radius
+R = 6371 # km
+# surface of Earth = 4 pi Rˆ2
+S = 4 * 3.141592 * R**2
+# Volume: V = S * h, therefore
+# height
+h = V / S # in km
+h_cm = h * 1e5 # in cm
+print(f"The height would be ~ {h_cm:.1f} cm")
+```
+
+
+
+### Condensation
+
+### Precipitation
+
+![Source: @usgs_rain_and_precipitation](/archive/figures/rain-burst1.jpg)
+
+|                   |   Intensity   (cm/h)  |   Median diameter   (mm)  |   Velocity of fall   (m/s)  |   Drops s$^{-1}$ m$^{-2}$  |
+|:-------------------|--------------------------|------------------------------------|---------------------------------------|----------------------------------------|
+|   Fog             |   0.013                  |   0.01                             |   0.003                               |   67,425,000                           |
+|   Mist            |   0.005                  |   0.1                              |   0.21                                |   27,000                               |
+|   Drizzle         |   0.025                  |   0.96                             |   4.1                                 |   151                                  |
+|   Light rain      |   0.10                   |   1.24                             |   4.8                                 |   280                                  |
+|   Moderate rain   |   0.38                   |   1.60                             |   5.7                                 |   495                                  |
+|   Heavy rain      |   1.52                   |   2.05                             |   6.7                                 |   495                                  |
+|   Excessive rain  |   4.06                   |   2.40                             |   7.3                                 |   818                                  |
+|   Cloudburst      |   10.2                   |   2.85                             |   7.9                                 |   1,220                                |
+
+: Source: @usgs_precipitation_and_the_water_cycle {tbl-colwidths="[28,18, 18, 18, 18]"}
+
+### Water storage in ice and snow
+
+![Source: @usgs_ice_snow_and_glaciers_and_the_water_cycle](/archive/figures/iceland-summer.jpg)
+
+![Source: @usgs_ice_snow_and_glaciers_and_the_water_cycle](/archive/figures/iceland-winter.jpg)
+
+### Snowmelt runoff to streams
+
+### Surface runoff
+
+![Source: @phys_org_modeling_choices](/archive/figures/runoff-field.jpg)
+
+![](/archive/figures/runoff-city.jpg "Source: https://www.melabes.co.il/news/51773")
+
+### Streamflow
+
+The Mississippi river basin is very large
+![Source: @mississippi_river_facts](/archive/figures/Mississippi_River_Watershed_Map_North_America.png)
+
+The Amazon river basin is **Huge**
+![Source: @amazon_waters](/archive/figures/amazon-basin.jpg)
+
+![Source: Yair Mau](/archive/figures/amazon-basin-us.png)
+
+### Lakes and rivers
+
+![Source: @world_map_AFRICA](/archive/figures/rivers-africa.png)
+
+Lake Malawi
+![Source: @Lake_Malawi_1](/archive/figures/lake-malawi.jpg)
+
+![Source: @Lake_Malawi_2](/archive/figures/lake-malawi2.jpg)
+
+### Infiltration
+
+![Source: @sumagroulx](/archive/figures/infiltration.jpg)
+
+### Groundwater storage
+
+![Source: @usgs_Groundwater](/archive/figures/groundwater.jpg)
+
+![Source: @modernfarmer](/archive/figures/ogallala_aquifer_usgs.jpg)
+
+![Source: @ogallala1](/archive/figures/ogallala_aquifer_wiki.png)
+
+Center Pivot irrigation in Nebraska taps the Ogallala Aquifer.
+![Source: @ogallala2](/archive/figures/groundwater-ogallala-aquifer.jpg)
+
+### Groundwater flow and discharge
+
+![Source: @usgs_Groundwater_flow](/archive/figures/groundwater-flow-diagram.jpg)
+
+![Source: @What_is_Groundwater](/archive/figures/groundwater-discharge.gif)
+
+![Source: @Evaluating_Submarine](/archive/figures/groundwater-discharge-submarine.png)
+
+### Spring
+
+Ein Gedi
+![Source: @natural_springs](/archive/figures/spring-ein-gedi.png)
+
+Thousand Springs, Idaho
+![Source: @usgs_springs](/archive/figures/spring-Thousand-Springs-Idaho.png)
+

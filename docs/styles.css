@@ -1,0 +1,5 @@
+#quarto-document-content {
+    width: 600px;
+    /* center the elements horizontally, meaning that it will have "Equal margin on both sides" */
+    margin: 0 auto; 
+  }
