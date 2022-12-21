@@ -20,15 +20,16 @@ book:
         - precipitation/intra-annual-exercises.ipynb
         - precipitation/return-period-lecture.qmd
         - precipitation/return-period-exercises.ipynb
-        
-        # - precipitation/precipitation-exercises.ipynb
+    - part: appendix/index.qmd
+      chapters:    
+        - appendix/date_formatting.ipynb
     - summary.qmd
     - references.qmd
   repo-url: https://github.com/agrotech-lab/my-book-test
   repo-actions: [source]
   sidebar:
     style: "docked"
-    collapse-level: 1
+    collapse-level: 2
 
 
 bibliography: references.bib
