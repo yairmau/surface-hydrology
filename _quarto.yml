@@ -27,9 +27,9 @@ book:
     - references.qmd
   repo-url: https://github.com/agrotech-lab/my-book-test
   repo-actions: [source]
-  sidebar:
-    style: "docked"
-    collapse-level: 2
+  # sidebar:
+  #   style: "docked"
+  #   collapse-level: 2
 
 
 bibliography: references.bib
