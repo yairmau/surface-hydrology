@@ -37,10 +37,11 @@ bibliography: references.bib
 format:
   html:
     theme:
-    - cosmo
+    - flatly
     - custom.scss
     css: styles.css
     fontsize: 1.2em
+    highlight-style: gruvbox
   pdf:
     documentclass: scrreprt
 
