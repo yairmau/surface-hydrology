@@ -5,6 +5,7 @@ project:
 book:
   title: "Surface Hydrology"
   author: "Yair Mau"
+  logo: archive/cloud-rain.png
   # date: "10/18/2022"
   chapters:
     - index.qmd
@@ -25,8 +26,8 @@ book:
         - appendix/date_formatting.ipynb
     - summary.qmd
     - references.qmd
-  repo-url: https://github.com/agrotech-lab/my-book-test
-  repo-actions: [source]
+  # repo-url: https://github.com/agrotech-lab/my-book-test
+  # repo-actions: [source]
   # sidebar:
   #   style: "docked"
   #   collapse-level: 2
