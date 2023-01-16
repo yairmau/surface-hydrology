@@ -196,7 +196,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a>
+  <ul class="collapse">
+  <li><a href="#syllabus" id="toc-syllabus" class="nav-link" data-scroll-target="#syllabus">Syllabus</a>
+  <ul class="collapse">
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course description</a></li>
+  <li><a href="#course-aims" id="toc-course-aims" class="nav-link" data-scroll-target="#course-aims">Course aims</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#books-and-other-sources" id="toc-books-and-other-sources" class="nav-link" data-scroll-target="#books-and-other-sources">Books and other sources</a></li>
+  <li><a href="#course-evaluation" id="toc-course-evaluation" class="nav-link" data-scroll-target="#course-evaluation">Course evaluation</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/agrotech-lab/my-book-test/blob/main/index.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
@@ -228,9 +238,41 @@ ul.task-list li input[type="checkbox"] {
 <section id="about" class="level1 unnumbered">
 <h1 class="unnumbered">About</h1>
 <p>Welcome to Surface Hydrology (71630) at the Hebrew University of Jerusalem. This is <a href="https://yairmau.com">Yair Mau</a>, your host for today. I am a senior lecturer at the Institute of Environmental Sciences, at the Faculty of Agriculture, Food and Environment, in Rehovot, Israel.</p>
-<p>This is the website for the course, with (almost) all the material you’ll need. If you find any mistakes, or have any comments, please email me.</p>
+<p>This website contains (almost) all the material you’ll need for the course. If you find any mistakes, or have any comments, please email me.</p>
+<section id="syllabus" class="level2">
+<h2 class="anchored" data-anchor-id="syllabus">Syllabus</h2>
+<section id="course-description" class="level3">
+<h3 class="anchored" data-anchor-id="course-description">Course description</h3>
+<p>This is an introductory course in Surface Hydrology, dealing with some of the major processes in the hydrologic cycle: precipitation, evaporation and transpiration, infiltration, runoff generation and streamflow. The different topics will be treated using mathematical models and practical programming exercises.</p>
+</section>
+<section id="course-aims" class="level3">
+<h3 class="anchored" data-anchor-id="course-aims">Course aims</h3>
+<p>The course aims at giving the students a quantitative understanding of the main processes in the hydrologic cycle. We will characterize the hydrologic cycle and its fluxes through mass balance equations. The random nature of the various processes will be studied with statistics, time series analysis, return periods, extreme value distributions, etc. We will take a “hands-on approach”, where students will actively engage with the material by analysing data and writing models using Python.</p>
+</section>
+<section id="learning-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h3>
+<p>On successful completion of this module, students should be able to:</p>
+<ul>
+<li>Identify the various components of hydrologic budget and their interdependency.</li>
+<li>Describe the various processes in hydrology (precipitation, infiltration, evaporation, etc) in a mathematical language.</li>
+<li>Write computer code to analyze the statistics of hydrologic fluxes, and construct models of hydrological systems.</li>
+</ul>
+</section>
+<section id="books-and-other-sources" class="level3">
+<h3 class="anchored" data-anchor-id="books-and-other-sources">Books and other sources</h3>
+<ul>
+<li>Dingman, S. L. (2015). Physical hydrology (3rd edition). Waveland press.</li>
+<li>Ward, A. D., &amp; Trimble, S. W. (2003). Environmental hydrology. CRC Press.</li>
+<li>Brutsaert, W. (2005). Hydrology: An Introduction. Cambridge University Press.</li>
+</ul>
+</section>
+<section id="course-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="course-evaluation">Course evaluation</h3>
+<p>There will be some small projects during the semester, all worth 50% of the grade. A final and larger project (50% of the grade) will be due at the end of the semester. All projects will be done in Python (on Jupyter Notebooks).</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
