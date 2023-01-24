@@ -145,5 +145,201 @@
     "title": "1  Water Cycle: Fluxes and Storage",
     "section": "1.6 Components of the water cycle",
     "text": "1.6 Components of the water cycle\n\n1.6.1 Water storage in oceans\n\n\n1.6.2 Evaporation / Sublimation\nEvaporation \\(\\longrightarrow\\) cooling\n\n\n\n  \n\n\n1.6.3 Evapotranspiration\n\n\n\n1.6.4 Water storage in the atmosphere\nCumulonimbus cloud over Africa \nPicture of cumulonimbus taken from the International Space Station, over western Africa near the Senegal-Mali border.\nIf all of the water in the atmosphere rained down at once, it would only cover the globe to a depth of 2.5 centimeters. \\[\n\\begin{align}\n\\text{amount of water in the atmosphere} & \\qquad V = 12\\, 900\\, \\text{km}^3 \\\\\n\\text{surface of Earth} & \\qquad S = 4 \\pi R^2;\\quad R=6371\\,\\text{km}\\\\\n& \\qquad V = S \\times h \\\\\n\\text{height} & \\qquad h = \\frac{V}{S} \\simeq 2.5\\,\\text{cm}\n\\end{align}\n\\]\nTry to calculate this yourself, and click on the button below to check how to do it.\n\n\nShow/hide the code\n# amount of water in the atmosphere\nV = 12900 # km^3\n# Earth's radius\nR = 6371 # km\n# surface of Earth = 4 pi Rˆ2\nS = 4 * 3.141592 * R**2\n# Volume: V = S * h, therefore\n# height\nh = V / S # in km\nh_cm = h * 1e5 # in cm\nprint(f\"The height would be ~ {h_cm:.1f} cm\")\n\n\nThe height would be ~ 2.5 cm\n\n\n\n\n1.6.5 Condensation\n\n\n1.6.6 Precipitation\n\n\n\nSource: Water Science School (2019f)\n\n\n\nSource: Water Science School (2019e)\n\n\n\n\n\n\n\n\n\n\nIntensity (cm/h)\nMedian diameter (mm)\nVelocity of fall (m/s)\nDrops s\\(^{-1}\\) m\\(^{-2}\\)\n\n\n\n\nFog\n0.013\n0.01\n0.003\n67,425,000\n\n\nMist\n0.005\n0.1\n0.21\n27,000\n\n\nDrizzle\n0.025\n0.96\n4.1\n151\n\n\nLight rain\n0.10\n1.24\n4.8\n280\n\n\nModerate rain\n0.38\n1.60\n5.7\n495\n\n\nHeavy rain\n1.52\n2.05\n6.7\n495\n\n\nExcessive rain\n4.06\n2.40\n7.3\n818\n\n\nCloudburst\n10.2\n2.85\n7.9\n1,220\n\n\n\n\n\n1.6.7 Water storage in ice and snow\n\n\n\nSource: Water Science School (2019d)\n\n\n\n\n\nSource: Water Science School (2019d)\n\n\n\n\n1.6.8 Snowmelt runoff to streams\n\n\n1.6.9 Surface runoff\n\n\n\nSource: חדשות פתח תקווה (2020)\n\n\n\n\n\n1.6.10 Streamflow\nThe Mississippi river basin is very large \nThe Amazon river basin is Huge \n\n\n\nSource: Yair Mau\n\n\n\n\n1.6.11 Lakes and rivers\n\n\n\nSource: dreamstime (2022)\n\n\nLake Malawi \n\n\n\nSource: Fiona Bruce (2015)\n\n\n\n\n1.6.12 Infiltration\n\n\n\nSource: Suma Groulx (2015)\n\n\n\n\n1.6.13 Groundwater storage\n\n\n\nSource: Water Science School (2019b)\n\n\n\n\n\nSource: (modernfarmer?)\n\n\n\n\n\nSource: (ogallala1?)\n\n\nCenter Pivot irrigation in Nebraska taps the Ogallala Aquifer. \n\n\n1.6.14 Groundwater flow and discharge\n\n\n\nSource: Water Science School (2019a)\n\n\n\n\n\nSource: Raymond, Lyle S. Jr. (1988)\n\n\n\n\n\nSource: Valentí Rodellas (1988)\n\n\n\n\n1.6.15 Spring\nEin Gedi \nThousand Springs, Idaho \n\n\n\n\nAmazon Waters. 2022. “Amazon Waters.” Amazon Waters. https://amazonwaters.org/basins.\n\n\ndreamstime. 2022. “World Map of AFRICA.” Dreamstime. https://www.dreamstime.com/world-map-africa-egypt-libya-ethiopia-arabia-mauritania-nigeria-somalia-namibia-tanzania-madagascar-geographic-xxl-chart-image154799901.\n\n\nFiona Bruce. 2015. “A Family Holiday in Lake Malawi: Zen and the Art of Paddleboarding.” The Telegraph. https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&t=SkH17UkWrNcXzIqRF0ic_A.\n\n\nJames Hall. 2019. “Lake Malawi.” Twitter. https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&t=SkH17UkWrNcXzIqRF0ic_A.\n\n\nMargulis, Steve. 2019. “Introduction to Hydrology. eBook.” https://margulis-group.github.io/textbook/.\n\n\nMarty Friedlander. 2015. “Natural Springs of Israel: Seven Cool Watering Holes to Visit This Summer.” Haaretz. https://www.haaretz.com/israel-news/travel/seven-cool-natural-springs-of-israel-1.5388627.\n\n\nNational Park Service. 2022. “Mississippi River Facts.” National Park Service. https://www.nps.gov/miss/riverfacts.htm.\n\n\nRaymond, Lyle S. Jr. 1988. “What Is Groundwater?” Cornell eCommons. https://ecommons.cornell.edu/handle/1813/3408.\n\n\nSuma Groulx. 2015. “Water Infiltration.” Suma Groulx. http://sumagroulx.com/water-infiltration/.\n\n\nValentí Rodellas. 1988. “Evaluating Submarine Groundwater Discharge to the Mediterranean Sea by Using Radium Isotopes.” Research Gate. https://www.researchgate.net/figure/Principal-pathways-for-submarine-groundwater-discharge-to-the-coastal-ocean-including_fig1_274590439.\n\n\nWater Science School. 2016. “Water Flowing Underground Can Find Openings Back to the Land Surface.” U.S. Geological Survey. https://www.usgs.gov/media/images/water-flowing-underground-can-find-openings-back-land-surface.\n\n\n———. 2018. “Where Is Earth’s Water?” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/where-earths-water.\n\n\n———. 2019a. “Conceptual Groundwater-Flow Diagram.” U.S. Geological Survey. https://www.usgs.gov/media/images/conceptual-groundwater-flow-diagram.\n\n\n———. 2019b. “Groundwater Is the Area Underground Where Openings Are Full of Water.” U.S. Geological Survey. https://www.usgs.gov/media/images/groundwater-area-underground-where-openings-are-full-water.\n\n\n———. 2019c. “How Much Water Is There on Earth?” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth.\n\n\n———. 2019d. “Ice, Snow, and Glaciers and the Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/ice-snow-and-glaciers-and-water-cycle.\n\n\n———. 2019e. “Precipitation and the Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/precipitation-and-water-cycle.\n\n\n———. 2019f. “Rain and Precipitation.” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/rain-and-precipitation.\n\n\n———. 2019g. “The Natural Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/media/images/natural-water-cycle-jpg.\n\n\n———. 2022. “The Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/media/images/water-cycle-png.\n\n\nחדשות פתח תקווה. 2020. “אובך ומערכת גשמים כבדה נוספת.” Melabes. https://www.melabes.co.il/news/51773."
+  },
+  {
+    "objectID": "assignments/assignment-01-precipitation.html",
+    "href": "assignments/assignment-01-precipitation.html",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "",
+    "text": "This is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄\nCreate a Jupyter Notebook called assignment-01-IDNUMBER, where IDNUMBER is your 9-digit ID. This is the file only file we will check."
+  },
+  {
+    "objectID": "assignments/assignment-01-precipitation.html#locations",
+    "href": "assignments/assignment-01-precipitation.html#locations",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "9.2 📌 locations",
+    "text": "9.2 📌 locations\nChoose two meteorologic stations from NOAA’s Global Summary of the Month.\nCriteria:\n1. at least 60 years of data for each station.\n2. choose stations with different characteristics, regarding mean annual precipitation, seasonality, extreme events, etc."
+  },
+  {
+    "objectID": "assignments/assignment-01-precipitation.html#tasks",
+    "href": "assignments/assignment-01-precipitation.html#tasks",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "9.3 🛠 tasks",
+    "text": "9.3 🛠 tasks\nAnalyze the data and make graphs showing the differences and similarities between the two locations you chose. The analyses and graphs should be similar to those we saw during our lectures and exercise sessions. Of course, if you find something interesting we did not do in class, you are more than welcome to show it. Discuss about:\n1. mean annual precipitation and inter-annual variability.\n2. intra-annual variability (seasonality).\n3. extreme rainfall events and return times.\nYou will have two weeks to deliver your assignment. You should not hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc.\nYour Jupyter Notebook should be fully functional: if we press Kernel > Restart & Run All, all the code must work without any errors."
+  },
+  {
+    "objectID": "assignments/assignment-01-precipitation.html#presentation",
+    "href": "assignments/assignment-01-precipitation.html#presentation",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "9.4 🌅 presentation",
+    "text": "9.4 🌅 presentation\nAll the assignment must be in one single Jupyter Notebook. Use markdown cells to discuss the analysis and results, and in code cells show all the code you used to produce the figures and data analysis. Leave only the code necessary for your analysis, delete unnecessary lines your wrote while analyzing your data. Don’t forget to comment your code, just like we did during exercise sessions. You should write this assignment in English."
+  },
+  {
+    "objectID": "assignments/assignment1-precipitation.html",
+    "href": "assignments/assignment1-precipitation.html",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "",
+    "text": "This is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄\nCreate a Jupyter Notebook called assignment-01-IDNUMBER, where IDNUMBER is your 9-digit ID. This is the file only file we will check."
+  },
+  {
+    "objectID": "assignments/assignment1-precipitation.html#locations",
+    "href": "assignments/assignment1-precipitation.html#locations",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "9.2 📌 locations",
+    "text": "9.2 📌 locations\nChoose two meteorologic stations from NOAA’s Global Summary of the Month.\nCriteria:\n1. at least 60 years of data for each station.\n2. choose stations with different characteristics, regarding mean annual precipitation, seasonality, extreme events, etc."
+  },
+  {
+    "objectID": "assignments/assignment1-precipitation.html#tasks",
+    "href": "assignments/assignment1-precipitation.html#tasks",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "9.3 🛠 tasks",
+    "text": "9.3 🛠 tasks\nAnalyze the data and make graphs showing the differences and similarities between the two locations you chose. The analyses and graphs should be similar to those we saw during our lectures and exercise sessions. Of course, if you find something interesting we did not do in class, you are more than welcome to show it. Discuss about:\n1. mean annual precipitation and inter-annual variability.\n2. intra-annual variability (seasonality).\n3. extreme rainfall events and return times.\nYou will have two weeks to deliver your assignment. You should not hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc.\nYour Jupyter Notebook should be fully functional: if we press Kernel > Restart & Run All, all the code must work without any errors."
+  },
+  {
+    "objectID": "assignments/assignment1-precipitation.html#presentation",
+    "href": "assignments/assignment1-precipitation.html#presentation",
+    "title": "9  Assignment 1 - Precipitation",
+    "section": "9.4 🌅 presentation",
+    "text": "9.4 🌅 presentation\nAll the assignment must be in one single Jupyter Notebook. Use markdown cells to discuss the analysis and results, and in code cells show all the code you used to produce the figures and data analysis. Leave only the code necessary for your analysis, delete unnecessary lines your wrote while analyzing your data. Don’t forget to comment your code, just like we did during exercise sessions. You should write this assignment in English."
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html",
+    "href": "assignments/assignment2-ET.html",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "",
+    "text": "toc: false\nbadges: true\ncomments: false\ncategories: [jupyter]"
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html#instructions",
+    "href": "assignments/assignment2-ET.html#instructions",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "10.1 📒 instructions",
+    "text": "10.1 📒 instructions\nThis is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄\nCreate a Jupyter Notebook called assignment-02-IDNUMBER, where IDNUMBER is your 9-digit ID. This is the file only file we will check."
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html#locations-and-data",
+    "href": "assignments/assignment2-ET.html#locations-and-data",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "10.2 📌 locations and data",
+    "text": "10.2 📌 locations and data\nChoose two stations with different climates.\nGo to NOAA’s Climate Reference Network Data website. The sub-hourly (5-min) data contains information on * air temperature, * precipitation, * global solar radiation, * surface infrared temperature, * relative humidity, * soil moisture and temperature, * wetness, and * 1.5 meter wind speed.\nThere is no data on air pressure, so one needs to use the stations coordinates (lat, lon) to find its height above sea level, and from that infer the air pressure. You can use Google Earth or any other means to find the station’s height.\nIn the Data Access link, choose a year and a station you would like to analyze. If you are not sure where the stations are, find them using the 2-letter state abbreviation and the station name.\nDownload the following files: 1. One full year of data for each station. Make sure important data we need to calculate Penman’s ET estimation is available. 2. The headers file 3. The documentation file\nMake sure you understand what are the units provided for each measurement (see documentation)."
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html#tasks",
+    "href": "assignments/assignment2-ET.html#tasks",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "10.3 🛠 tasks",
+    "text": "10.3 🛠 tasks\nProduce potential ET estimates using Thornthwaite’s equation and Penman’s equation. Produce plots of ET as a function of time for each station, comparing the two methods you used. Also, using Penman’s ET estimates, compare the two stations and discuss about their differences/similarities.\nYou might find interesting things in the data, such as periods of unusually high/low temperatures, radiation, etc. Discuss how these factors might have affected the ET estimates that you calculated.\nYou will have two weeks to deliver your assignment. You should not hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc.\nYour Jupyter Notebook should be fully functional: if we press Kernel > Restart & Run All, all the code must work without any errors."
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html#presentation",
+    "href": "assignments/assignment2-ET.html#presentation",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "10.4 🌅 presentation",
+    "text": "10.4 🌅 presentation\nAll the assignment must be in one single Jupyter Notebook. Use markdown cells to discuss the analysis and results, and in code cells show all the code you used to produce the figures and data analysis. Leave only the code necessary for your analysis, delete unnecessary lines your wrote while analyzing your data. Don’t forget to comment your code, just like we did during exercise sessions.\nYou can write in English or in Hebrew, but the text in the figures must be in English. If you choose to write the discussion in Hebrew, be aware that Jupyter Notebooks don’t have native right-to-left language support:\nניתן לכתוב בעברית, למרות שזה לא נראה כ״כ טוב…\nYou can use some HTML code to achieve best results in Hebrew. Type the following\n<p dir=\"rtl\" style=\"text-align: right;\">\nעכשיו הרבה יותר טוב!\n</p>\nto get\n\nעכשיו הרבה יותר טוב!\n\nIf you have many paragraphs in hebrew, do the following:\n\nפסקה מספר 1.\n\n\nפסקה מספר 2.\n\n\nאם יש לכם כמה פסקאות, כל אחת מהן תהיה בתוך “dir” משלה\n\nIn my opinion it is too complicated to write in Hebrew in Jupyter Notebooks, just write in English, your grade will not be affected by typos nor less-than-perfect English proficiency."
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html#evaluation",
+    "href": "assignments/assignment2-ET.html#evaluation",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "10.5 💯 evaluation",
+    "text": "10.5 💯 evaluation\nYour assignment will be evaluated according to the following criteria: * 40% Presentation. How the graphs look, labels, general organization, markdown, clean code. * 30% Discussion. This is where you explain what you did, what you found out, etc. * 15% Depth of analysis. You can analyze/explore the data with different levels of complexity, this is where we take that into consideration. * 10% Replicability: Your code runs flawlessly. * 5%: Code commenting. Explain in your code what you are doing, this is good for everyone, especially for yourself!"
+  },
+  {
+    "objectID": "assignments/assignment2-ET.html#importing-the-data",
+    "href": "assignments/assignment2-ET.html#importing-the-data",
+    "title": "10  Assignment 2 - Evapotranspiration",
+    "section": "10.6 🚚 importing the data",
+    "text": "10.6 🚚 importing the data\nBelow you can find an example of how to import the data file provided by NOAA’s Climate Reference Network Data website. You might have to make some adjustments to it.\ndata_file = \"CRNS0101-05-2020-CO_Boulder_14_W.txt\"\ndf = pd.read_csv(data_file,\n                 header=None,                      # no headers needed, we'll do that later\n                 delim_whitespace=True,            # blank spaces separate between columns\n                 na_values=[\"-99.000\", \"-9999.0\"]  # substitute these values for missing (NaN) values\n                )\nheaders = pd.read_csv(\"HEADERS_sub_hourly.txt\",    # load headers file\n                      header=1,                    # skip the first [0] line\n                      delim_whitespace=True\n                     )\ndf.columns = headers.columns                       # rename df columns with headers columns\n# LST = local standard time\ndf[\"LST_TIME\"] = [f\"{x:04d}\" for x in df[\"LST_TIME\"]]  # time needs padding of zeros, then convert to string\ndf['LST_DATE'] = df['LST_DATE'].astype(str)            # convert date into string\ndf['datetime'] = df['LST_DATE'] + ' ' + df['LST_TIME'] # combine date+time into datetime\ndf['datetime'] = pd.to_datetime(df['datetime'])        # interpret datetime\ndf = df.set_index('datetime')                          # make datetime the index\ndf"
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html",
+    "href": "assignments/assignment3-streamflow.html",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "",
+    "text": "toc: false\nbadges: true\ncomments: false\ncategories: [jupyter]"
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html#instructions",
+    "href": "assignments/assignment3-streamflow.html#instructions",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "11.1 📒 instructions",
+    "text": "11.1 📒 instructions\nThis is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄\nCreate a Jupyter Notebook called assignment-03-IDNUMBER, where IDNUMBER is your 9-digit ID. This is the file only file we will check."
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html#locations-and-data",
+    "href": "assignments/assignment3-streamflow.html#locations-and-data",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "11.2 📌 locations and data",
+    "text": "11.2 📌 locations and data\nChoose one location in the US.\n\nImport streamflow data from USGS’s National Water Information System. Choose on the map any measuring station you see fit. Make sure there is available discharge data (usually given in cubic feet per second) in small time intervals, e.g., every 15 minutes.\nGo to NOAA’s Climate Reference Network Data website. The sub-hourly (5-min) data contains information on many variables, we are interested in precipitation.\n\nAttention! Some os the USGS stations provide precipitation data. If you find one such station, step 2 above is unnecessary. If you only find discharge data in the USGS website, then make sure you choose two stations in very close proximity (USGS and NOAA). Because there are only a few high-resolution NOAA stations, you might want to start from there and then find discharge data for a stream near the NOAA station.\nBottom line: you are looking for precipitation and stream discharge data, for stations in close proximity, with a high temporal resolution (5 min, 15 min, etc)."
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html#tasks",
+    "href": "assignments/assignment3-streamflow.html#tasks",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "11.3 🛠 tasks",
+    "text": "11.3 🛠 tasks\nChoose a rain event of a few hours in your data set. Find the rate of effective water input (p) and the event flow rate (q). Analyze the data in a similar was as done during class (various graphs explaining what you see). Find also the characteristic times of the event (centroid lag \\(T_{LC}\\), and centroid lag-to-peak \\(T_{LPC}\\)).\nTry to find information on the climate, geography, soil, and land use of the watershed. Begin the assignment by explaining about the watershed you chose and characterizing it. When presenting the data and your analyses, discuss what you see based on the concepts learned in class (infiltration, runoff generation, and the factors that affect them). Does the information you found match what you see? What makes sense, and what doesn’t?\nDiscussion is important!\nYou will have two weeks to deliver your assignment. You should not hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc.\nYour Jupyter Notebook should be fully functional: if we press Kernel > Restart & Run All, all the code must work without any errors."
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html#presentation",
+    "href": "assignments/assignment3-streamflow.html#presentation",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "11.4 🌅 presentation",
+    "text": "11.4 🌅 presentation\nAll the assignment must be in one single Jupyter Notebook. Use markdown cells to discuss the analysis and results, and in code cells show all the code you used to produce the figures and data analysis. Leave only the code necessary for your analysis, delete unnecessary lines your wrote while analyzing your data. Don’t forget to comment your code, just like we did during exercise sessions.\nYou can write in English or in Hebrew, but the text in the figures must be in English. If you choose to write the discussion in Hebrew, be aware that Jupyter Notebooks don’t have native right-to-left language support:\nניתן לכתוב בעברית, למרות שזה לא נראה כ״כ טוב…\nYou can use some HTML code to achieve best results in Hebrew. Type the following\n<p dir=\"rtl\" style=\"text-align: right;\">\nעכשיו הרבה יותר טוב!\n</p>\nto get\n\nעכשיו הרבה יותר טוב!\n\nIf you have many paragraphs in hebrew, do the following:\n\nפסקה מספר 1.\n\n\nפסקה מספר 2.\n\n\nאם יש לכם כמה פסקאות, כל אחת מהן תהיה בתוך “dir” משלה\n\nIn my opinion it is too complicated to write in Hebrew in Jupyter Notebooks, just write in English, your grade will not be affected by typos nor less-than-perfect English proficiency."
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html#evaluation",
+    "href": "assignments/assignment3-streamflow.html#evaluation",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "11.5 💯 evaluation",
+    "text": "11.5 💯 evaluation\nYour assignment will be evaluated according to the following criteria: * 40% Presentation. How the graphs look, labels, general organization, markdown, clean code. * 30% Discussion. This is where you explain what you did, what you found out, etc. * 15% Depth of analysis. You can analyze/explore the data with different levels of complexity, this is where we take that into consideration. * 10% Replicability: Your code runs flawlessly. * 5%: Code commenting. Explain in your code what you are doing, this is good for everyone, especially for yourself!"
+  },
+  {
+    "objectID": "assignments/assignment3-streamflow.html#importing-the-data",
+    "href": "assignments/assignment3-streamflow.html#importing-the-data",
+    "title": "11  Assignment 3 - Streamflow",
+    "section": "11.6 🚚 importing the data",
+    "text": "11.6 🚚 importing the data\nYou can use the code from previous assignments and from the exercise lectures."
+  },
+  {
+    "objectID": "assignments/assignment-FINAL.html",
+    "href": "assignments/assignment-FINAL.html",
+    "title": "12  Final Assignment",
+    "section": "",
+    "text": "This is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄\nCreate two Jupyter Notebooks called 1. assignment-FINAL-CODE-IDNUMBER, and 2. assignment-FINAL-REPORT-IDNUMBER, where IDNUMBER is your 9-digit ID. These are the only files we will check."
+  },
+  {
+    "objectID": "assignments/assignment-FINAL.html#locations-and-data",
+    "href": "assignments/assignment-FINAL.html#locations-and-data",
+    "title": "12  Final Assignment",
+    "section": "12.2 📌 locations and data",
+    "text": "12.2 📌 locations and data\nChoose one location in the US.\nDownload relevant data from NOAA’s Global Summary of the Month, NOAA’s Climate Reference Network Data, and from the USGS’s National Water Information System.\nTry to find locations with many years of data, the more the better. Take some time to choose your station, plan well. Choose a location you have not worked with in past assignments."
+  },
+  {
+    "objectID": "assignments/assignment-FINAL.html#tasks",
+    "href": "assignments/assignment-FINAL.html#tasks",
+    "title": "12  Final Assignment",
+    "section": "12.3 🛠 tasks",
+    "text": "12.3 🛠 tasks\nIn this final project, we will integrate the various topics we learned throughout the semester. You will tell a story about the location you chose, and describe the changes it experienced in the past many decades. You can focus on any kind of changes that would influence the hydrological fluxes we learned about. Here are a few examples of changes that you might work on: * severe droughts in part of the studied period, or an increasing trend in drought severity. * same as above for rainfall/floods, high temperatures, low temperatures, etc. * significant changes in land use, such as urbanization, deforestation, agricultural practices, etc.\nThe list above is not comprehensive, you can choose other factors. Consult with me in case of doubt.\nTry to find on the media and in scientific papers evidence for the change you are focusing on. Cite these sources: at least one peer-reviewed scientific paper, and at least 3 other sources, such as a government website, official weather sites, books, reputable news websites, etc.\nCan you see the same when analyzing data for the location you chose? Do your findings corroborate the expectation you had when you started this project? If they don’t, can you explain why? Did you reach interesting or surprising conclusions in your analysis?\nAnalyze your location’s history with respect to the following: * Precipitation: seasonality, inter-annual variability, extreme precipitation events and return periods. * Potential evapotranspiration: Calculate PET using Penman’s equation for at least three different years of interest (not necessarily contiguous years). Calculate Thornthwaite’s PET for the whole length of the available data (comment about the suitability of Thornthwaite’s PET to the location you chose). * Analyze streamflow statistics in a similar manner as for precipitation: extreme discharge events and return periods. * Use Budyko’s framework to calculate where the location you chose falls on the \\((ET/P,PET/P)\\) space for at least three different years of interest.\nTry to connect the dots: how do your different findings fit together? Discuss what you are trying to show, tell your story with the help of the data and your analyses. If you find things that go contrary to your expectations, can you raise hypotheses of why you see what you see?\nYou will have one month to hand in your project.\nMuch success! 😁"
+  },
+  {
+    "objectID": "assignments/assignment-FINAL.html#presentation",
+    "href": "assignments/assignment-FINAL.html#presentation",
+    "title": "12  Final Assignment",
+    "section": "12.4 🌅 presentation",
+    "text": "12.4 🌅 presentation\nAll the assignment must be in two Jupyter Notebooks.\nThe notebook called CODE will contain all the code for the analyses you made. It must be fully functional, i.e., we must be able to Run All and not get any errors. Explain what you are doing in each step. Comment your code. Use markdown cells to split the notebook into subsections, one for each analysis (e.g.: ## Precipitation Analysis, ### Inter-annual variability, etc).\nThe notebook called Report will contain graphs and relevant data from the CODE notebook. It is here where you will introduce the location you chose, what you are trying to see. Here you will write all the results and discussion, as supported by the graphs and results you produced. Divide this notebook into sections: Introduction, Results and Discussion, Conclusion. Subdivide the sections into subsections when needed. In this file there should be no code at all.\nYou can write in English or in Hebrew, but the text in the figures must be in English. If you choose to write the discussion in Hebrew, be aware that Jupyter Notebooks don’t have native right-to-left language support:\nניתן לכתוב בעברית, למרות שזה לא נראה כ״כ טוב…\nYou can use some HTML code to achieve best results in Hebrew. Type the following\n<p dir=\"rtl\" style=\"text-align: right;\">\nעכשיו הרבה יותר טוב!\n</p>\nto get\n\nעכשיו הרבה יותר טוב!\n\nIf you have many paragraphs in hebrew, do the following:\n\nפסקה מספר 1.\n\n\nפסקה מספר 2.\n\n\nאם יש לכם כמה פסקאות, כל אחת מהן תהיה בתוך “dir” משלה\n\nIn my opinion it is too complicated to write in Hebrew in Jupyter Notebooks, just write in English, your grade will not be affected by typos nor less-than-perfect English proficiency."
+  },
+  {
+    "objectID": "assignments/assignment-FINAL.html#evaluation",
+    "href": "assignments/assignment-FINAL.html#evaluation",
+    "title": "12  Final Assignment",
+    "section": "12.5 💯 evaluation",
+    "text": "12.5 💯 evaluation\nYour assignment will be evaluated according to the following criteria: * 40% Presentation. How the graphs look, labels, general organization, markdown, clean code. * 30% Discussion. This is where you explain what you did, what you found out, etc. * 15% Depth of analysis. You can analyze/explore the data with different levels of complexity, this is where we take that into consideration. * 10% Replicability: Your code runs flawlessly. * 5%: Code commenting. Explain in your code what you are doing, this is good for everyone, especially for yourself!"
+  },
+  {
+    "objectID": "assignments/assignment-FINAL.html#importing-the-data",
+    "href": "assignments/assignment-FINAL.html#importing-the-data",
+    "title": "12  Final Assignment",
+    "section": "12.6 🚚 importing the data",
+    "text": "12.6 🚚 importing the data\nYou can use the code from previous assignments and from the exercise lectures."
   }
 ]

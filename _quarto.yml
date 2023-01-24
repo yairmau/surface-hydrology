@@ -21,6 +21,12 @@ book:
         - precipitation/intra-annual-exercises.ipynb
         - precipitation/return-period-lecture.qmd
         - precipitation/return-period-exercises.ipynb
+    - part: assignments/index.qmd
+      chapters:
+        - assignments/assignment1-precipitation.ipynb
+        - assignments/assignment2-ET.ipynb
+        - assignments/assignment3-streamflow.ipynb
+        - assignments/assignment-FINAL.ipynb
     - part: appendix/index.qmd
       chapters:    
         - appendix/date_formatting.ipynb
