@@ -6,6 +6,9 @@ I am a senior lecturer at the Institute of Environmental Sciences, at the Facult
 
 This website contains (almost) all the material you'll need for the course. If you find any mistakes, or have any comments, please email me.
 
+<div class="alert alert-danger">
+The material here is not comprehensive and `does not` constitute a stand alone course in Surface Hydrology. This is only the support material for the actual presential course I give.</div>
+
 ## Syllabus
 
 ### Course description
