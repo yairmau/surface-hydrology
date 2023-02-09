@@ -21,6 +21,10 @@ book:
         - precipitation/intra-annual-exercises.ipynb
         - precipitation/return-period-lecture.qmd
         - precipitation/return-period-exercises.ipynb
+    - part: evapotranspiration/evapotranspiration.qmd
+      chapters:
+        - evapotranspiration/evapotranspiration-lecture.ipynb
+        - evapotranspiration/evapotranspiration-exercises.ipynb
     - part: assignments/index.qmd
       chapters:
         - assignments/assignment1-precipitation.ipynb
