@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Surface Hydrology - 16&nbsp; Assignment 2 - Evapotranspiration</title>
+<title>Surface Hydrology - 13&nbsp; Streamflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -93,8 +30,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../assignments/assignment3-streamflow.html" rel="next">
-<link href="../assignments/assignment1-precipitation.html" rel="prev">
+<link href="../streamflow/streamflow-exercises.html" rel="next">
+<link href="../streamflow/streamflow.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -124,6 +61,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -134,7 +72,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Assignment 2 - Evapotranspiration</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Streamflow</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -275,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../streamflow/streamflow-lecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Streamflow</span></a>
+  <a href="../streamflow/streamflow-lecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Streamflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -300,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../assignments/assignment2-ET.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Assignment 2 - Evapotranspiration</span></a>
+  <a href="../assignments/assignment2-ET.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Assignment 2 - Evapotranspiration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -349,12 +287,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="toc-section-number">16.1</span>  📒 instructions</a></li>
-  <li><a href="#locations-and-data" id="toc-locations-and-data" class="nav-link" data-scroll-target="#locations-and-data"><span class="toc-section-number">16.2</span>  📌 locations and data</a></li>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="toc-section-number">16.3</span>  🛠 tasks</a></li>
-  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation"><span class="toc-section-number">16.4</span>  🌅 presentation</a></li>
-  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="toc-section-number">16.5</span>  💯 evaluation</a></li>
-  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data"><span class="toc-section-number">16.6</span>  🚚 importing the data</a></li>
+  <li><a href="#watershed---אגן-היקוות" id="toc-watershed---אגן-היקוות" class="nav-link active" data-scroll-target="#watershed---אגן-היקוות"><span class="toc-section-number">13.1</span>  Watershed - אגן היקוות</a></li>
+  <li><a href="#base-flow-separation" id="toc-base-flow-separation" class="nav-link" data-scroll-target="#base-flow-separation"><span class="toc-section-number">13.2</span>  base flow separation</a>
+  <ul class="collapse">
+  <li><a href="#base-flow" id="toc-base-flow" class="nav-link" data-scroll-target="#base-flow"><span class="toc-section-number">13.2.1</span>  Base flow</a></li>
+  <li><a href="#total-flow" id="toc-total-flow" class="nav-link" data-scroll-target="#total-flow"><span class="toc-section-number">13.2.2</span>  Total flow</a></li>
+  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention"><span class="toc-section-number">13.2.3</span>  Attention!</a></li>
+  </ul></li>
+  <li><a href="#urbana-il" id="toc-urbana-il" class="nav-link" data-scroll-target="#urbana-il"><span class="toc-section-number">13.3</span>  Urbana, IL</a>
+  <ul class="collapse">
+  <li><a href="#hyetograph-hydrograph" id="toc-hyetograph-hydrograph" class="nav-link" data-scroll-target="#hyetograph-hydrograph"><span class="toc-section-number">13.3.1</span>  hyetograph, hydrograph</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="toc-section-number">13.3.2</span>  notation</a></li>
+  <li><a href="#base-flow-separation-1" id="toc-base-flow-separation-1" class="nav-link" data-scroll-target="#base-flow-separation-1"><span class="toc-section-number">13.3.3</span>  base flow separation</a></li>
+  <li><a href="#effective-precipitation-effective-discharge" id="toc-effective-precipitation-effective-discharge" class="nav-link" data-scroll-target="#effective-precipitation-effective-discharge"><span class="toc-section-number">13.3.4</span>  effective precipitation = effective discharge</a></li>
+  <li><a href="#time-lags" id="toc-time-lags" class="nav-link" data-scroll-target="#time-lags"><span class="toc-section-number">13.3.5</span>  time lags</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -363,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Assignment 2 - Evapotranspiration</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Streamflow</span></h1>
 </div>
 
 
@@ -377,79 +324,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="instructions" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">16.1</span> 📒 instructions</h2>
-<p>This is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄</p>
-<p>Create a Jupyter Notebook called <code>assignment-02-IDNUMBER</code>, where <code>IDNUMBER</code> is your 9-digit ID. This is the file only file we will check.</p>
+<section id="watershed---אגן-היקוות" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="watershed---אגן-היקוות"><span class="header-section-number">13.1</span> Watershed - אגן היקוות</h2>
+<p><img src="../archive/figures/dingman-figure10.3.png" class="img-fluid"> <img src="../archive/figures/watershed-boundaries.jpg" class="img-fluid"> <img src="../archive/figures/dingman-figure10.5.png" class="img-fluid"></p>
+<p>Watershed response:</p>
+<ul>
+<li>The volume of water appearing in the appar- ent response hydrograph for a given event is usually only a fraction (often a very small frac- tion) of the total input. The remainder of the water input ultimately leaves the watershed as: (1) evapotranspiration; (2) streamflow that oc- curs so long after the event that it cannot be associated with that event; or (3) ground-water outflow from the watershed.</li>
+<li>The water identified as the response to a given event may originate on only a fraction of the watershed; this fraction is called the contrib- uting area.</li>
+<li>The extent of the contributing area may vary from event to event and during an event.</li>
+<li>At least some of the water identified as the re- sponse to a given event may be “old water” that entered the watershed in a previous event.</li>
+</ul>
 </section>
-<section id="locations-and-data" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="locations-and-data"><span class="header-section-number">16.2</span> 📌 locations and data</h2>
-<p><strong>Choose two stations with different climates.</strong></p>
-<p>Go to NOAA’s <a href="https://www.ncdc.noaa.gov/crn/qcdatasets.html">Climate Reference Network Data</a> website. The sub-hourly (5-min) data contains information on * air temperature, * precipitation, * global solar radiation, * surface infrared temperature, * relative humidity, * soil moisture and temperature, * wetness, and * 1.5 meter wind speed.</p>
-<p>There is no data on air pressure, so one needs to use the stations coordinates (lat, lon) to find its height above sea level, and from that infer the air pressure. You can use Google Earth or any other means to find the station’s height.</p>
-<p>In the Data Access link, choose a year and a station you would like to analyze. If you are not sure where the stations are, find them using the 2-letter state abbreviation and the station name.</p>
-<p>Download the following files: 1. One full year of data for each station. Make sure important data we need to calculate Penman’s ET estimation is available. 2. The headers file 3. The documentation file</p>
-<p>Make sure you understand what are the units provided for each measurement (see documentation).</p>
+<section id="base-flow-separation" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="base-flow-separation"><span class="header-section-number">13.2</span> base flow separation</h2>
+<p><img src="../archive/figures/ward-figure5.11.png" class="img-fluid"></p>
+<section id="base-flow" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="base-flow"><span class="header-section-number">13.2.1</span> Base flow</h3>
+<p>Base flow is the portion of streamflow that is presumed to have entered the watershed in previous events and to be derived from persistent, slowly varying sources. (Ground water is usually assumed to be the main, if not the only, such source.) ### Event flow Event flow (also called direct runoff, storm runoff, quick flow, or storm flow) is considered to be the direct response to a given water-input event.</p>
 </section>
-<section id="tasks" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="tasks"><span class="header-section-number">16.3</span> 🛠 tasks</h2>
-<p>Produce potential ET estimates using Thornthwaite’s equation and Penman’s equation. Produce plots of ET as a function of time for each station, comparing the two methods you used. Also, using Penman’s ET estimates, compare the two stations and discuss about their differences/similarities.</p>
-<p>You might find interesting things in the data, such as periods of unusually high/low temperatures, radiation, etc. Discuss how these factors might have affected the ET estimates that you calculated.</p>
-<p>You will have <strong>two weeks</strong> to deliver your assignment. You should <strong>not</strong> hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc.</p>
-<p>Your Jupyter Notebook should be <strong>fully functional</strong>: if we press <code>Kernel &gt; Restart &amp; Run All</code>, all the code must work without any errors.</p>
+<section id="total-flow" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="total-flow"><span class="header-section-number">13.2.2</span> Total flow</h3>
+<p>Total flow rate at any instant <span class="math inline">\(q(t)\)</span> is the sum of event-flow rate <span class="math inline">\(q^*(t)\)</span> and base-flow rate <span class="math inline">\(q_{BF}\)</span>(t):</p>
+<p><span class="math display">\[
+q(t) = q^*(t) + q_{BF}(t)
+\]</span></p>
 </section>
-<section id="presentation" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="presentation"><span class="header-section-number">16.4</span> 🌅 presentation</h2>
-<p>All the assignment must be in <strong>one single</strong> Jupyter Notebook. Use markdown cells to discuss the analysis and results, and in code cells show <strong>all the code</strong> you used to produce the figures and data analysis. Leave only the code necessary for your analysis, delete unnecessary lines your wrote while analyzing your data. Don’t forget to comment your code, just like we did during exercise sessions.</p>
-<p>You can write in English or in Hebrew, but the text in the figures must be in English. If you choose to write the discussion in Hebrew, be aware that Jupyter Notebooks don’t have native right-to-left language support:</p>
-<p>ניתן לכתוב בעברית, למרות שזה לא נראה כ״כ טוב…</p>
-<p>You can use some HTML code to achieve best results in Hebrew. Type the following</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">dir</span><span class="ot">=</span><span class="st">"rtl"</span> <span class="er">style</span><span class="ot">=</span><span class="st">"text-align: right;"</span><span class="kw">&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>עכשיו הרבה יותר טוב!</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-to get
-<p dir="rtl" style="text-align: right;">
-עכשיו הרבה יותר טוב!
-</p>
-If you have many paragraphs in hebrew, do the following:
-<p dir="rtl" style="text-align: right;">
-פסקה מספר 1.
-</p>
-<p dir="rtl" style="text-align: right;">
-פסקה מספר 2.
-</p>
-<p dir="rtl" style="text-align: right;">
-אם יש לכם כמה פסקאות, כל אחת מהן תהיה בתוך “dir” משלה
-</p>
-<p>In my opinion it is too complicated to write in Hebrew in Jupyter Notebooks, just write in English, your grade will not be affected by typos nor less-than-perfect English proficiency.</p>
+<section id="attention" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="attention"><span class="header-section-number">13.2.3</span> Attention!</h3>
+<p>Graphical flow separation techniques are heuristic and have no direct scientific basis.</p>
 </section>
-<section id="evaluation" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">16.5</span> 💯 evaluation</h2>
-<p>Your assignment will be evaluated according to the following criteria: * 40% Presentation. How the graphs look, labels, general organization, markdown, clean code. * 30% Discussion. This is where you explain what you did, what you found out, etc. * 15% Depth of analysis. You can analyze/explore the data with different levels of complexity, this is where we take that into consideration. * 10% Replicability: Your code runs flawlessly. * 5%: Code commenting. Explain in your code what you are doing, this is good for everyone, especially for yourself!</p>
 </section>
-<section id="importing-the-data" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="importing-the-data"><span class="header-section-number">16.6</span> 🚚 importing the data</h2>
-<p>Below you can find an example of how to import the data file provided by NOAA’s Climate Reference Network Data website. You might have to make some adjustments to it.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_file <span class="op">=</span> <span class="st">"CRNS0101-05-2020-CO_Boulder_14_W.txt"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(data_file,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                 header<span class="op">=</span><span class="va">None</span>,                      <span class="co"># no headers needed, we'll do that later</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                 delim_whitespace<span class="op">=</span><span class="va">True</span>,            <span class="co"># blank spaces separate between columns</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                 na_values<span class="op">=</span>[<span class="st">"-99.000"</span>, <span class="st">"-9999.0"</span>]  <span class="co"># substitute these values for missing (NaN) values</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> pd.read_csv(<span class="st">"HEADERS_sub_hourly.txt"</span>,    <span class="co"># load headers file</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                      header<span class="op">=</span><span class="dv">1</span>,                    <span class="co"># skip the first [0] line</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                      delim_whitespace<span class="op">=</span><span class="va">True</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                     )</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> headers.columns                       <span class="co"># rename df columns with headers columns</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># LST = local standard time</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"LST_TIME"</span>] <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">:04d}</span><span class="ss">"</span> <span class="cf">for</span> x <span class="kw">in</span> df[<span class="st">"LST_TIME"</span>]]  <span class="co"># time needs padding of zeros, then convert to string</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'LST_DATE'</span>] <span class="op">=</span> df[<span class="st">'LST_DATE'</span>].astype(<span class="bu">str</span>)            <span class="co"># convert date into string</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'datetime'</span>] <span class="op">=</span> df[<span class="st">'LST_DATE'</span>] <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> df[<span class="st">'LST_TIME'</span>] <span class="co"># combine date+time into datetime</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'datetime'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'datetime'</span>])        <span class="co"># interpret datetime</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.set_index(<span class="st">'datetime'</span>)                          <span class="co"># make datetime the index</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="urbana-il" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="urbana-il"><span class="header-section-number">13.3</span> Urbana, IL</h2>
+<p><img src="../archive/figures/urbana-IL-map.png" class="img-fluid"></p>
+<section id="hyetograph-hydrograph" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="hyetograph-hydrograph"><span class="header-section-number">13.3.1</span> hyetograph, hydrograph</h3>
+<p><img src="../archive/figures/urbana_pq.png" class="img-fluid"></p>
+</section>
+<section id="notation" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="notation"><span class="header-section-number">13.3.2</span> notation</h3>
+<p><img src="../archive/figures/dingman-box10.1.png" class="img-fluid"></p>
+</section>
+<section id="base-flow-separation-1" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="base-flow-separation-1"><span class="header-section-number">13.3.3</span> base flow separation</h3>
+<p><img src="../archive/figures/urbana_q_qstar.png" class="img-fluid"></p>
+</section>
+<section id="effective-precipitation-effective-discharge" class="level3" data-number="13.3.4">
+<h3 data-number="13.3.4" class="anchored" data-anchor-id="effective-precipitation-effective-discharge"><span class="header-section-number">13.3.4</span> effective precipitation = effective discharge</h3>
+<p><span class="math display">\[
+P^* = Q^*
+\]</span></p>
+<p><img src="../archive/figures/urbana_pstar_qstar.png" class="img-fluid"> <img src="../archive/figures/dingman-figure10.49.png" class="img-fluid"></p>
+</section>
+<section id="time-lags" class="level3" data-number="13.3.5">
+<h3 data-number="13.3.5" class="anchored" data-anchor-id="time-lags"><span class="header-section-number">13.3.5</span> time lags</h3>
+<p><img src="../archive/figures/dingman-figure10.12.png" class="img-fluid"> <img src="../archive/figures/dingman-table10.2.png" class="img-fluid"> <img src="../archive/figures/urbana_lags.png" class="img-fluid"></p>
+<p>It is commonly assumed that <span class="math inline">\(T_{LPC} \simeq 0.60 \cdot T_c\)</span>, where <span class="math inline">\(T_c\)</span> is the time of concentration, i.e., the time it takes water to travel from the hydraulically most distant part of the contributing area to the outlet.</p>
+<!-- ### response time and centroid lag
+
+Dingman, page 474
+
+Watershed Size: Larger watersheds have larger T*, other things equal. Analyses of large floods by Holtan and Overton (1963) indicated that T* is strongly related to drainage area; however, the re- lationship varies from region to region, presum- ably largely because of differences in watershed geology, soils, and topography.
+Soils and Geology: Water moves fastest toward streams as overland flow and slowest as subsurface flow (as discussed more fully later in this chapter). Thus watersheds with low surface hydraulic con- ductivities (e.g., clay soils), where less infiltration and more overland flow occur, should have smaller T* than those with higher conductivities (e.g., sandy soils). If flow paths are predominantly in the subsurface, watersheds with higher hydrau- lic conductivities will have smaller values of T*.
+Slope: Steeper slopes should be associated with faster surface and subsurface water movement and hence smaller T*.
+Land Use: In general, watersheds with heavy vege- tation, especially forests, have permeable surface soils that allow rapid infiltration and subsurface flow to streams, resulting in larger T*. In contrast, sparsely vegetated watersheds tend to have lower T* because their lower surface permeability makes
+Figure 10.16 Response, q*, of linear watershed with T*=5hrto1unitofinput, P*, in 1 hr. Input rate
+p* = 1 unit/hr.
+overland flow more common. Watersheds with in- tensive urbanization (more impermeable areas and storm sewers) generally have faster water move- ment and smaller T*.
+Watershed Wetness: As seen in section 10.2.3.2, the wetness of the watershed at the time of a rainfall event (antecedent condition) usually has a significant influence on the connectivity of surface and subsur- face flow paths and the extent of the contributing area, so that a given watershed will have a smaller T* when wet than when drier. The physical relations underlying this are discussed in section 10.4.
+In the linear-watershed model the centroid lag, TLC, is equal to T*, regardless of the timing of inputs. Thus if the timing and amounts of effective water in- put and output can be determined, average TLC would appear to be the best estimate of the charac- teristic response time for a given watershed.
+
+-->
+<p>The centroid is a weighted-average time, each time instant is multiplied by the amount of flow in that instant.</p>
+<p>Time of precipitation centroid:</p>
+<p><span class="math display">\[
+t_{pc} = \frac{\displaystyle \sum_{i=1}^n p_i^* \cdot t_i}{P^*}
+\]</span></p>
+<p>Time of streamflow centroid:</p>
+<p><span class="math display">\[
+t_{qc} = \frac{\displaystyle \sum_{i=1}^n q_i^* \cdot t_i}{Q^*}
+\]</span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -553,13 +510,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../assignments/assignment1-precipitation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Assignment 1 - Precipitation</span></span>
+      <a href="../streamflow/streamflow.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Streamflow</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../assignments/assignment3-streamflow.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Assignment 3 - Streamflow</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../streamflow/streamflow-exercises.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -29,6 +29,10 @@ book:
       chapters:
         - infiltration/infiltration-lecture.ipynb
         - infiltration/infiltration-exercises.ipynb
+    - part: streamflow/streamflow.qmd
+      chapters:
+        - streamflow/streamflow-lecture.ipynb
+        - streamflow/streamflow-exercises.ipynb
     - part: assignments/index.qmd
       chapters:
         - assignments/assignment1-precipitation.ipynb
