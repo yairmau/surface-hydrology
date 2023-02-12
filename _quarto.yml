@@ -6,6 +6,7 @@ book:
   title: "Surface Hydrology"
   author: "Yair Mau"
   logo: archive/cloud-rain.png
+  favicon: archive/cloud-rain.png
   # date: "10/18/2022"
   chapters:
     - index.qmd
