@@ -34,7 +34,12 @@ book:
       chapters:
         - streamflow/streamflow-lecture.ipynb
         - streamflow/streamflow-exercises.ipynb
-    - part: assignments/index.qmd
+        - streamflow/unit-hydrograph-lecture.ipynb
+    - part: summing-up/summing-up.qmd
+      chapters:
+        - summing-up/budyko-framework-lecture.ipynb
+        - summing-up/spatial-distribution.ipynb
+    - part: assignments/assignments-general.qmd
       chapters:
         - assignments/assignment1-precipitation.ipynb
         - assignments/assignment2-ET.ipynb

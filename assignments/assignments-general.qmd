@@ -1,0 +1,44 @@
+## Assignments
+
+The guidelines below are valid for all the assignments.
+
+## 🌅 Presentation
+
+All the assignment must be in **one single** Jupyter Notebook.
+Use markdown cells to discuss the analysis and results, and in code cells show **all the code** you used to produce the figures and data analysis.
+Leave only the code necessary for your analysis, delete unnecessary lines your wrote while analyzing your data.
+Don't forget to **comment your code**, just like we did during exercise sessions.
+The assignment will be **written in English**.
+
+
+## 💯 Evaluation
+
+All your assignments will be evaluated according to the following criteria:  
+
+* 40% Presentation. How the graphs look, labels, general organization, markdown, clean code.
+* 30% Discussion. This is where you explain what you did, what you found out, etc.
+* 15% Depth of analysis. You can analyze/explore the data with different levels of complexity, this is where we take that into consideration.
+* 10% Replicability: Your code runs flawlessly.
+* 5%: Code commenting. Explain in your code what you are doing, this is good for everyone, especially for yourself!
+
+## 🤖 AI Policy
+
+The guidelines below are an adaptation of [Ethan Mollick's extremely useful ideas on AI](https://oneusefulthing.substack.com/p/all-my-classes-suddenly-became-ai) as an assistant tool for teaching.
+
+**I EXPECT YOU** to use LLMs (large language models) such as ChatGPT, Bing AI, Google Bard, Lex, or whatever else springs up since the time of this writing.
+You should familiarize yourself with the AI's capabilities and limitations.
+
+At a minimum, you should use AI to check the quality of your English text, and make the text pleasant to read.
+
+Consider the following important points:
+
+* Ultimately, **you**, the student, are responsible for the assignment.
+* Don't trust anything the LLM says. Assume everything is wrong unless you either know the answer of can check with another source. You will be responsible for any errors or omissions provided by the tool.
+* You can use LLMs to help you write both the text and the code. If you provide minimum effort prompts to the model, you will probably get low quality results. You will need to refine your prompts in order to get good outcomes. Practice a lot.
+* Acknowledge the use of AI in your assignment. Be transparent about your use of the tool and the extent of assistance it provided.
+
+<div class="alert alert-success">
+The text above was written with the assistance of ChatGPT. The content is mine, ChatGPT checked my English and suggested some improvements.</div>
+
+
+
