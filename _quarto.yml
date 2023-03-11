@@ -5,16 +5,15 @@ project:
 book:
   title: "Surface Hydrology"
   author: "Yair Mau"
-  # logo: archive/cloud-rain.png
   favicon: archive/cloud-rain.png
   # date: "10/18/2022"
   chapters:
     - index.qmd
-    - part: introduction/intro.qmd
+    - part: "Introduction"
       chapters:
         - introduction/introduction-lecture.qmd
         - introduction/introduction-exercises.ipynb
-    - part: precipitation/precipitation.qmd
+    - part: "Precipitation" #precipitation/precipitation.qmd
       chapters:
         - precipitation/interannual-lecture.qmd
         - precipitation/interannual-exercises.ipynb
@@ -22,20 +21,20 @@ book:
         - precipitation/intra-annual-exercises.ipynb
         - precipitation/return-period-lecture.qmd
         - precipitation/return-period-exercises.ipynb
-    - part: evapotranspiration/evapotranspiration.qmd
+    - part: "Evapotranspiration" #evapotranspiration/evapotranspiration.qmd
       chapters:
         - evapotranspiration/evapotranspiration-lecture.ipynb
         - evapotranspiration/evapotranspiration-exercises.ipynb
-    - part: infiltration/infiltration.qmd
+    - part: "Infiltration" #infiltration/infiltration.qmd
       chapters:
         - infiltration/infiltration-lecture.ipynb
         - infiltration/infiltration-exercises.ipynb
-    - part: streamflow/streamflow.qmd
+    - part: "Streamflow" #streamflow/streamflow.qmd
       chapters:
         - streamflow/streamflow-lecture.ipynb
         - streamflow/streamflow-exercises.ipynb
         - streamflow/unit-hydrograph-lecture.ipynb
-    - part: summing-up/summing-up.qmd
+    - part: "summing up" #summing-up/summing-up.qmd
       chapters:
         - summing-up/budyko-framework-lecture.ipynb
         - summing-up/spatial-distribution.ipynb
@@ -52,7 +51,8 @@ book:
     - references.qmd
   # repo-url: https://github.com/agrotech-lab/my-book-test
   # repo-actions: [source]
-  # sidebar:
+  sidebar:
+    logo: archive/cloud-rain.png
   #   style: "docked"
   #   collapse-level: 2
 
