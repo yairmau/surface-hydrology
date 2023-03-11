@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Surface Hydrology",
+    "section": "",
+    "text": "About\nWelcome to Surface Hydrology (71630) at the Hebrew University of Jerusalem. This is Yair Mau, your host for today. I am a senior lecturer at the Institute of Environmental Sciences, at the Faculty of Agriculture, Food and Environment, in Rehovot, Israel.\nThis website contains (almost) all the material you’ll need for the course. If you find any mistakes, or have any comments, please email me."
+  },
+  {
+    "objectID": "introduction/introduction-lecture.html",
+    "href": "introduction/introduction-lecture.html",
+    "title": "1  Water Cycle: Fluxes and Storage",
+    "section": "",
+    "text": "Source: Water Science School (2019c)\n\n\n\n\n\nSource: Water Science School (2018)"
+  },
+  {
+    "objectID": "introduction/introduction-lecture.html#the-natural-water-cycle-2019",
+    "href": "introduction/introduction-lecture.html#the-natural-water-cycle-2019",
+    "title": "1  Water Cycle: Fluxes and Storage",
+    "section": "1.2 The natural water cycle (2019)",
+    "text": "1.2 The natural water cycle (2019)\n\n\n\nSource: Water Science School (2019g)"
+  },
+  {
+    "objectID": "introduction/introduction-lecture.html#the-new-water-cycle-2022",
+    "href": "introduction/introduction-lecture.html#the-new-water-cycle-2022",
+    "title": "1  Water Cycle: Fluxes and Storage",
+    "section": "1.3 The new water cycle (2022)",
+    "text": "1.3 The new water cycle (2022)\n\n\n\nSource: Water Science School (2022)\n\n\nInteractive chart: Pools and fluxes in the water cycle"
+  },
+  {
+    "objectID": "introduction/introduction-lecture.html#global-water-distribution",
+    "href": "introduction/introduction-lecture.html#global-water-distribution",
+    "title": "1  Water Cycle: Fluxes and Storage",
+    "section": "1.4 Global water distribution",
+    "text": "1.4 Global water distribution\n\nSource: Water Science School (2018). (Percents are rounded, so will not add to 100)\n\n\n\n\n\n\n\n\nWater source\nVolume (km\\(^3\\))\n% of freshwater\n% of total water\n\n\n\n\nOceans, Seas, & Bays\n1,338,000,000\n–\n96.54\n\n\nIce caps, Glaciers, & Permanent Snow\n24,064,000\n68.7\n1.74\n\n\nGroundwater\n23,400,000\n–\n1.69\n\n\n\\(\\quad\\)Fresh\n10,530,000\n30.1\n0.76\n\n\n\\(\\quad\\)Saline\n12,870,000\n–\n0.93\n\n\nSoil Moisture\n16,500\n0.05\n0.001\n\n\nGround Ice & Permafrost\n300,000\n0.86\n0.022\n\n\nLakes\n176,400\n–\n0.013\n\n\n\\(\\quad\\)Fresh\n91,000\n0.26\n0.007\n\n\n\\(\\quad\\)Saline\n85,400\n–\n0.006\n\n\nAtmosphere\n12,900\n0.04\n0.001\n\n\nSwamp Water\n11,470\n0.03\n0.0008\n\n\nRivers\n2,120\n0.006\n0.0002\n\n\nBiological Water\n1,120\n0.003\n0.0001"
+  },
+  {
+    "objectID": "introduction/introduction-lecture.html#energy-drives-the-hydrologic-cycle",
+    "href": "introduction/introduction-lecture.html#energy-drives-the-hydrologic-cycle",
+    "title": "1  Water Cycle: Fluxes and Storage",
+    "section": "1.5 Energy drives the hydrologic cycle",
+    "text": "1.5 Energy drives the hydrologic cycle\nFrom Margulis (2019)\n\nA key aspect of the hydrologic cycle is the fact that it is driven by energy inputs (primarily from the sun). At the global scale, the system is essentially closed with respect to water; negligible water is entering or leaving the system. In other words, there is no external forcing in terms of a water flux. Systems with no external forcing will generally eventually come to an equilibrium state. So what makes the hydrologic cycle so dynamic? The solar radiative energy input, which is external to the system, drives the hydrologic cycle. Averaged over the globe, 342 W m\\(^{-2}\\) of solar radiative energy is being continuously input to the system at the top of the atmosphere. This energy input must be dissipated, and this is done, to a large extent, via the hydrologic cycle. Due to this fact, the study of hydrology is not isolated to the study of water storage and movement, but also must often include study of energy storage and movements."
+  },
+  {
+    "objectID": "introduction/introduction-lecture.html#components-of-the-water-cycle",
+    "href": "introduction/introduction-lecture.html#components-of-the-water-cycle",
+    "title": "1  Water Cycle: Fluxes and Storage",
+    "section": "1.6 Components of the water cycle",
+    "text": "1.6 Components of the water cycle\n\n1.6.1 Water storage in oceans\n\n\n1.6.2 Evaporation / Sublimation\nEvaporation \\(\\longrightarrow\\) cooling\n\n\n\n  \n\n\n1.6.3 Evapotranspiration\n\n\n\n1.6.4 Water storage in the atmosphere\nCumulonimbus cloud over Africa \nPicture of cumulonimbus taken from the International Space Station, over western Africa near the Senegal-Mali border.\nIf all of the water in the atmosphere rained down at once, it would only cover the globe to a depth of 2.5 centimeters. \\[\n\\begin{align}\n\\text{amount of water in the atmosphere} & \\qquad V = 12\\, 900\\, \\text{km}^3 \\\\\n\\text{surface of Earth} & \\qquad S = 4 \\pi R^2;\\quad R=6371\\,\\text{km}\\\\\n& \\qquad V = S \\times h \\\\\n\\text{height} & \\qquad h = \\frac{V}{S} \\simeq 2.5\\,\\text{cm}\n\\end{align}\n\\]\nTry to calculate this yourself, and click on the button below to check how to do it.\n\n\nShow/hide the code\n# amount of water in the atmosphere\nV = 12900 # km^3\n# Earth's radius\nR = 6371 # km\n# surface of Earth = 4 pi Rˆ2\nS = 4 * 3.141592 * R**2\n# Volume: V = S * h, therefore\n# height\nh = V / S # in km\nh_cm = h * 1e5 # in cm\nprint(f\"The height would be ~ {h_cm:.1f} cm\")\n\n\nThe height would be ~ 2.5 cm\n\n\n\n\n1.6.5 Condensation\n\n\n1.6.6 Precipitation\n\n\n\nSource: Water Science School (2019f)\n\n\n\nSource: Water Science School (2019e)\n\n\n\n\n\n\n\n\n\n\nIntensity (cm/h)\nMedian diameter (mm)\nVelocity of fall (m/s)\nDrops s\\(^{-1}\\) m\\(^{-2}\\)\n\n\n\n\nFog\n0.013\n0.01\n0.003\n67,425,000\n\n\nMist\n0.005\n0.1\n0.21\n27,000\n\n\nDrizzle\n0.025\n0.96\n4.1\n151\n\n\nLight rain\n0.10\n1.24\n4.8\n280\n\n\nModerate rain\n0.38\n1.60\n5.7\n495\n\n\nHeavy rain\n1.52\n2.05\n6.7\n495\n\n\nExcessive rain\n4.06\n2.40\n7.3\n818\n\n\nCloudburst\n10.2\n2.85\n7.9\n1,220\n\n\n\n\n\n1.6.7 Water storage in ice and snow\n\n\n\nSource: Water Science School (2019d)\n\n\n\n\n\nSource: Water Science School (2019d)\n\n\n\n\n1.6.8 Snowmelt runoff to streams\n\n\n1.6.9 Surface runoff\n\n\n\nSource: חדשות פתח תקווה (2020)\n\n\n\n\n\n1.6.10 Streamflow\nThe Mississippi river basin is very large \nThe Amazon river basin is Huge \n\n\n\nSource: Yair Mau\n\n\n\n\n1.6.11 Lakes and rivers\n\n\n\nSource: dreamstime (2022)\n\n\nLake Malawi \n\n\n\nSource: Fiona Bruce (2015)\n\n\n\n\n1.6.12 Infiltration\n\n\n\nSource: Suma Groulx (2015)\n\n\n\n\n1.6.13 Groundwater storage\n\n\n\nSource: Water Science School (2019b)\n\n\n\n\n\nSource: (modernfarmer?)\n\n\n\n\n\nSource: (ogallala1?)\n\n\nCenter Pivot irrigation in Nebraska taps the Ogallala Aquifer. \n\n\n1.6.14 Groundwater flow and discharge\n\n\n\nSource: Water Science School (2019a)\n\n\n\n\n\nSource: Raymond, Lyle S. Jr. (1988)\n\n\n\n\n\nSource: Valentí Rodellas (1988)\n\n\n\n\n1.6.15 Spring\nEin Gedi \nThousand Springs, Idaho \n\n\n\n\nAmazon Waters. 2022. “Amazon Waters.” Amazon Waters. https://amazonwaters.org/basins.\n\n\ndreamstime. 2022. “World Map of AFRICA.” Dreamstime. https://www.dreamstime.com/world-map-africa-egypt-libya-ethiopia-arabia-mauritania-nigeria-somalia-namibia-tanzania-madagascar-geographic-xxl-chart-image154799901.\n\n\nFiona Bruce. 2015. “A Family Holiday in Lake Malawi: Zen and the Art of Paddleboarding.” The Telegraph. https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&t=SkH17UkWrNcXzIqRF0ic_A.\n\n\nJames Hall. 2019. “Lake Malawi.” Twitter. https://twitter.com/hallaboutafrica/status/1203419359303159809?s=20&t=SkH17UkWrNcXzIqRF0ic_A.\n\n\nMargulis, Steve. 2019. “Introduction to Hydrology. eBook.” https://margulis-group.github.io/textbook/.\n\n\nMarty Friedlander. 2015. “Natural Springs of Israel: Seven Cool Watering Holes to Visit This Summer.” Haaretz. https://www.haaretz.com/israel-news/travel/seven-cool-natural-springs-of-israel-1.5388627.\n\n\nNational Park Service. 2022. “Mississippi River Facts.” National Park Service. https://www.nps.gov/miss/riverfacts.htm.\n\n\nRaymond, Lyle S. Jr. 1988. “What Is Groundwater?” Cornell eCommons. https://ecommons.cornell.edu/handle/1813/3408.\n\n\nSuma Groulx. 2015. “Water Infiltration.” Suma Groulx. http://sumagroulx.com/water-infiltration/.\n\n\nValentí Rodellas. 1988. “Evaluating Submarine Groundwater Discharge to the Mediterranean Sea by Using Radium Isotopes.” Research Gate. https://www.researchgate.net/figure/Principal-pathways-for-submarine-groundwater-discharge-to-the-coastal-ocean-including_fig1_274590439.\n\n\nWater Science School. 2016. “Water Flowing Underground Can Find Openings Back to the Land Surface.” U.S. Geological Survey. https://www.usgs.gov/media/images/water-flowing-underground-can-find-openings-back-land-surface.\n\n\n———. 2018. “Where Is Earth’s Water?” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/where-earths-water.\n\n\n———. 2019a. “Conceptual Groundwater-Flow Diagram.” U.S. Geological Survey. https://www.usgs.gov/media/images/conceptual-groundwater-flow-diagram.\n\n\n———. 2019b. “Groundwater Is the Area Underground Where Openings Are Full of Water.” U.S. Geological Survey. https://www.usgs.gov/media/images/groundwater-area-underground-where-openings-are-full-water.\n\n\n———. 2019c. “How Much Water Is There on Earth?” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth.\n\n\n———. 2019d. “Ice, Snow, and Glaciers and the Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/ice-snow-and-glaciers-and-water-cycle.\n\n\n———. 2019e. “Precipitation and the Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/precipitation-and-water-cycle.\n\n\n———. 2019f. “Rain and Precipitation.” U.S. Geological Survey. https://www.usgs.gov/special-topics/water-science-school/science/rain-and-precipitation.\n\n\n———. 2019g. “The Natural Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/media/images/natural-water-cycle-jpg.\n\n\n———. 2022. “The Water Cycle.” U.S. Geological Survey. https://www.usgs.gov/media/images/water-cycle-png.\n\n\nחדשות פתח תקווה. 2020. “אובך ומערכת גשמים כבדה נוספת.” Melabes. https://www.melabes.co.il/news/51773."
+  },
+  {
+    "objectID": "streamflow/unit-hydrograph-lecture.html#rainfall-runoff-models",
+    "href": "streamflow/unit-hydrograph-lecture.html#rainfall-runoff-models",
+    "title": "15  Unit Hydrograph",
+    "section": "15.2 Rainfall-Runoff Models",
+    "text": "15.2 Rainfall-Runoff Models\n\n15.2.1 The Rational Method\nThe rational method postulates a simple pro- portionality between peak discharge, \\(q_{pk}\\), and rainfall intensity, \\(p^*\\):\n\\[\nq_{pk} = \\varepsilon_R \\cdot C_R \\cdot A_D \\cdot p^*\n\\]\n\n\\(q_{pk}\\): peak discharge (m\\(^3\\)/s)\n\\(\\varepsilon_R=0.278\\): unit-conversion factor\n\\(C_R\\): dimensionless runoff coefficient\n\\(A_D\\): drainage area (km\\(^2\\))\n\\(p^*\\): rainfall intensity (mm/h)\n\n\nObviously the results obtained with the method are highly sensitive to the value chosen for CR; values range from 0.05 for gently sloping lawns up to 0.95 for highly urbanized areas of roofs and pavement.\nThe rational method is widely used in urban drainage design, but Pilgrim and Cordery (1992) caution that there are typically few data available to guide the selection of CR, and that CR for a given watershed may vary widely from storm to storm due to differing antecedent conditions.\n\n\n\n15.2.2 The Soil Conservation Service Curve-Number Method (SCS-CN)\nAlso called NRCS curve number procedure. NRCS = Natural Resources Conservation Service - USDA\n\\[\nQ^* = P^* = \\frac{\\left( P-S_{I} \\right)^2}{P-S_I+S_{max}}\n\\]\nThe initial abstraction \\(S_I\\) is usually approximated as \\(0.2\\cdot S_{max}\\), therefore:\n\\[\nQ^* = P^* = \\frac{\\left( P-0.2\\cdot S_{max} \\right)^2}{P+0.8\\cdot S_{max}}\n\\]\n\\[\nS_{max} = 25.4\\left(\\frac{1000}{CN}-10\\right)\n\\]\nThe number 25.4 is a conversion factor from inches to millimeters.\n\n\nThe curve number (CN) is a function of the ability of soils to infiltrate water, land use, and the soil water conditions at the start of a rainfall event (antecedent soil water condition). To account for the infiltration character- istics of soils, the NRCS has divided soils into four hydrologic soil groups, which are defined as follows (NRCS, 1984):\n\nGroup A (low runoff potential): Soils with high infiltration rates even when thoroughly wetted. These consist chiefly of deep, well-drained sands and gravels. These soils have a high rate of water transmission (final infiltration rate greater than 0.3 in./h).\nGroup B: Soils with moderate infiltration rates when thoroughly wetted. These consist chiefly of soils that are moderately deep to deep, moderately well drained to well drained with moderately fine to moderately coarse textures. These soils have a moderate rate of water transmission (final infil- tration rate 0.15 to 0.30 in./h).\nGroup C: Soils with slow infiltration rates when thoroughly wetted. These consist chiefly of soils with a layer that impedes downward movement of water or soils with moderately fine to fine texture. These soils have a slow rate of water transmission (final infiltration rate 0.05 to 0.15 in./h).\nGroup D (high runoff potential): Soils with very slow infiltration rates when thoroughly wetted. These consist chiefly of clay soils with a high swelling potential, soils with a permanent high water table, soils with a claypan or clay layer at or near the surface, and shallow soils over nearly impervious materials. These soils have a very slow rate of water transmission (final infiltration rate less than 0.05 in./h).\n\nThere are also three categories for Antecedent Soil Moisture Condition (AMC): * AMC I: Dormant season antecedent soil moisture less than 0.5 in. Growing season antecedent soil moisture less than 1.4 in. * AMC II: Dormant season antecedent soil moisture between 0.5 and 1.1 in. Growing season anteced- ent soil moisture between 1.4 and 2.1 in. * AMC III: Dormant season antecedent soil mois- ture greater than 1.1 in. Growing season anteced- ent soil moisture greater than 2.1 in.\nSee the table below to find curve numbers for AMC II: \n\nP=21\nratio = 4.17e4/2.61e5\nCN=86\nSmax = 25.4 * (1000/CN - 10)\nPmin = 0.2 * Smax\nQstar = 0.0\nif P > Pmin:\n    Qstar = (P - 0.2*Smax)**2 / (P+0.8*Smax)\nQstar/P\n\n0.14270006393832066\n\n\n\nratio\n\n0.15977011494252874\n\n\n\nQstar / P\n\n0.9148811393863234\n\n\n\n%matplotlib notebook\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef Qstar_f(pe, CN):\n#     Smax = 25.4*(1000/CN - 10)\n    Smax = (1000/CN - 10)\n#     Smax = (1000/CN - 10) / 25.4\n    Qstar = (pe - 0.2*Smax)**2 / (pe+0.8*Smax)\n    return Qstar\n\npe = np.linspace(0,8,101)\n# plt.plot(pe, Qstar_f(pe, 35))\nplt.plot(pe, Qstar_f(pe, 50))\n# plt.plot(pe, Qstar_f(pe, 85))\n\n\n\n\n\n\n\n\n\n\n\nDingman, S. L. 2015. Physical Hydrology. 3rd edition. Waveland Press, Incorporated."
+  },
+  {
+    "objectID": "streamflow/unit-hydrograph-lecture.html",
+    "href": "streamflow/unit-hydrograph-lecture.html",
+    "title": "15  Unit Hydrograph",
+    "section": "",
+    "text": "Source: Dingman (2015), page 472"
+  },
+  {
+    "objectID": "introduction/intro.html",
+    "href": "introduction/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee (knuth84?) for additional discussion of literate programming.\n\nimport sys\nprint(sys.executable)\n\n/opt/anaconda3/bin/python"
+  },
+  {
+    "objectID": "index.html#syllabus",
+    "href": "index.html#syllabus",
+    "title": "Surface Hydrology",
+    "section": "Syllabus",
+    "text": "Syllabus\n\nCourse description\nThis is an introductory course in Surface Hydrology, dealing with some of the major processes in the hydrologic cycle: precipitation, evaporation and transpiration, infiltration, runoff generation and streamflow. The different topics will be treated using mathematical models and practical programming exercises.\n\n\nCourse aims\nThe course aims at giving the students a quantitative understanding of the main processes in the hydrologic cycle. We will characterize the hydrologic cycle and its fluxes through mass balance equations. The random nature of the various processes will be studied with statistics, time series analysis, return periods, extreme value distributions, etc. We will take a “hands-on approach”, where students will actively engage with the material by analysing data and writing models using Python.\n\n\nLearning outcomes\nOn successful completion of this module, students should be able to:\n\nIdentify the various components of hydrologic budget and their interdependency.\nDescribe the various processes in hydrology (precipitation, infiltration, evaporation, etc) in a mathematical language.\nWrite computer code to analyze the statistics of hydrologic fluxes, and construct models of hydrological systems.\n\n\n\nBooks and other sources\n\nDingman, S. L. (2015). Physical hydrology (3rd edition). Waveland press.\nWard, A. D., & Trimble, S. W. (2003). Environmental hydrology. CRC Press.\nBrutsaert, W. (2005). Hydrology: An Introduction. Cambridge University Press.\n\n\n\nCourse evaluation\nThere will be some small projects during the semester, all worth 50% of the grade. A final and larger project (50% of the grade) will be due at the end of the semester. All projects will be done in Python (on Jupyter Notebooks)."
+  },
+  {
+    "objectID": "precipitation/interannual-exercises.html#homework",
+    "href": "precipitation/interannual-exercises.html#homework",
+    "title": "4  Exercises",
+    "section": "4.1 homework",
+    "text": "4.1 homework\n\nDownload both daily and monthly data for London (LONDON HEATHROW, ID: UKM00003772). You should be aware that ‘PRCP’ for monthly data is in millimeters, while ‘PRCP’ for daily data is in tens of millimiters.\nAggregate daily data into monthly intervals using resample(‘MS’).sum(). ‘MS’ means that the sum of all days in the month will be stored in the first day of the month. Supposedly both datasets are equal now.\nCalculate the average annual rainfall, using each of these datasets.\nWhy is there such a big difference?"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html",
+    "href": "introduction/introduction-exercises.html",
+    "title": "2  Exercises",
+    "section": "",
+    "text": "3 homework\nGo back to the weather station website, download one year of data from 01.01.2020 to 31.12.2020 (24h data). If you can’t download the data, just click here. Make the following graph: - daily tmax and tmin - smoothed data for tmax and tmin\nIn order to smooth the data with a 30 day window, use the following function:\ndf['tmin'].rolling(30, center=True).mean()\nThis means that you will take the mean of 30 days, and put the result in the center of this 30-day window.\nPlay with this function, see what you can do with it. What happens when you change the size of the window? Why is the smoothed data shorter than the original data? See the documentation for rolling to find more options."
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#download-the-data",
+    "href": "introduction/introduction-exercises.html#download-the-data",
+    "title": "2  Exercises",
+    "section": "2.1 download the data",
+    "text": "2.1 download the data\n\nGo to the Faculty of Agriculture’s weather station.\nClick on משיכת נתונים and download data for 1 September 2020 to 28 February 2021, with a 24h interval. Call it data-sep2020-feb2021\nOpen the .csv file with Excel, see how it looks like\nIf you can’t download the data, just click here."
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#import-packages",
+    "href": "introduction/introduction-exercises.html#import-packages",
+    "title": "2  Exercises",
+    "section": "2.2 import packages",
+    "text": "2.2 import packages\nWe need to import this data into python. First we import useful packages. Type (don’t copy and paste) the following lines in the code cell below.\n\n\nCode\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nsns.set(style=\"ticks\", font_scale=1.5)"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#import-data-with-pandas",
+    "href": "introduction/introduction-exercises.html#import-data-with-pandas",
+    "title": "2  Exercises",
+    "section": "2.3 import data with pandas",
+    "text": "2.3 import data with pandas\nImport data from csv and put it in a pandas dataframe (a table). Make line 5 the header (column names)\n\n\nCode\ndf = pd.read_csv(\"data-sep2020-feb2021.csv\", header=[4])\ndf\n\n\n\n\n\n\n  \n    \n      \n      Unnamed: 0\n      �C\n      �C.1\n      km/h\n      mm\n      mm.1\n    \n  \n  \n    \n      0\n      01/09/20\n      32.8\n      25.3\n      29.7\n      0.0\n      0.0\n    \n    \n      1\n      02/09/20\n      33.0\n      24.0\n      28.8\n      0.0\n      0.0\n    \n    \n      2\n      03/09/20\n      34.2\n      23.8\n      31.6\n      0.0\n      0.0\n    \n    \n      3\n      04/09/20\n      36.3\n      27.3\n      24.2\n      0.0\n      0.0\n    \n    \n      4\n      05/09/20\n      34.2\n      26.3\n      22.4\n      0.0\n      0.0\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      176\n      24/02/21\n      20.6\n      9.9\n      28.8\n      0.0\n      481.7\n    \n    \n      177\n      25/02/21\n      19.4\n      9.3\n      23.3\n      0.0\n      481.7\n    \n    \n      178\n      26/02/21\n      21.3\n      8.0\n      24.2\n      0.1\n      481.8\n    \n    \n      179\n      27/02/21\n      23.4\n      9.2\n      30.6\n      0.0\n      481.8\n    \n    \n      180\n      28/02/21\n      19.7\n      9.2\n      22.4\n      0.0\n      481.8\n    \n  \n\n181 rows × 6 columns"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#rename-columns",
+    "href": "introduction/introduction-exercises.html#rename-columns",
+    "title": "2  Exercises",
+    "section": "2.4 rename columns",
+    "text": "2.4 rename columns\nrename the columns to:\ndate, tmax, tmin, wind, rain24h, rain_cumulative\n\n\nCode\ndf.columns = ['date', 'tmax', 'tmin', 'wind', 'rain24h', 'rain_cumulative']\ndf\n\n\n\n\n\n\n  \n    \n      \n      date\n      tmax\n      tmin\n      wind\n      rain24h\n      rain_cumulative\n    \n  \n  \n    \n      0\n      01/09/20\n      32.8\n      25.3\n      29.7\n      0.0\n      0.0\n    \n    \n      1\n      02/09/20\n      33.0\n      24.0\n      28.8\n      0.0\n      0.0\n    \n    \n      2\n      03/09/20\n      34.2\n      23.8\n      31.6\n      0.0\n      0.0\n    \n    \n      3\n      04/09/20\n      36.3\n      27.3\n      24.2\n      0.0\n      0.0\n    \n    \n      4\n      05/09/20\n      34.2\n      26.3\n      22.4\n      0.0\n      0.0\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      176\n      24/02/21\n      20.6\n      9.9\n      28.8\n      0.0\n      481.7\n    \n    \n      177\n      25/02/21\n      19.4\n      9.3\n      23.3\n      0.0\n      481.7\n    \n    \n      178\n      26/02/21\n      21.3\n      8.0\n      24.2\n      0.1\n      481.8\n    \n    \n      179\n      27/02/21\n      23.4\n      9.2\n      30.6\n      0.0\n      481.8\n    \n    \n      180\n      28/02/21\n      19.7\n      9.2\n      22.4\n      0.0\n      481.8\n    \n  \n\n181 rows × 6 columns"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#a-first-plot",
+    "href": "introduction/introduction-exercises.html#a-first-plot",
+    "title": "2  Exercises",
+    "section": "2.5 a first plot!",
+    "text": "2.5 a first plot!\nplot the minimum temperature:\n\n#collapse-hide\n\nplt.plot(df['tmin'])"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#how-to-deal-with-dates",
+    "href": "introduction/introduction-exercises.html#how-to-deal-with-dates",
+    "title": "2  Exercises",
+    "section": "2.6 how to deal with dates",
+    "text": "2.6 how to deal with dates\nWe want the dates to appear on the horizontal axis.\nInterpret ‘date’ column as a pandas datetime, see how it looks different from before\nbefore: 01/09/20\nafter: 2020-09-01\n\n#collapse-hide\n\ndf['date'] = pd.to_datetime(df['date'], dayfirst=True)\ndf\n\n\n\n\n\n  \n    \n      \n      date\n      tmax\n      tmin\n      wind\n      rain24h\n      rain_cumulative\n    \n  \n  \n    \n      0\n      2020-09-01\n      32.8\n      25.3\n      29.7\n      0.0\n      0.0\n    \n    \n      1\n      2020-09-02\n      33.0\n      24.0\n      28.8\n      0.0\n      0.0\n    \n    \n      2\n      2020-09-03\n      34.2\n      23.8\n      31.6\n      0.0\n      0.0\n    \n    \n      3\n      2020-09-04\n      36.3\n      27.3\n      24.2\n      0.0\n      0.0\n    \n    \n      4\n      2020-09-05\n      34.2\n      26.3\n      22.4\n      0.0\n      0.0\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      176\n      2021-02-24\n      20.6\n      9.9\n      28.8\n      0.0\n      481.7\n    \n    \n      177\n      2021-02-25\n      19.4\n      9.3\n      23.3\n      0.0\n      481.7\n    \n    \n      178\n      2021-02-26\n      21.3\n      8.0\n      24.2\n      0.1\n      481.8\n    \n    \n      179\n      2021-02-27\n      23.4\n      9.2\n      30.6\n      0.0\n      481.8\n    \n    \n      180\n      2021-02-28\n      19.7\n      9.2\n      22.4\n      0.0\n      481.8\n    \n  \n\n181 rows × 6 columns\n\n\n\n\n2.6.1 date as dataframe index\nMake ‘date’ the dataframe’s index (leftmost column, but not really a column!)\n\n#collapse-hide\n\ndf = df.set_index('date')\ndf\n\n\n\n\n\n  \n    \n      \n      tmax\n      tmin\n      wind\n      rain24h\n      rain_cumulative\n    \n    \n      date\n      \n      \n      \n      \n      \n    \n  \n  \n    \n      2020-09-01\n      32.8\n      25.3\n      29.7\n      0.0\n      0.0\n    \n    \n      2020-09-02\n      33.0\n      24.0\n      28.8\n      0.0\n      0.0\n    \n    \n      2020-09-03\n      34.2\n      23.8\n      31.6\n      0.0\n      0.0\n    \n    \n      2020-09-04\n      36.3\n      27.3\n      24.2\n      0.0\n      0.0\n    \n    \n      2020-09-05\n      34.2\n      26.3\n      22.4\n      0.0\n      0.0\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      2021-02-24\n      20.6\n      9.9\n      28.8\n      0.0\n      481.7\n    \n    \n      2021-02-25\n      19.4\n      9.3\n      23.3\n      0.0\n      481.7\n    \n    \n      2021-02-26\n      21.3\n      8.0\n      24.2\n      0.1\n      481.8\n    \n    \n      2021-02-27\n      23.4\n      9.2\n      30.6\n      0.0\n      481.8\n    \n    \n      2021-02-28\n      19.7\n      9.2\n      22.4\n      0.0\n      481.8\n    \n  \n\n181 rows × 5 columns"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#plot-again-now-with-dates",
+    "href": "introduction/introduction-exercises.html#plot-again-now-with-dates",
+    "title": "2  Exercises",
+    "section": "2.7 plot again, now with dates",
+    "text": "2.7 plot again, now with dates\nPlot minimum temperature, now we have dates on the horizontal axis\n\n#collapse-hide\n\nplt.plot(df['tmin'])"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#were-getting-there-the-graph-could-look-better",
+    "href": "introduction/introduction-exercises.html#were-getting-there-the-graph-could-look-better",
+    "title": "2  Exercises",
+    "section": "2.8 we’re getting there! the graph could look better",
+    "text": "2.8 we’re getting there! the graph could look better\nLet’s make the graph look better: labels, title, slanted dates, etc\n\n#collapse-hide\n\n# creates figure (the canvas) and the axis (rectangle where the plot sits)\nfig, ax = plt.subplots(1, figsize=(10,7))\n# two line plots\nax.plot(df['tmin'], color=\"red\", label=\"Temp (min)\")\nax.plot(df['tmax'], color=\"blue\", label=\"Temp (max)\")\n# axes labels and figure title\nax.set_xlabel('date')\nax.set_ylabel('temperature (°C)')\nax.set_title('maximum and minimum temperatures')\n# some ticks adjustments\nax.set_yticks([10,15,20,25])  # we can choose where to put ticks\nax.grid(axis='y')         # makes horizontal lines\nplt.gcf().autofmt_xdate()  # makes slated dates\n# legend\nax.legend(loc='upper right')\n# save png figure\nplt.savefig(\"temp_max_min.png\")"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#make-the-following-figure",
+    "href": "introduction/introduction-exercises.html#make-the-following-figure",
+    "title": "2  Exercises",
+    "section": "2.9 make the following figure",
+    "text": "2.9 make the following figure\nUse the following function to plot bars for daily rainfall\nax.bar(x_array, y_array)\nCan you write yourself some lines of code that calculate the cumulative rainfall from the daily rainfall?\n\n#collapse-hide\n\n# creates figure (the canvas) and the axis (rectangle where the plot sits)\nfig, ax = plt.subplots(1, figsize=(10,7))\n\n# line and bar plots\nax.bar(df.index, df['rain24h'], color=\"blue\", label=\"daily rainfall\")\n\n# there are many ways of calculating the cumulative rain\n\n# method 1, use a for loop:\n# rain = df['rain24h'].to_numpy()\n# cumulative = rain * 0\n# for i in range(len(rain)):\n#     cumulative[i] = np.sum(rain[:i])\n# df['cumulative1'] = cumulative\n\n# method 2, use list comprehension:\n# rain = df['rain24h'].to_numpy()\n# cumulative = [np.sum(rain[:i]) for i in range(len(rain))]\n# df['cumulative2'] = cumulative\n\n# method 3, use existing functions:\ndf['cumulative3'] = np.cumsum(df['rain24h'])\n\nax.plot(df['cumulative3'], color=\"red\", label=\"cumulative rainfall\")\n# compare our cumulative rainfall with the downloaded data\n# ax.plot(df['rain_cumulative'], 'x')\n# axes labels and figure title\nax.set_xlabel('date')\nax.set_ylabel('rainfall (mm)')\nax.set_title('daily and cumulative rainfall')\nax.set_xlim(['2020-11-01','2021-02-28'])\n# some ticks adjustments\nplt.gcf().autofmt_xdate()  # makes slated dates\n# legend\nax.legend(loc='upper left')\n# save png figure\nplt.savefig(\"cumulative_rainfall.png\")"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#make-another-figure",
+    "href": "introduction/introduction-exercises.html#make-another-figure",
+    "title": "2  Exercises",
+    "section": "2.10 make another figure",
+    "text": "2.10 make another figure\nIn order to choose just a part of the time series, you can use the following:\nstart_date = '2021-01-01'\nend_date = '2021-01-31'\njanuary = df[start_date:end_date]\n\n#collapse-hide\n\n# creates figure (the canvas) and the axis (rectangle where the plot sits)\nfig, ax = plt.subplots(1, figsize=(10,7))\n# define date range\nstart_date = '2021-01-01'\nend_date = '2021-01-31'\njanuary = df[start_date:end_date]['tmax']\n# plots\nax.plot(january, color=\"red\", label=\"daily max\")\nax.plot(january*0 + january.mean(), color=\"purple\", linestyle=\"--\", label=\"average daily max\")\n# axes labels and figure title\nax.set_xlabel('date')\nax.set_ylabel('temperature (°C)')\nax.set_title('average daily maximum temperature for January 2021')\n# some ticks adjustments\nplt.gcf().autofmt_xdate()  # makes slated dates\n# legend\nax.legend(loc='lower left')\n# save png figure\nplt.savefig(\"average_max_temp.png\")"
+  },
+  {
+    "objectID": "introduction/introduction-exercises.html#one-last-figure-for-today",
+    "href": "introduction/introduction-exercises.html#one-last-figure-for-today",
+    "title": "2  Exercises",
+    "section": "2.11 one last figure for today",
+    "text": "2.11 one last figure for today\nUse the following code to create histograms with user-defined bins:\nb = np.arange(0, 56, 5)  # bins from 0 to 55, width = 5\nax.hist(df['wind'], bins=b, density=True)\nPlay with the bins, see what happens. What does density=True do?\n\n#collapse-hide\n\n# creates figure (the canvas) and the axis (rectangle where the plot sits)\nfig, ax = plt.subplots(1, figsize=(10,7))\n# histogram\nb = np.arange(0, 56, 5)  # bins from 0 to 55, width = 5\nax.hist(df['wind'], bins=b, density=True)\n# axes labels and figure title\nax.set_xlabel('max wind speed (km/h)')\nax.set_ylabel('frequency')\nax.set_title('frequency of maximum wind speed')\n# save png figure\nplt.savefig(\"wind-histogram.png\")"
+  }
+]
