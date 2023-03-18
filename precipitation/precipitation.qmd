@@ -1,1 +1,7 @@
 ## Precipitation
+
+Here are some of the files we'll use in this module, in case you can't download them from their original repositories.
+
+* [BEN_GURION_monthly.csv](/archive/data/BEN_GURION_monthly.csv)
+* [BEER_SHEVA_monthly.csv](/archive/data/BEER_SHEVA_monthly.csv)
+* [Eilat_daily.csv](/archive/data/Eilat_daily.csv)

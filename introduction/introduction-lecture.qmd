@@ -61,7 +61,7 @@ From @margulis2019introduction
 
 Evaporation $\longrightarrow$ cooling
 
-![](/archive/figures/evaporation_1.gif "Source: http://www.hk-phy.org/contextual/heat/cha/evapo02_e.html")
+![](/archive/figures/evaporation_1.png "Source: http://www.hk-phy.org/contextual/heat/cha/evapo02_e.html")
 
 ![](/archive/figures/evaporation_2.png "Source: https://courses.lumenlearning.com/cheminter/chapter/evaporation/")
 
@@ -185,7 +185,7 @@ Center Pivot irrigation in Nebraska taps the Ogallala Aquifer.
 
 ![Source: @usgs_Groundwater_flow](/archive/figures/groundwater-flow-diagram.jpg)
 
-![Source: @What_is_Groundwater](/archive/figures/groundwater-discharge.gif)
+![Source: @What_is_Groundwater](/archive/figures/groundwater-discharge.png)
 
 ![Source: @Evaluating_Submarine](/archive/figures/groundwater-discharge-submarine.png)
 

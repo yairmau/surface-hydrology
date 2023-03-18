@@ -191,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Precipitation</a>
+            <a href="../precipitation/precipitation.html" class="sidebar-item-text sidebar-link">Precipitation</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -404,8 +404,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Import relevant packages</p>
 <div class="cell" data-execution_count="1">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -415,13 +413,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> register_matplotlib_converters</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>register_matplotlib_converters()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Plot monthly rainfall for your station.</p>
 <p>Load the data into a datafram, and before you continue with the analysis, plot the rainfall data, to see how it looks like.</p>
 <div class="cell" data-execution_count="3">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'BEN_GURION_monthly.csv'</span>, sep<span class="op">=</span><span class="st">","</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make 'DATE' the dataframe index</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'DATE'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'DATE'</span>])</span>
@@ -430,7 +425,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ax1.plot(df[<span class="st">'PRCP'</span>])</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ax2.plot(df[<span class="st">'PRCP'</span>][<span class="st">'2010-07-01'</span>:<span class="st">'2015-07-01'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="interannual-exercises_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
@@ -440,8 +434,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#offset-aliases" class="uri">https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#offset-aliases</a></p>
 <p>also, annual resampling can be anchored to the end of specific months: <a href="https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#anchored-offsets" class="uri">https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#anchored-offsets</a></p>
 <div class="cell" data-execution_count="4">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># annual frequency, anchored 31 December</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'A'</span>).<span class="bu">sum</span>().to_frame()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># annual frequency, anchored 01 January</span></span>
@@ -451,7 +443,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># rename 'PRCP' column to 'rain (mm)'</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_year_all.columns <span class="op">=</span> [<span class="st">'rain (mm)'</span>]</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df_year_all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 
 <div>
@@ -520,8 +511,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>You might need to exclude the first or the last line, since their data might have less that 12 months. For example:</p>
 <div class="cell" data-execution_count="5">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exclude 1st row</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_year <span class="op">=</span> df_year_all.iloc[<span class="dv">1</span>:]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># exclude last row</span></span>
@@ -529,7 +518,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># exclude both 1st and last rows</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df_year <span class="op">=</span> df_year_all.iloc[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df_year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
@@ -598,8 +586,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Calculate the average annual rainfall. Plot annual rainfall for the whole range, together with the average. You should get something like this:</p>
 <div class="cell" data-execution_count="7">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plot YEARLY precipitation</span></span>
@@ -614,15 +600,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       title<span class="op">=</span><span class="ss">f"Beer Sheva, mean = </span><span class="sc">{</span>rain_mean<span class="sc">:.0f}</span><span class="ss"> mm"</span>)<span class="op">;</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># save figure</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("hydrology_figures/beersheva_yearly_rainfall_1923_2016.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="interannual-exercises_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Plot a histogram of annual rainfall, with the mean and standard deviation. Calculate the coefficient of variation. Try to plot something like this:</p>
 <div class="cell" data-execution_count="8">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate mean and standard deviation</span></span>
@@ -645,15 +628,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>       title<span class="op">=</span><span class="ss">f"Beer Sheva, 1922–2016. Mean=</span><span class="sc">{</span>rain_mean<span class="sc">:.0f}</span><span class="ss"> mm, STD=</span><span class="sc">{</span>rain_std<span class="sc">:.0f}</span><span class="ss"> mm"</span>)</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="dv">300</span>, <span class="dv">25</span>, <span class="ss">f"CV = </span><span class="sc">{</span>rain_std<span class="op">/</span>rain_mean<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"histogram_beersheva.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="interannual-exercises_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Calculate the mean annual rainfall for various 30-year intervals</p>
 <div class="cell" data-execution_count="9">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">####### the hard way #######</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fig, ax = plt.subplots(figsize=(10,7))</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -684,7 +664,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>       xticklabels<span class="op">=</span>[<span class="bu">str</span>(w) <span class="cf">for</span> w <span class="kw">in</span> windows],</span>
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>       ylabel<span class="op">=</span><span class="st">"window average (mm)"</span></span>
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>      )<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="interannual-exercises_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>

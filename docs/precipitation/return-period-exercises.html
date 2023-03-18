@@ -192,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Precipitation</a>
+            <a href="../precipitation/precipitation.html" class="sidebar-item-text sidebar-link">Precipitation</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -405,8 +405,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Import relevant packages</p>
 <div class="cell" data-execution_count="9">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -418,7 +416,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> register_matplotlib_converters</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>register_matplotlib_converters()</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Go to NOAA’s National Centers for Environmental Information (NCEI)<br>
 <a href="https://www.ncdc.noaa.gov/cdo-web/datasets">Climate Data Online: Dataset Discovery</a></p>
@@ -428,8 +425,6 @@ STATION ID: ISM00040180<br>
 Period of Record: 1951-01-01 to 2020-03-01</p>
 <p>You can download <strong>daily</strong> or <strong>monthly</strong> data for each station. Use the function below to download this data to your computer. <code>station_name</code> can be whatever you want, <code>station_code</code> is the station ID.</p>
 <div class="cell" data-execution_count="10">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download_data(station_name, station_code):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    url_daily <span class="op">=</span> <span class="st">'https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/access/'</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    url_monthly <span class="op">=</span> <span class="st">'https://www.ncei.noaa.gov/data/gsom/access/'</span></span>
@@ -439,20 +434,14 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># download monthly data</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    urllib.request.urlretrieve(url_monthly <span class="op">+</span> station_code <span class="op">+</span> <span class="st">'.csv'</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                               station_name <span class="op">+</span> <span class="st">'_monthly.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Download daily rainfall data for Eilat, Israel. ID: IS000009972</p>
 <div class="cell" data-execution_count="11">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>download_data(<span class="st">'Eilat'</span>, <span class="st">'IS000009972'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Then load the data into a dataframe.<br>
 <strong>IMPORTANT!!</strong> daily precipitation data is in tenths of mm, divide by 10 to get it in mm.</p>
 <div class="cell" data-execution_count="5">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'Eilat_daily.csv'</span>, sep<span class="op">=</span><span class="st">","</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make 'DATE' the dataframe index</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'DATE'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'DATE'</span>])</span>
@@ -460,7 +449,6 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPORTANT!! daily precipitation data is in tenths of mm, divide by 10 to get it in mm.</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'PRCP'</span>] <span class="op">=</span> df[<span class="st">'PRCP'</span>] <span class="op">/</span> <span class="dv">10</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
@@ -685,14 +673,11 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 </div>
 <p>Plot precipitation data (‘PRCP’ column) and see if everything is all right.</p>
 <div class="cell" data-execution_count="12">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ax.plot(df[<span class="st">'PRCP'</span>])</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"date"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"daily rainfall (mm)"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Eilat, 1949–2021"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>Text(0.5, 1.0, 'Eilat, 1949–2021')</code></pre>
 </div>
@@ -702,13 +687,10 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 </div>
 <p>Based on what you see, you might want to exclude certain periods, e.g.:</p>
 <div class="cell" data-execution_count="14">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>last_date <span class="op">=</span> <span class="st">'2018-08-01'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>first_date <span class="op">=</span> <span class="st">'1950-08-01'</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[((df.index <span class="op">&lt;</span> last_date) <span class="op">&amp;</span> (df.index <span class="op">&gt;</span> first_date))]</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 
 <div>
@@ -933,8 +915,6 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 </div>
 <p>The rainfall data for Eilat is VERY seasonal, it’s easy to see that there is no rainfall at all during the summer. We can assume a hydrological year starting on 1 August. If you’re not sure, you can plot the monthly means (see last week’s lecture) and find what date makes sense best.</p>
 <div class="cell" data-execution_count="16">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_month <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'M'</span>).<span class="bu">sum</span>().to_frame()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>month_numbers <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">13</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>monthly_mean <span class="op">=</span> np.array([])  <span class="co"># empty array</span></span>
@@ -951,21 +931,17 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>       ylabel<span class="op">=</span><span class="st">"monthly rainfall (mm)"</span>,</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>       title<span class="op">=</span><span class="st">"Monthly average, Eilat, 1949--2018"</span>,</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>       xticks<span class="op">=</span>np.arange(<span class="dv">1</span>,<span class="dv">13</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="return-period-exercises_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Let’s resample the data according to the hydrological year (1 August), and we’ll keep the maximum value:</p>
 <div class="cell" data-execution_count="17">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>max_annual <span class="op">=</span> (df[<span class="st">'PRCP'</span>].resample(<span class="st">'A-JUL'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        .<span class="bu">max</span>()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        .to_frame()</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             )</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>max_annual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 
 <div>
@@ -1034,8 +1010,6 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 </div>
 <p>Make two graphs: a) the histogram for the annual maximum (pdf) b) the cumulative probability (cdf)</p>
 <div class="cell" data-execution_count="27">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>h<span class="op">=</span>max_annual[<span class="st">'PRCP'</span>].values</span>
@@ -1046,7 +1020,6 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>ax2.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"annual max (mm)"</span>,</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        ylabel<span class="op">=</span><span class="st">"cdf"</span>,</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="return-period-exercises_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
@@ -1069,8 +1042,6 @@ P_m = \frac{m}{n+1}
 \]</span></p>
 <p>Plot the annual maximum against <span class="math inline">\(P_m\)</span> or against <span class="math inline">\(T_r\)</span>.</p>
 <div class="cell" data-execution_count="29">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># resample daily data into yearly data (maximum yearly value)</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>max_annual <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'A-JUL'</span>).<span class="bu">max</span>().to_frame()</span>
@@ -1091,7 +1062,6 @@ P_m = \frac{m}{n+1}
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>ax.plot(Pm, max_annual[<span class="st">'PRCP'</span>])</span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"non-exeedance probability"</span>,</span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>       ylabel<span class="op">=</span><span class="st">"annual maximum (mm/24h)"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            PRCP  rank
 DATE                  
@@ -1119,8 +1089,6 @@ DATE
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See what data you’ll want to use for a linear fit.</p>
 <div class="cell" data-execution_count="32">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>depth <span class="op">=</span> max_annual[<span class="st">'PRCP'</span>].values</span>
@@ -1138,7 +1106,6 @@ DATE
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>       xscale<span class="op">=</span><span class="st">"log"</span>,</span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>       yscale<span class="op">=</span><span class="st">"log"</span>,</span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>      )<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="return-period-exercises_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
@@ -1148,8 +1115,6 @@ DATE
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>slope, intercept <span class="op">=</span> np.polyfit(xdata, ydata, <span class="dv">1</span>) <span class="co"># the number 1 in the order of the polynomial = linear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Write a function that receives an exceedance probability and returns the corresponding rainfall depth.</p>
 <div class="cell" data-execution_count="34">
-<details>
-<summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>depth <span class="op">=</span> max_annual[<span class="st">'PRCP'</span>].values</span>
@@ -1175,7 +1140,6 @@ DATE
 <span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.exp(slope<span class="op">*</span>np.log(p) <span class="op">+</span> intercept)</span>
 <span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> [<span class="fl">1e-3</span>,<span class="dv">1</span><span class="op">-</span><span class="fl">1e-3</span>]</span>
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>ax.plot(prob, equation(prob), lw<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="st">"tab:red"</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="return-period-exercises_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>

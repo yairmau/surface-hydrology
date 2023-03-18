@@ -211,7 +211,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Precipitation</a>
+            <a href="../precipitation/precipitation.html" class="sidebar-item-text sidebar-link">Precipitation</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -566,7 +566,7 @@ div.csl-indent {
 </section>
 <section id="return-period" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="return-period"><span class="header-section-number">7.5</span> Return Period</h2>
-<p>We will follow <span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, page 513. He defines quantities a little different from what we did above.</p>
+<p>We will follow <span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, page 513. He defines quantities a little different from what we did above.</p>
 <p><span class="math inline">\(F(x)\)</span> is the CDF of the PDF <span class="math inline">\(f(x)\)</span>. <span class="math inline">\(F(x)\)</span> indicates the non-exceedance probability, i.e., the probability that a certain event above <span class="math inline">\(x\)</span> has <strong>not</strong> occurred (or that an event below <span class="math inline">\(x\)</span> has occurred, same thing). Modifying the graph shown above, we have</p>
 <p><img src="../archive/figures/return_prob_050_reversed.png" class="img-fluid"></p>
 <p><span class="math inline">\(1-F(x)\)</span> is the probability that a certain event above <span class="math inline">\(x\)</span> <em>has</em> occurred. It’s reciprocal is the return period:</p>
@@ -596,7 +596,7 @@ T_r(x) = \frac{1}{1-F(x)}
 </section>
 <section id="plotting-position" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="plotting-position"><span class="header-section-number">7.6</span> Plotting Position</h2>
-<p>Source: <span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, pages 514-516</p>
+<p>Source: <span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, pages 514-516</p>
 <p>The <strong>Plotting Position</strong> is used as an estimate of the exceedance probability. Many formulas have been suggested (see source above), we will use the <strong>Weibull plotting position</strong>:</p>
 <p><span class="math inline">\(P_m=\)</span> plotting position, or probability of occurence for each event<br>
 <span class="math inline">\(n=\)</span> total number of events<br>
@@ -741,7 +741,7 @@ P_m = \frac{m}{n+1}
 <p><img src="../archive/figures/extrapolation_exceedance4.png" class="img-fluid"></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-brutsaert2005hydrology" class="csl-entry" role="doc-biblioentry">
 Brutsaert, Wilfried. 2005. <em>Hydrology: An Introduction</em>. Cambridge University Press.
 </div>

@@ -13,7 +13,7 @@ book:
       chapters:
         - introduction/introduction-lecture.qmd
         - introduction/introduction-exercises.ipynb
-    - part: "Precipitation" #precipitation/precipitation.qmd
+    - part: precipitation/precipitation.qmd
       chapters:
         - precipitation/interannual-lecture.qmd
         - precipitation/interannual-exercises.ipynb
@@ -67,8 +67,8 @@ format:
     css: styles.css
     fontsize: 1.2em
     highlight-style: breezedark
-  pdf:
-    documentclass: scrreprt
+  # pdf:
+  #   documentclass: scrreprt
 
 
 
