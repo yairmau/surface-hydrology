@@ -13,7 +13,8 @@ A time period of 12 months for which precipitation totals are measured. The hydr
 Let's define the hydrological year for Tel Aviv from 1 October to 30 September.
 
 האם אקלים הגשם שלנו משתנה
-> youtube: https://youtu.be/v0uNpj03Rk4
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v0uNpj03Rk4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ![](/archive/figures/annual_tel_aviv_with_mean.png)
 
