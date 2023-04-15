@@ -27,7 +27,7 @@ Let's examine Bilbao's daily rainfall (mm), between 1947 to 2021
 
 ![](/archive/figures/bilbao-1947-2021.png)
 
-On the week of 22-28 August 1983, Bilbao's weather station measured 4.5 m of rainfall!
+On the week of 22-28 August 1983, Bilbao's weather station measured 45 cm of rainfall!
 
 ![](/archive/figures/bilbao-august-1983.png)
 
@@ -81,12 +81,25 @@ alt.vconcat(upper, lower)
 We will consider a hydrological year starting on 1 August.
 ![](/archive/figures/monthly_average_bilbao.png)
 
-Histogram of annual maximum events
+* Top: Histogram of annual daily precipitation maximum events.  
+* Bottom: The cumulative answers the question: "How many events can be found **below** a given threshold?"
+
 ![](/archive/figures/hist_count_cumulative_bilbao.png)
+
+* Top: We can normalize the histogram such that the total area is 1. Now the histogram is called `probability density function (pdf)`. The probability is NOT the pdf, but the area between two thresholds.
+* Bottom: The cumulative now becomes a probability between 0 and 1. It is now called `cumulative density function (cdf)`. The cdf answers the question: "What is the probability to choose an event **below** a given threshold?"
 
 ![](/archive/figures/pdf_cdf_bilbao.png)
 
-How many years, **on average**, do we have to wait to get an annual maximum above a given threshold?
+We are interested in extreme events, and we want to estimate how many years, **on average**, do we have to wait to get an annual maximum **above** a given threshold?
+
+This question is very similar to what we asked regarding the cdf. 🤔  
+We switched the word "below" for "above". The complementary of the cumulative is called the exceedance (or survival) probability:
+
+$$
+\text{exceedance, survival} = 1 - \text{cdf}
+$$
+
 
 ![](/archive/figures/return_prob_050.png)
 
@@ -122,6 +135,7 @@ In our case, we can ask the question: how many years will pass (on average) unti
 
 Let's call $p=F(x)$ the probability that we measured once and that an event greater than $x$ has *not* occurred.
 What is the probability that a rainfall above $x$ will occur only on year number $k$?  
+
 * it hasn't occurred on year 1 (probability p)
 * it hasn't occurred on year 2 (probability p)
 * it hasn't occurred on year 3 (probability p)
@@ -155,7 +169,67 @@ $$
 
 We conclude that if we know the exceedance probability, we immediately can say what the return times are. We now need a way of estimating this exceedance probability.
 
-## Plotting Position
+## Generalized extreme value distribution
+
+This part of the lecture was heavily inspired by Alexandre Martinez's excellent [blog post](https://sites.uci.edu/alexm/teaching-interests/calculating-return-level-of-extreme-precipitation-and-temperature-using-extrem-events-analysis/).
+
+The Generalized Extreme Value (GEV) distribution is the limit distribution of properly normalized maxima of a sequence of independent and identically distributed random variables ([from Wikipedia](https://en.wikipedia.org/wiki/Generalized_extreme_value_distribution)).
+
+It has three parameters: shape, location and scale. We can fit Bilbao's annual daily maxima with a GEV distribution, yielding:
+
+![(shape=-0.18, location=52, shape=16)
+](/archive/figures/bilbao-gev_hist2.png)
+
+We will use the fitted parameters to plot the cdf, and then we will find the return periods. How can we calculate the cdf numerically form the data?
+
+### cdf from data
+
+Here is a plot of annual daily precipitation maxima for Bilbao.
+
+![](/archive/figures/bilbao-max-daily.png)
+
+There are 74 points here. Let's order them from small to large:
+
+![](/archive/figures/bilbao-max-daily-vs-order.png)
+
+![](/archive/figures/bilbao-max-daily-vs-order-threshold.png)
+
+Now, instead of having the order of the event on the horizontal axis, let's make it a fraction from 0 to 1.
+
+![](/archive/figures/bilbao-max-daily-vs-fraction-arrow.png)
+
+We are getting there! We can interpret this fraction as the probability of randomly choosing a point in the graph below the threshold.
+
+![](/archive/figures/bilbao-max-daily-vs-probability-arrow.png)
+
+Now we just need to flip the vertical and horizontal axes, and we're done! We have our cdf!
+
+![](/archive/figures/bilbao-probability-vs-max-daily.png)
+
+Now that we have the cdf from data, we can plot on top of it the GEV cdf with the parameters we found before.
+
+![](/archive/figures/bilbao-probability-vs-max-daily-gev-pdf-fit.png)
+
+The highest data point in this graph goes only to 252 mm, corresponding to the highest event recorded in 74 years. We can use the GEV cdf to calculate return times for any desired levels, simply by converting the vertical axis (cdf) to return period, using the equation we found earlier.
+$$
+T_r(x) = \frac{1}{1-F(x)},
+$$
+
+where $T_r$ is the return period (in years), and $F$ is the cdf.
+
+![](/archive/figures/bilbao-annual-daily-max-vs-return-time-fit.png)
+
+The information contained in the last two graphs is exactly the same, but somehow this last graph looks much worse! Why is this so? Acording to the GEV distribution we got, the return time for a 252 mm event is about 700 years!
+
+## Extra: K-S test
+
+to be completed...
+
+## Extra: confidence interval
+
+to be completed...
+
+<!-- ## Plotting Position
 
 Source: @brutsaert2005hydrology, pages 514-516  
 
@@ -210,4 +284,4 @@ For times longer than $n$, we need to extrapolate from the curve above.
 
 ![](/archive/figures/extrapolation_exceedance3.png)
 
-![](/archive/figures/extrapolation_exceedance4.png)
+![](/archive/figures/extrapolation_exceedance4.png) -->
