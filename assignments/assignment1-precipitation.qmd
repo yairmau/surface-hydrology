@@ -1,0 +1,30 @@
+---
+title: "Assignment 1 - Precipitation"
+execute:
+  freeze: auto  # re-render only when source changes
+jupyter: python3
+---
+
+## 📒 instructions
+This is where learning happens, not during a lecture. You'll learn a ton of things by doing them yourself. Much success! 😄
+
+Create a Jupyter Notebook called `assignment-01-IDNUMBER`, where `IDNUMBER` is your 9-digit ID. This is the file only file we will check.
+
+## 📌 locations
+Choose two meteorologic stations from NOAA's **[Global Summary of the Month](https://gis.ncdc.noaa.gov/maps/ncei/cdo/monthly)**.  
+Criteria:  
+1. at least 60 years of data for each station.  
+2. choose stations with different characteristics, regarding mean annual precipitation, seasonality,
+ <!-- extreme events,  -->
+etc.
+
+## 🛠 tasks
+
+Analyze the data and make graphs showing the differences and similarities between the two locations you chose. The analyses and graphs should be similar to those we saw during our lectures and exercise sessions. Of course, if you find something interesting we did not do in class, you are more than welcome to show it. Discuss about:  
+1. mean annual precipitation and inter-annual variability.  
+2. intra-annual variability (seasonality).  
+<!-- 3. extreme rainfall events and return times. -->
+
+You will have **two weeks** to deliver your assignment. You should **not** hand in a dry document with only figures and code, I'm expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don't forget to put labels on your plot axes, title, legend, etc.  Please refer to the main [Assignments page](/assignments/assignments-general.qmd) for more details on how to write this report.
+
+Your Jupyter Notebook should be **fully functional**: if we press `Kernel > Restart & Run All`, all the code must work without any errors.

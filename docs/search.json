@@ -557,14 +557,14 @@
     "href": "assignments/assignment1-precipitation.html#locations",
     "title": "18  Assignment 1 - Precipitation",
     "section": "18.2 📌 locations",
-    "text": "18.2 📌 locations\nChoose two meteorologic stations from NOAA’s Global Summary of the Month.\nCriteria:\n1. at least 60 years of data for each station.\n2. choose stations with different characteristics, regarding mean annual precipitation, seasonality, extreme events, etc."
+    "text": "18.2 📌 locations\nChoose two meteorologic stations from NOAA’s Global Summary of the Month.\nCriteria:\n1. at least 60 years of data for each station.\n2. choose stations with different characteristics, regarding mean annual precipitation, seasonality,  etc."
   },
   {
     "objectID": "assignments/assignment1-precipitation.html#tasks",
     "href": "assignments/assignment1-precipitation.html#tasks",
     "title": "18  Assignment 1 - Precipitation",
     "section": "18.3 🛠 tasks",
-    "text": "18.3 🛠 tasks\nAnalyze the data and make graphs showing the differences and similarities between the two locations you chose. The analyses and graphs should be similar to those we saw during our lectures and exercise sessions. Of course, if you find something interesting we did not do in class, you are more than welcome to show it. Discuss about:\n1. mean annual precipitation and inter-annual variability.\n2. intra-annual variability (seasonality).\n3. extreme rainfall events and return times.\nYou will have two weeks to deliver your assignment. You should not hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc.\nYour Jupyter Notebook should be fully functional: if we press Kernel > Restart & Run All, all the code must work without any errors."
+    "text": "18.3 🛠 tasks\nAnalyze the data and make graphs showing the differences and similarities between the two locations you chose. The analyses and graphs should be similar to those we saw during our lectures and exercise sessions. Of course, if you find something interesting we did not do in class, you are more than welcome to show it. Discuss about:\n1. mean annual precipitation and inter-annual variability.\n2. intra-annual variability (seasonality).\n\nYou will have two weeks to deliver your assignment. You should not hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc. Please refer to the main Assignments page for more details on how to write this report.\nYour Jupyter Notebook should be fully functional: if we press Kernel > Restart & Run All, all the code must work without any errors."
   },
   {
     "objectID": "assignments/assignment2-ET.html#instructions",
