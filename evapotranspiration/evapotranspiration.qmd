@@ -1,2 +1,7 @@
 ## Evapotranspiration
 
+Here are some of the files we'll use in this module, in case you can't download them from their original repositories.
+
+* [bet-dagan-10min.csv](/archive/data/bet-dagan-10min.csv)
+* [bet-dagan-pan.csv](/archive/data/bet-dagan-pan.csv)
+* [bet-dagan-radiation.csv](/archive/data/bet-dagan-radiation.csv)
