@@ -360,7 +360,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="potential-evapotranspiration" class="level3" data-number="9.0.1">
 <h3 data-number="9.0.1" class="anchored" data-anchor-id="potential-evapotranspiration"><span class="header-section-number">9.0.1</span> Potential Evapotranspiration</h3>
 <p>Potential Evapotranspiration (PET) is the rate at which evapotranspiration would occur from a large area completely and uniformly covered with growing vegetation with access to an unlimited supply of soil water and without advection or heat-storage effects.</p>
-<p>Several characteristics of a vegetative surface have a strong influence on ET rate. a) the albedo of the surface, which determines the net radiation; b) the maximum leaf conductance; c) the atmospheric conductance, largely determined by vegetation height; d) presence or absence of intercepted water.</p>
+<p>Several characteristics of a vegetative surface have a strong influence on ET rate.</p>
+<ol type="a">
+<li>the albedo of the surface, which determines the net radiation;<br>
+</li>
+<li>the maximum leaf conductance;<br>
+</li>
+<li>the atmospheric conductance, largely determined by vegetation height; d) presence or absence of intercepted water.</li>
+</ol>
 </section>
 <section id="reference-crop-evapotranspiration" class="level3" data-number="9.0.2">
 <h3 data-number="9.0.2" class="anchored" data-anchor-id="reference-crop-evapotranspiration"><span class="header-section-number">9.0.2</span> Reference-Crop Evapotranspiration</h3>
@@ -372,15 +379,23 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="9.1" class="anchored" data-anchor-id="review-of-methods"><span class="header-section-number">9.1</span> Review of methods</h2>
 <p>There are a variety of ways to estimate evaporative flux in nature. The following table categorizes each method based on the data that must be acquired to apply it:</p>
 <p><img src="../archive/figures/trimble-table4.3.png" class="img-fluid"></p>
-<p>These methods also vary in the timescales in which they are relevant, typically in correlation with the variety of data needed: - Thornthwaite and SCS Blaney-Criddle: monthly or seasonal estimations (minimal data) - Jensen-Haise: 5-day estimates (good enough timescale and data for irrigation scheduling) - Penman: daily estimates - Penman-Monteith: hourly estimates (requires a lot of data)</p>
+<p>These methods also vary in the timescales in which they are relevant, typically in correlation with the variety of data needed:</p>
+<ul>
+<li>Thornthwaite and SCS Blaney-Criddle: monthly or seasonal estimations (minimal data)</li>
+<li>Jensen-Haise: 5-day estimates (good enough timescale and data for irrigation scheduling)</li>
+<li>Penman: daily estimates</li>
+<li>Penman-Monteith: hourly estimates (requires a lot of data)</li>
+</ul>
 <p><img src="../archive/figures/trimble-figure4.13.png" class="img-fluid"></p>
 </section>
 <section id="thornthwaite" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="thornthwaite"><span class="header-section-number">9.2</span> Thornthwaite</h2>
 <p>Source: Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, pages 107-108.</p>
-<p>Thornthwaite (1948) developed an equation to predict monthly evapotranspiration from mean monthly tempera- ture and latitude data (Equation 4.27). The small amount of data needed is attractive because often ET needs to be predicted for sites where few weather data are available. Based on what we know about ET, we should be skeptical about the general applicability of such a simple equation. Thornthwaite (1948) was not satisfied with the proposed approach: “The mathematical development is far from satisfactory. It is empirical. … The chief obstacle at present to the development of a rational equation is the lack of understanding of why potential ET corresponding to a given temperature is not the same everywhere.”<br>
-Taylor and Ashcroft (1972), as cited in Skaggs (1980), provided insight into the answer to Thornthwaite’s ques- tion. They said:<br>
-&gt; This equation, being based entirely upon a temperature relationship, has the disadvantage of a rather flimsy phys- ical basis and has only weak theoretical justification. Since temperature and vapor pressure gradients are mod- ified by the movement of air and by the heating of the soil and surroundings, the formula is not generally valid, but must be tested empirically whenever the climate is appreciably different from areas in which it has been tested. … In spite of these shortcomings, the method has been widely used. Because it is based entirely on temper- ature data that are available in a large number of localities, it can be applied in situations where the basic data of the Penman method are not available.</p>
+<p>Thornthwaite (1948) developed an equation to predict monthly evapotranspiration from mean monthly temperature and latitude data (Equation 4.27). The small amount of data needed is attractive because often ET needs to be predicted for sites where few weather data are available. Based on what we know about ET, we should be skeptical about the general applicability of such a simple equation. Thornthwaite (1948) was not satisfied with the proposed approach: “The mathematical development is far from satisfactory. It is empirical. … The chief obstacle at present to the development of a rational equation is the lack of understanding of why potential ET corresponding to a given temperature is not the same everywhere.”</p>
+<p>Taylor and Ashcroft (1972), as cited in Skaggs (1980), provided insight into the answer to Thornthwaite’s ques- tion. They said:</p>
+<blockquote class="blockquote">
+<p>This equation, being based entirely upon a temperature relationship, has the disadvantage of a rather flimsy phys- ical basis and has only weak theoretical justification. Since temperature and vapor pressure gradients are mod- ified by the movement of air and by the heating of the soil and surroundings, the formula is not generally valid, but must be tested empirically whenever the climate is appreciably different from areas in which it has been tested. … In spite of these shortcomings, the method has been widely used. Because it is based entirely on temper- ature data that are available in a large number of localities, it can be applied in situations where the basic data of the Penman method are not available.</p>
+</blockquote>
 <p>M.E. Jensen et al.&nbsp;(1990) warn that Thornthwaite’s method is generally only applicable to areas that have climates similar to that of the east central U.S., and it is not applicable to arid and semiarid regions.</p>
 <p>Thornthwaite (1948) found that evapotranspiration could be predicted from an equation of the form</p>
 <p><span class="math display">\[
