@@ -365,9 +365,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Infiltration capacity of sponge is high, there is little runoff <img src="../archive/figures/ward_and_trimble_infiltration_capacity2.png" class="img-fluid"></p>
 <p>Infiltration capacity of the sponge is limited by the overlying layer with low permeability <img src="../archive/figures/ward_and_trimble_infiltration_capacity3.png" class="img-fluid"></p>
 <p>Infiltration capacity of the sponge is limited by the underlying layer <img src="../archive/figures/ward_and_trimble_infiltration_capacity4.png" class="img-fluid"></p>
-<blockquote class="blockquote">
-<p>youtube: https://youtu.be/ego2FkuQwxc</p>
-</blockquote>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/ego2FkuQwxc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Ward &amp; Trimble, “Environmantal Hydrology”, 2nd edition, page 65 <img src="../archive/figures/ward-and-trimble-figure3.17-page65.png" class="img-fluid"></p>
 </section>
 <section id="darcy" class="level2" data-number="11.2">
@@ -375,7 +373,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Darcy’s equation for vertical flow <span class="math display">\[
 q = -K \frac{\partial H_\text{total}}{\partial z}
 \]</span></p>
-<p>where the total head <span class="math inline">\(H_\text{total}=-H_\text{suction}-z_\text{depth}\)</span>, and * <span class="math inline">\(H_\text{suction}\)</span> is the suction head (negative pressure head) * <span class="math inline">\(z_\text{depth}\)</span> is the depth, points <em>downward</em>.</p>
+<p>where the total head <span class="math inline">\(H_\text{total}=-H_\text{suction}-z_\text{depth}\)</span>, and</p>
+<ul>
+<li><span class="math inline">\(H_\text{suction}\)</span> is the suction head (negative pressure head)</li>
+<li><span class="math inline">\(z_\text{depth}\)</span> is the depth, points <em>downward</em>.</li>
+</ul>
 <p>Substituting:</p>
 <p><span class="math display">\[
 q = K \frac{\partial H_\text{suction}}{\partial z} + K
@@ -481,7 +483,14 @@ f = f_c+(f_0-f_c)e^{-\beta t}
 <section id="green-ampt" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="green-ampt"><span class="header-section-number">11.5</span> Green &amp; Ampt</h2>
 <p>Dingman, figure 8.11 <img src="../archive/figures/dingman-figure8.11.png" class="img-fluid"></p>
-<p>Assumptions: * homogeneous soil, infinite depth (no water table) * horizontal surface * constant water head equal to zero is maintained at the surface * uniform water content prior to wetting, <span class="math inline">\(\theta(t=0,z)=\theta_0\)</span> * moving front is characterized by a constant matric suction, <span class="math inline">\(\psi_f\)</span></p>
+<p>Assumptions:</p>
+<ul>
+<li>homogeneous soil, infinite depth (no water table)</li>
+<li>horizontal surface</li>
+<li>constant water head equal to zero is maintained at the surface</li>
+<li>uniform water content prior to wetting, <span class="math inline">\(\theta(t=0,z)=\theta_0\)</span></li>
+<li>moving front is characterized by a constant matric suction, <span class="math inline">\(\psi_f\)</span></li>
+</ul>
 <p>Source: Dingman, page 370</p>
 <p>This equation was developed under the scenario of constant rainfall or irrigation on an initially dry soil as a sharp wetting front (such as piston flow). Water penetrates a dry soil with a certain initial moisture content, and wets the layer to a saturated moisture content as it traverses deeper. The connection between soil moisture and infiltration rate is modeled in the Green-Ampt equation:</p>
 <p><span class="math display">\[
@@ -499,7 +508,11 @@ f(t) = K_\text{sat}
 </ul>
 <p>The same equation can be simply be rewritten as</p>
 <p><span class="math display">\[f = \frac{A}{F} + B\]</span></p>
-<p>where * <span class="math inline">\(A = K_\text{sat}\cdot|\psi_f|\cdot \left( \phi - \theta_0 \right)\)</span> * <span class="math inline">\(B= K_\text{sat}\)</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(A = K_\text{sat}\cdot|\psi_f|\cdot \left( \phi - \theta_0 \right)\)</span></li>
+<li><span class="math inline">\(B= K_\text{sat}\)</span></li>
+</ul>
 <p>The porosity <span class="math inline">\(\phi\)</span> and the saturated hydraulic conductivity <span class="math inline">\(K_\text{sat}\)</span> can be estimated from the soil texture. The wetting-front suction <span class="math inline">\(\psi_f\)</span> can be estimated using the Brooks-Corey parameters: <!-- Dingman, page 371 --></p>
 <p><span class="math display">\[
 |\psi_f| = \frac{2b+3}{2b+6}\cdot |\psi_{ae}|,

@@ -9,6 +9,7 @@ This website contains (almost) all the material you'll need for the course. If y
 <div class="alert alert-danger">
 The material here is not comprehensive and `does not` constitute a stand alone course in Surface Hydrology. This is only the support material for the actual presential course I give.</div>
 
+
 ## Syllabus
 
 ### Course description
