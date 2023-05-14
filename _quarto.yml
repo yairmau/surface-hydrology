@@ -25,7 +25,7 @@ book:
       chapters:
         - evapotranspiration/evapotranspiration-lecture.ipynb
         - evapotranspiration/evapotranspiration-exercises.ipynb
-    - part: "Infiltration" #infiltration/infiltration.qmd
+    - part: infiltration/infiltration.qmd
       chapters:
         - infiltration/infiltration-lecture.qmd
         - infiltration/infiltration-exercises.ipynb

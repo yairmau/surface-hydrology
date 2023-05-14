@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Surface Hydrology - 18&nbsp; Assignment 1 - Precipitation</title>
+<title>Surface Hydrology - Infiltration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../assignments/assignment2-ET.html" rel="next">
-<link href="../assignments/assignments-general.html" rel="prev">
+<link href="../infiltration/infiltration-lecture.html" rel="next">
+<link href="../evapotranspiration/evapotranspiration-exercises.html" rel="prev">
 <link href="../archive/cloud-rain.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Assignment 1 - Precipitation</span></h1>
+      <h1 class="quarto-secondary-nav-title">Infiltration</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../infiltration/infiltration.html" class="sidebar-item-text sidebar-link">Infiltration</a>
+            <a href="../infiltration/infiltration.html" class="sidebar-item-text sidebar-link active">Infiltration</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -258,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../assignments/assignment1-precipitation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Assignment 1 - Precipitation</span></a>
+  <a href="../assignments/assignment1-precipitation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Assignment 1 - Precipitation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -308,22 +308,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="toc-section-number">18.1</span>  📒 instructions</a></li>
-  <li><a href="#locations" id="toc-locations" class="nav-link" data-scroll-target="#locations"><span class="toc-section-number">18.2</span>  📌 locations</a></li>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="toc-section-number">18.3</span>  🛠 tasks</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Assignment 1 - Precipitation</span></h1>
+<h1 class="title d-none d-lg-block">Infiltration</h1>
 </div>
 
 
@@ -338,29 +330,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="instructions" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">18.1</span> 📒 instructions</h2>
-<p>This is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄</p>
-<p>Create a Jupyter Notebook called <code>assignment-01-IDNUMBER</code>, where <code>IDNUMBER</code> is your 9-digit ID. This is the file only file we will check.</p>
-</section>
-<section id="locations" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="locations"><span class="header-section-number">18.2</span> 📌 locations</h2>
-<p>Choose two meteorologic stations from NOAA’s <strong><a href="https://gis.ncdc.noaa.gov/maps/ncei/cdo/monthly">Global Summary of the Month</a></strong>.<br>
-Criteria:<br>
-1. at least 60 years of data for each station.<br>
-2. choose stations with different characteristics, regarding mean annual precipitation, seasonality, <!-- extreme events,  --> etc.</p>
-</section>
-<section id="tasks" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="tasks"><span class="header-section-number">18.3</span> 🛠 tasks</h2>
-<p>Analyze the data and make graphs showing the differences and similarities between the two locations you chose. The analyses and graphs should be similar to those we saw during our lectures and exercise sessions. Of course, if you find something interesting we did not do in class, you are more than welcome to show it. Discuss about:<br>
-1. mean annual precipitation and inter-annual variability.<br>
-2. intra-annual variability (seasonality).<br>
-<!-- 3. extreme rainfall events and return times. --></p>
-<p>You will have <strong>two weeks</strong> to deliver your assignment. You should <strong>not</strong> hand in a dry document with only figures and code, I’m expecting text before and after each code/graph cell, explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc. Please refer to the main <a href="../assignments/assignments-general.html">Assignments page</a> for more details on how to write this report.</p>
-<p>Your Jupyter Notebook should be <strong>fully functional</strong>: if we press <code>Kernel &gt; Restart &amp; Run All</code>, all the code must work without any errors.</p>
+<p>Here are some of the files we’ll use in this module, in case you can’t download them from their original repositories.</p>
+<ul>
+<li><a href="../archive/data/input_rate_078mm_per_h_16percent_slope.csv">input rate 78 mm/h, 16% slope</a></li>
+<li><a href="../archive/data/input_rate_156mm_per_h_16percent_slope.csv">input rate 156 mm/h, 16% slope</a></li>
+<li><a href="../archive/data/input_rate_234mm_per_h_16percent_slope.csv">input rate 234 mm/h, 16% slope</a></li>
+<li><a href="../archive/data/input_rate_312mm_per_h_16percent_slope.csv">input rate 312 mm/h, 16% slope</a></li>
+</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -498,13 +476,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../assignments/assignments-general.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Assignments</span>
+      <a href="../evapotranspiration/evapotranspiration-exercises.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../assignments/assignment2-ET.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Assignment 2 - Evapotranspiration</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../infiltration/infiltration-lecture.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Infiltration</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

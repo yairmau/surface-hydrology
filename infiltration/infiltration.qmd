@@ -1,1 +1,8 @@
 ## Infiltration
+
+Here are some of the files we'll use in this module, in case you can't download them from their original repositories.
+
+* [input rate 78 mm/h, 16% slope](/archive/data/input_rate_078mm_per_h_16percent_slope.csv)
+* [input rate 156 mm/h, 16% slope](/archive/data/input_rate_156mm_per_h_16percent_slope.csv)
+* [input rate 234 mm/h, 16% slope](/archive/data/input_rate_234mm_per_h_16percent_slope.csv)
+* [input rate 312 mm/h, 16% slope](/archive/data/input_rate_312mm_per_h_16percent_slope.csv)
