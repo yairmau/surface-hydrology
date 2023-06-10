@@ -236,4 +236,4 @@ Values for the parameters above can be found in this table:
 
 ## Best Fit, Least Squares Method
 
-![](https://yairmau.com/images/python_figures/least-squares.png)
+![](https://yairmau.com/tutorials/python/least-squares.png)
