@@ -444,7 +444,7 @@ div.csl-indent {
 <h2 data-number="15.2" class="anchored" data-anchor-id="rainfall-runoff-models"><span class="header-section-number">15.2</span> Rainfall-Runoff Models</h2>
 <section id="the-rational-method" class="level3" data-number="15.2.1">
 <h3 data-number="15.2.1" class="anchored" data-anchor-id="the-rational-method"><span class="header-section-number">15.2.1</span> The Rational Method</h3>
-<p>The rational method postulates a simple pro- portionality between peak discharge, <span class="math inline">\(q_{pk}\)</span>, and rainfall intensity, <span class="math inline">\(p^*\)</span>:</p>
+<p>The rational method postulates a simple proportionality between peak discharge, <span class="math inline">\(q_{pk}\)</span>, and rainfall intensity, <span class="math inline">\(p^*\)</span>:</p>
 <p><span class="math display">\[
 q_{pk} = \varepsilon_R \cdot C_R \cdot A_D \cdot p^*
 \]</span></p>
@@ -464,8 +464,16 @@ The rational method is widely used in urban drainage design, but Pilgrim and Cor
 <h3 data-number="15.2.2" class="anchored" data-anchor-id="the-soil-conservation-service-curve-number-method-scs-cn"><span class="header-section-number">15.2.2</span> The Soil Conservation Service Curve-Number Method (SCS-CN)</h3>
 <p>Also called NRCS curve number procedure. NRCS = Natural Resources Conservation Service - USDA</p>
 <p><span class="math display">\[
-Q^* = P^* = \frac{\left( P-S_{I} \right)^2}{P-S_I+S_{max}}
+Q^* = P^* = \frac{\left( P-S_{I} \right)^2}{P-S_I+S_{max}},
 \]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(Q^*\)</span>: total volume of event flow in a storm event</li>
+<li><span class="math inline">\(P^*\)</span>: total volume of effective water input in a storm event</li>
+<li><span class="math inline">\(P\)</span>: total volume of water input in a storm event</li>
+<li><span class="math inline">\(S_{I}\)</span>: initial abstraction = amount of rainfall that is retained or absorbed by the land surface before runoff occurs</li>
+<li><span class="math inline">\(S_{max}\)</span>: potential maximum retention = maximum amount of water that the watershed can retain after runoff starts</li>
+</ul>
 <p>The initial abstraction <span class="math inline">\(S_I\)</span> is usually approximated as <span class="math inline">\(0.2\cdot S_{max}\)</span>, therefore:</p>
 <p><span class="math display">\[
 Q^* = P^* = \frac{\left( P-0.2\cdot S_{max} \right)^2}{P+0.8\cdot S_{max}}
@@ -476,14 +484,19 @@ S_{max} = 25.4\left(\frac{1000}{CN}-10\right)
 <p>The number 25.4 is a conversion factor from inches to millimeters.</p>
 <p><img src="../archive/figures/dingman-figure10.51.png" class="img-fluid"></p>
 <p><img src="../archive/figures/ward-figure5.15.png" class="img-fluid"></p>
-<p>The curve number (CN) is a function of the ability of soils to infiltrate water, land use, and the soil water conditions at the start of a rainfall event (antecedent soil water condition). To account for the infiltration character- istics of soils, the NRCS has divided soils into four hydrologic soil groups, which are defined as follows (NRCS, 1984):</p>
+<p>The curve number (CN) is a function of the ability of soils to infiltrate water, land use, and the soil water conditions at the start of a rainfall event (antecedent soil water condition). To account for the infiltration characteristics of soils, the NRCS has divided soils into four hydrologic soil groups, which are defined as follows (NRCS, 1984):</p>
 <ul>
 <li><strong>Group A</strong> (low runoff potential): Soils with high infiltration rates even when thoroughly wetted. These consist chiefly of deep, well-drained sands and gravels. These soils have a high rate of water transmission (final infiltration rate greater than 0.3 in./h).</li>
 <li><strong>Group B</strong>: Soils with moderate infiltration rates when thoroughly wetted. These consist chiefly of soils that are moderately deep to deep, moderately well drained to well drained with moderately fine to moderately coarse textures. These soils have a moderate rate of water transmission (final infil- tration rate 0.15 to 0.30 in./h).</li>
 <li><strong>Group C</strong>: Soils with slow infiltration rates when thoroughly wetted. These consist chiefly of soils with a layer that impedes downward movement of water or soils with moderately fine to fine texture. These soils have a slow rate of water transmission (final infiltration rate 0.05 to 0.15 in./h).</li>
 <li><strong>Group D</strong> (high runoff potential): Soils with very slow infiltration rates when thoroughly wetted. These consist chiefly of clay soils with a high swelling potential, soils with a permanent high water table, soils with a claypan or clay layer at or near the surface, and shallow soils over nearly impervious materials. These soils have a very slow rate of water transmission (final infiltration rate less than 0.05 in./h).</li>
 </ul>
-<p>There are also three categories for Antecedent Soil Moisture Condition (AMC): * <strong>AMC I</strong>: Dormant season antecedent soil moisture less than 0.5 in. Growing season antecedent soil moisture less than 1.4 in. * <strong>AMC II</strong>: Dormant season antecedent soil moisture between 0.5 and 1.1 in. Growing season anteced- ent soil moisture between 1.4 and 2.1 in. * <strong>AMC III</strong>: Dormant season antecedent soil mois- ture greater than 1.1 in. Growing season anteced- ent soil moisture greater than 2.1 in.</p>
+<p>There are also three categories for Antecedent Soil Moisture Condition (AMC):</p>
+<ul>
+<li><strong>AMC I</strong>: Dormant season antecedent soil moisture less than 0.5 in. Growing season antecedent soil moisture less than 1.4 in.</li>
+<li><strong>AMC II</strong>: Dormant season antecedent soil moisture between 0.5 and 1.1 in. Growing season anteced- ent soil moisture between 1.4 and 2.1 in.</li>
+<li><strong>AMC III</strong>: Dormant season antecedent soil mois- ture greater than 1.1 in. Growing season anteced- ent soil moisture greater than 2.1 in.</li>
+</ul>
 <p>See the table below to find curve numbers for AMC II: <img src="../archive/figures/ward-table5.1.png" class="img-fluid"></p>
 <div class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>P<span class="op">=</span><span class="dv">21</span></span>

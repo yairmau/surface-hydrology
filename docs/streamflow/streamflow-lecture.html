@@ -316,9 +316,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#watershed---אגן-היקוות" id="toc-watershed---אגן-היקוות" class="nav-link active" data-scroll-target="#watershed---אגן-היקוות"><span class="toc-section-number">13.1</span>  Watershed - אגן היקוות</a></li>
   <li><a href="#base-flow-separation" id="toc-base-flow-separation" class="nav-link" data-scroll-target="#base-flow-separation"><span class="toc-section-number">13.2</span>  base flow separation</a>
   <ul class="collapse">
-  <li><a href="#base-flow" id="toc-base-flow" class="nav-link" data-scroll-target="#base-flow"><span class="toc-section-number">13.2.1</span>  Base flow</a></li>
-  <li><a href="#total-flow" id="toc-total-flow" class="nav-link" data-scroll-target="#total-flow"><span class="toc-section-number">13.2.2</span>  Total flow</a></li>
-  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention"><span class="toc-section-number">13.2.3</span>  Attention!</a></li>
+  <li><a href="#base-flow" id="toc-base-flow" class="nav-link" data-scroll-target="#base-flow">Base flow</a></li>
+  <li><a href="#event-flow" id="toc-event-flow" class="nav-link" data-scroll-target="#event-flow">Event flow</a></li>
+  <li><a href="#total-flow" id="toc-total-flow" class="nav-link" data-scroll-target="#total-flow">Total flow</a></li>
+  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention!</a></li>
   </ul></li>
   <li><a href="#urbana-il" id="toc-urbana-il" class="nav-link" data-scroll-target="#urbana-il"><span class="toc-section-number">13.3</span>  Urbana, IL</a>
   <ul class="collapse">
@@ -356,28 +357,37 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../archive/figures/dingman-figure10.3.png" class="img-fluid"> <img src="../archive/figures/watershed-boundaries.jpg" class="img-fluid"> <img src="../archive/figures/dingman-figure10.5.png" class="img-fluid"></p>
 <p>Watershed response:</p>
 <ul>
-<li>The volume of water appearing in the appar- ent response hydrograph for a given event is usually only a fraction (often a very small frac- tion) of the total input. The remainder of the water input ultimately leaves the watershed as: (1) evapotranspiration; (2) streamflow that oc- curs so long after the event that it cannot be associated with that event; or (3) ground-water outflow from the watershed.</li>
-<li>The water identified as the response to a given event may originate on only a fraction of the watershed; this fraction is called the contrib- uting area.</li>
+<li>The volume of water appearing in the apparent response hydrograph for a given event is usually only a fraction (often a very small fraction) of the total input. The remainder of the water input ultimately leaves the watershed as:
+<ol type="1">
+<li>evapotranspiration;</li>
+<li>streamflow that occurs so long after the event that it cannot be associated with that event; or</li>
+<li>ground-water outflow from the watershed.</li>
+</ol></li>
+<li>The water identified as the response to a given event may originate on only a fraction of the watershed; this fraction is called the contributing area.</li>
 <li>The extent of the contributing area may vary from event to event and during an event.</li>
-<li>At least some of the water identified as the re- sponse to a given event may be “old water” that entered the watershed in a previous event.</li>
+<li>At least some of the water identified as the response to a given event may be “old water” that entered the watershed in a previous event.</li>
 </ul>
 </section>
 <section id="base-flow-separation" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="base-flow-separation"><span class="header-section-number">13.2</span> base flow separation</h2>
 <p><img src="../archive/figures/ward-figure5.11.png" class="img-fluid"></p>
-<section id="base-flow" class="level3" data-number="13.2.1">
-<h3 data-number="13.2.1" class="anchored" data-anchor-id="base-flow"><span class="header-section-number">13.2.1</span> Base flow</h3>
-<p>Base flow is the portion of streamflow that is presumed to have entered the watershed in previous events and to be derived from persistent, slowly varying sources. (Ground water is usually assumed to be the main, if not the only, such source.) ### Event flow Event flow (also called direct runoff, storm runoff, quick flow, or storm flow) is considered to be the direct response to a given water-input event.</p>
+<section id="base-flow" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="base-flow">Base flow</h3>
+<p>Base flow is the portion of streamflow that is presumed to have entered the watershed in previous events and to be derived from persistent, slowly varying sources. (Ground water is usually assumed to be the main, if not the only, such source.)</p>
 </section>
-<section id="total-flow" class="level3" data-number="13.2.2">
-<h3 data-number="13.2.2" class="anchored" data-anchor-id="total-flow"><span class="header-section-number">13.2.2</span> Total flow</h3>
+<section id="event-flow" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="event-flow">Event flow</h3>
+<p>Event flow (also called direct runoff, storm runoff, quick flow, or storm flow) is considered to be the direct response to a given water-input event.</p>
+</section>
+<section id="total-flow" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="total-flow">Total flow</h3>
 <p>Total flow rate at any instant <span class="math inline">\(q(t)\)</span> is the sum of event-flow rate <span class="math inline">\(q^*(t)\)</span> and base-flow rate <span class="math inline">\(q_{BF}\)</span>(t):</p>
 <p><span class="math display">\[
 q(t) = q^*(t) + q_{BF}(t)
 \]</span></p>
 </section>
-<section id="attention" class="level3" data-number="13.2.3">
-<h3 data-number="13.2.3" class="anchored" data-anchor-id="attention"><span class="header-section-number">13.2.3</span> Attention!</h3>
+<section id="attention" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="attention">Attention!</h3>
 <p>Graphical flow separation techniques are heuristic and have no direct scientific basis.</p>
 </section>
 </section>
