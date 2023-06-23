@@ -41,9 +41,10 @@ book:
     - part: assignments/assignments-general.qmd
       chapters:
         - assignments/assignment1-precipitation.qmd
-        - assignments/assignment2-ET.ipynb
-        - assignments/assignment3-streamflow.ipynb
-        - assignments/assignment-FINAL.ipynb
+        # - assignments/assignment2-ET.ipynb
+        # - assignments/assignment3-streamflow.ipynb
+        # - assignments/assignment-FINAL.ipynb
+        - assignments/assignment-FINAL2.qmd
     - part: appendix/index.qmd
       chapters:    
         - appendix/date_formatting.ipynb
