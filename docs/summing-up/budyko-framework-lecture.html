@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -90,6 +109,9 @@ ul.task-list li input[type="checkbox"] {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Surface Hydrology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://yairmau.com/" title="" class="sidebar-tool px-1"><i class="bi bi-house"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -316,7 +338,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reasons-for-falling-off-the-budyko-curve" id="toc-reasons-for-falling-off-the-budyko-curve" class="nav-link" data-scroll-target="#reasons-for-falling-off-the-budyko-curve"><span class="toc-section-number">16.6.1</span>  Reasons for falling off the Budyko Curve</a></li>
   <li><a href="#critique" id="toc-critique" class="nav-link" data-scroll-target="#critique"><span class="toc-section-number">16.6.2</span>  Critique</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">16.7</span>  References</a></li>
   </ul>
 </nav>
     </div>
@@ -341,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><strong>Sources used</strong>:</p>
-<p>{% cite daly2019linking %}, {% cite sposito2017understanding %}, {% cite jones2012ecosystem %}, {% cite krajewski2021attempt %}, {% cite berghuijs2020unanswered %}, {% cite creed2012budyko %}</p>
+<p><span class="citation" data-cites="daly2019linking">Daly et al. (<a href="../references.html#ref-daly2019linking" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="sposito2017understanding">Sposito (<a href="../references.html#ref-sposito2017understanding" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="jones2012ecosystem">Jones et al. (<a href="../references.html#ref-jones2012ecosystem" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="krajewski2021attempt">Krajewski et al. (<a href="../references.html#ref-krajewski2021attempt" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="berghuijs2020unanswered">Berghuijs, Gnann, and Woods (<a href="../references.html#ref-berghuijs2020unanswered" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="creed2012budyko">Creed and Spargo (<a href="../references.html#ref-creed2012budyko" role="doc-biblioref">2012</a>)</span></p>
 <section id="water-and-surface-energy-balances" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="water-and-surface-energy-balances"><span class="header-section-number">16.1</span> Water and surface energy balances</h2>
 <p>For long-term averages:</p>
@@ -451,29 +472,39 @@ Be careful to check the definitions.</p>
 <li>As <span class="math inline">\(D_I\rightarrow \infty\)</span>, <span class="math inline">\(\displaystyle\frac{ET}{P}\rightarrow 1\)</span></li>
 </ol>
 </blockquote>
-<p><img src="../archive/figures/budyko0.png" class="img-fluid"></p>
-<p><img src="../archive/figures/budyko1.png" class="img-fluid"></p>
-<p>Budyko (1974), proposed the following equation:</p>
+<p><span class="citation" data-cites="budyko1974climate">Budyko (<a href="../references.html#ref-budyko1974climate" role="doc-biblioref">1974</a>)</span>, proposed the following equation:</p>
 <p><span class="math display">\[
 \frac{ET}{P} = \left[ D_I \tanh\left( \frac{1}{D_I} \right)\left( 1-e^{-D_I} \right) \right]^{1/2}
 \]</span></p>
 <p><img src="../archive/figures/budyko2.png" class="img-fluid"></p>
-<p>Source: {% cite jones2012ecosystem %}<br>
-<img src="../archive/figures/jones-creed-fig5b.png" class="img-fluid"></p>
-<p>Source: {% cite krajewski2021attempt %}<br>
-<img src="../archive/figures/Krajewski-2021-fig1.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/jones-creed-fig5b.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="jones2012ecosystem">Jones et al. (<a href="../references.html#ref-jones2012ecosystem" role="doc-biblioref">2012</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/Krajewski-2021-fig1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="krajewski2021attempt">Krajewski et al. (<a href="../references.html#ref-krajewski2021attempt" role="doc-biblioref">2021</a>)</span></figcaption><p></p>
+</figure>
+</div>
 <p>There are many alternatives to Budyko’s equation. Many equations have adjustable parameters, such as Fu’s equation:</p>
 <p><span class="math display">\[
 \frac{ET}{P} = 1 + D_I - (1 + D_I^w)^{1/w},
 \]</span></p>
 <p>where <span class="math inline">\(w&gt;1\)</span>. Each catchment has its own specific parameter <span class="math inline">\(w\)</span>, that may represent biophysical/landscape features. There is no concensus regarding the interpretation of <span class="math inline">\(w\)</span>, ranging from an effective empirical parameter, whose relationship to biophysical features can be discerned, to an arbitrary empirical constant with no <em>a priori</em> physical meaning. Source: {% cite reaver2020reinterpreting %}</p>
-<p>Source: {% cite zhang2004rational %}<br>
-<img src="../archive/figures/zhang-2004-fig7.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/zhang-2004-fig7.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="zhang2004rational">Zhang et al. (<a href="../references.html#ref-zhang2004rational" role="doc-biblioref">2004</a>)</span></figcaption><p></p>
+</figure>
+</div>
 </section>
 </section>
 <section id="hypotheses-for-why-dryness-index-controls-so-much-the-partitioning-of-p-into-et-and-q" class="level2" data-number="16.5">
 <h2 data-number="16.5" class="anchored" data-anchor-id="hypotheses-for-why-dryness-index-controls-so-much-the-partitioning-of-p-into-et-and-q"><span class="header-section-number">16.5</span> Hypotheses for why dryness index controls so much the partitioning of P into ET and Q</h2>
-<p>Source: {% cite berghuijs2020unanswered %}</p>
+<p>Source: <span class="citation" data-cites="berghuijs2020unanswered">Berghuijs, Gnann, and Woods (<a href="../references.html#ref-berghuijs2020unanswered" role="doc-biblioref">2020</a>)</span></p>
 <ol type="1">
 <li>The first is that the Budyko curve is accurate because landscape features (e.g., soils and vegetation) coevolve with the local climate in such a manner that precipitation partitioning into streamflow and evapotranspiration converges towards the Budyko curve</li>
 <li>A second hypothesis is that catchments over time evolve towards the supply and demand limits (rather than towards a curve), because landscapes and their vegetation are unaware of the Budyko curve but do evolve to maximize their use of available resources (including water). However, because limiting factors such as climatic variability exist (which will reduce a catchment’s ability to use all water because it cannot fully buffer the highly variable precipitation input), catchments will tend to not reach these limits. This may lead to an (apparent) existence of the Budyko curve which falls relatively close to the demand and supply limits.</li>
@@ -483,7 +514,7 @@ Be careful to check the definitions.</p>
 </section>
 <section id="hypotheses-for-deviations-from-budyko-curve" class="level2" data-number="16.6">
 <h2 data-number="16.6" class="anchored" data-anchor-id="hypotheses-for-deviations-from-budyko-curve"><span class="header-section-number">16.6</span> Hypotheses for deviations from Budyko curve</h2>
-<p>Source: {% cite creed2012budyko %}</p>
+<p>Source: <span class="citation" data-cites="creed2012budyko">Creed and Spargo (<a href="../references.html#ref-creed2012budyko" role="doc-biblioref">2012</a>)</span></p>
 <ol type="1">
 <li>Under stationary conditions (naturally occurring oscillations), catchments will fall on the Budyko Curve</li>
 <li>Under non-stationary conditions (anthropogenic climate change), catchments will deviate from the Budyko Curve in a predictable manner</li>
@@ -500,15 +531,37 @@ Be careful to check the definitions.</p>
 </section>
 <section id="critique" class="level3" data-number="16.6.2">
 <h3 data-number="16.6.2" class="anchored" data-anchor-id="critique"><span class="header-section-number">16.6.2</span> Critique</h3>
-<p>Source: {% cite berghuijs2020unanswered %}</p>
+<p>Source: <span class="citation" data-cites="berghuijs2020unanswered">Berghuijs, Gnann, and Woods (<a href="../references.html#ref-berghuijs2020unanswered" role="doc-biblioref">2020</a>)</span></p>
 <p>The (mathematical) specifics of such studies vary, but all approaches are founded on the assumption that catchments follow a (parametric) Budyko curve when aridity changes, and that consequently all other movements in the Budyko space are caused by other factors. The validity of this assumption remains mostly untested, which seems surprising given it underpins all of these studies’ findings.</p>
-</section>
-</section>
-<section id="references" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="references"><span class="header-section-number">16.7</span> References</h2>
-<p>{% bibliography –cited %}</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-berghuijs2020unanswered" class="csl-entry" role="doc-biblioentry">
+Berghuijs, Wouter R, Sebastian J Gnann, and Ross A Woods. 2020. <span>“Unanswered Questions on the Budyko Framework.”</span> <em>Journal of Hydrology</em> 265: 164–77.
+</div>
+<div id="ref-budyko1974climate" class="csl-entry" role="doc-biblioentry">
+Budyko, Mikhail Ivanovich. 1974. <span>“Climate and Life.”</span> <em>(No Title)</em>.
+</div>
+<div id="ref-creed2012budyko" class="csl-entry" role="doc-biblioentry">
+Creed, Irena, and Adam Spargo. 2012. <span>“Budyko Guide to Exploring Sustainability of Water Yields from Catchments Under Changing Environmental Conditions.”</span> <em>London, Ontario. Http://Www. Uwo. Ca/Biology/Faculty/Creed/PDFs/Presentations/PRE116. Pdf</em>.
+</div>
+<div id="ref-daly2019linking" class="csl-entry" role="doc-biblioentry">
+Daly, Edoardo, Salvatore Calabrese, Jun Yin, and Amilcare Porporato. 2019. <span>“Linking Parametric and Water-Balance Models of the Budyko and Turc Spaces.”</span> <em>Advances in Water Resources</em> 134: 103435.
+</div>
+<div id="ref-jones2012ecosystem" class="csl-entry" role="doc-biblioentry">
+Jones, Julia A, Irena F Creed, Kendra L Hatcher, Robert J Warren, Mary Beth Adams, Melinda H Benson, Emery Boose, et al. 2012. <span>“Ecosystem Processes and Human Influences Regulate Streamflow Response to Climate Change at Long-Term Ecological Research Sites.”</span> <em>BioScience</em> 62 (4): 390–404.
+</div>
+<div id="ref-krajewski2021attempt" class="csl-entry" role="doc-biblioentry">
+Krajewski, Adam, Anna E Sikorska-Senoner, Leszek Hejduk, and Kazimierz Banasik. 2021. <span>“An Attempt to Decompose the Impact of Land Use and Climate Change on Annual Runoff in a Small Agricultural Catchment.”</span> <em>Water Resources Management</em> 35 (3): 881–96.
+</div>
+<div id="ref-sposito2017understanding" class="csl-entry" role="doc-biblioentry">
+Sposito, Garrison. 2017. <span>“Understanding the Budyko Equation.”</span> <em>Water</em> 9 (4): 236.
+</div>
+<div id="ref-zhang2004rational" class="csl-entry" role="doc-biblioentry">
+Zhang, Lu, Klaus Hickel, WR Dawes, Francis HS Chiew, AW Western, and PR Briggs. 2004. <span>“A Rational Function Approach for Estimating Mean Annual Evapotranspiration.”</span> <em>Water Resources Research</em> 40 (2).
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->

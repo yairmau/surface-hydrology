@@ -23,7 +23,7 @@ book:
         - precipitation/return-period-exercises.ipynb
     - part: "Evapotranspiration" #evapotranspiration/evapotranspiration.qmd
       chapters:
-        - evapotranspiration/evapotranspiration-lecture.ipynb
+        - evapotranspiration/evapotranspiration-lecture.qmd
         - evapotranspiration/evapotranspiration-exercises.ipynb
     - part: infiltration/infiltration.qmd
       chapters:
@@ -36,8 +36,8 @@ book:
         - streamflow/unit-hydrograph-lecture.ipynb
     - part: "summing up" #summing-up/summing-up.qmd
       chapters:
-        - summing-up/budyko-framework-lecture.ipynb
-        - summing-up/spatial-distribution.ipynb
+        - summing-up/budyko-framework-lecture.qmd
+        - summing-up/spatial-distribution.qmd
     - part: assignments/assignments-general.qmd
       chapters:
         - assignments/assignment1-precipitation.qmd
@@ -53,6 +53,9 @@ book:
   # repo-url: https://github.com/agrotech-lab/my-book-test
   # repo-actions: [source]
   sidebar:
+    tools:
+      - icon: house
+        href: https://yairmau.com/
     logo: archive/cloud-rain.png
   #   style: "docked"
   #   collapse-level: 2

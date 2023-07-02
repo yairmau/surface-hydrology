@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -90,6 +109,9 @@ ul.task-list li input[type="checkbox"] {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Surface Hydrology</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://yairmau.com/" title="" class="sidebar-tool px-1"><i class="bi bi-house"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -343,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Dingman, “Physical Hydrology”, chapter 6.</p>
+<p><span class="citation" data-cites="dingman2015physical">Dingman (<a href="../references.html#ref-dingman2015physical" role="doc-biblioref">2015</a>)</span>, chapter 6.</p>
 <p>Globally, about 62% of the precipitation that falls on the continents is evapotranspirated, amounting to 73 thousand km<span class="math inline">\(^3\)</span>/yr. Of this, about 42% (29 thousand km<span class="math inline">\(^3\)</span>/yr) is transpiration, and about 3% is open-water evaporation. Most of the remainder is interception loss; soil evaporation is a minor component of the total.</p>
 <p><img src="../archive/figures/musy-figure5.1.png" class="img-fluid"></p>
 <p><img src="../archive/figures/trimble-figure4.1.png" class="img-fluid"></p>
@@ -362,13 +384,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="reference-crop-evapotranspiration" class="level3" data-number="9.0.2">
 <h3 data-number="9.0.2" class="anchored" data-anchor-id="reference-crop-evapotranspiration"><span class="header-section-number">9.0.2</span> Reference-Crop Evapotranspiration</h3>
 <p>Reference-crop evapotranspiration (RET) is the amount of water transpired by a short green crop, completely shading the ground, of uniform height, and never short of water.</p>
-<p>The magnitude of PET is often calculated from meteorological data collected under conditions in which the actual ET rate <strong>is less than the potential rate</strong>. If ET had been occurring at the potential rate, the latent- and sensible-heat exchanges between air and the surface, and hence the air temperature and humidity, would have been considerably different. (Brutsaert 1982) <img src="../archive/figures/brutsaert-fig4.1.png" class="img-fluid"></p>
+<p>The magnitude of PET is often calculated from meteorological data collected under conditions in which the actual ET rate <strong>is less than the potential rate</strong>. If ET had been occurring at the potential rate, the latent- and sensible-heat exchanges between air and the surface, and hence the air temperature and humidity, would have been considerably different. (<span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span> 1982) <img src="../archive/figures/brutsaert-fig4.1.png" class="img-fluid"></p>
 <p><img src="https://www.researchgate.net/profile/Mike-Hobbins-2/publication/258663896/figure/fig11/AS:670435041624072@1536855578540/A-typical-US-class-A-evaporation-pan-Photo-courtesy-of-the-US-National-Weather_W640.jpg" class="img-fluid"></p>
 </section>
 <section id="review-of-methods" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="review-of-methods"><span class="header-section-number">9.1</span> Review of methods</h2>
 <p>There are a variety of ways to estimate evaporative flux in nature. The following table categorizes each method based on the data that must be acquired to apply it:</p>
-<p><img src="../archive/figures/trimble-table4.3.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/trimble-table4.3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span></figcaption><p></p>
+</figure>
+</div>
 <p>These methods also vary in the timescales in which they are relevant, typically in correlation with the variety of data needed:</p>
 <ul>
 <li>Thornthwaite and SCS Blaney-Criddle: monthly or seasonal estimations (minimal data)</li>
@@ -376,11 +403,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Penman: daily estimates</li>
 <li>Penman-Monteith: hourly estimates (requires a lot of data)</li>
 </ul>
-<p><img src="../archive/figures/trimble-figure4.13.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/trimble-figure4.13.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span></figcaption><p></p>
+</figure>
+</div>
 </section>
 <section id="thornthwaite" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="thornthwaite"><span class="header-section-number">9.2</span> Thornthwaite</h2>
-<p>Source: Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, pages 107-108.</p>
+<p>Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, pages 107-108.</p>
 <p>Thornthwaite (1948) developed an equation to predict monthly evapotranspiration from mean monthly temperature and latitude data (Equation 4.27). The small amount of data needed is attractive because often ET needs to be predicted for sites where few weather data are available. Based on what we know about ET, we should be skeptical about the general applicability of such a simple equation. Thornthwaite (1948) was not satisfied with the proposed approach: “The mathematical development is far from satisfactory. It is empirical. … The chief obstacle at present to the development of a rational equation is the lack of understanding of why potential ET corresponding to a given temperature is not the same everywhere.”</p>
 <p>Taylor and Ashcroft (1972), as cited in Skaggs (1980), provided insight into the answer to Thornthwaite’s ques- tion. They said:</p>
 <blockquote class="blockquote">
@@ -415,9 +447,9 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 <section id="penman" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="penman"><span class="header-section-number">9.3</span> Penman</h2>
 <p>Sources:<br>
-Brutsaert, “Hydrology: An Introduction”, pages 123-127.<br>
-Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, subsections 4.5.2, 4.5.3, 4.5.5, 4.6.6.<br>
-Allen et al.&nbsp;(1998), <a href="http://www.fao.org/3/x0490e/x0490e07.htm#chapter%203%20%20%20meteorological%20data">“Crop evapotranspiration - Guidelines for computing crop water requirements - FAO Irrigation and drainage paper 56”</a></p>
+<span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, pages 123-127.<br>
+<span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, subsections 4.5.2, 4.5.3, 4.5.5, 4.6.6.<br>
+<span class="citation" data-cites="allen1998crop">Allen et al. (<a href="../references.html#ref-allen1998crop" role="doc-biblioref">1998</a>)</span>, <a href="http://www.fao.org/3/x0490e/x0490e07.htm#chapter%203%20%20%20meteorological%20data">“Crop evapotranspiration - Guidelines for computing crop water requirements - FAO Irrigation and drainage paper 56”</a></p>
 <p>The Penman model is almost entirely a theory-based formula for predicting evaporative flux. It can run on a much finer timescale, and requires a much wider variety of data than most models. In addition to temperature, the Penman functions on measurements of radiation, wind speed, elevation above sea level, vapor-pressure deficit, and heat flux density to the ground. The potential ET (in mm d<span class="math inline">\(^{-1}\)</span>) is given by:</p>
 <p><span class="math display">\[
 \begin{equation}
@@ -475,7 +507,7 @@ E_A = 6.43\cdot f(u)\cdot\text{VPD}.
 </section>
 <section id="net-radiation" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="net-radiation"><span class="header-section-number">9.3.2</span> Net Radiation</h3>
-<p>Source: Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, page 99.</p>
+<p>Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, page 99.</p>
 <p><span class="math inline">\(R_n\)</span> (MJ m<span class="math inline">\(^{-2} d^{-1}\)</span>) is net radiation, the balance between net short wave <span class="math inline">\(R_s\)</span> and the long wave <span class="math inline">\(R_b\)</span> components of the radiation:</p>
 <p><span class="math display">\[R_n = (1-\alpha)R_s\!\! \downarrow -R_b \!\! \uparrow,\]</span></p>
 <p>where <span class="math inline">\(\alpha\)</span> (dimensionless) is the albedo. The net outgoing thermal radiation <span class="math inline">\(R_b\)</span> is given by</p>
@@ -490,7 +522,7 @@ E_A = 6.43\cdot f(u)\cdot\text{VPD}.
 <li><span class="math inline">\(a=1.2\)</span>, <span class="math inline">\(b=-0.2\)</span> for arid areas,</li>
 <li><span class="math inline">\(a=1.1\)</span>, <span class="math inline">\(b=-0.1\)</span> for semihumid areas.</li>
 </ul>
-<p>We can find below a table for <span class="math inline">\(R_{so}\)</span>, from Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, page 100. <img src="../archive/figures/trimble-table4.5.png" class="img-fluid"></p>
+<p>We can find below a table for <span class="math inline">\(R_{so}\)</span>, from <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, page 100. <img src="../archive/figures/trimble-table4.5.png" class="img-fluid"></p>
 </section>
 <section id="heat-flux-density-to-the-ground" class="level3" data-number="9.3.3">
 <h3 data-number="9.3.3" class="anchored" data-anchor-id="heat-flux-density-to-the-ground"><span class="header-section-number">9.3.3</span> Heat Flux Density to the Ground</h3>
@@ -505,11 +537,11 @@ This expression is really a finite differences implementation of a time derivati
 <p><span class="math display">\[
 \displaystyle \frac{\text{d}T}{\text{d}t} = \lim_{\Delta t\rightarrow 0}\frac{T(t+\Delta t) - T(t-\Delta t)}{2\Delta t}.
 \]</span></p>
-<p>Later on, we will take advantage of numpy’s <code>gradient</code> function to calculate <span class="math inline">\(G\)</span>.</p>
+<!-- Later on, we will take advantage of numpy's `gradient` function to calculate $G$. -->
 </section>
 <section id="vapor-pressure" class="level3" data-number="9.3.4">
 <h3 data-number="9.3.4" class="anchored" data-anchor-id="vapor-pressure"><span class="header-section-number">9.3.4</span> Vapor Pressure</h3>
-<p>from: Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, page 95.</p>
+<p>Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, page 95.</p>
 <p>The Vapor Pressure Deficit (VPD, in kPa) is the difference between saturation vapor pressure <span class="math inline">\(e_s\)</span> and actual vapor pressure <span class="math inline">\(e_d\)</span>:</p>
 <p><span class="math display">\[\text{VPD} = e_s - e_d.\]</span></p>
 <p>For temperatures ranging from 0 to 50 °C, the saturation vapor pressure can be calculated with</p>
@@ -525,11 +557,21 @@ This expression is really a finite differences implementation of a time derivati
   \end{equation}
 \]</span></p>
 <p>where <span class="math inline">\(RH\)</span> is the relative humidity (%), and the temperature <span class="math inline">\(T\)</span> in the equations above is in degrees Celcius.</p>
-<p>We can see below a graph of <span class="math inline">\(e_s(T)\)</span> (Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, page 96)</p>
-<p><img src="../archive/figures/trimble-figure4.11.png" class="img-fluid"></p>
-<p>The factor <span class="math inline">\(\Delta\)</span> is the slope of <span class="math inline">\(e_s(T)\)</span>. See the figure below from Brutsaert, where the saturation vapor pressure is called <span class="math inline">\(e^*\)</span> (Brutsaert, “Hydrology: An Introduction”, page 28)):</p>
-<p><img src="../archive/figures/brutsaert-fig2.1.png" class="img-fluid"></p>
-<p>There are a few ways of defining the function for <span class="math inline">\(\Delta(T)\)</span> (kPa °C<span class="math inline">\(^{-1}\)</span>). Ward &amp; Trimble give the following:</p>
+<p>We can see below a graph of <span class="math inline">\(e_s(T)\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/trimble-figure4.11.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, page 96</figcaption><p></p>
+</figure>
+</div>
+<p>The factor <span class="math inline">\(\Delta\)</span> is the slope of <span class="math inline">\(e_s(T)\)</span>. See the figure below from Brutsaert, where the saturation vapor pressure is called <span class="math inline">\(e^*\)</span>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../archive/figures/brutsaert-fig2.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Source: <span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, page 28</figcaption><p></p>
+</figure>
+</div>
+<p>There are a few ways of defining the function for <span class="math inline">\(\Delta(T)\)</span> (kPa °C<span class="math inline">\(^{-1}\)</span>). <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span> give the following:</p>
 <p><span class="math display">\[
   \begin{equation}
     \Delta = 0.200 \cdot (0.00738\,T + 0.8072)^7 - 0.000116,
@@ -544,7 +586,7 @@ This expression is really a finite differences implementation of a time derivati
 </section>
 <section id="wind-function" class="level3" data-number="9.3.5">
 <h3 data-number="9.3.5" class="anchored" data-anchor-id="wind-function"><span class="header-section-number">9.3.5</span> Wind Function</h3>
-<p>Source: (Ward &amp; Trimble, “Environmental Hydrology”, 2nd Edition, page 108)</p>
+<p>Source: <span class="citation" data-cites="ward2003environmental">Ward and Trimble (<a href="../references.html#ref-ward2003environmental" role="doc-biblioref">2003</a>)</span>, page 108</p>
 <p><span class="math display">\[
   \begin{equation}
     f(u) = 0.26(1.0 + 0.54\, u_2)
@@ -570,6 +612,20 @@ This expression is really a finite differences implementation of a time derivati
 <p>Different books and papers will present slightly different versions of the Penman equation. Basically, they differ in the units they use for the various components, and one should be vary aware of what inputs any given equation is expecting to get.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-allen1998crop" class="csl-entry" role="doc-biblioentry">
+Allen, Richard G, Luis S Pereira, Dirk Raes, Martin Smith, et al. 1998. <span>“Crop Evapotranspiration-Guidelines for Computing Crop Water Requirements-FAO Irrigation and Drainage Paper 56.”</span> <em>Fao, Rome</em> 300 (9): D05109.
+</div>
+<div id="ref-brutsaert2005hydrology" class="csl-entry" role="doc-biblioentry">
+Brutsaert, Wilfried. 2005. <em>Hydrology: An Introduction</em>. Cambridge University Press.
+</div>
+<div id="ref-dingman2015physical" class="csl-entry" role="doc-biblioentry">
+Dingman, S. L. 2015. <em>Physical Hydrology</em>. 3rd edition. Waveland Press, Incorporated.
+</div>
+<div id="ref-ward2003environmental" class="csl-entry" role="doc-biblioentry">
+Ward, Andy D, and Stanley W Trimble. 2003. <em>Environmental Hydrology</em>. 2nd ed. CRC Press.
+</div>
+</div>
 </section>
 </section>
 
