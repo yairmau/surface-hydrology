@@ -5,6 +5,7 @@ project:
 book:
   title: "Surface Hydrology"
   author: "Yair Mau"
+  repo-url: https://github.com/yairmau/surface-hydrology/
   favicon: archive/cloud-rain.png
   # date: "10/18/2022"
   chapters:
@@ -38,13 +39,13 @@ book:
       chapters:
         - summing-up/budyko-framework-lecture.qmd
         - summing-up/spatial-distribution.qmd
-    - part: assignments/assignments-general.qmd
-      chapters:
-        - assignments/assignment1-precipitation.qmd
+    # - part: assignments/assignments-general.qmd
+      # chapters:
+        # - assignments/assignment1-precipitation.qmd
         # - assignments/assignment2-ET.ipynb
         # - assignments/assignment3-streamflow.ipynb
         # - assignments/assignment-FINAL.ipynb
-        - assignments/assignment-FINAL2.qmd
+        # - assignments/assignment-FINAL2.qmd
     - part: appendix/index.qmd
       chapters:    
         - appendix/date_formatting.ipynb
@@ -59,6 +60,7 @@ book:
     logo: archive/cloud-rain.png
   #   style: "docked"
   #   collapse-level: 2
+  search: true
 
 
 bibliography: references.bib
@@ -71,8 +73,17 @@ format:
     css: styles.css
     fontsize: 1.2em
     highlight-style: breezedark
-  # pdf:
-  #   documentclass: scrreprt
+    code-line-numbers: true
+    code-tools:
+      source: repo  # https://quarto.org/docs/output-formats/html-code.html#code-tools
+    callout-icon: false
+    html-math-method: katex
+    fig-align: center
+
+  pdf:
+    documentclass: scrreprt
+    include-in-header:
+      - latex_preamble.tex
 
 
 
