@@ -16,7 +16,7 @@ book:
         - introduction/introduction-exercises.ipynb
     - part: precipitation/precipitation.qmd
       chapters:
-        - precipitation/interannual-lecture.qmd
+        - precipitation/interannual-lecture.ipynb
         - precipitation/interannual-exercises.ipynb
         - precipitation/intra-annual-lecture.qmd
         - precipitation/intra-annual-exercises.ipynb

@@ -11,7 +11,7 @@ jupyter: python3
 
 ## Today
 
-![](https://upload.wikimedia.org/wikipedia/commons/9/90/Guggenheim_museum_Bilbao_HDR-image.jpg)
+![](640px-Guggenheim_museum_Bilbao_HDR-image.jpg)
 
 ## August 1983
 
@@ -111,9 +111,9 @@ $$
 
 ![](/archive/figures/return_prob_005.png)
 
-Now everything together in one gif:
+<!-- Now everything together in one gif:
 
-![](/archive/figures/return_prob.gif)
+![](/archive/figures/return_prob.gif) -->
 
 ## Return Period
 
@@ -146,16 +146,18 @@ $P\{k \text{ trials until }X>x\} = p^{k-1}(1-p)$
 
 Every time the number $k$ will be different. What will be $k$ *on average*?
 
-$$\bar{k} = \displaystyle\sum_{k=1}^{\infty} k P(k) = \displaystyle\sum_{k=1}^{\infty} k p^{k-1}(1-p)$$
+$$
+\bar{k} = \displaystyle\sum_{k=1}^{\infty} k P(k) = \displaystyle\sum_{k=1}^{\infty} k p^{k-1}(1-p)
+$$
 
 Let's open that up:
 
 $$
-\begin{align}
+\begin{split}
 \bar{k} &= 1-p + 2p(1-p) + 3p^2(1-p) + 4p^3(1-p)+ \cdots\\
 \bar{k} &= 1-p + 2p - 2p^2 + 3p^2 - 3p^4 + 4p^3 - 4p^4+ \cdots \\
 \bar{k} &= 1 + p + p^2 + p^3 + p^4 + \cdots
-\end{align}
+\end{split}
 $$
 
 For $p<1$, the series converges to

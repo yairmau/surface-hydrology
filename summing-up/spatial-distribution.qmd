@@ -1,4 +1,13 @@
-## Spatial distribution - lecture
+---
+title: "Spatial distribution - lecture"
+execute:
+  # echo: false
+  freeze: auto  # re-render only when source changes
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
 
 ## The problem
 
@@ -25,7 +34,17 @@ $$
 
 A nice way to understand the Thiessen method is depicted in the gif below (from [Wikipedia](https://commons.wikimedia.org/wiki/File:Voronoi_growth_euclidean.gif)):
 
-![](https://upload.wikimedia.org/wikipedia/commons/d/d9/Voronoi_growth_euclidean.gif)
+::: {.content-visible when-format="html"}
+
+:::
+
+```{=html}
+![](Voronoi_growth_euclidean.gif)
+
+:::
+
+:::
+
 
 ## Inverse distance method
 
@@ -76,7 +95,7 @@ A good discussion of the different methods can be found on [Manuel Gimond's webs
 Don't mix precision with accuracy. There are many ways of interpolating, just because a result seems detailed, it does not imply that it is accurate! See below three interpolation methods.</div>
 
 
-![](https://i.stack.imgur.com/vohvE.jpg)
+![](vohvE.jpg)
 
 Below you can find a simple Python code that exemplifies some of the methods, producing the following figure:
 

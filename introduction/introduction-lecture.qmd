@@ -1,6 +1,12 @@
 ---
 title: "Water Cycle: Fluxes and Storage"
-jupyter: python3
+execute:
+  # echo: false
+  freeze: auto  # re-render only when source changes
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
 
 ## How much water is there? Where?
@@ -84,12 +90,12 @@ Picture of cumulonimbus taken from the International Space Station, over western
 
 If all of the water in the atmosphere rained down at once, it would only cover the globe to a depth of 2.5 centimeters.
 $$
-\begin{align}
+\begin{split}
 \text{amount of water in the atmosphere} & \qquad V = 12\, 900\, \text{km}^3 \\
 \text{surface of Earth} & \qquad S = 4 \pi R^2;\quad R=6371\,\text{km}\\
 & \qquad V = S \times h \\
 \text{height} & \qquad h = \frac{V}{S} \simeq 2.5\,\text{cm}
-\end{align}
+\end{split}
 $$
 
 Try to calculate this yourself, and click on the button below to check how to do it.
