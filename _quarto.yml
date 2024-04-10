@@ -18,7 +18,7 @@ book:
       chapters:
         - precipitation/interannual-lecture.ipynb
         - precipitation/interannual-exercises.ipynb
-        - precipitation/intra-annual-lecture.qmd
+        - precipitation/intra-annual-lecture.ipynb
         - precipitation/intra-annual-exercises.ipynb
         - precipitation/return-period-lecture.qmd
         - precipitation/return-period-exercises.ipynb

@@ -32,18 +32,7 @@ $$
 $$
 
 
-A nice way to understand the Thiessen method is depicted in the gif below (from [Wikipedia](https://commons.wikimedia.org/wiki/File:Voronoi_growth_euclidean.gif)):
-
-::: {.content-visible when-format="html"}
-
-:::
-
-```{=html}
-![](Voronoi_growth_euclidean.gif)
-
-:::
-
-:::
+A nice way to understand the Thiessen method is depicted in this [gif from Wikipedia](https://commons.wikimedia.org/wiki/File:Voronoi_growth_euclidean.gif).
 
 
 ## Inverse distance method

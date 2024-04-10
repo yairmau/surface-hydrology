@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -393,6 +427,9 @@ window.Quarto = {
   <ul>
   <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem"><span class="header-section-number">17.1</span> The problem</a></li>
   <li><a href="#thiessen-method-voronoi-diagram" id="toc-thiessen-method-voronoi-diagram" class="nav-link" data-scroll-target="#thiessen-method-voronoi-diagram"><span class="header-section-number">17.2</span> Thiessen method [Voronoi diagram]</a></li>
+  <li><a href="#inverse-distance-method" id="toc-inverse-distance-method" class="nav-link" data-scroll-target="#inverse-distance-method"><span class="header-section-number">17.3</span> Inverse distance method</a></li>
+  <li><a href="#isohyetal-method" id="toc-isohyetal-method" class="nav-link" data-scroll-target="#isohyetal-method"><span class="header-section-number">17.4</span> Isohyetal method</a></li>
+  <li><a href="#how-it-is-actually-done" id="toc-how-it-is-actually-done" class="nav-link" data-scroll-target="#how-it-is-actually-done"><span class="header-section-number">17.5</span> How it is actually done</a></li>
   </ul>
 </nav>
     </div>
@@ -401,7 +438,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../summing-up/budyko-framework-lecture.html">summing up</a></li><li class="breadcrumb-item"><a href="../summing-up/spatial-distribution.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Spatial distribution - lecture</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Spatial distribution - lecture</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/yairmau/surface-hydrology/blob/main/summing-up/spatial-distribution.qmd"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Spatial distribution - lecture</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/yairmau/surface-hydrology/blob/main/summing-up/spatial-distribution.qmd">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -431,119 +468,101 @@ window.Quarto = {
 <p><span class="math display">
 \langle P \rangle = \frac{\sum_i A_i P_i}{\sum_i A_i}
 </span></p>
-<p>A nice way to understand the Thiessen method is depicted in the gif below (from <a href="https://commons.wikimedia.org/wiki/File:Voronoi_growth_euclidean.gif">Wikipedia</a>):</p>
-![](Voronoi_growth_euclidean.gif)
-
-:::
-
-:::
-
-
-## Inverse distance method
-
-@brutsaert2005hydrology, Figure 3.12
-![](/archive/figures/brutsaert-figure3.12.png)
-
-The precipitation for square 17 is
-
-$$
-P_{17} = 
+<p>A nice way to understand the Thiessen method is depicted in this <a href="https://commons.wikimedia.org/wiki/File:Voronoi_growth_euclidean.gif">gif from Wikipedia</a>.</p>
+</section>
+<section id="inverse-distance-method" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="inverse-distance-method"><span class="header-section-number">17.3</span> Inverse distance method</h2>
+<p><span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, Figure 3.12 <img src="../archive/figures/brutsaert-figure3.12.png" class="img-fluid"></p>
+<p>The precipitation for square 17 is</p>
+<p><span class="math display">
+P_{17} =
 \displaystyle\frac
 {\displaystyle\sum_\text{$i$ = all stations}\frac{P_i}{d_{i,17}^2}}
 {\displaystyle\sum_\text{$i$ = all stations}\frac{1}{d_{i,17}^2}}
-$$
-
-The average precipitation for the whole watershed is the weighted average of all squares, where the weight is their area:
-
-$$
-\langle P \rangle = 
+</span></p>
+<p>The average precipitation for the whole watershed is the weighted average of all squares, where the weight is their area:</p>
+<p><span class="math display">
+\langle P \rangle =
 \displaystyle\frac
 {\displaystyle\sum_\text{$j$ = all squares} A_j P_j}
 {\displaystyle\sum_\text{$j$ = all squares} A_j}
-$$
-
-@brutsaert2005hydrology, page 93:  
-
-&gt; Dean and Snyder (1977) found that the exponent (for the distance $d^{-b}$) b = 2 yielded the best results in the Piedmont region of the southeastern United States, whereas Simanton and Osborn (1980) concluded from measurements in Arizona that b can range between 1 and 3 without significantly affecting the results.
-
-## Isohyetal method
-
-@brutsaert2005hydrology, Figure 3.12
-![](/archive/figures/brutsaert-figure3.13.png)
-
-The same equation of the Thiessen method can be used:
-
-$$
+</span></p>
+<p><span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, page 93:</p>
+<blockquote class="blockquote">
+<p>Dean and Snyder (1977) found that the exponent (for the distance <span class="math inline">d^{-b}</span>) b = 2 yielded the best results in the Piedmont region of the southeastern United States, whereas Simanton and Osborn (1980) concluded from measurements in Arizona that b can range between 1 and 3 without significantly affecting the results.</p>
+</blockquote>
+</section>
+<section id="isohyetal-method" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="isohyetal-method"><span class="header-section-number">17.4</span> Isohyetal method</h2>
+<p><span class="citation" data-cites="brutsaert2005hydrology">Brutsaert (<a href="../references.html#ref-brutsaert2005hydrology" role="doc-biblioref">2005</a>)</span>, Figure 3.12 <img src="../archive/figures/brutsaert-figure3.13.png" class="img-fluid"></p>
+<p>The same equation of the Thiessen method can be used:</p>
+<p><span class="math display">
 \langle P \rangle = \frac{\sum_i A_i P_i}{\sum_i A_i}
-$$
-
-## How it is actually done
-
-Most often, Geographic Information System (GIS) software is used to analyze spatial data. Two of the most used programs are ArcGIS (proprietary) and QGIS (free).
-
-A good discussion of the different methods can be found on [Manuel Gimond's website](https://mgimond.github.io/Spatial/spatial-interpolation.html), *Intro to GIS and Spatial Analysis*.
-
+</span></p>
+</section>
+<section id="how-it-is-actually-done" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="how-it-is-actually-done"><span class="header-section-number">17.5</span> How it is actually done</h2>
+<p>Most often, Geographic Information System (GIS) software is used to analyze spatial data. Two of the most used programs are ArcGIS (proprietary) and QGIS (free).</p>
+<p>A good discussion of the different methods can be found on <a href="https://mgimond.github.io/Spatial/spatial-interpolation.html">Manuel Gimond’s website</a>, <em>Intro to GIS and Spatial Analysis</em>.</p>
 <div class="alert alert-danger">
-**Attention**!  
-Don't mix precision with accuracy. There are many ways of interpolating, just because a result seems detailed, it does not imply that it is accurate! See below three interpolation methods.</div>
-
-
-![](vohvE.jpg)
-
-Below you can find a simple Python code that exemplifies some of the methods, producing the following figure:
-
-![](/archive/figures/spatial-distribution.png)
-
-::: {#e8625e9b .cell execution_count=1}
-``` {.python .cell-code}
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy.interpolate import griddata
-from scipy.spatial import Voronoi, voronoi_plot_2d, ConvexHull
-
-fig, ax = plt.subplots(1, 3, figsize=(10,7))
-fig.subplots_adjust(left=0.0, right=1.0, top=0.96, bottom=0.05,
-                    hspace=0.02, wspace=0.02)
-
-N = 6
-PI = '3141592653589793'
-points = np.random.rand(N, 2)
-points = np.vstack([points,[0,0], [0,1], [1,0], [1,1]])
-values = np.array([int(x) for x in list(PI)])[:(N+4)]
-# values = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])
-
-grid_x, grid_y = np.mgrid[0:1:100j, 0:1:200j]
-
-grid_z_nearest = griddata(points, values, (grid_x, grid_y), method='nearest')
-grid_z_cubic = griddata(points, values, (grid_x, grid_y), method='cubic')
-
-ax[0].plot(points[:,0], points[:,1], 'o', ms=3, markerfacecolor="red", markeredgecolor="red")
-ax[0].set_aspect('equal', 'box')
-ax[0].set(xlim=[0,1], ylim=[0,1])
-ax[0].set_title("the stations")
-for i, v in enumerate(values):
-    ax[0].text(points[i,0], points[i,1], str(v))
-
-ax[1].imshow(grid_z_nearest.T, extent=(0,1,0,1), origin='lower')
-ax[1].plot(points[:,0], points[:,1], 'o', ms=3, markerfacecolor="red", markeredgecolor="red")
-vor = Voronoi(points)
-voronoi_plot_2d(vor, show_vertices=False, line_colors='cyan',
-                line_width=3, line_alpha=1, point_size=0, ax=ax[1])
-ax[1].set_title("Thiessen Method")
-
-ax[2].plot(points[:,0], points[:,1], 'o', ms=3, markerfacecolor="red", markeredgecolor="red")
-nlines = int((values.max()-values.min()+1)/2)
-ax[2].contourf(grid_x, grid_y, grid_z_cubic, nlines)
-cont = ax[2].contour(grid_x, grid_y, grid_z_cubic, nlines, colors="black")
-ax[2].clabel(cont, inline=1, colors='white', fmt='%.0f')
-ax[2].set_title("Isohyetal Method")
-
-for i, a in enumerate(ax):
-    a.set(xlim=[-0.2,1.2], ylim=[-0.2,1.2])
-    a.axis('off')
-    a.set_aspect('equal', 'box')
-
-fig.savefig("spatial-distribution.png", dpi=500)
+<strong>Attention</strong>!<br>
+Don’t mix precision with accuracy. There are many ways of interpolating, just because a result seems detailed, it does not imply that it is accurate! See below three interpolation methods.
+</div>
+<p><img src="vohvE.jpg" class="img-fluid"></p>
+<p>Below you can find a simple Python code that exemplifies some of the methods, producing the following figure:</p>
+<p><img src="../archive/figures/spatial-distribution.png" class="img-fluid"></p>
+<div id="f83b4d57" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> griddata</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> scipy.spatial <span class="im">import</span> Voronoi, voronoi_plot_2d, ConvexHull</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb1-7"><a href="#cb1-7"></a>fig.subplots_adjust(left<span class="op">=</span><span class="fl">0.0</span>, right<span class="op">=</span><span class="fl">1.0</span>, top<span class="op">=</span><span class="fl">0.96</span>, bottom<span class="op">=</span><span class="fl">0.05</span>,</span>
+<span id="cb1-8"><a href="#cb1-8"></a>                    hspace<span class="op">=</span><span class="fl">0.02</span>, wspace<span class="op">=</span><span class="fl">0.02</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>N <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>PI <span class="op">=</span> <span class="st">'3141592653589793'</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>points <span class="op">=</span> np.random.rand(N, <span class="dv">2</span>)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>points <span class="op">=</span> np.vstack([points,[<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">1</span>]])</span>
+<span id="cb1-14"><a href="#cb1-14"></a>values <span class="op">=</span> np.array([<span class="bu">int</span>(x) <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">list</span>(PI)])[:(N<span class="op">+</span><span class="dv">4</span>)]</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># values = np.array([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>grid_x, grid_y <span class="op">=</span> np.mgrid[<span class="dv">0</span>:<span class="dv">1</span>:<span class="ot">100j</span>, <span class="dv">0</span>:<span class="dv">1</span>:<span class="ot">200j</span>]</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>grid_z_nearest <span class="op">=</span> griddata(points, values, (grid_x, grid_y), method<span class="op">=</span><span class="st">'nearest'</span>)</span>
+<span id="cb1-20"><a href="#cb1-20"></a>grid_z_cubic <span class="op">=</span> griddata(points, values, (grid_x, grid_y), method<span class="op">=</span><span class="st">'cubic'</span>)</span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a>ax[<span class="dv">0</span>].plot(points[:,<span class="dv">0</span>], points[:,<span class="dv">1</span>], <span class="st">'o'</span>, ms<span class="op">=</span><span class="dv">3</span>, markerfacecolor<span class="op">=</span><span class="st">"red"</span>, markeredgecolor<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23"></a>ax[<span class="dv">0</span>].set_aspect(<span class="st">'equal'</span>, <span class="st">'box'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlim<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>], ylim<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb1-25"><a href="#cb1-25"></a>ax[<span class="dv">0</span>].set_title(<span class="st">"the stations"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(values):</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    ax[<span class="dv">0</span>].text(points[i,<span class="dv">0</span>], points[i,<span class="dv">1</span>], <span class="bu">str</span>(v))</span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a>ax[<span class="dv">1</span>].imshow(grid_z_nearest.T, extent<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30"></a>ax[<span class="dv">1</span>].plot(points[:,<span class="dv">0</span>], points[:,<span class="dv">1</span>], <span class="st">'o'</span>, ms<span class="op">=</span><span class="dv">3</span>, markerfacecolor<span class="op">=</span><span class="st">"red"</span>, markeredgecolor<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31"></a>vor <span class="op">=</span> Voronoi(points)</span>
+<span id="cb1-32"><a href="#cb1-32"></a>voronoi_plot_2d(vor, show_vertices<span class="op">=</span><span class="va">False</span>, line_colors<span class="op">=</span><span class="st">'cyan'</span>,</span>
+<span id="cb1-33"><a href="#cb1-33"></a>                line_width<span class="op">=</span><span class="dv">3</span>, line_alpha<span class="op">=</span><span class="dv">1</span>, point_size<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>])</span>
+<span id="cb1-34"><a href="#cb1-34"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Thiessen Method"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a>ax[<span class="dv">2</span>].plot(points[:,<span class="dv">0</span>], points[:,<span class="dv">1</span>], <span class="st">'o'</span>, ms<span class="op">=</span><span class="dv">3</span>, markerfacecolor<span class="op">=</span><span class="st">"red"</span>, markeredgecolor<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb1-37"><a href="#cb1-37"></a>nlines <span class="op">=</span> <span class="bu">int</span>((values.<span class="bu">max</span>()<span class="op">-</span>values.<span class="bu">min</span>()<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb1-38"><a href="#cb1-38"></a>ax[<span class="dv">2</span>].contourf(grid_x, grid_y, grid_z_cubic, nlines)</span>
+<span id="cb1-39"><a href="#cb1-39"></a>cont <span class="op">=</span> ax[<span class="dv">2</span>].contour(grid_x, grid_y, grid_z_cubic, nlines, colors<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb1-40"><a href="#cb1-40"></a>ax[<span class="dv">2</span>].clabel(cont, inline<span class="op">=</span><span class="dv">1</span>, colors<span class="op">=</span><span class="st">'white'</span>, fmt<span class="op">=</span><span class="st">'%.0f'</span>)</span>
+<span id="cb1-41"><a href="#cb1-41"></a>ax[<span class="dv">2</span>].set_title(<span class="st">"Isohyetal Method"</span>)</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="cf">for</span> i, a <span class="kw">in</span> <span class="bu">enumerate</span>(ax):</span>
+<span id="cb1-44"><a href="#cb1-44"></a>    a.<span class="bu">set</span>(xlim<span class="op">=</span>[<span class="op">-</span><span class="fl">0.2</span>,<span class="fl">1.2</span>], ylim<span class="op">=</span>[<span class="op">-</span><span class="fl">0.2</span>,<span class="fl">1.2</span>])</span>
+<span id="cb1-45"><a href="#cb1-45"></a>    a.axis(<span class="st">'off'</span>)</span>
+<span id="cb1-46"><a href="#cb1-46"></a>    a.set_aspect(<span class="st">'equal'</span>, <span class="st">'box'</span>)</span>
+<span id="cb1-47"><a href="#cb1-47"></a></span>
+<span id="cb1-48"><a href="#cb1-48"></a>fig.savefig(<span class="st">"spatial-distribution.png"</span>, dpi<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -551,7 +570,7 @@ fig.savefig("spatial-distribution.png", dpi=500)
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">

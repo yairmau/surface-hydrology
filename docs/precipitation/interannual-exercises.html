@@ -392,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Import relevant packages</p>
-<div id="cell-2" class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -404,8 +404,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9"></a>register_matplotlib_converters()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Plot monthly rainfall for your station.</p>
-<p>Load the data into a datafram, and before you continue with the analysis, plot the rainfall data, to see how it looks like.</p>
-<div id="cell-4" class="cell" data-execution_count="3">
+<p>Load the data into a dataframe, and before you continue with the analysis, plot the rainfall data, to see how it looks like.</p>
+<div id="cell-4" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'BEN_GURION_monthly.csv'</span>, sep<span class="op">=</span><span class="st">","</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co"># make 'DATE' the dataframe index</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>df[<span class="st">'DATE'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'DATE'</span>])</span>
@@ -426,17 +426,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>read more about resampling options:<br>
 <a href="https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#offset-aliases" class="uri">https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#offset-aliases</a></p>
 <p>also, annual resampling can be anchored to the end of specific months: <a href="https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#anchored-offsets" class="uri">https://pandas.pydata.org/pandas-docs/version/0.12.0/timeseries.html#anchored-offsets</a></p>
-<div id="cell-6" class="cell" data-execution_count="4">
+<div id="cell-6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># annual frequency, anchored 31 December</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'A'</span>).<span class="bu">sum</span>().to_frame()</span>
+<span id="cb3-2"><a href="#cb3-2"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'YE'</span>).<span class="bu">sum</span>().to_frame()</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co"># annual frequency, anchored 01 January</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'AS'</span>).<span class="bu">sum</span>().to_frame()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'YS'</span>).<span class="bu">sum</span>().to_frame()</span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="co"># annual frequency, anchored end of September</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'A-SEP'</span>).<span class="bu">sum</span>().to_frame()</span>
+<span id="cb3-6"><a href="#cb3-6"></a>df_year_all <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'YE-SEP'</span>).<span class="bu">sum</span>().to_frame()</span>
 <span id="cb3-7"><a href="#cb3-7"></a><span class="co"># rename 'PRCP' column to 'rain (mm)'</span></span>
 <span id="cb3-8"><a href="#cb3-8"></a>df_year_all.columns <span class="op">=</span> [<span class="st">'rain (mm)'</span>]</span>
 <span id="cb3-9"><a href="#cb3-9"></a>df_year_all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <div>
 
@@ -506,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>You might need to exclude the first or the last line, since their data might have less that 12 months. For example:</p>
-<div id="cell-8" class="cell" data-execution_count="5">
+<div id="cell-8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># exclude 1st row</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>df_year <span class="op">=</span> df_year_all.iloc[<span class="dv">1</span>:]</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co"># exclude last row</span></span>
@@ -514,7 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5"></a><span class="co"># exclude both 1st and last rows</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>df_year <span class="op">=</span> df_year_all.iloc[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb4-7"><a href="#cb4-7"></a>df_year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <div>
 
@@ -584,7 +584,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Calculate the average annual rainfall. Plot annual rainfall for the whole range, together with the average. You should get something like this:</p>
-<div id="cell-10" class="cell" data-execution_count="7">
+<div id="cell-10" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co"># plot YEARLY precipitation</span></span>
@@ -608,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Plot a histogram of annual rainfall, with the mean and standard deviation. Calculate the coefficient of variation. Try to plot something like this:</p>
-<div id="cell-12" class="cell" data-execution_count="8">
+<div id="cell-12" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co"># calculate mean and standard deviation</span></span>
@@ -640,7 +640,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Calculate the mean annual rainfall for various 30-year intervals</p>
-<div id="cell-14" class="cell" data-execution_count="9">
+<div id="cell-14" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">####### the hard way #######</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co"># fig, ax = plt.subplots(figsize=(10,7))</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
