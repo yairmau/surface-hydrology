@@ -96,6 +96,7 @@ div.csl-indent {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -401,12 +402,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Gain full control of date formatting</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/plotting-guidelines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Plotting guidelines</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -463,7 +470,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> urllib.request</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-2" class="cell" data-execution_count="34">
+<div id="cell-2" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>load data and process it</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df_telaviv <span class="op">=</span> pd.read_csv(<span class="st">"TEL_AVIV_READING_monthly.csv"</span>,</span>
@@ -488,9 +495,9 @@ window.Quarto = {
 <span id="cb2-20"><a href="#cb2-20"></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-3" class="cell" data-execution_count="38">
+<div id="cell-3" class="cell" data-execution_count="3">
 <details class="code-fold">
-<summary>Show the code</summary>
+<summary>plot rainfall distribution</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co"># bar plots</span></span>
@@ -505,12 +512,10 @@ window.Quarto = {
 <span id="cb3-12"><a href="#cb3-12"></a>       title<span class="op">=</span><span class="st">'seasonality of two cities with similar yearly rainfall'</span>,</span>
 <span id="cb3-13"><a href="#cb3-13"></a>       xticks<span class="op">=</span>monthly_telaviv.index</span>
 <span id="cb3-14"><a href="#cb3-14"></a>      )</span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co"># ax.set_xticks(monthly_london.index)</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co"># ax.set_xticklabels(roll_months)</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-18"><a href="#cb3-18"></a></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co"># save figure</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co"># plt.savefig("hydrology_figures/monthly_tel_aviv_london_bars.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-15"><a href="#cb3-15"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, frameon<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co"># save figure</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co"># plt.savefig("hydrology_figures/monthly_tel_aviv_london_bars.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -521,9 +526,9 @@ window.Quarto = {
 </div>
 </div>
 <p>Let’s shift the months according to Tel Aviv’s hydrological year:</p>
-<div id="cell-5" class="cell" data-execution_count="39">
+<div id="cell-5" class="cell" data-execution_count="4">
 <details class="code-fold">
-<summary>Show the code</summary>
+<summary>plot rainfall distribution according to Tel Aviv’s hydrological year</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb4-2"><a href="#cb4-2"></a>Nroll <span class="op">=</span> <span class="dv">3</span>  <span class="co"># number of months to roll</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>roll_telaviv <span class="op">=</span> np.roll(monthly_telaviv[<span class="st">'PRCP'</span>], Nroll)</span>
@@ -539,13 +544,13 @@ window.Quarto = {
 <span id="cb4-13"><a href="#cb4-13"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'month'</span>,</span>
 <span id="cb4-14"><a href="#cb4-14"></a>       ylabel<span class="op">=</span><span class="st">'monthly rainfall average (mm)'</span>,</span>
 <span id="cb4-15"><a href="#cb4-15"></a>       title<span class="op">=</span><span class="st">'seasonality of two cities with similar yearly rainfall'</span>,</span>
-<span id="cb4-16"><a href="#cb4-16"></a>      )</span>
-<span id="cb4-17"><a href="#cb4-17"></a>ax.set_xticks(monthly_london.index)</span>
-<span id="cb4-18"><a href="#cb4-18"></a>ax.set_xticklabels(roll_months)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>       xticks<span class="op">=</span>monthly_london.index,</span>
+<span id="cb4-17"><a href="#cb4-17"></a>       xticklabels<span class="op">=</span>roll_months</span>
+<span id="cb4-18"><a href="#cb4-18"></a>      )</span>
 <span id="cb4-19"><a href="#cb4-19"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, frameon<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
 <span id="cb4-20"><a href="#cb4-20"></a></span>
 <span id="cb4-21"><a href="#cb4-21"></a><span class="co"># save figure</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co"># plt.savefig("hydrology_figures/monthly_tel_aviv_london_bars.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co"># plt.savefig("monthly_tel_aviv_london_bars.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -556,9 +561,9 @@ window.Quarto = {
 </div>
 </div>
 <p>Another way of representing this data is with polar coordinates:</p>
-<div id="cell-7" class="cell" data-execution_count="45">
+<div id="cell-7" class="cell" data-execution_count="5">
 <details class="code-fold">
-<summary>Show the code</summary>
+<summary>plot in polar coordinates</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co"># radar chart</span></span>
@@ -589,7 +594,7 @@ window.Quarto = {
 <span id="cb5-28"><a href="#cb5-28"></a>ax.legend(loc<span class="op">=</span>(<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">0.9</span>))<span class="op">;</span>  <span class="co"># legend at x=-0.2 so it doesn't overlap with graph</span></span>
 <span id="cb5-29"><a href="#cb5-29"></a></span>
 <span id="cb5-30"><a href="#cb5-30"></a><span class="co"># save figure</span></span>
-<span id="cb5-31"><a href="#cb5-31"></a><span class="co"># plt.savefig("hydrology_figures/radar_chart_tel_aviv_london.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co"># plt.savefig("radar_chart_tel_aviv_london.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -604,7 +609,9 @@ window.Quarto = {
 <p>Sources: <span class="citation" data-cites="walsh_lawler">leddris (<a href="../references.html#ref-walsh_lawler" role="doc-biblioref">2010</a>)</span>, <span class="citation" data-cites="walsh1981rainfall">Walsh and Lawler (<a href="../references.html#ref-walsh1981rainfall" role="doc-biblioref">1981</a>)</span></p>
 <p><span class="math inline">\langle{P}\rangle=</span> mean annual precipitation<br>
 <span class="math inline">m_i=</span> precipitation mean for month <span class="math inline">i</span></p>
-<p><span class="math display"> SI = \displaystyle \frac{1}{\langle{P}\rangle} \sum_{n=1}^{n=12} \left| m_i - \frac{\langle{P}\rangle}{12} \right| </span></p>
+<p><span class="math display">
+SI = \displaystyle \frac{1}{\langle{P}\rangle} \sum_{n=1}^{n=12} \left| m_i - \frac{\langle{P}\rangle}{12} \right|
+</span></p>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -644,7 +651,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Let’s write some code to calculate the SI for Tel Aviv and London.</p>
-<div id="cell-9" class="cell" data-execution_count="46">
+<div id="cell-9" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show/hide the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> walsh_index(df):</span>
@@ -665,49 +672,47 @@ London: 0.13
 Tel Aviv: 1.00</code></pre>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="59">
+<div id="cell-10" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a>plt.rcParams[<span class="st">'hatch.linewidth'</span>] <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>roll_telaviv</span>
-<span id="cb8-6"><a href="#cb8-6"></a>xlim <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">13</span>]</span>
-<span id="cb8-7"><a href="#cb8-7"></a>total_telaviv <span class="op">=</span> np.<span class="bu">sum</span>(roll_telaviv)</span>
-<span id="cb8-8"><a href="#cb8-8"></a>ax.plot(xlim, [total_telaviv<span class="op">/</span><span class="dv">12</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"tab:blue"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb8-9"><a href="#cb8-9"></a>ax.set_xlim(xlim)</span>
-<span id="cb8-10"><a href="#cb8-10"></a></span>
-<span id="cb8-11"><a href="#cb8-11"></a>shaded <span class="op">=</span> roll_telaviv <span class="op">-</span> total_telaviv<span class="op">/</span><span class="dv">12</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a>months <span class="op">=</span> monthly_telaviv.index</span>
-<span id="cb8-13"><a href="#cb8-13"></a>ax.bar(months, shaded,</span>
-<span id="cb8-14"><a href="#cb8-14"></a>       alpha<span class="op">=</span><span class="fl">0.9</span>, color<span class="op">=</span><span class="st">"None"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb8-15"><a href="#cb8-15"></a>       hatch<span class="op">=</span><span class="st">"//"</span>, edgecolor<span class="op">=</span><span class="st">'k'</span>,</span>
-<span id="cb8-16"><a href="#cb8-16"></a>       align<span class="op">=</span><span class="st">'edge'</span>, bottom<span class="op">=</span>total_telaviv<span class="op">/</span><span class="dv">12</span>,</span>
-<span id="cb8-17"><a href="#cb8-17"></a>       label<span class="op">=</span><span class="ss">f"absolute difference"</span>)</span>
-<span id="cb8-18"><a href="#cb8-18"></a></span>
-<span id="cb8-19"><a href="#cb8-19"></a>ax.bar(months, roll_telaviv,</span>
-<span id="cb8-20"><a href="#cb8-20"></a>       alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"red"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb8-21"><a href="#cb8-21"></a>       align<span class="op">=</span><span class="st">'edge'</span>,</span>
-<span id="cb8-22"><a href="#cb8-22"></a>       label<span class="op">=</span><span class="ss">f"total rainfall"</span>, zorder<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb8-23"><a href="#cb8-23"></a></span>
-<span id="cb8-24"><a href="#cb8-24"></a></span>
-<span id="cb8-25"><a href="#cb8-25"></a>ax.text(<span class="fl">5.3</span>, <span class="fl">86.5</span>, <span class="vs">r"SI$=1.00=$"</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb8-26"><a href="#cb8-26"></a>ax.text(xlim[<span class="op">-</span><span class="dv">1</span>], total_telaviv<span class="op">/</span><span class="dv">12</span>, <span class="st">" mean"</span>, va<span class="op">=</span><span class="st">"center"</span>)</span>
-<span id="cb8-27"><a href="#cb8-27"></a>ax.plot([<span class="fl">7.8</span>, <span class="fl">12.8</span>], [<span class="fl">89.5</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb8-28"><a href="#cb8-28"></a><span class="co"># # # axes labels and figure title</span></span>
-<span id="cb8-29"><a href="#cb8-29"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'month'</span>,</span>
-<span id="cb8-30"><a href="#cb8-30"></a>       ylabel<span class="op">=</span><span class="st">'monthly rainfall average (mm)'</span>,</span>
-<span id="cb8-31"><a href="#cb8-31"></a>       title<span class="op">=</span><span class="st">'Walsh and Lawler (1981) Seasonality Index; Tel Aviv'</span>,</span>
-<span id="cb8-32"><a href="#cb8-32"></a>       xticks<span class="op">=</span>np.arange(<span class="fl">1.5</span>,<span class="fl">12.6</span>,<span class="dv">1</span>),</span>
-<span id="cb8-33"><a href="#cb8-33"></a>       xticklabels<span class="op">=</span>roll_months,</span>
-<span id="cb8-34"><a href="#cb8-34"></a>      )</span>
-<span id="cb8-35"><a href="#cb8-35"></a></span>
-<span id="cb8-36"><a href="#cb8-36"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, frameon<span class="op">=</span><span class="va">False</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="fl">0.7</span>),</span>
-<span id="cb8-37"><a href="#cb8-37"></a>           fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
-<span id="cb8-38"><a href="#cb8-38"></a></span>
-<span id="cb8-39"><a href="#cb8-39"></a><span class="co"># save figure</span></span>
-<span id="cb8-40"><a href="#cb8-40"></a><span class="co"># plt.savefig("hydrology_figures/si_walsh_telaviv.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3"></a>plt.rcParams[<span class="st">'hatch.linewidth'</span>] <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>roll_telaviv</span>
+<span id="cb8-5"><a href="#cb8-5"></a>xlim <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">13</span>]</span>
+<span id="cb8-6"><a href="#cb8-6"></a>total_telaviv <span class="op">=</span> np.<span class="bu">sum</span>(roll_telaviv)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>ax.plot(xlim, [total_telaviv<span class="op">/</span><span class="dv">12</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"tab:blue"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>ax.set_xlim(xlim)</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a>shaded <span class="op">=</span> roll_telaviv <span class="op">-</span> total_telaviv<span class="op">/</span><span class="dv">12</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>months <span class="op">=</span> monthly_telaviv.index</span>
+<span id="cb8-12"><a href="#cb8-12"></a>ax.bar(months, shaded,</span>
+<span id="cb8-13"><a href="#cb8-13"></a>       alpha<span class="op">=</span><span class="fl">0.9</span>, color<span class="op">=</span><span class="st">"None"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb8-14"><a href="#cb8-14"></a>       hatch<span class="op">=</span><span class="st">"//"</span>, edgecolor<span class="op">=</span><span class="st">'k'</span>,</span>
+<span id="cb8-15"><a href="#cb8-15"></a>       align<span class="op">=</span><span class="st">'edge'</span>, bottom<span class="op">=</span>total_telaviv<span class="op">/</span><span class="dv">12</span>,</span>
+<span id="cb8-16"><a href="#cb8-16"></a>       label<span class="op">=</span><span class="ss">f"absolute difference"</span>)</span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a>ax.bar(months, roll_telaviv,</span>
+<span id="cb8-19"><a href="#cb8-19"></a>       alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"red"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb8-20"><a href="#cb8-20"></a>       align<span class="op">=</span><span class="st">'edge'</span>,</span>
+<span id="cb8-21"><a href="#cb8-21"></a>       label<span class="op">=</span><span class="ss">f"total rainfall"</span>, zorder<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb8-22"><a href="#cb8-22"></a></span>
+<span id="cb8-23"><a href="#cb8-23"></a>ax.text(<span class="fl">5.3</span>, <span class="fl">86.5</span>, <span class="vs">r"SI$=1.00=$"</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb8-24"><a href="#cb8-24"></a>ax.text(xlim[<span class="op">-</span><span class="dv">1</span>], total_telaviv<span class="op">/</span><span class="dv">12</span>, <span class="st">" mean"</span>, va<span class="op">=</span><span class="st">"center"</span>)</span>
+<span id="cb8-25"><a href="#cb8-25"></a>ax.plot([<span class="fl">7.8</span>, <span class="fl">12.8</span>], [<span class="fl">89.5</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="co"># axes labels and figure title</span></span>
+<span id="cb8-27"><a href="#cb8-27"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'month'</span>,</span>
+<span id="cb8-28"><a href="#cb8-28"></a>       ylabel<span class="op">=</span><span class="st">'monthly rainfall average (mm)'</span>,</span>
+<span id="cb8-29"><a href="#cb8-29"></a>       title<span class="op">=</span><span class="st">'Walsh and Lawler (1981) Seasonality Index; Tel Aviv'</span>,</span>
+<span id="cb8-30"><a href="#cb8-30"></a>       xticks<span class="op">=</span>np.arange(<span class="fl">1.5</span>,<span class="fl">12.6</span>,<span class="dv">1</span>),</span>
+<span id="cb8-31"><a href="#cb8-31"></a>       xticklabels<span class="op">=</span>roll_months,</span>
+<span id="cb8-32"><a href="#cb8-32"></a>      )</span>
+<span id="cb8-33"><a href="#cb8-33"></a></span>
+<span id="cb8-34"><a href="#cb8-34"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, frameon<span class="op">=</span><span class="va">False</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="fl">0.7</span>),</span>
+<span id="cb8-35"><a href="#cb8-35"></a>           fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb8-36"><a href="#cb8-36"></a></span>
+<span id="cb8-37"><a href="#cb8-37"></a><span class="co"># save figure</span></span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="co"># plt.savefig("si_walsh_telaviv.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -717,55 +722,117 @@ Tel Aviv: 1.00</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="69">
+<div id="cell-11" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a>plt.rcParams[<span class="st">'hatch.linewidth'</span>] <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>xlim <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">13</span>]</span>
-<span id="cb9-6"><a href="#cb9-6"></a>total_london <span class="op">=</span> np.<span class="bu">sum</span>(roll_london)</span>
-<span id="cb9-7"><a href="#cb9-7"></a>ax.plot(xlim, [total_london<span class="op">/</span><span class="dv">12</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"tab:blue"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb9-8"><a href="#cb9-8"></a>ax.set_xlim(xlim)</span>
-<span id="cb9-9"><a href="#cb9-9"></a></span>
-<span id="cb9-10"><a href="#cb9-10"></a>shaded <span class="op">=</span> roll_london <span class="op">-</span> total_london<span class="op">/</span><span class="dv">12</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a>months <span class="op">=</span> monthly_london.index</span>
-<span id="cb9-12"><a href="#cb9-12"></a>ax.bar(months, shaded,</span>
-<span id="cb9-13"><a href="#cb9-13"></a>       alpha<span class="op">=</span><span class="fl">0.9</span>, color<span class="op">=</span><span class="st">"None"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb9-14"><a href="#cb9-14"></a>       hatch<span class="op">=</span><span class="st">"//"</span>, edgecolor<span class="op">=</span><span class="st">'k'</span>,</span>
-<span id="cb9-15"><a href="#cb9-15"></a>       align<span class="op">=</span><span class="st">'edge'</span>, bottom<span class="op">=</span>total_london<span class="op">/</span><span class="dv">12</span>,</span>
-<span id="cb9-16"><a href="#cb9-16"></a>       label<span class="op">=</span><span class="ss">f"absolute difference"</span>)</span>
-<span id="cb9-17"><a href="#cb9-17"></a></span>
-<span id="cb9-18"><a href="#cb9-18"></a>ax.bar(months, roll_london,</span>
-<span id="cb9-19"><a href="#cb9-19"></a>       alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"red"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb9-20"><a href="#cb9-20"></a>       align<span class="op">=</span><span class="st">'edge'</span>,</span>
-<span id="cb9-21"><a href="#cb9-21"></a>       label<span class="op">=</span><span class="ss">f"total rainfall"</span>, zorder<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>plt.rcParams[<span class="st">'hatch.linewidth'</span>] <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>xlim <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">13</span>]</span>
+<span id="cb9-5"><a href="#cb9-5"></a>total_london <span class="op">=</span> np.<span class="bu">sum</span>(roll_london)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>ax.plot(xlim, [total_london<span class="op">/</span><span class="dv">12</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"tab:blue"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a>ax.set_xlim(xlim)</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a>shaded <span class="op">=</span> roll_london <span class="op">-</span> total_london<span class="op">/</span><span class="dv">12</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>months <span class="op">=</span> monthly_london.index</span>
+<span id="cb9-11"><a href="#cb9-11"></a>ax.bar(months, shaded,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>       alpha<span class="op">=</span><span class="fl">0.9</span>, color<span class="op">=</span><span class="st">"None"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb9-13"><a href="#cb9-13"></a>       hatch<span class="op">=</span><span class="st">"//"</span>, edgecolor<span class="op">=</span><span class="st">'k'</span>,</span>
+<span id="cb9-14"><a href="#cb9-14"></a>       align<span class="op">=</span><span class="st">'edge'</span>, bottom<span class="op">=</span>total_london<span class="op">/</span><span class="dv">12</span>,</span>
+<span id="cb9-15"><a href="#cb9-15"></a>       label<span class="op">=</span><span class="ss">f"absolute difference"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16"></a></span>
+<span id="cb9-17"><a href="#cb9-17"></a>ax.bar(months, roll_london,</span>
+<span id="cb9-18"><a href="#cb9-18"></a>       alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"red"</span>, width<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb9-19"><a href="#cb9-19"></a>       align<span class="op">=</span><span class="st">'edge'</span>,</span>
+<span id="cb9-20"><a href="#cb9-20"></a>       label<span class="op">=</span><span class="ss">f"total rainfall"</span>, zorder<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-21"><a href="#cb9-21"></a></span>
 <span id="cb9-22"><a href="#cb9-22"></a></span>
-<span id="cb9-23"><a href="#cb9-23"></a></span>
-<span id="cb9-24"><a href="#cb9-24"></a>ax.text(<span class="fl">5.3</span>, <span class="dv">74</span>, <span class="vs">r"SI$=0.13=$"</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb9-25"><a href="#cb9-25"></a>ax.text(xlim[<span class="op">-</span><span class="dv">1</span>], total_london<span class="op">/</span><span class="dv">12</span>, <span class="st">" mean"</span>, va<span class="op">=</span><span class="st">"center"</span>)</span>
-<span id="cb9-26"><a href="#cb9-26"></a>ax.plot([<span class="fl">7.8</span>, <span class="fl">12.8</span>], [<span class="fl">75.5</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb9-27"><a href="#cb9-27"></a><span class="co"># # # axes labels and figure title</span></span>
-<span id="cb9-28"><a href="#cb9-28"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'month'</span>,</span>
-<span id="cb9-29"><a href="#cb9-29"></a>       ylabel<span class="op">=</span><span class="st">'monthly rainfall average (mm)'</span>,</span>
-<span id="cb9-30"><a href="#cb9-30"></a>       title<span class="op">=</span><span class="st">'Walsh and Lawler (1981) Seasonality Index; London'</span>,</span>
-<span id="cb9-31"><a href="#cb9-31"></a>       xticks<span class="op">=</span>np.arange(<span class="fl">1.5</span>,<span class="fl">12.6</span>,<span class="dv">1</span>),</span>
-<span id="cb9-32"><a href="#cb9-32"></a>       xticklabels<span class="op">=</span>roll_months,</span>
-<span id="cb9-33"><a href="#cb9-33"></a>       ylim<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">83</span>],</span>
-<span id="cb9-34"><a href="#cb9-34"></a>      )</span>
-<span id="cb9-35"><a href="#cb9-35"></a></span>
-<span id="cb9-36"><a href="#cb9-36"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, frameon<span class="op">=</span><span class="va">False</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="fl">1.005</span>),</span>
-<span id="cb9-37"><a href="#cb9-37"></a>           fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
-<span id="cb9-38"><a href="#cb9-38"></a></span>
-<span id="cb9-39"><a href="#cb9-39"></a><span class="co"># save figure</span></span>
-<span id="cb9-40"><a href="#cb9-40"></a><span class="co"># plt.savefig("hydrology_figures/si_walsh_telaviv.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-23"><a href="#cb9-23"></a>ax.text(<span class="fl">5.3</span>, <span class="dv">74</span>, <span class="vs">r"SI$=0.13=$"</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb9-24"><a href="#cb9-24"></a>ax.text(xlim[<span class="op">-</span><span class="dv">1</span>], total_london<span class="op">/</span><span class="dv">12</span>, <span class="st">" mean"</span>, va<span class="op">=</span><span class="st">"center"</span>)</span>
+<span id="cb9-25"><a href="#cb9-25"></a>ax.plot([<span class="fl">7.8</span>, <span class="fl">12.8</span>], [<span class="fl">75.5</span>]<span class="op">*</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="co"># axes labels and figure title</span></span>
+<span id="cb9-27"><a href="#cb9-27"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'month'</span>,</span>
+<span id="cb9-28"><a href="#cb9-28"></a>       ylabel<span class="op">=</span><span class="st">'monthly rainfall average (mm)'</span>,</span>
+<span id="cb9-29"><a href="#cb9-29"></a>       title<span class="op">=</span><span class="st">'Walsh and Lawler (1981) Seasonality Index; London'</span>,</span>
+<span id="cb9-30"><a href="#cb9-30"></a>       xticks<span class="op">=</span>np.arange(<span class="fl">1.5</span>,<span class="fl">12.6</span>,<span class="dv">1</span>),</span>
+<span id="cb9-31"><a href="#cb9-31"></a>       xticklabels<span class="op">=</span>roll_months,</span>
+<span id="cb9-32"><a href="#cb9-32"></a>       ylim<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">83</span>],</span>
+<span id="cb9-33"><a href="#cb9-33"></a>      )</span>
+<span id="cb9-34"><a href="#cb9-34"></a></span>
+<span id="cb9-35"><a href="#cb9-35"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, frameon<span class="op">=</span><span class="va">False</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="fl">1.005</span>),</span>
+<span id="cb9-36"><a href="#cb9-36"></a>           fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb9-37"><a href="#cb9-37"></a></span>
+<span id="cb9-38"><a href="#cb9-38"></a><span class="co"># save figure</span></span>
+<span id="cb9-39"><a href="#cb9-39"></a><span class="co"># plt.savefig("si_walsh_telaviv.png")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="intra-annual-lecture_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
 </figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon inline="" icon="fa:question-circle-o" aria-label="Icon question-circle-o from fa Iconify.design set." title="Icon question-circle-o from fa Iconify.design set."></iconify-icon> What is greatest possible value for the Walsh and Lawler seasonality index?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This must be the case when all the rainfall in concentrated in only one month of the year.</p>
+<details>
+<summary>
+calculation
+</summary>
+<p>Without loss of generality, assume that all the rain in the year (<span class="math inline">P</span>) is in January: <span class="math inline">m_1=P</span> and <span class="math inline">m_i=0</span> for other months.</p>
+<p><span class="math display">
+\begin{split}
+SI &amp;= \frac{1}{P} \sum_{n=1}^{n=12} \left| m_i - \frac{\langle{P}\rangle}{12} \right| \\
+   &amp;= \frac{1}{P} \left| P - \frac{P}{12}  \right| + \frac{1}{P} \sum_{n=2}^{n=12} \left| 0 - \frac{P}{12} \right| \\
+   &amp;= \frac{11}{12} + 11\cdot \frac{1}{12} \\
+   &amp;= \frac{11}{6} \\
+   &amp;= 1.83
+\end{split}
+</span></p>
+</details>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon inline="" icon="fa:question-circle-o" aria-label="Icon question-circle-o from fa Iconify.design set." title="Icon question-circle-o from fa Iconify.design set."></iconify-icon> Can you think of a better seasonality index?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Think of possible problems with Walsh and Lawler’s index, then try to fix them :)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon inline="" icon="fa:question-circle-o" aria-label="Icon question-circle-o from fa Iconify.design set." title="Icon question-circle-o from fa Iconify.design set."></iconify-icon> What would happen to the index value if we were to randomly shuffle the months?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
 </div>
 </div>
 </div>

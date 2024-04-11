@@ -49,6 +49,7 @@ book:
     - part: appendix/index.qmd
       chapters:    
         - appendix/date_formatting.ipynb
+        - appendix/plotting-guidelines.ipynb
     - summary.qmd
     - references.qmd
   # repo-url: https://github.com/agrotech-lab/my-book-test
