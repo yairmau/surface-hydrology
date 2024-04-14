@@ -369,7 +369,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#increase-fontsize-to-legible-sizes" id="toc-increase-fontsize-to-legible-sizes" class="nav-link active" data-scroll-target="#increase-fontsize-to-legible-sizes"><span class="header-section-number">19.1</span> increase fontsize to legible sizes</a></li>
-  <li><a href="#choose-colors-wisely" id="toc-choose-colors-wisely" class="nav-link" data-scroll-target="#choose-colors-wisely"><span class="header-section-number">19.2</span> Choose colors wisely</a></li>
+  <li><a href="#choose-colors-wisely" id="toc-choose-colors-wisely" class="nav-link" data-scroll-target="#choose-colors-wisely"><span class="header-section-number">19.2</span> choose colors wisely</a></li>
+  <li><a href="#the-best-legend-is-no-legend" id="toc-the-best-legend-is-no-legend" class="nav-link" data-scroll-target="#the-best-legend-is-no-legend"><span class="header-section-number">19.3</span> the best legend is no legend</a></li>
   </ul>
 </nav>
     </div>
@@ -397,16 +398,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="increase-fontsize-to-legible-sizes" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="increase-fontsize-to-legible-sizes"><span class="header-section-number">19.1</span> increase fontsize to legible sizes</h2>
-<div id="cell-2" class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="110">
 <details class="code-fold">
 <summary>import stuff</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> mcolors</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Graph with default matplotlib values:</p>
-<div id="cell-4" class="cell" data-execution_count="2">
+<div id="cell-4" class="cell" data-execution_count="111">
 <details class="code-fold">
 <summary>plot with default matplotlib values</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">101</span>)</span>
@@ -427,11 +430,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>You can use <code>seaborn</code> to easily change plot style and font size:</p>
-<div id="cell-6" class="cell" data-execution_count="3">
+<div id="cell-6" class="cell" data-execution_count="112">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="4">
+<div id="cell-7" class="cell" data-execution_count="113">
 <details class="code-fold">
 <summary>plot after seaborn theme changes</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">101</span>)</span>
@@ -454,8 +457,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I recommend that you read seaborn’s <a href="https://seaborn.pydata.org/tutorial/aesthetics.html" target="_blank">Controlling figure aesthetics</a>.</p>
 </section>
 <section id="choose-colors-wisely" class="level2" data-number="19.2">
-<h2 data-number="19.2" class="anchored" data-anchor-id="choose-colors-wisely"><span class="header-section-number">19.2</span> Choose colors wisely</h2>
-<div id="cell-10" class="cell" data-execution_count="5">
+<h2 data-number="19.2" class="anchored" data-anchor-id="choose-colors-wisely"><span class="header-section-number">19.2</span> choose colors wisely</h2>
+<div id="cell-10" class="cell" data-execution_count="114">
 <details class="code-fold">
 <summary>define useful functions</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> math</span>
@@ -514,7 +517,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>When you plot with matplotlib, the default color order is the following. You can always specify a plot’s color by typing something like <code>color="tab:red</code>.</p>
-<div id="cell-12" class="cell" data-execution_count="6">
+<div id="cell-12" class="cell" data-execution_count="115">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plot_colortable(mcolors.TABLEAU_COLORS, ncols<span class="op">=</span><span class="dv">2</span>, sort_colors<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -528,7 +531,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>You can write other words as color names, see below.</p>
-<div id="cell-14" class="cell" data-execution_count="7">
+<div id="cell-14" class="cell" data-execution_count="116">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plot_colortable(mcolors.CSS4_COLORS)</span>
@@ -554,6 +557,113 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://xkcd.com/color/rgb/">xkcd colors</a></li>
 <li><a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">Colormaps in Matplotlib</a></li>
 </ul>
+</section>
+<section id="the-best-legend-is-no-legend" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="the-best-legend-is-no-legend"><span class="header-section-number">19.3</span> the best legend is no legend</h2>
+<div id="cell-17" class="cell" data-execution_count="117">
+<details class="code-fold">
+<summary>plot after seaborn theme changes</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">101</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>y1 <span class="op">=</span> np.sin(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>t<span class="op">/</span><span class="dv">3</span>) <span class="op">+</span> np.random.random(<span class="bu">len</span>(t)) <span class="op">+</span> <span class="fl">5.0</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>y2 <span class="op">=</span> <span class="fl">0.7</span><span class="op">*</span>np.sin(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>t<span class="op">/</span><span class="dv">1</span><span class="op">+</span><span class="fl">1.0</span>) <span class="op">+</span> np.random.random(<span class="bu">len</span>(t)) <span class="op">+</span> <span class="fl">2.0</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>y3 <span class="op">=</span> <span class="fl">0.2</span><span class="op">*</span>np.sin(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>t<span class="op">/</span><span class="dv">5</span><span class="op">+</span><span class="fl">2.0</span>) <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span>np.random.random(<span class="bu">len</span>(t)) <span class="op">+</span> <span class="fl">3.5</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">14</span>))</span>
+<span id="cb8-7"><a href="#cb8-7"></a>fig.subplots_adjust(hspace<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co"># you can use legends</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>ax[<span class="dv">0</span>].plot(t, y1, color<span class="op">=</span><span class="st">"darkblue"</span>, label<span class="op">=</span><span class="st">"signal A"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11"></a>ax[<span class="dv">0</span>].plot(t, y2, color<span class="op">=</span><span class="st">"blue"</span>, label<span class="op">=</span><span class="st">"signal B"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12"></a>ax[<span class="dv">0</span>].plot(t, y3, color<span class="op">=</span><span class="st">"xkcd:hot pink"</span>, label<span class="op">=</span><span class="st">"signal C"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">"you can have a legend"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14"></a>          xlabel<span class="op">=</span><span class="st">"time (days)"</span>,</span>
+<span id="cb8-15"><a href="#cb8-15"></a>          ylabel<span class="op">=</span><span class="st">"signal (a.u.)"</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>         )</span>
+<span id="cb8-17"><a href="#cb8-17"></a>ax[<span class="dv">0</span>].legend()</span>
+<span id="cb8-18"><a href="#cb8-18"></a></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co"># you can use an extra y axes</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>p1, <span class="op">=</span> ax[<span class="dv">1</span>].plot(t, y1, color<span class="op">=</span><span class="st">"darkblue"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21"></a>ax[<span class="dv">1</span>].yaxis.label.set_color(p1.get_color())</span>
+<span id="cb8-22"><a href="#cb8-22"></a>ax[<span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'y'</span>, colors<span class="op">=</span>p1.get_color())</span>
+<span id="cb8-23"><a href="#cb8-23"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (days)"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24"></a>          ylabel<span class="op">=</span><span class="st">"signal A (a.u.)"</span>,</span>
+<span id="cb8-25"><a href="#cb8-25"></a>          title<span class="op">=</span><span class="st">"you can have two y axes with different colors"</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a>         )</span>
+<span id="cb8-27"><a href="#cb8-27"></a>ax1b <span class="op">=</span> plt.twinx(ax[<span class="dv">1</span>])</span>
+<span id="cb8-28"><a href="#cb8-28"></a>p2, <span class="op">=</span> ax1b.plot(t, y3, color<span class="op">=</span><span class="st">"xkcd:hot pink"</span>, label<span class="op">=</span><span class="st">"signal C"</span>)</span>
+<span id="cb8-29"><a href="#cb8-29"></a>ax1b.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">"signal B (a.u.)"</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a>        )</span>
+<span id="cb8-31"><a href="#cb8-31"></a>ax1b.yaxis.label.set_color(p2.get_color())</span>
+<span id="cb8-32"><a href="#cb8-32"></a>ax1b.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, colors<span class="op">=</span>p2.get_color())</span>
+<span id="cb8-33"><a href="#cb8-33"></a></span>
+<span id="cb8-34"><a href="#cb8-34"></a><span class="co"># you can write directly on the graph</span></span>
+<span id="cb8-35"><a href="#cb8-35"></a>ax[<span class="dv">2</span>].plot(t, y1, color<span class="op">=</span><span class="st">"darkblue"</span>, label<span class="op">=</span><span class="st">"signal A"</span>)</span>
+<span id="cb8-36"><a href="#cb8-36"></a>ax[<span class="dv">2</span>].plot(t, y2, color<span class="op">=</span><span class="st">"blue"</span>, label<span class="op">=</span><span class="st">"signal B"</span>)</span>
+<span id="cb8-37"><a href="#cb8-37"></a>ax[<span class="dv">2</span>].plot(t, y3, color<span class="op">=</span><span class="st">"xkcd:hot pink"</span>, label<span class="op">=</span><span class="st">"signal C"</span>)</span>
+<span id="cb8-38"><a href="#cb8-38"></a>ax[<span class="dv">2</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (days)"</span>,</span>
+<span id="cb8-39"><a href="#cb8-39"></a>          ylabel<span class="op">=</span><span class="st">"signal (a.u.)"</span>,</span>
+<span id="cb8-40"><a href="#cb8-40"></a>          ylim<span class="op">=</span>[<span class="fl">0.5</span>,<span class="dv">7</span>],</span>
+<span id="cb8-41"><a href="#cb8-41"></a>          title<span class="op">=</span><span class="st">"you can write directly on the graph"</span></span>
+<span id="cb8-42"><a href="#cb8-42"></a>         )</span>
+<span id="cb8-43"><a href="#cb8-43"></a>ax[<span class="dv">2</span>].text(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">5</span>, <span class="st">"signal A"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, ha<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb8-44"><a href="#cb8-44"></a>ax[<span class="dv">2</span>].text(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="st">"signal B"</span>, color<span class="op">=</span><span class="st">"blue"</span>, ha<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb8-45"><a href="#cb8-45"></a>ax[<span class="dv">2</span>].text(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">4</span>, <span class="st">"signal C"</span>, color<span class="op">=</span><span class="st">"xkcd:hot pink"</span>, ha<span class="op">=</span><span class="st">"left"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="117">
+<pre><code>Text(-0.5, 4, 'signal C')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="plotting-guidelines_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can also make a colorbar to substitute a legend.</p>
+<div id="cell-19" class="cell" data-execution_count="119">
+<details class="code-fold">
+<summary>make a discrete colorbar</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>num_lines <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">101</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># Get truncated colormap</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>cmap <span class="op">=</span> plt.colormaps.get_cmap(<span class="st">'jet'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a>bottom <span class="op">=</span> <span class="fl">0.6</span><span class="op">;</span> top <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>truncated_cmap <span class="op">=</span> mcolors.LinearSegmentedColormap.from_list(<span class="st">"truncated_viridis"</span>, cmap(np.linspace(bottom, top, num_lines)))</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># Create a figure and axis</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co"># Plot the lines with increasing frequency</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_lines):</span>
+<span id="cb10-15"><a href="#cb10-15"></a>    freq <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a>    y <span class="op">=</span> np.sin(<span class="fl">2.0</span> <span class="op">*</span> np.pi <span class="op">*</span> t <span class="op">*</span> freq) <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>freq</span>
+<span id="cb10-17"><a href="#cb10-17"></a>    ax.plot(t, y, color<span class="op">=</span>truncated_cmap(i <span class="op">/</span> (num_lines <span class="op">-</span> <span class="dv">1</span>)), label<span class="op">=</span><span class="ss">f'Slope </span><span class="sc">{</span>slope<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb10-18"><a href="#cb10-18"></a></span>
+<span id="cb10-19"><a href="#cb10-19"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (s)"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20"></a>       ylabel<span class="op">=</span><span class="st">"signal"</span>)</span>
+<span id="cb10-21"><a href="#cb10-21"></a></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="co"># Create a discrete colorbar</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a>boundaries <span class="op">=</span> np.linspace(<span class="fl">0.5</span>, num_lines <span class="op">+</span> <span class="fl">0.5</span>, num_lines <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb10-24"><a href="#cb10-24"></a>ticks <span class="op">=</span> np.arange(num_lines) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a>norm <span class="op">=</span> mcolors.BoundaryNorm(boundaries, truncated_cmap.N)</span>
+<span id="cb10-26"><a href="#cb10-26"></a>sm <span class="op">=</span> plt.cm.ScalarMappable(cmap<span class="op">=</span>truncated_cmap, norm<span class="op">=</span>norm)</span>
+<span id="cb10-27"><a href="#cb10-27"></a>sm.set_array([])  <span class="co"># fake up the array of the scalar mappable</span></span>
+<span id="cb10-28"><a href="#cb10-28"></a>cbar <span class="op">=</span> plt.colorbar(sm, ticks<span class="op">=</span>ticks, boundaries<span class="op">=</span>boundaries, label<span class="op">=</span><span class="st">'frequency'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb10-29"><a href="#cb10-29"></a>cbar.ax.tick_params(which<span class="op">=</span><span class="st">'both'</span>, size<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb10-30"><a href="#cb10-30"></a>freq_list <span class="op">=</span> [<span class="ss">f"</span><span class="sc">{</span>x<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> Hz"</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(num_lines)]</span>
+<span id="cb10-31"><a href="#cb10-31"></a>cbar.set_ticklabels(freq_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="plotting-guidelines_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
