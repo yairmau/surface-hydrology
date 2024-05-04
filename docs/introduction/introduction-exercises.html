@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -385,7 +385,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#make-the-following-figure" id="toc-make-the-following-figure" class="nav-link" data-scroll-target="#make-the-following-figure"><span class="header-section-number">2.9</span> make the following figure</a></li>
   <li><a href="#make-another-figure" id="toc-make-another-figure" class="nav-link" data-scroll-target="#make-another-figure"><span class="header-section-number">2.10</span> make another figure</a></li>
   <li><a href="#one-last-figure-for-today" id="toc-one-last-figure-for-today" class="nav-link" data-scroll-target="#one-last-figure-for-today"><span class="header-section-number">2.11</span> one last figure for today</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">3</span> homework</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">2.12</span> homework</a>
+  <ul class="collapse">
+  <li><a href="#graph-1" id="toc-graph-1" class="nav-link" data-scroll-target="#graph-1"><span class="header-section-number">2.12.1</span> graph 1</a></li>
+  <li><a href="#graph-2" id="toc-graph-2" class="nav-link" data-scroll-target="#graph-2"><span class="header-section-number">2.12.2</span> graph 2</a></li>
+  <li><a href="#graph-3" id="toc-graph-3" class="nav-link" data-scroll-target="#graph-3"><span class="header-section-number">2.12.3</span> graph 3</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -424,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-packages" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="import-packages"><span class="header-section-number">2.2</span> import packages</h2>
 <p>We need to import this data into python. First we import useful packages. <strong>Type</strong> (don’t copy and paste) the following lines in the code cell below.</p>
-<div id="cell-2" class="cell" data-execution_count="37">
+<div id="cell-2" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -435,13 +440,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-data-with-pandas" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="import-data-with-pandas"><span class="header-section-number">2.3</span> import data with pandas</h2>
 <p>Import data from csv and put it in a pandas <strong>dataframe</strong> (a table). Make line 5 the header (column names)</p>
-<div id="cell-4" class="cell" data-execution_count="38">
+<div id="cell-4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data-sep2020-feb2021.csv"</span>,</span>
 <span id="cb2-2"><a href="#cb2-2"></a>                 skiprows<span class="op">=</span><span class="dv">4</span>,</span>
 <span id="cb2-3"><a href="#cb2-3"></a>                 encoding<span class="op">=</span><span class="st">'latin1'</span>,</span>
 <span id="cb2-4"><a href="#cb2-4"></a>                 )</span>
 <span id="cb2-5"><a href="#cb2-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 <div>
 
@@ -571,10 +576,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.4" class="anchored" data-anchor-id="rename-columns"><span class="header-section-number">2.4</span> rename columns</h2>
 <p>rename the columns to:<br>
 <code>date, tmax, tmin, wind, rain24h, rain_cumulative</code></p>
-<div id="cell-6" class="cell" data-execution_count="39">
+<div id="cell-6" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.columns <span class="op">=</span> [<span class="st">'date'</span>, <span class="st">'tmax'</span>, <span class="st">'tmin'</span>, <span class="st">'wind'</span>, <span class="st">'rain24h'</span>, <span class="st">'rain_cumulative'</span>]</span>
 <span id="cb3-2"><a href="#cb3-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 <div>
 
@@ -703,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-first-plot" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="a-first-plot"><span class="header-section-number">2.5</span> a first plot!</h2>
 <p>plot the minimum temperature:</p>
-<div id="cell-8" class="cell" data-execution_count="40">
+<div id="cell-8" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.plot(df[<span class="st">'tmin'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -720,10 +725,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Interpret ‘date’ column as a pandas datetime, see how it looks different from before<br>
 before: 01/09/20<br>
 after: 2020-09-01</p>
-<div id="cell-10" class="cell" data-execution_count="41">
+<div id="cell-10" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'date'</span>], dayfirst<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 <div>
 
@@ -851,10 +856,10 @@ after: 2020-09-01</p>
 <section id="date-as-dataframe-index" class="level3" data-number="2.6.1">
 <h3 data-number="2.6.1" class="anchored" data-anchor-id="date-as-dataframe-index"><span class="header-section-number">2.6.1</span> date as dataframe index</h3>
 <p>Make ‘date’ the dataframe’s index (leftmost column, but not really a column!)</p>
-<div id="cell-12" class="cell" data-execution_count="42">
+<div id="cell-12" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df <span class="op">=</span> df.set_index(<span class="st">'date'</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 <div>
 
@@ -980,7 +985,7 @@ after: 2020-09-01</p>
 <section id="plot-again-now-with-dates" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="plot-again-now-with-dates"><span class="header-section-number">2.7</span> plot again, now with dates</h2>
 <p>Plot minimum temperature, now we have dates on the horizontal axis</p>
-<div id="cell-14" class="cell" data-execution_count="43">
+<div id="cell-14" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.plot(df[<span class="st">'tmin'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -994,7 +999,7 @@ after: 2020-09-01</p>
 <section id="were-getting-there-the-graph-could-look-better" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="were-getting-there-the-graph-could-look-better"><span class="header-section-number">2.8</span> we’re getting there! the graph could look better</h2>
 <p>Let’s make the graph look better: labels, title, slanted dates, etc</p>
-<div id="cell-16" class="cell" data-execution_count="69">
+<div id="cell-16" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># creates figure (the canvas) and the axis (rectangle where the plot sits)</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="co"># two line plots</span></span>
@@ -1026,7 +1031,7 @@ after: 2020-09-01</p>
 <p>Use the following function to plot bars for daily rainfall</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>ax.bar(x_array, y_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Can you write yourself some lines of code that calculate the cumulative rainfall from the daily rainfall?</p>
-<div id="cell-18" class="cell" data-execution_count="71">
+<div id="cell-18" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># creates figure (the canvas) and the axis (rectangle where the plot sits)</span></span>
@@ -1083,7 +1088,7 @@ after: 2020-09-01</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>start_date <span class="op">=</span> <span class="st">'2021-01-01'</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>end_date <span class="op">=</span> <span class="st">'2021-01-31'</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a>january <span class="op">=</span> df[start_date:end_date]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-21" class="cell" data-execution_count="74">
+<div id="cell-21" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># creates figure (the canvas) and the axis (rectangle where the plot sits)</span></span>
@@ -1121,7 +1126,7 @@ after: 2020-09-01</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>b <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">56</span>, <span class="dv">5</span>)  <span class="co"># bins from 0 to 55, width = 5</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>ax.hist(df[<span class="st">'wind'</span>], bins<span class="op">=</span>b, density<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Play with the bins, see what happens. What does <code>density=True</code> do?</p>
-<div id="cell-23" class="cell" data-execution_count="47">
+<div id="cell-23" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># creates figure (the canvas) and the axis (rectangle where the plot sits)</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="co"># histogram</span></span>
@@ -1143,14 +1148,21 @@ after: 2020-09-01</p>
 </div>
 </div>
 </section>
-<section id="homework" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> homework</h1>
-<p>Go back to the weather station website, download one year of data from 01.01.2020 to 31.12.2020 (24h data). If you can’t download the data, just click <a href="1year.csv" download="">here</a>. Make the following graph: - daily tmax and tmin - smoothed data for tmax and tmin</p>
+<section id="homework" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="homework"><span class="header-section-number">2.12</span> homework</h2>
+<p>Go back to the weather station website, download one year of data from 01.01.2020 to 31.12.2020 (24h data). If you can’t download the data, just click <a href="1year.csv" download="">here</a>.</p>
+<section id="graph-1" class="level3" data-number="2.12.1">
+<h3 data-number="2.12.1" class="anchored" data-anchor-id="graph-1"><span class="header-section-number">2.12.1</span> graph 1</h3>
+<p>Make one graph with the following:</p>
+<ul>
+<li>daily tmax and tmin</li>
+<li>smoothed data for tmax and tmin</li>
+</ul>
 <p>In order to smooth the data with a 30 day window, use the following function:<br>
 <code>df['tmin'].rolling(30, center=True).mean()</code><br>
 This means that you will take the mean of 30 days, and put the result in the center of this 30-day window.</p>
 <p>Play with this function, see what you can do with it. What happens when you change the size of the window? Why is the smoothed data shorter than the original data? See the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rolling.html">documentation</a> for <code>rolling</code> to find more options.</p>
-<div id="cell-25" class="cell" data-execution_count="67">
+<div id="cell-25" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
@@ -1163,14 +1175,17 @@ This means that you will take the mean of 30 days, and put the result in the cen
 <span id="cb15-8"><a href="#cb15-8"></a>                  dayfirst<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb15-9"><a href="#cb15-9"></a>                  index_col<span class="op">=</span><span class="st">'date'</span></span>
 <span id="cb15-10"><a href="#cb15-10"></a>                 )</span>
-<span id="cb15-11"><a href="#cb15-11"></a>plt.plot(df2[<span class="st">'tmax'</span>], label<span class="op">=</span><span class="st">'tmax'</span>, color<span class="op">=</span><span class="st">"coral"</span>)</span>
-<span id="cb15-12"><a href="#cb15-12"></a>plt.plot(df2[<span class="st">'tmin'</span>], label<span class="op">=</span><span class="st">'tmin'</span>, color<span class="op">=</span><span class="st">"dodgerblue"</span>)</span>
-<span id="cb15-13"><a href="#cb15-13"></a>tmin_smooth <span class="op">=</span> df2[<span class="st">'tmin'</span>].rolling(<span class="dv">30</span>, center<span class="op">=</span><span class="va">True</span>).mean()</span>
-<span id="cb15-14"><a href="#cb15-14"></a>tmax_smooth <span class="op">=</span> df2[<span class="st">'tmax'</span>].rolling(<span class="dv">30</span>, center<span class="op">=</span><span class="va">True</span>).mean()</span>
-<span id="cb15-15"><a href="#cb15-15"></a>plt.plot(tmax_smooth, label<span class="op">=</span><span class="st">'tmax smoothed'</span>, color<span class="op">=</span><span class="st">"crimson"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb15-16"><a href="#cb15-16"></a>plt.plot(tmin_smooth, label<span class="op">=</span><span class="st">'tmin smoothed'</span>, color<span class="op">=</span><span class="st">"navy"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb15-17"><a href="#cb15-17"></a>plt.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb15-18"><a href="#cb15-18"></a>plt.savefig(<span class="st">"t_smoothed.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-11"><a href="#cb15-11"></a>tmin_smooth <span class="op">=</span> df2[<span class="st">'tmin'</span>].rolling(<span class="st">'30D'</span>, center<span class="op">=</span><span class="va">True</span>).mean()</span>
+<span id="cb15-12"><a href="#cb15-12"></a>tmax_smooth <span class="op">=</span> df2[<span class="st">'tmax'</span>].rolling(<span class="dv">30</span>, center<span class="op">=</span><span class="va">True</span>).mean()</span>
+<span id="cb15-13"><a href="#cb15-13"></a>ax.plot(df2[<span class="st">'tmax'</span>], label<span class="op">=</span><span class="st">'tmax'</span>, color<span class="op">=</span><span class="st">"coral"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14"></a>ax.plot(tmax_smooth, label<span class="op">=</span><span class="st">'tmax smoothed'</span>, color<span class="op">=</span><span class="st">"crimson"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb15-15"><a href="#cb15-15"></a>ax.plot(df2[<span class="st">'tmin'</span>], label<span class="op">=</span><span class="st">'tmin'</span>, color<span class="op">=</span><span class="st">"dodgerblue"</span>)</span>
+<span id="cb15-16"><a href="#cb15-16"></a>ax.plot(tmin_smooth, label<span class="op">=</span><span class="st">'tmin smoothed'</span>, color<span class="op">=</span><span class="st">"navy"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb15-17"><a href="#cb15-17"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-18"><a href="#cb15-18"></a>ax.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'temperature (°C)'</span>,</span>
+<span id="cb15-19"><a href="#cb15-19"></a>       title<span class="op">=</span><span class="st">'maximum and minimum daily temperatures, Rehovot'</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a>      )</span>
+<span id="cb15-21"><a href="#cb15-21"></a>plt.savefig(<span class="st">"t_smoothed.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1180,8 +1195,40 @@ This means that you will take the mean of 30 days, and put the result in the cen
 </div>
 </div>
 </div>
+</section>
+<section id="graph-2" class="level3" data-number="2.12.2">
+<h3 data-number="2.12.2" class="anchored" data-anchor-id="graph-2"><span class="header-section-number">2.12.2</span> graph 2</h3>
+<p>Make another graph that focuses on a part of the year, not the whole thing. We saw before how to do that. Put on this graph two lines, representing two variables of your choosing. Give these lines good colors, and maybe different linestyles (solid, dashed, dotted) if you feel fancy.</p>
+</section>
+<section id="graph-3" class="level3" data-number="2.12.3">
+<h3 data-number="2.12.3" class="anchored" data-anchor-id="graph-3"><span class="header-section-number">2.12.3</span> graph 3</h3>
+<p>Choose another variable, and make two histograms (each in its own panel), each representing a different time interval. Here is an example how you make subplots:</p>
+<div id="cell-27" class="cell" data-execution_count="30">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>N <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>ax1.plot(np.random.random(N))</span>
+<span id="cb16-4"><a href="#cb16-4"></a>ax2.plot(np.random.random(N))</span>
+<span id="cb16-5"><a href="#cb16-5"></a>ax1.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'variable A (units)'</span>,</span>
+<span id="cb16-6"><a href="#cb16-6"></a>        title<span class="op">=</span><span class="st">'title A'</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>       )</span>
+<span id="cb16-8"><a href="#cb16-8"></a>ax2.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'variable B (units)'</span>,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>        <span class="co"># title='title B'</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="introduction-exercises_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Of course, I plotted random data as a line plot, your task is to plot histograms instead.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1315,24 +1362,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1367,11 +1396,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

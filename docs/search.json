@@ -229,6 +229,17 @@
     ]
   },
   {
+    "objectID": "introduction/introduction-exercises.html#homework",
+    "href": "introduction/introduction-exercises.html#homework",
+    "title": "2  Exercises",
+    "section": "2.12 homework",
+    "text": "2.12 homework\nGo back to the weather station website, download one year of data from 01.01.2020 to 31.12.2020 (24h data). If you can’t download the data, just click here.\n\n2.12.1 graph 1\nMake one graph with the following:\n\ndaily tmax and tmin\nsmoothed data for tmax and tmin\n\nIn order to smooth the data with a 30 day window, use the following function:\ndf['tmin'].rolling(30, center=True).mean()\nThis means that you will take the mean of 30 days, and put the result in the center of this 30-day window.\nPlay with this function, see what you can do with it. What happens when you change the size of the window? Why is the smoothed data shorter than the original data? See the documentation for rolling to find more options.\n\n\nShow the code\nfig, ax = plt.subplots(figsize=(10,7))\ncol_names = ['date', 'tmax', 'tmin', 'wind', 'rain24h', 'rain_cumulative']\ndf2 = pd.read_csv(\"1year.csv\",\n                  skiprows=5,\n                  encoding='latin1',\n                  names=col_names,\n                  parse_dates=['date'],\n                  dayfirst=True,\n                  index_col='date'\n                 )\ntmin_smooth = df2['tmin'].rolling('30D', center=True).mean()\ntmax_smooth = df2['tmax'].rolling(30, center=True).mean()\nax.plot(df2['tmax'], label='tmax', color=\"coral\")\nax.plot(tmax_smooth, label='tmax smoothed', color=\"crimson\", linestyle=\"--\", linewidth=3)\nax.plot(df2['tmin'], label='tmin', color=\"dodgerblue\")\nax.plot(tmin_smooth, label='tmin smoothed', color=\"navy\", linestyle=\"--\", linewidth=3)\nax.legend(frameon=False)\nax.set(ylabel='temperature (°C)',\n       title='maximum and minimum daily temperatures, Rehovot'\n      )\nplt.savefig(\"t_smoothed.png\")\n\n\n\n\n\n\n\n\n\n\n\n2.12.2 graph 2\nMake another graph that focuses on a part of the year, not the whole thing. We saw before how to do that. Put on this graph two lines, representing two variables of your choosing. Give these lines good colors, and maybe different linestyles (solid, dashed, dotted) if you feel fancy.\n\n\n2.12.3 graph 3\nChoose another variable, and make two histograms (each in its own panel), each representing a different time interval. Here is an example how you make subplots:\n\n\nShow the code\nfig, (ax1, ax2) = plt.subplots(2, 1)\nN = 10\nax1.plot(np.random.random(N))\nax2.plot(np.random.random(N))\nax1.set(ylabel='variable A (units)',\n        title='title A'\n       )\nax2.set(ylabel='variable B (units)',\n        # title='title B'\n       )\n\n\n\n\n\n\n\n\n\nOf course, I plotted random data as a line plot, your task is to plot histograms instead.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Exercises</span>"
+    ]
+  },
+  {
     "objectID": "precipitation/precipitation.html",
     "href": "precipitation/precipitation.html",
     "title": "Precipitation",
