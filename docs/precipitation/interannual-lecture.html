@@ -414,10 +414,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#hydrological-year" id="toc-hydrological-year" class="nav-link active" data-scroll-target="#hydrological-year"><span class="header-section-number">5.1</span> hydrological year</a></li>
-  <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link" data-scroll-target="#coefficient-of-variation"><span class="header-section-number">5.2</span> coefficient of variation</a></li>
-  <li><a href="#climate-normals" id="toc-climate-normals" class="nav-link" data-scroll-target="#climate-normals"><span class="header-section-number">5.3</span> climate normals</a></li>
-  <li><a href="#running-averages" id="toc-running-averages" class="nav-link" data-scroll-target="#running-averages"><span class="header-section-number">5.4</span> running averages</a></li>
+  <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link active" data-scroll-target="#coefficient-of-variation"><span class="header-section-number">5.1</span> coefficient of variation</a></li>
+  <li><a href="#climate-normals" id="toc-climate-normals" class="nav-link" data-scroll-target="#climate-normals"><span class="header-section-number">5.2</span> climate normals</a></li>
+  <li><a href="#running-averages" id="toc-running-averages" class="nav-link" data-scroll-target="#running-averages"><span class="header-section-number">5.3</span> running averages</a></li>
   </ul>
 </nav>
     </div>
@@ -516,11 +515,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="hydrological-year" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="hydrological-year"><span class="header-section-number">5.1</span> hydrological year</h2>
-<p>A time period of 12 months for which precipitation totals are measured. The hydrological year is designated by the calendar year in which it <strong>ends</strong>.<br>
-Let’s define the hydrological year for Tel Aviv from 1 October to 30 September.</p>
-<p>האם אקלים הגשם שלנו משתנה <iframe width="560" height="315" src="https://www.youtube.com/embed/v0uNpj03Rk4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></p>
+<p>Let’s aggregate (resample) precipitation according to the hydrological year.</p>
 <div id="cell-6" class="cell" data-execution_count="61">
 <details class="code-fold">
 <summary>resample by hydrological year</summary>
@@ -696,9 +691,8 @@ Let’s define the hydrological year for Tel Aviv from 1 October to 30 September
 </div>
 </div>
 </div>
-</section>
-<section id="coefficient-of-variation" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="coefficient-of-variation"><span class="header-section-number">5.2</span> coefficient of variation</h2>
+<section id="coefficient-of-variation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="coefficient-of-variation"><span class="header-section-number">5.1</span> coefficient of variation</h2>
 <p><span class="math inline">\langle{P}\rangle=</span> average precipitation<br>
 <span class="math inline">\sigma=</span> standard deviation</p>
 <p><span class="math display">CV = \frac{\sigma}{\langle{P}\rangle}</span></p>
@@ -720,15 +714,15 @@ Eilat:      std = 20.49 mm      CV = 0.77</code></pre>
 <li>Eilat: about 67% of the annual precipitation is no more than 77% from the average.</li>
 </ul>
 </section>
-<section id="climate-normals" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="climate-normals"><span class="header-section-number">5.3</span> climate normals</h2>
+<section id="climate-normals" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="climate-normals"><span class="header-section-number">5.2</span> climate normals</h2>
 <p>Precipitation averages are usually calculated for time intervals of 30 years. According to the <a href="https://www.weather.gov/iln/NewNormals">National Oceanic and Atmospheric Administration — NOAA</a>:</p>
 <blockquote class="blockquote">
 <p>Normals serve two purposes: a reference period for monitoring current weather and climate, and a good description of the expected climate at a location over the seasons. They provide a basis for determining whether today’s weather is warmer or colder, wetter or drier. They also can be used to plan for conditions beyond the time span of reliable weather forecasts. A 30-year time period was chosen by the governing body of international meteorology in the 1930s, so the first normals were for 1901-1930, the longest period for which most countries had reliable climate records. International normals were called for in 1931-1960 and 1961-1990, but many countries updated normals more frequently, every 10 years, so as to keep them up to date. In 2015 this was made the WMO standard, so all countries will be creating normals for 1991-2020.</p>
 </blockquote>
 </section>
-<section id="running-averages" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="running-averages"><span class="header-section-number">5.4</span> running averages</h2>
+<section id="running-averages" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="running-averages"><span class="header-section-number">5.3</span> running averages</h2>
 <div id="cell-17" class="cell" data-execution_count="68">
 <details class="code-fold">
 <summary>plot 30-year averages</summary>
