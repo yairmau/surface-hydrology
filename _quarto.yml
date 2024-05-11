@@ -16,10 +16,10 @@ book:
         - introduction/introduction-exercises.ipynb
     - part: precipitation/precipitation.qmd
       chapters:
-        - precipitation/interannual-lecture.ipynb
-        - precipitation/interannual-exercises.ipynb
         - precipitation/intra-annual-lecture.ipynb
         - precipitation/intra-annual-exercises.ipynb
+        - precipitation/interannual-lecture.ipynb
+        - precipitation/interannual-exercises.ipynb
         - precipitation/return-period-lecture.qmd
         - precipitation/return-period-exercises.ipynb
     - part: "Evapotranspiration" #evapotranspiration/evapotranspiration.qmd
