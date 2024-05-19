@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -445,14 +445,13 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># from functools import reduce</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-6"><a href="#cb1-6"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> register_matplotlib_converters</span>
-<span id="cb1-8"><a href="#cb1-8"></a>register_matplotlib_converters()</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="im">import</span> urllib.request</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> scipy.stats <span class="im">import</span> genextreme</span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> register_matplotlib_converters</span>
+<span id="cb1-7"><a href="#cb1-7"></a>register_matplotlib_converters()</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">import</span> urllib.request</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> scipy.stats <span class="im">import</span> genextreme</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Go to NOAA’s National Centers for Environmental Information (NCEI)<br>
 <a href="https://www.ncdc.noaa.gov/cdo-web/datasets">Climate Data Online: Dataset Discovery</a></p>
@@ -1301,138 +1300,16 @@ Level       Period
 </div>
 <section id="fit" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="fit"><span class="header-section-number">8.1</span> fit</h2>
-<div id="cell-35" class="cell" data-execution_count="160">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>download_data(<span class="st">'Roma'</span>, <span class="st">'BR048620980'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-36" class="cell" data-execution_count="161">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df_extra <span class="op">=</span> pd.read_csv(<span class="st">'Roma_daily.csv'</span>, sep<span class="op">=</span><span class="st">","</span>, parse_dates<span class="op">=</span>[<span class="st">'DATE'</span>], index_col<span class="op">=</span><span class="st">'DATE'</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a>df_extra[<span class="st">'PRCP'</span>] <span class="op">/=</span> <span class="dv">10</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>df_extra[<span class="st">'PRCP'</span>].dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># df_extra = df_extra.loc['1860-08-01':'2015-07-31']</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb25-6"><a href="#cb25-6"></a>ax.plot(df_extra[<span class="st">'PRCP'</span>])</span>
-<span id="cb25-7"><a href="#cb25-7"></a>ax.set_xlabel(<span class="st">"date"</span>)</span>
-<span id="cb25-8"><a href="#cb25-8"></a>ax.set_ylabel(<span class="st">"daily rainfall (mm)"</span>)</span>
-<span id="cb25-9"><a href="#cb25-9"></a>ax.set_title(<span class="st">"Bet Dagan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="161">
-<pre><code>Text(0.5, 1.0, 'Bet Dagan')</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="return-period-exercises_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-37" class="cell" data-execution_count="162">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>max_annual <span class="op">=</span> (df_extra[<span class="st">'PRCP'</span>].resample(<span class="st">'YE-JUL'</span>)</span>
-<span id="cb27-2"><a href="#cb27-2"></a>                        .<span class="bu">max</span>()</span>
-<span id="cb27-3"><a href="#cb27-3"></a>                        .to_frame()</span>
-<span id="cb27-4"><a href="#cb27-4"></a>             )</span>
-<span id="cb27-5"><a href="#cb27-5"></a>max_annual.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-6"><a href="#cb27-6"></a>h <span class="op">=</span> max_annual[<span class="st">'PRCP'</span>].values</span>
-<span id="cb27-7"><a href="#cb27-7"></a>params_bd1 <span class="op">=</span> genextreme.fit(h)</span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="bu">print</span>(<span class="st">"Best fit:"</span>)</span>
-<span id="cb27-9"><a href="#cb27-9"></a><span class="bu">print</span>(<span class="ss">f"shape = </span><span class="sc">{</span>params_bd1[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">location = </span><span class="sc">{</span>params_bd1[<span class="dv">1</span>]<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">scale = </span><span class="sc">{</span>params_bd1[<span class="dv">2</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Best fit:
-shape = 0.14
-location = 54.79
-scale = 40.69</code></pre>
-</div>
-</div>
-<div id="cell-38" class="cell" data-execution_count="163">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb29-2"><a href="#cb29-2"></a>ax.hist(h, bins<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">150</span>,<span class="dv">10</span>), density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"from 'hist'"</span>)</span>
-<span id="cb29-3"><a href="#cb29-3"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">80</span>)</span>
-<span id="cb29-4"><a href="#cb29-4"></a>pdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params_bd1[<span class="dv">0</span>], loc<span class="op">=</span>params_bd1[<span class="dv">1</span>], scale<span class="op">=</span>params_bd1[<span class="dv">2</span>]).pdf(rain)</span>
-<span id="cb29-5"><a href="#cb29-5"></a>ax.plot(rain, pdf_rain, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"gev fit"</span>)</span>
-<span id="cb29-6"><a href="#cb29-6"></a>ax.set_ylabel(<span class="st">"pdf"</span>)</span>
-<span id="cb29-7"><a href="#cb29-7"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
-<span id="cb29-8"><a href="#cb29-8"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
-<span id="cb29-9"><a href="#cb29-9"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="return-period-exercises_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-39" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="co"># ax.plot(h, fraction, color="tab:blue", linewidth=3, label="our cdf")</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>ax.hist(h, bins<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>), density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"from 'hist'"</span>, cumulative<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-4"><a href="#cb30-4"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">80</span>)</span>
-<span id="cb30-5"><a href="#cb30-5"></a>cdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params[<span class="dv">0</span>], loc<span class="op">=</span>params[<span class="dv">1</span>], scale<span class="op">=</span>params[<span class="dv">2</span>]).cdf(rain)</span>
-<span id="cb30-6"><a href="#cb30-6"></a>ax.plot(rain, cdf_rain, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"gev fit"</span>)</span>
-<span id="cb30-7"><a href="#cb30-7"></a>ax.set_ylabel(<span class="st">"cdf"</span>)</span>
-<span id="cb30-8"><a href="#cb30-8"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
-<span id="cb30-9"><a href="#cb30-9"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
-<span id="cb30-10"><a href="#cb30-10"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="return-period-exercises_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-40" class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>shape <span class="op">=</span> <span class="op">-</span><span class="fl">0.42</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>location <span class="op">=</span> <span class="fl">6.05</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>scale <span class="op">=</span> <span class="fl">5.68</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-41" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>h <span class="op">=</span> max_annual[<span class="st">'PRCP'</span>].values</span>
-<span id="cb32-2"><a href="#cb32-2"></a>params <span class="op">=</span> genextreme.fit(h, <span class="op">-</span><span class="fl">0.42</span>, loc<span class="op">=</span><span class="dv">6</span>, scale<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="bu">print</span>(<span class="st">"Best fit:"</span>)</span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="bu">print</span>(<span class="ss">f"shape = </span><span class="sc">{</span>params[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">location = </span><span class="sc">{</span>params[<span class="dv">1</span>]<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">scale = </span><span class="sc">{</span>params[<span class="dv">2</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Best fit:
-shape = 0.34
-location = 52.99
-scale = 21.93</code></pre>
-</div>
-</div>
-<div id="cell-42" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb34-2"><a href="#cb34-2"></a>ax.hist(h, bins<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>), density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"from 'hist'"</span>)</span>
-<span id="cb34-3"><a href="#cb34-3"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">80</span>)</span>
-<span id="cb34-4"><a href="#cb34-4"></a>pdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params[<span class="dv">0</span>], loc<span class="op">=</span>params[<span class="dv">1</span>], scale<span class="op">=</span>params[<span class="dv">2</span>]).pdf(rain)</span>
-<span id="cb34-5"><a href="#cb34-5"></a>ax.plot(rain, pdf_rain, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"gev fit"</span>)</span>
-<span id="cb34-6"><a href="#cb34-6"></a>ax.set_ylabel(<span class="st">"pdf"</span>)</span>
-<span id="cb34-7"><a href="#cb34-7"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
-<span id="cb34-8"><a href="#cb34-8"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
-<span id="cb34-9"><a href="#cb34-9"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="return-period-exercises_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-43" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="co"># ax.plot(h, fraction, color="tab:blue", linewidth=3, label="our cdf")</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a>ax.hist(h, bins<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>), density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"from 'hist'"</span>, cumulative<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb35-4"><a href="#cb35-4"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">80</span>)</span>
-<span id="cb35-5"><a href="#cb35-5"></a>cdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params[<span class="dv">0</span>], loc<span class="op">=</span>params[<span class="dv">1</span>], scale<span class="op">=</span>params[<span class="dv">2</span>]).cdf(rain)</span>
-<span id="cb35-6"><a href="#cb35-6"></a>ax.plot(rain, cdf_rain, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"gev fit"</span>)</span>
-<span id="cb35-7"><a href="#cb35-7"></a>ax.set_ylabel(<span class="st">"cdf"</span>)</span>
-<span id="cb35-8"><a href="#cb35-8"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
-<span id="cb35-9"><a href="#cb35-9"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
-<span id="cb35-10"><a href="#cb35-10"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="return-period-exercises_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Not always the fit operation succeeds. Sometimes, the fitted parameters yield curves that do not seem to describe well the pdf or the cdf we are studying. What to do?</p>
+<ol type="1">
+<li><strong>ALWAYS</strong> check your parameters. Plot the fitted curve against the experimental data and see with your eyes if it makes sense.</li>
+<li>If it doesn’t make sense, you have to run <code>fit</code> again, with some changes. A common problem is that the algorithm chose initial values for the parameters that do not converge to the optimal parameters we are looking for. In this case, one needs to help <code>fit</code> by giving it initial guesses for the parameters, like this:</li>
+</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>location_guess <span class="op">=</span> <span class="fl">6.0</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>scale_guess <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>shape_guess <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>params <span class="op">=</span> genextreme.fit(data, shape_guess, loc<span class="op">=</span>location_guess, scale<span class="op">=</span>scale_guess)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>More details on this can be found in the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.fit.html#scipy.stats.rv_continuous.fit">documentation</a>.</p>
 
 
 </section>
@@ -1568,24 +1445,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1620,11 +1479,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
