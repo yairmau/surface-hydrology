@@ -39,9 +39,10 @@ book:
       chapters:
         - summing-up/budyko-framework-lecture.qmd
         - summing-up/spatial-distribution.qmd
-    # - part: assignments/assignments-general.qmd
-      # chapters:
-        # - assignments/assignment1-precipitation.qmd
+    - part: assignments/assignments-general.qmd
+      chapters:
+        - assignments/assignment0-first-graphs.ipynb
+        - assignments/assignment1-return-period.ipynb
         # - assignments/assignment2-ET.ipynb
         # - assignments/assignment3-streamflow.ipynb
         # - assignments/assignment-FINAL.ipynb
