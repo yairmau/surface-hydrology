@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -414,7 +414,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#fit" id="toc-fit" class="nav-link active" data-scroll-target="#fit"><span class="header-section-number">8.1</span> fit</a></li>
+  <li><a href="#loading-data-and-pre-processing" id="toc-loading-data-and-pre-processing" class="nav-link active" data-scroll-target="#loading-data-and-pre-processing"><span class="header-section-number">8.1</span> loading data and pre-processing</a></li>
+  <li><a href="#weibull-plotting-position" id="toc-weibull-plotting-position" class="nav-link" data-scroll-target="#weibull-plotting-position"><span class="header-section-number">8.2</span> Weibull plotting position</a></li>
+  <li><a href="#fit" id="toc-fit" class="nav-link" data-scroll-target="#fit"><span class="header-section-number">8.3</span> fit</a></li>
   </ul>
 </nav>
     </div>
@@ -423,7 +425,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../precipitation/precipitation.html">Precipitation</a></li><li class="breadcrumb-item"><a href="../precipitation/return-period-exercises.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/yairmau/surface-hydrology/blob/main/precipitation/return-period-exercises.ipynb"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/yairmau/surface-hydrology/blob/main/precipitation/return-period-exercises.ipynb">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -440,8 +442,12 @@ window.Quarto = {
 </header>
 
 
+<section id="loading-data-and-pre-processing" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="loading-data-and-pre-processing"><span class="header-section-number">8.1</span> loading data and pre-processing</h2>
 <p>Import relevant packages</p>
-<div id="cell-2" class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -452,6 +458,7 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8"></a><span class="im">import</span> urllib.request</span>
 <span id="cb1-9"><a href="#cb1-9"></a><span class="im">from</span> scipy.stats <span class="im">import</span> genextreme</span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Go to NOAA’s National Centers for Environmental Information (NCEI)<br>
 <a href="https://www.ncdc.noaa.gov/cdo-web/datasets">Climate Data Online: Dataset Discovery</a></p>
@@ -462,7 +469,9 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 <p>You can download <strong>daily</strong> or <strong>monthly</strong> data for each station. Use the function below to download this data to your computer. <code>station_name</code> can be whatever you want, <code>station_code</code> is the station ID.</p>
 <p>If everything fails and you need easy access to the files we’ll be using today, click here:<br>
 <a href="Eilat_daily.csv" download="">Eilat daily</a>.</p>
-<div id="cell-4" class="cell" data-execution_count="2">
+<div id="cell-4" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> download_data(station_name, station_code):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    url_daily <span class="op">=</span> <span class="st">'https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/access/'</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>    url_monthly <span class="op">=</span> <span class="st">'https://www.ncei.noaa.gov/data/gsom/access/'</span></span>
@@ -472,15 +481,21 @@ Period of Record: 1951-01-01 to 2020-03-01</p>
 <span id="cb2-7"><a href="#cb2-7"></a>    <span class="co"># download monthly data</span></span>
 <span id="cb2-8"><a href="#cb2-8"></a>    urllib.request.urlretrieve(url_monthly <span class="op">+</span> station_code <span class="op">+</span> <span class="st">'.csv'</span>,</span>
 <span id="cb2-9"><a href="#cb2-9"></a>                               station_name <span class="op">+</span> <span class="st">'_monthly.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Download daily rainfall data for Eilat, Israel. ID: IS000009972</p>
-<div id="cell-6" class="cell" data-execution_count="3">
+<div id="cell-6" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>download_data(<span class="st">'Eilat'</span>, <span class="st">'IS000009972'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Then load the data into a dataframe.<br>
 <strong>IMPORTANT!!</strong> daily precipitation data is in tenths of mm, divide by 10 to get it in mm.<br>
 How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt">documentation</a>!</p>
-<div id="cell-8" class="cell" data-execution_count="5">
+<div id="cell-8" class="cell" data-execution_count="26">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'Eilat_daily.csv'</span>, sep<span class="op">=</span><span class="st">","</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co"># make 'DATE' the dataframe index</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>df[<span class="st">'DATE'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'DATE'</span>])</span>
@@ -488,7 +503,8 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 <span id="cb4-5"><a href="#cb4-5"></a><span class="co"># IMPORTANT!! daily precipitation data is in tenths of mm, divide by 10 to get it in mm.</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>df[<span class="st">'PRCP'</span>] <span class="op">=</span> df[<span class="st">'PRCP'</span>] <span class="op">/</span> <span class="dv">10</span></span>
 <span id="cb4-7"><a href="#cb4-7"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <div>
 
@@ -714,13 +730,16 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 <p>Plot precipitation data (‘PRCP’ column) and see if everything is all right.</p>
-<div id="cell-10" class="cell" data-execution_count="6">
+<div id="cell-10" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb5-2"><a href="#cb5-2"></a>ax.plot(df[<span class="st">'PRCP'</span>])</span>
 <span id="cb5-3"><a href="#cb5-3"></a>ax.set_xlabel(<span class="st">"date"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4"></a>ax.set_ylabel(<span class="st">"daily rainfall (mm)"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5"></a>ax.set_title(<span class="st">"Eilat, 1949–2024"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>Text(0.5, 1.0, 'Eilat, 1949–2024')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -732,12 +751,15 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 <p>Based on what you see, you might want to exclude certain periods, e.g.:</p>
-<div id="cell-12" class="cell" data-execution_count="7">
+<div id="cell-12" class="cell" data-execution_count="28">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>last_date <span class="op">=</span> <span class="st">'2018-08-01'</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>first_date <span class="op">=</span> <span class="st">'1950-08-01'</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>df <span class="op">=</span> df.loc[first_date:last_date]</span>
 <span id="cb7-4"><a href="#cb7-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <div>
 
@@ -963,7 +985,9 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 <p>The rainfall data for Eilat is VERY seasonal, it’s easy to see that there is no rainfall at all during the summer. We can assume a hydrological year starting on 1 August. If you’re not sure, you can plot the monthly means (see last week’s lecture) and find what date makes sense best.</p>
-<div id="cell-14" class="cell" data-execution_count="10">
+<div id="cell-14" class="cell" data-execution_count="29">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df_month <span class="op">=</span> df[<span class="st">'PRCP'</span>].resample(<span class="st">'M'</span>).<span class="bu">sum</span>().to_frame()</span>
 <span id="cb8-2"><a href="#cb8-2"></a>df_month_avg <span class="op">=</span> (df_month[<span class="st">'PRCP'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3"></a>                  .groupby(df_month.index.month)</span>
@@ -971,11 +995,12 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 <span id="cb8-5"><a href="#cb8-5"></a>                  .to_frame()</span>
 <span id="cb8-6"><a href="#cb8-6"></a>               )</span>
 <span id="cb8-7"><a href="#cb8-7"></a>df_month_avg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/cn/m58l7p_j6j10_4c43j4pd8gw0000gq/T/ipykernel_18744/1784230487.py:1: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_71663/1784230487.py:1: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
   df_month = df['PRCP'].resample('M').sum().to_frame()</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <div>
 
@@ -1047,13 +1072,16 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="11">
+<div id="cell-15" class="cell" data-execution_count="30">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb10-2"><a href="#cb10-2"></a>ax.bar(df_month_avg.index, df_month_avg[<span class="st">'PRCP'</span>])</span>
 <span id="cb10-3"><a href="#cb10-3"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"month"</span>,</span>
 <span id="cb10-4"><a href="#cb10-4"></a>       ylabel<span class="op">=</span><span class="st">"monthly rainfall (mm)"</span>,</span>
 <span id="cb10-5"><a href="#cb10-5"></a>       title<span class="op">=</span><span class="st">"Monthly average, Eilat, 1949--2018"</span>,</span>
 <span id="cb10-6"><a href="#cb10-6"></a>       xticks<span class="op">=</span>np.arange(<span class="dv">1</span>,<span class="dv">13</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1063,17 +1091,20 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 <p>Let’s resample the data according to the hydrological year (1 August), and we’ll keep the maximum value:</p>
-<div id="cell-17" class="cell" data-execution_count="12">
+<div id="cell-17" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>max_annual <span class="op">=</span> (df[<span class="st">'PRCP'</span>].resample(<span class="st">'A-JUL'</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a>                        .<span class="bu">max</span>()</span>
 <span id="cb11-3"><a href="#cb11-3"></a>                        .to_frame()</span>
 <span id="cb11-4"><a href="#cb11-4"></a>             )</span>
 <span id="cb11-5"><a href="#cb11-5"></a>max_annual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/cn/m58l7p_j6j10_4c43j4pd8gw0000gq/T/ipykernel_18744/299619059.py:1: FutureWarning: 'A-JUL' is deprecated and will be removed in a future version, please use 'YE-JUL' instead.
+<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_71663/299619059.py:1: FutureWarning: 'A-JUL' is deprecated and will be removed in a future version, please use 'YE-JUL' instead.
   max_annual = (df['PRCP'].resample('A-JUL')</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 <div>
 
@@ -1143,7 +1174,9 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 <p>Make two graphs: a) the histogram for the annual maximum (pdf) b) the cumulative probability (cdf)</p>
-<div id="cell-19" class="cell" data-execution_count="13">
+<div id="cell-19" class="cell" data-execution_count="32">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>h<span class="op">=</span>max_annual[<span class="st">'PRCP'</span>].values</span>
@@ -1154,6 +1187,7 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 <span id="cb13-8"><a href="#cb13-8"></a>ax2.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"annual daily precipitation maxima (mm)"</span>,</span>
 <span id="cb13-9"><a href="#cb13-9"></a>        ylabel<span class="op">=</span><span class="st">"cdf"</span>,</span>
 <span id="cb13-10"><a href="#cb13-10"></a>        )<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1162,27 +1196,36 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 </div>
 </div>
+</section>
+<section id="weibull-plotting-position" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="weibull-plotting-position"><span class="header-section-number">8.2</span> Weibull plotting position</h2>
 <p>How to make a cdf by yourself?</p>
-<div id="cell-21" class="cell" data-execution_count="14">
+<div id="cell-21" class="cell" data-execution_count="33">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># sort the annual daily precipitation maxima, from lowest to highest</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>max_annual[<span class="st">'max_sorted'</span>] <span class="op">=</span> np.sort(max_annual[<span class="st">'PRCP'</span>])</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="co"># let's give it a name, h</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a>h <span class="op">=</span> max_annual[<span class="st">'max_sorted'</span>].values</span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># make an array "order" of size N=len(h), from 0 to N-1</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># make an array "order" of size N=len(h), from 1 to N</span></span>
 <span id="cb14-6"><a href="#cb14-6"></a>N <span class="op">=</span> <span class="bu">len</span>(h)</span>
-<span id="cb14-7"><a href="#cb14-7"></a>order <span class="op">=</span> np.arange(N)</span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co"># make a new array, "fraction"</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>fraction <span class="op">=</span> order <span class="op">/</span> N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-7"><a href="#cb14-7"></a>rank <span class="op">=</span> np.arange(N) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co"># make a new array, "rank"</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>cdf_weibull <span class="op">=</span> rank <span class="op">/</span> (N<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Plot it next to the cdf that pandas’ <code>hist</code> makes for you. What do you see?</p>
-<div id="cell-23" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<div id="cell-23" class="cell" data-execution_count="34">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb15-2"><a href="#cb15-2"></a>ax.hist(h, bins<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>), cumulative<span class="op">=</span><span class="dv">1</span>, density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"from 'hist'"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3"></a>ax.plot(h, fraction, color<span class="op">=</span><span class="st">"tab:orange"</span>, linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"our cdf"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>ax.plot(h, cdf_weibull, color<span class="op">=</span><span class="st">"tab:orange"</span>, linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"our cdf"</span>)</span>
 <span id="cb15-4"><a href="#cb15-4"></a>ax.set_ylabel(<span class="st">"cdf"</span>)</span>
 <span id="cb15-5"><a href="#cb15-5"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
 <span id="cb15-6"><a href="#cb15-6"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
 <span id="cb15-7"><a href="#cb15-7"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1193,10 +1236,13 @@ How do we know that? It’s in the <a href="https://www.ncei.noaa.gov/pub/data/g
 </div>
 <p>The generalized extreme value distribution has 3 parameters: shape, location, scale.</p>
 <p>Let’s get a “best fit” estimate of these parameters for Eilat’s rainfall statistics.</p>
-<div id="cell-25" class="cell" data-execution_count="16">
+<div id="cell-25" class="cell" data-execution_count="35">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>params <span class="op">=</span> genextreme.fit(h)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="st">"Best fit:"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(<span class="ss">f"shape = </span><span class="sc">{</span>params[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">location = </span><span class="sc">{</span>params[<span class="dv">1</span>]<span class="sc">:.2f}</span><span class="ch">\n</span><span class="ss">scale = </span><span class="sc">{</span>params[<span class="dv">2</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best fit:
 shape = -0.42
@@ -1205,8 +1251,10 @@ scale = 5.68</code></pre>
 </div>
 </div>
 <p>Let’s see the GEV distribution for these parameters</p>
-<div id="cell-27" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<div id="cell-27" class="cell" data-execution_count="36">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb18-2"><a href="#cb18-2"></a>ax.hist(h, bins<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>), density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"from 'hist'"</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">80</span>)</span>
 <span id="cb18-4"><a href="#cb18-4"></a>pdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params[<span class="dv">0</span>], loc<span class="op">=</span>params[<span class="dv">1</span>], scale<span class="op">=</span>params[<span class="dv">2</span>]).pdf(rain)</span>
@@ -1215,6 +1263,7 @@ scale = 5.68</code></pre>
 <span id="cb18-7"><a href="#cb18-7"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
 <span id="cb18-8"><a href="#cb18-8"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
 <span id="cb18-9"><a href="#cb18-9"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1224,9 +1273,11 @@ scale = 5.68</code></pre>
 </div>
 </div>
 <p>We can do the same for the cdf…</p>
-<div id="cell-29" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb19-2"><a href="#cb19-2"></a>ax.plot(h, fraction, color<span class="op">=</span><span class="st">"tab:blue"</span>, linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"our cdf"</span>)</span>
+<div id="cell-29" class="cell" data-execution_count="37">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb19-2"><a href="#cb19-2"></a>ax.plot(h, cdf_weibull, color<span class="op">=</span><span class="st">"tab:blue"</span>, linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"weibull cdf"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">80</span>)</span>
 <span id="cb19-4"><a href="#cb19-4"></a>cdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params[<span class="dv">0</span>], loc<span class="op">=</span>params[<span class="dv">1</span>], scale<span class="op">=</span>params[<span class="dv">2</span>]).cdf(rain)</span>
 <span id="cb19-5"><a href="#cb19-5"></a>ax.plot(rain, cdf_rain, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"gev fit"</span>)</span>
@@ -1234,6 +1285,7 @@ scale = 5.68</code></pre>
 <span id="cb19-7"><a href="#cb19-7"></a>ax.set_xlabel(<span class="st">"annual daily precipitation maxima (mm)"</span>)</span>
 <span id="cb19-8"><a href="#cb19-8"></a>ax.set_title(<span class="st">"Eilat"</span>)</span>
 <span id="cb19-9"><a href="#cb19-9"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1249,18 +1301,57 @@ T_r(x) = \frac{1}{1-F(x)},
 <p>where <span class="math inline">F</span> is the cdf.</p>
 <p>Survival <span class="math inline">= 1-F</span></p>
 <p>The package that we are using, <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genextreme.html">scipy.stats.genextreme</a> has a method called <code>isf</code>, or inverse survival function, which is exactly what we want! In order to use it, you have to feed it a “quantile” <code>q</code> or probability. Suppose you want to know how strong is a 1 in a 100 year event, then your return period is 100 (years), and the probability is simply its inverse, 1/100.</p>
-<div id="cell-31" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Compute the return levels for several return periods.</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>return_periods <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>])</span>
-<span id="cb20-3"><a href="#cb20-3"></a>return_levels <span class="op">=</span> genextreme.isf(<span class="dv">1</span><span class="op">/</span>return_periods, <span class="op">*</span>params)</span>
-<span id="cb20-4"><a href="#cb20-4"></a></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="bu">print</span>(<span class="st">"Return levels:"</span>)</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="bu">print</span>()</span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="bu">print</span>(<span class="st">"Period    Level"</span>)</span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="bu">print</span>(<span class="st">"(years)   (mm)"</span>)</span>
-<span id="cb20-9"><a href="#cb20-9"></a></span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="cf">for</span> period, level <span class="kw">in</span> <span class="bu">zip</span>(return_periods, return_levels):</span>
-<span id="cb20-11"><a href="#cb20-11"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>period<span class="sc">:4.0f}</span><span class="ss">  </span><span class="sc">{</span>level<span class="sc">:9.2f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-31" class="cell" data-execution_count="38">
+<details class="code-fold">
+<summary>cdf as we are use to</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>T <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span><span class="op">-</span>cdf_weibull)</span>
+<span id="cb20-4"><a href="#cb20-4"></a>ax.plot(T, h, <span class="st">'o'</span>, label<span class="op">=</span><span class="st">"return time from data"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5"></a></span>
+<span id="cb20-6"><a href="#cb20-6"></a>rain <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">150</span>)</span>
+<span id="cb20-7"><a href="#cb20-7"></a>cdf_rain <span class="op">=</span> genextreme(c<span class="op">=</span>params[<span class="dv">0</span>], loc<span class="op">=</span>params[<span class="dv">1</span>], scale<span class="op">=</span>params[<span class="dv">2</span>]).cdf(rain)</span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a>ax.plot(<span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>cdf_rain), rain, color<span class="op">=</span><span class="st">'tab:orange'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">"return time from gev"</span>)</span>
+<span id="cb20-10"><a href="#cb20-10"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>, frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-11"><a href="#cb20-11"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"return time (year)"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12"></a>       ylabel<span class="op">=</span><span class="ss">f"annual daily precipitation max (mm)"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13"></a>       xlim<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">125</span>],</span>
+<span id="cb20-14"><a href="#cb20-14"></a>       ylim<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">150</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="return-period-exercises_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the code below, we use <span class="math inline">1/T</span> as the argument for <code>isf</code>. Why?</p>
+<p>We know that</p>
+<p><span class="math display">
+T = \frac{1}{1-\text{CDF}} = \frac{1}{\text{SF}}
+</span></p>
+<p>If we take the reciprocal of the equation above, SF will become the inverse SF, or ISF:</p>
+<p><span class="math display">
+\text{ISF} = \frac{1}{T}
+</span></p>
+<p>The code below was heavily inspired by <a href="https://stackoverflow.com/a/71209176">this Stack Overflow response</a>.</p>
+<div id="cell-33" class="cell" data-execution_count="39">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Compute the return levels for several return periods.</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>return_periods <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>])</span>
+<span id="cb21-3"><a href="#cb21-3"></a>return_levels <span class="op">=</span> genextreme.isf(<span class="dv">1</span><span class="op">/</span>return_periods, <span class="op">*</span>params)</span>
+<span id="cb21-4"><a href="#cb21-4"></a></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="bu">print</span>(<span class="st">"Return levels:"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="bu">print</span>()</span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="bu">print</span>(<span class="st">"Period    Level"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="bu">print</span>(<span class="st">"(years)   (mm)"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9"></a></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="cf">for</span> period, level <span class="kw">in</span> <span class="bu">zip</span>(return_periods, return_levels):</span>
+<span id="cb21-11"><a href="#cb21-11"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>period<span class="sc">:4.0f}</span><span class="ss">  </span><span class="sc">{</span>level<span class="sc">:9.2f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Return levels:
 
@@ -1275,17 +1366,20 @@ Period    Level
 </div>
 </div>
 <p>You might want to do the opposite: given a list of critical daily max levels, what are the return periods for them? In this case you can use the <code>sf</code> method, “survival function”.</p>
-<div id="cell-33" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>levels_mm <span class="op">=</span> np.array([<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>])</span>
-<span id="cb22-2"><a href="#cb22-2"></a>return_per <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>genextreme.sf(levels_mm, <span class="op">*</span>params)</span>
-<span id="cb22-3"><a href="#cb22-3"></a></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="bu">print</span>(<span class="st">"Return levels:"</span>)</span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="bu">print</span>()</span>
-<span id="cb22-6"><a href="#cb22-6"></a><span class="bu">print</span>(<span class="st">"Level       Period"</span>)</span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="bu">print</span>(<span class="st">"(mm)       (years)"</span>)</span>
-<span id="cb22-8"><a href="#cb22-8"></a></span>
-<span id="cb22-9"><a href="#cb22-9"></a><span class="cf">for</span> level,period <span class="kw">in</span> <span class="bu">zip</span>(levels_mm, return_per):</span>
-<span id="cb22-10"><a href="#cb22-10"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>level<span class="sc">:9.2f}</span><span class="ss">  </span><span class="sc">{</span>period<span class="sc">:4.0f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-35" class="cell" data-execution_count="40">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>levels_mm <span class="op">=</span> np.array([<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>])</span>
+<span id="cb23-2"><a href="#cb23-2"></a>return_per <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>genextreme.sf(levels_mm, <span class="op">*</span>params)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="bu">print</span>(<span class="st">"Return levels:"</span>)</span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="bu">print</span>()</span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="bu">print</span>(<span class="st">"Level       Period"</span>)</span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="bu">print</span>(<span class="st">"(mm)       (years)"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8"></a></span>
+<span id="cb23-9"><a href="#cb23-9"></a><span class="cf">for</span> level,period <span class="kw">in</span> <span class="bu">zip</span>(levels_mm, return_per):</span>
+<span id="cb23-10"><a href="#cb23-10"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>level<span class="sc">:9.2f}</span><span class="ss">  </span><span class="sc">{</span>period<span class="sc">:4.0f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Return levels:
 
@@ -1298,17 +1392,18 @@ Level       Period
    300.00  1798</code></pre>
 </div>
 </div>
-<section id="fit" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="fit"><span class="header-section-number">8.1</span> fit</h2>
+</section>
+<section id="fit" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="fit"><span class="header-section-number">8.3</span> fit</h2>
 <p>Not always the fit operation succeeds. Sometimes, the fitted parameters yield curves that do not seem to describe well the pdf or the cdf we are studying. What to do?</p>
 <ol type="1">
 <li><strong>ALWAYS</strong> check your parameters. Plot the fitted curve against the experimental data and see with your eyes if it makes sense.</li>
 <li>If it doesn’t make sense, you have to run <code>fit</code> again, with some changes. A common problem is that the algorithm chose initial values for the parameters that do not converge to the optimal parameters we are looking for. In this case, one needs to help <code>fit</code> by giving it initial guesses for the parameters, like this:</li>
 </ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>location_guess <span class="op">=</span> <span class="fl">6.0</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>scale_guess <span class="op">=</span> <span class="fl">5.0</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>shape_guess <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a>params <span class="op">=</span> genextreme.fit(data, shape_guess, loc<span class="op">=</span>location_guess, scale<span class="op">=</span>scale_guess)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>location_guess <span class="op">=</span> <span class="fl">6.0</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>scale_guess <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>shape_guess <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>params <span class="op">=</span> genextreme.fit(data, shape_guess, loc<span class="op">=</span>location_guess, scale<span class="op">=</span>scale_guess)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>More details on this can be found in the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.fit.html#scipy.stats.rv_continuous.fit">documentation</a>.</p>
 
 
@@ -1445,24 +1540,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1497,11 +1574,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
