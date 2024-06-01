@@ -390,6 +390,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Assignment - return period</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignments/assignment2-ET-NOAA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Assignment - ET</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -404,13 +410,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/date_formatting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Gain full control of date formatting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Gain full control of date formatting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/plotting-guidelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Plotting guidelines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Plotting guidelines</span></span></a>
   </div>
 </li>
       </ul>
@@ -418,7 +424,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -1961,7 +1967,11 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 <section id="data-from-noaa" class="level2" data-number="10.8">
 <h2 data-number="10.8" class="anchored" data-anchor-id="data-from-noaa"><span class="header-section-number">10.8</span> Data from NOAA</h2>
 <p>Let’s download data from a different repository. More specifically, we will retrieve sub-hourly data from the U.S. Climate Reference Network. We can see all the sites in <a href="https://www.ncei.noaa.gov/access/crn/">this map</a>. Besides the sub-hourly data, we can find <a href="https://www.ncei.noaa.gov/access/crn/qcdatasets.html">other datasets</a> (monthly, daily, etc).</p>
-<p>As an example, we will choose the statin in <a href="https://www.ncei.noaa.gov/access/crn/sensors.htm?stationId=1386">Austin, Texas</a>. In order to download, we will access the data from the FTP client using the python package <code>noaa_ftp</code>.</p>
+<p>As an example, we will choose the station near <a href="https://www.ncei.noaa.gov/access/crn/sensors.htm?stationId=1386">Austin, Texas</a>.</p>
+<p><img src="austin1.png" class="img-fluid"> <img src="austin2.png" class="img-fluid"></p>
+<p>The Austin 33 NW station has coordinates (30.62000, -98.08000) and an elevation of 1361 m above sea level. Its climate is classified as humid subtropical. Rainfall is evenly distributed rainfall throughout the year, averaging around 870 mm per year. The summer is hot and long, where average maximum temperatures reach 35 °C in July and August. The coldest month is January, with average maximum temperatures of 17 °C.</p>
+<p>This station lies in the transition zone between the humid regions of the American Southwest and the dry deserts of the American Southwest.</p>
+<p>In order to download, we will access the data from the FTP client using the python package <code>noaa_ftp</code>.</p>
 <p>The <code>dir</code> command list everything in the folder:</p>
 <div id="cell-24" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>noaa_dir <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01'</span>).<span class="bu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2634,6 +2644,49 @@ x \frac{W}{m^{-2}}\times 5\, min = x \frac{J}{m^{-2}\cdot s}\times 5\cdot 60\, s
 <div>
 <figure class="figure">
 <p><img src="evapotranspiration-exercises_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>es <span class="op">=</span> pyet.meteo_utils.calc_es(tmean<span class="op">=</span>df_TX[<span class="st">"AIR_TEMPERATURE"</span>])</span>
+<span id="cb26-2"><a href="#cb26-2"></a>ea <span class="op">=</span> pyet.meteo_utils.calc_ea(tmean<span class="op">=</span>df_TX[<span class="st">"AIR_TEMPERATURE"</span>],</span>
+<span id="cb26-3"><a href="#cb26-3"></a>                              rh<span class="op">=</span>df_TX[<span class="st">"RELATIVE_HUMIDITY"</span>])</span>
+<span id="cb26-4"><a href="#cb26-4"></a>vpd <span class="op">=</span> es <span class="op">-</span> ea</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">6</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">15</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a>ax[<span class="dv">0</span>].plot(penm2)<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="st">"potential ET (mm/day)"</span>)</span>
+<span id="cb27-4"><a href="#cb27-4"></a>ax[<span class="dv">1</span>].plot(df_TX[<span class="st">'AIR_TEMPERATURE'</span>])<span class="op">;</span> ax[<span class="dv">1</span>].set_ylabel(<span class="st">"temperature (°C)"</span>)</span>
+<span id="cb27-5"><a href="#cb27-5"></a>ax[<span class="dv">2</span>].plot(df_TX[<span class="st">'RELATIVE_HUMIDITY'</span>])<span class="op">;</span> ax[<span class="dv">2</span>].set_ylabel(<span class="st">"relative humidity (%)"</span>)</span>
+<span id="cb27-6"><a href="#cb27-6"></a>ax[<span class="dv">3</span>].plot(df_TX[<span class="st">'WIND_1_5'</span>])<span class="op">;</span> ax[<span class="dv">3</span>].set_ylabel(<span class="st">"wind speed (m/s)"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a>ax[<span class="dv">4</span>].plot(df_TX[<span class="st">'SOLAR_RADIATION'</span>])<span class="op">;</span> ax[<span class="dv">4</span>].set_ylabel(<span class="st">"solar radiation (MJ/m2/day)"</span>)</span>
+<span id="cb27-8"><a href="#cb27-8"></a>ax[<span class="dv">5</span>].plot(vpd)<span class="op">;</span> ax[<span class="dv">5</span>].set_ylabel(<span class="st">"VPD (kPa)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>Text(0, 0.5, 'VPD (kPa)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="evapotranspiration-exercises_files/figure-html/cell-22-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Can you see some patterns from the graphs above? Let’s focus on the relationship between ET and solar radiation.</p>
+<div id="cell-40" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a>ax[<span class="dv">0</span>].plot(penm2)<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="st">"potential ET (mm/day)"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4"></a>ax[<span class="dv">1</span>].plot(df_TX[<span class="st">'SOLAR_RADIATION'</span>])<span class="op">;</span> ax[<span class="dv">1</span>].set_ylabel(<span class="st">"solar radiation (MJ/m2/day)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>Text(0, 0.5, 'solar radiation (MJ/m2/day)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="evapotranspiration-exercises_files/figure-html/cell-23-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
