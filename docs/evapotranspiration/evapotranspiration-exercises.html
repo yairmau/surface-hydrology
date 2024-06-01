@@ -511,6 +511,12 @@ window.Quarto = {
 <li>Under “Select parameters”, choose “Check All”</li>
 <li>“Download Result as” CSV, call it <code>bet-dagan-pan.csv</code></li>
 </ul>
+<p>If for some reason you can’t download the files following the instructions above, click here:</p>
+<ul>
+<li><a href="bet-dagan-10min.csv" download="">bet-dagan-10min.csv</a></li>
+<li><a href="bet-dagan-radiation.csv" download="">bet-dagan-radiation.csv</a></li>
+<li><a href="bet-dagan-pan.csv" download="">bet-dagan-pan.csv</a></li>
+</ul>
 </section>
 <section id="install-and-import-relevant-packages" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="install-and-import-relevant-packages"><span class="header-section-number">10.2</span> Install and import relevant packages</h2>
@@ -520,43 +526,42 @@ window.Quarto = {
 <li><a href="https://github.com/javad-rzvn/noaa_ftp">noaa_ftp: Download data from NOAA</a></li>
 </ul>
 <p>If you don’t have them installed yet, run this:</p>
-<div id="cell-2" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install pyet</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install pyet</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install noaa_ftp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Once they are installed, import all the necessary packages for today’s exercises.</p>
-<div id="cell-4" class="cell" data-execution_count="3">
+<div id="cell-3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> matplotlib</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> register_matplotlib_converters</span>
-<span id="cb2-6"><a href="#cb2-6"></a>register_matplotlib_converters()  <span class="co"># datetime converter for a matplotlib</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-8"><a href="#cb2-8"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="im">import</span> pyet</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="im">from</span> noaa_ftp <span class="im">import</span> NOAA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> register_matplotlib_converters</span>
+<span id="cb2-5"><a href="#cb2-5"></a>register_matplotlib_converters()  <span class="co"># datetime converter for a matplotlib</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-7"><a href="#cb2-7"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="im">import</span> pyet</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="im">from</span> noaa_ftp <span class="im">import</span> NOAA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="import-10-minute-data" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="import-10-minute-data"><span class="header-section-number">10.3</span> import 10-minute data</h2>
-<div id="cell-6" class="cell" data-execution_count="19">
+<div id="cell-5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'bet-dagan-10min.csv'</span>,</span>
 <span id="cb3-2"><a href="#cb3-2"></a>                <span class="co">#  encoding = "ISO-8859-8",  # this shows hebrew characters properly</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>                 na_values<span class="op">=</span>[<span class="st">"-"</span>]           <span class="co"># substitute "-" for NaN</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>                 )</span>
 <span id="cb3-5"><a href="#cb3-5"></a>df[<span class="st">'timestamp'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'Date &amp; Time (Winter)'</span>], dayfirst<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-6"><a href="#cb3-6"></a>df <span class="op">=</span> df.set_index(<span class="st">'timestamp'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># resample to daily data according to "mean"</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>df <span class="op">=</span> df.resample(<span class="st">'D'</span>).mean()</span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># convert hecto pascals (hPa) to kilo pascals (kPa)</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>df[<span class="st">"Pressure (kPa)"</span>] <span class="op">=</span> df[<span class="st">"Pressure at station level (hPa)"</span>] <span class="op">/</span> <span class="fl">10.0</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_16976/111106941.py:8: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  df = df.resample('D').mean()</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># choose only relevant columns to us</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co"># if we don't do this the taking the mean will fail because not all columns are numeric. try df.dtypes to see why</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>df <span class="op">=</span> df[[<span class="st">"Temperature (°C)"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>         <span class="st">"Wind speed (m/s)"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11"></a>         <span class="st">"Pressure at station level (hPa)"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12"></a>         <span class="st">"Relative humidity (%)"</span>]]</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># resample to daily data according to "mean"</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>df <span class="op">=</span> df.resample(<span class="st">'D'</span>).mean()</span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co"># convert hecto pascals (hPa) to kilo pascals (kPa)</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>df[<span class="st">"Pressure (kPa)"</span>] <span class="op">=</span> df[<span class="st">"Pressure at station level (hPa)"</span>] <span class="op">/</span> <span class="fl">10.0</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <div>
 
@@ -565,34 +570,14 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Temperature (°C)</th>
+<th data-quarto-table-cell-role="th">Wind speed (m/s)</th>
 <th data-quarto-table-cell-role="th">Pressure at station level (hPa)</th>
 <th data-quarto-table-cell-role="th">Relative humidity (%)</th>
-<th data-quarto-table-cell-role="th">Temperature (°C)</th>
-<th data-quarto-table-cell-role="th">Maximum temperature (°C)</th>
-<th data-quarto-table-cell-role="th">Minimum temperature (°C)</th>
-<th data-quarto-table-cell-role="th">Grass temperature (°C)</th>
-<th data-quarto-table-cell-role="th">Wind direction (°)</th>
-<th data-quarto-table-cell-role="th">Gust wind direction (°)</th>
-<th data-quarto-table-cell-role="th">Wind speed (m/s)</th>
-<th data-quarto-table-cell-role="th">Maximum 1 minute wind speed (m/s)</th>
-<th data-quarto-table-cell-role="th">Maximum 10 minutes wind speed (m/s)</th>
-<th data-quarto-table-cell-role="th">Gust wind speed (m/s)</th>
-<th data-quarto-table-cell-role="th">Standard deviation wind direction (°)</th>
-<th data-quarto-table-cell-role="th">Rainfall (mm)</th>
 <th data-quarto-table-cell-role="th">Pressure (kPa)</th>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">timestamp</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
@@ -603,92 +588,42 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-01</td>
+<td>12.375000</td>
+<td>1.552083</td>
 <td>1013.263889</td>
 <td>80.590278</td>
-<td>12.375000</td>
-<td>12.486806</td>
-<td>12.268750</td>
-<td>13.061111</td>
-<td>166.069444</td>
-<td>166.673611</td>
-<td>1.552083</td>
-<td>2.013889</td>
-<td>1.706250</td>
-<td>2.325694</td>
-<td>12.588194</td>
-<td>0.000000</td>
 <td>101.326389</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-02</td>
+<td>12.020833</td>
+<td>2.207639</td>
 <td>1011.922917</td>
 <td>85.631944</td>
-<td>12.020833</td>
-<td>12.104861</td>
-<td>11.921528</td>
-<td>11.669444</td>
-<td>149.333333</td>
-<td>150.062500</td>
-<td>2.207639</td>
-<td>2.877083</td>
-<td>2.438194</td>
-<td>3.423611</td>
-<td>12.726389</td>
-<td>0.140278</td>
 <td>101.192292</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-03</td>
+<td>12.962500</td>
+<td>4.763194</td>
 <td>1013.757639</td>
 <td>60.756944</td>
-<td>12.962500</td>
-<td>13.086111</td>
-<td>12.838889</td>
-<td>13.389583</td>
-<td>190.513889</td>
-<td>191.277778</td>
-<td>4.763194</td>
-<td>5.940278</td>
-<td>4.995139</td>
-<td>7.355556</td>
-<td>10.436111</td>
-<td>0.000000</td>
 <td>101.375764</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-04</td>
+<td>10.849306</td>
+<td>5.439583</td>
 <td>1011.581250</td>
 <td>76.909722</td>
-<td>10.849306</td>
-<td>10.938194</td>
-<td>10.772222</td>
-<td>10.311806</td>
-<td>163.958333</td>
-<td>164.118056</td>
-<td>5.439583</td>
-<td>6.996528</td>
-<td>5.829167</td>
-<td>8.632639</td>
-<td>14.309028</td>
-<td>0.317361</td>
 <td>101.158125</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-05</td>
+<td>12.956250</td>
+<td>4.765278</td>
 <td>1012.361806</td>
 <td>79.583333</td>
-<td>12.956250</td>
-<td>13.053472</td>
-<td>12.864583</td>
-<td>13.135417</td>
-<td>195.784722</td>
-<td>197.326389</td>
-<td>4.765278</td>
-<td>6.120833</td>
-<td>5.097917</td>
-<td>7.763889</td>
-<td>12.976389</td>
-<td>0.112500</td>
 <td>101.236181</td>
 </tr>
 <tr class="even">
@@ -698,111 +633,51 @@ window.Quarto = {
 <td>...</td>
 <td>...</td>
 <td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-28</td>
+<td>14.797917</td>
+<td>2.631915</td>
 <td>1014.429861</td>
 <td>58.729167</td>
-<td>14.797917</td>
-<td>14.915972</td>
-<td>14.659722</td>
-<td>14.653472</td>
-<td>93.375887</td>
-<td>96.758865</td>
-<td>2.631915</td>
-<td>3.440426</td>
-<td>2.842553</td>
-<td>4.218440</td>
-<td>11.494326</td>
-<td>0.000000</td>
 <td>101.442986</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-29</td>
+<td>14.146528</td>
+<td>1.493750</td>
 <td>1015.031944</td>
 <td>71.215278</td>
-<td>14.146528</td>
-<td>14.315278</td>
-<td>13.986111</td>
-<td>14.176389</td>
-<td>97.777778</td>
-<td>94.631944</td>
-<td>1.493750</td>
-<td>1.951389</td>
-<td>1.630556</td>
-<td>2.277083</td>
-<td>14.328472</td>
-<td>0.000000</td>
 <td>101.503194</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-30</td>
+<td>14.186806</td>
+<td>1.776389</td>
 <td>1013.234028</td>
 <td>68.923611</td>
-<td>14.186806</td>
-<td>14.336111</td>
-<td>14.047222</td>
-<td>14.187500</td>
-<td>63.916667</td>
-<td>63.722222</td>
-<td>1.776389</td>
-<td>2.275000</td>
-<td>1.936111</td>
-<td>2.646528</td>
-<td>9.754861</td>
-<td>0.000000</td>
 <td>101.323403</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-31</td>
+<td>14.915278</td>
+<td>1.395833</td>
 <td>1011.840972</td>
 <td>75.465278</td>
-<td>14.915278</td>
-<td>15.068056</td>
-<td>14.763194</td>
-<td>15.154167</td>
-<td>165.895833</td>
-<td>165.062500</td>
-<td>1.395833</td>
-<td>1.803472</td>
-<td>1.546528</td>
-<td>2.054861</td>
-<td>10.363194</td>
-<td>0.000000</td>
 <td>101.184097</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-01</td>
-<td>1012.748760</td>
-<td>85.115702</td>
-<td>14.980992</td>
-<td>15.133884</td>
-<td>14.817355</td>
-<td>15.890083</td>
-<td>182.247934</td>
-<td>178.190083</td>
-<td>1.242975</td>
-<td>1.691736</td>
-<td>1.396694</td>
-<td>1.938843</td>
-<td>15.280992</td>
-<td>0.000000</td>
-<td>101.274876</td>
+<td>11.600000</td>
+<td>0.700000</td>
+<td>1011.800000</td>
+<td>95.000000</td>
+<td>101.180000</td>
 </tr>
 </tbody>
 </table>
 
-<p>367 rows × 15 columns</p>
+<p>367 rows × 5 columns</p>
 </div>
 </div>
 </div>
@@ -810,14 +685,14 @@ window.Quarto = {
 </section>
 <section id="import-radiation-data" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="import-radiation-data"><span class="header-section-number">10.4</span> import radiation data</h2>
-<div id="cell-8" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df_rad <span class="op">=</span> pd.read_csv(<span class="st">'bet-dagan-radiation.csv'</span>,</span>
-<span id="cb5-2"><a href="#cb5-2"></a>                     na_values<span class="op">=</span>[<span class="st">"-"</span>]</span>
-<span id="cb5-3"><a href="#cb5-3"></a>                     )</span>
-<span id="cb5-4"><a href="#cb5-4"></a>df_rad[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(df_rad[<span class="st">'Date'</span>], dayfirst<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>df_rad <span class="op">=</span> df_rad.set_index(<span class="st">'Date'</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a>df_rad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div id="cell-7" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df_rad <span class="op">=</span> pd.read_csv(<span class="st">'bet-dagan-radiation.csv'</span>,</span>
+<span id="cb4-2"><a href="#cb4-2"></a>                     na_values<span class="op">=</span>[<span class="st">"-"</span>]</span>
+<span id="cb4-3"><a href="#cb4-3"></a>                     )</span>
+<span id="cb4-4"><a href="#cb4-4"></a>df_rad[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(df_rad[<span class="st">'Date'</span>], dayfirst<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>df_rad <span class="op">=</span> df_rad.set_index(<span class="st">'Date'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>df_rad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <div>
 
@@ -866,7 +741,7 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>10.8</td>
@@ -885,7 +760,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Direct</td>
 <td>0.0</td>
 <td>3.6</td>
@@ -904,7 +779,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Diffused</td>
 <td>0.0</td>
 <td>10.8</td>
@@ -923,7 +798,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-02</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>10.8</td>
@@ -942,7 +817,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-02</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Direct</td>
 <td>0.0</td>
 <td>3.6</td>
@@ -980,7 +855,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-31</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Direct</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -999,7 +874,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-31</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Diffused</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1018,7 +893,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1037,7 +912,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2021-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Direct</td>
 <td>0.0</td>
 <td>0.0</td>
@@ -1056,7 +931,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Diffused</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1082,22 +957,22 @@ window.Quarto = {
 </div>
 </div>
 <p>Choose only “Global” radiation. Then sum all hours of the day, and convert from kJ to MJ.</p>
-<div id="cell-10" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df_rad <span class="op">=</span> df_rad[df_rad[<span class="st">"Radiation type"</span>] <span class="op">==</span> <span class="st">"Global "</span>]</span>
-<span id="cb6-2"><a href="#cb6-2"></a>df_rad[<span class="st">'daily_radiation_MJ_per_m2_per_day'</span>] <span class="op">=</span> (df_rad.iloc[:, <span class="dv">3</span>:]    <span class="co"># take all rows, columns 3 to end</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>                                                           .<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span>  <span class="co"># sum all columns</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>                                                           <span class="dv">1000</span>            <span class="co"># divide by 1000 to convert from kJ to MJ</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>                                                    )</span>
-<span id="cb6-6"><a href="#cb6-6"></a>df_rad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-9" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df_rad <span class="op">=</span> df_rad[df_rad[<span class="st">"Radiation type"</span>] <span class="op">==</span> <span class="st">"Global "</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>df_rad[<span class="st">'daily_radiation_MJ_per_m2_per_day'</span>] <span class="op">=</span> (df_rad.iloc[:, <span class="dv">2</span>:]    <span class="co"># take all rows, columns 2 to end</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>                                                           .<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span>  <span class="co"># sum all columns</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>                                                           <span class="dv">1000</span>            <span class="co"># divide by 1000 to convert from kJ to MJ</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>                                                    )</span>
+<span id="cb5-6"><a href="#cb5-6"></a>df_rad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_16976/3934990453.py:2: SettingWithCopyWarning: 
+<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_93264/3322402408.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df_rad['daily_radiation_MJ_per_m2_per_day'] = (df_rad.iloc[:, 3:]    # take all rows, columns 3 to end</code></pre>
+  df_rad['daily_radiation_MJ_per_m2_per_day'] = (df_rad.iloc[:, 2:]    # take all rows, columns 2 to end</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <div>
 
@@ -1148,7 +1023,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>10.8</td>
@@ -1168,7 +1043,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-02</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>10.8</td>
@@ -1188,7 +1063,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-03</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>10.8</td>
@@ -1208,7 +1083,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-04</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>3.6</td>
@@ -1228,7 +1103,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-05</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>7.2</td>
@@ -1268,7 +1143,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-28</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1288,7 +1163,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-29</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1308,7 +1183,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-30</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>21.6</td>
@@ -1328,7 +1203,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-31</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1348,7 +1223,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-01</td>
-<td>Bet Dagan Rad 01/1991-04/2023</td>
+<td>Bet Dagan Rad 01/1991-04/2024</td>
 <td>Global</td>
 <td>0.0</td>
 <td>14.4</td>
@@ -1374,17 +1249,155 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
+<p>Now we can add the daily radiation we have just calculated to the first dataframe containing temperature, RH, etc.</p>
+<div id="cell-11" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df[<span class="st">'daily_radiation_MJ_per_m2_per_day'</span>] <span class="op">=</span>  df_rad[<span class="st">'daily_radiation_MJ_per_m2_per_day'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Temperature (°C)</th>
+<th data-quarto-table-cell-role="th">Wind speed (m/s)</th>
+<th data-quarto-table-cell-role="th">Pressure at station level (hPa)</th>
+<th data-quarto-table-cell-role="th">Relative humidity (%)</th>
+<th data-quarto-table-cell-role="th">Pressure (kPa)</th>
+<th data-quarto-table-cell-role="th">daily_radiation_MJ_per_m2_per_day</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">timestamp</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-01-01</td>
+<td>12.375000</td>
+<td>1.552083</td>
+<td>1013.263889</td>
+<td>80.590278</td>
+<td>101.326389</td>
+<td>10.0296</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-01-02</td>
+<td>12.020833</td>
+<td>2.207639</td>
+<td>1011.922917</td>
+<td>85.631944</td>
+<td>101.192292</td>
+<td>4.3128</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-01-03</td>
+<td>12.962500</td>
+<td>4.763194</td>
+<td>1013.757639</td>
+<td>60.756944</td>
+<td>101.375764</td>
+<td>11.6748</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-01-04</td>
+<td>10.849306</td>
+<td>5.439583</td>
+<td>1011.581250</td>
+<td>76.909722</td>
+<td>101.158125</td>
+<td>1.6452</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-01-05</td>
+<td>12.956250</td>
+<td>4.765278</td>
+<td>1012.361806</td>
+<td>79.583333</td>
+<td>101.236181</td>
+<td>6.8544</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12-28</td>
+<td>14.797917</td>
+<td>2.631915</td>
+<td>1014.429861</td>
+<td>58.729167</td>
+<td>101.442986</td>
+<td>11.7432</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12-29</td>
+<td>14.146528</td>
+<td>1.493750</td>
+<td>1015.031944</td>
+<td>71.215278</td>
+<td>101.503194</td>
+<td>12.4200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12-30</td>
+<td>14.186806</td>
+<td>1.776389</td>
+<td>1013.234028</td>
+<td>68.923611</td>
+<td>101.323403</td>
+<td>12.4992</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12-31</td>
+<td>14.915278</td>
+<td>1.395833</td>
+<td>1011.840972</td>
+<td>75.465278</td>
+<td>101.184097</td>
+<td>11.9736</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2021-01-01</td>
+<td>11.600000</td>
+<td>0.700000</td>
+<td>1011.800000</td>
+<td>95.000000</td>
+<td>101.180000</td>
+<td>11.7252</td>
+</tr>
+</tbody>
+</table>
+
+<p>367 rows × 6 columns</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="import-pan-evaporation-data" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="import-pan-evaporation-data"><span class="header-section-number">10.5</span> import pan evaporation data</h2>
-<div id="cell-12" class="cell" data-execution_count="22">
+<div id="cell-13" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df_pan <span class="op">=</span> pd.read_csv(<span class="st">'bet-dagan-pan.csv'</span>,</span>
 <span id="cb8-2"><a href="#cb8-2"></a>                     na_values<span class="op">=</span>[<span class="st">"-"</span>]           <span class="co"># substitute "-" for NaN</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>                    )</span>
 <span id="cb8-4"><a href="#cb8-4"></a>df_pan[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(df_pan[<span class="st">'Date'</span>], dayfirst<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb8-5"><a href="#cb8-5"></a>df_pan <span class="op">=</span> df_pan.set_index(<span class="st">'Date'</span>)</span>
 <span id="cb8-6"><a href="#cb8-6"></a>df_pan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <div>
 
@@ -1401,8 +1414,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <th data-quarto-table-cell-role="th">Frost</th>
 <th data-quarto-table-cell-role="th">Snow</th>
 <th data-quarto-table-cell-role="th">Fog</th>
-<th data-quarto-table-cell-role="th">Mist</th>
-<th data-quarto-table-cell-role="th">Dew</th>
 <th data-quarto-table-cell-role="th">Thunder</th>
 <th data-quarto-table-cell-role="th">Lightening</th>
 <th data-quarto-table-cell-role="th">Sand storm</th>
@@ -1432,14 +1443,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-01</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1447,8 +1456,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1461,7 +1468,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-02</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1469,8 +1476,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -1483,7 +1488,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-03</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1491,8 +1496,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1505,7 +1508,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-01-04</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1513,8 +1516,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -1527,7 +1528,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-05</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1535,8 +1536,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -1566,12 +1565,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>...</td>
 <td>...</td>
 <td>...</td>
-<td>...</td>
-<td>...</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-28</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1579,8 +1576,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1593,7 +1588,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-29</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1601,8 +1596,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1615,7 +1608,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-12-30</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1623,8 +1616,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1637,7 +1628,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-31</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1645,8 +1636,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1659,7 +1648,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-01</td>
-<td>Bet Dagan Man 01/1964-03/2023</td>
+<td>Bet Dagan Man 01/1964-04/2024</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -1667,8 +1656,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td>NaN</td>
 <td>0</td>
 <td>0</td>
-<td>NaN</td>
-<td>NaN</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1682,7 +1669,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </tbody>
 </table>
 
-<p>367 rows × 19 columns</p>
+<p>367 rows × 17 columns</p>
 </div>
 </div>
 </div>
@@ -1695,44 +1682,31 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <li>Latitude: 32.0073°</li>
 <li>Elevation: 31 m</li>
 </ul>
-<div id="cell-15" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># average day temperature [°C]</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>tmean <span class="op">=</span> df[<span class="st">"Temperature (°C)"</span>]</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># mean day wind speed [m/s]</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>wind <span class="op">=</span> df[<span class="st">"Wind speed (m/s)"</span>]</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># mean daily relative humidity [%]</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>rh <span class="op">=</span> df[<span class="st">"Relative humidity (%)"</span>]</span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># incoming solar radiation [MJ m-2 d-1]</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a>rs <span class="op">=</span> df_rad[<span class="st">"daily_radiation_MJ_per_m2_per_day"</span>]</span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co"># atmospheric pressure [kPa]</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a>pressure <span class="op">=</span> df[<span class="st">"Pressure (kPa)"</span>]</span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co"># the site elevation [m]</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a>elevation <span class="op">=</span> <span class="fl">31.0</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co"># the site latitude [rad]</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a>latitude <span class="op">=</span> pyet.deg_to_rad(<span class="fl">32.0073</span>)</span>
-<span id="cb9-15"><a href="#cb9-15"></a>penm <span class="op">=</span> pyet.combination.penman(tmean<span class="op">=</span>tmean,</span>
-<span id="cb9-16"><a href="#cb9-16"></a>                               wind<span class="op">=</span>wind,</span>
-<span id="cb9-17"><a href="#cb9-17"></a>                               pressure<span class="op">=</span>pressure,</span>
-<span id="cb9-18"><a href="#cb9-18"></a>                               elevation<span class="op">=</span>elevation,</span>
-<span id="cb9-19"><a href="#cb9-19"></a>                               rh<span class="op">=</span>rh,</span>
-<span id="cb9-20"><a href="#cb9-20"></a>                               rs<span class="op">=</span>rs,</span>
-<span id="cb9-21"><a href="#cb9-21"></a>                               lat<span class="op">=</span>latitude,</span>
-<span id="cb9-22"><a href="#cb9-22"></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-16" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># the site elevation [m]</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>elevation <span class="op">=</span> <span class="fl">31.0</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># the site latitude [rad]</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>latitude <span class="op">=</span> pyet.utils.deg_to_rad(<span class="fl">32.0073</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>penm <span class="op">=</span> pyet.combination.penman(tmean<span class="op">=</span>df[<span class="st">"Temperature (°C)"</span>],</span>
+<span id="cb9-6"><a href="#cb9-6"></a>                               wind<span class="op">=</span>df[<span class="st">"Wind speed (m/s)"</span>],</span>
+<span id="cb9-7"><a href="#cb9-7"></a>                               pressure<span class="op">=</span>df[<span class="st">"Pressure (kPa)"</span>],</span>
+<span id="cb9-8"><a href="#cb9-8"></a>                               elevation<span class="op">=</span>elevation,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>                               rh<span class="op">=</span>df[<span class="st">"Relative humidity (%)"</span>],</span>
+<span id="cb9-10"><a href="#cb9-10"></a>                               rs<span class="op">=</span>df[<span class="st">"daily_radiation_MJ_per_m2_per_day"</span>],</span>
+<span id="cb9-11"><a href="#cb9-11"></a>                               lat<span class="op">=</span>latitude,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="24">
+<div id="cell-17" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>ax.plot(penm, label<span class="op">=</span><span class="st">"penman"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>ax.plot(df_pan[<span class="st">"Daily evaporation type A (mm)"</span>], label<span class="op">=</span><span class="st">"pan"</span>)</span>
 <span id="cb10-4"><a href="#cb10-4"></a>ax.legend()</span>
-<span id="cb10-5"><a href="#cb10-5"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slated dates</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>ax.set_ylabel(<span class="st">"ET (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>Text(0, 0.5, 'ET (mm)')</code></pre>
-</div>
+<span id="cb10-5"><a href="#cb10-5"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slanted dates</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>ax.set_ylabel(<span class="st">"ET (mm)"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="evapotranspiration-exercises_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="evapotranspiration-exercises_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1763,18 +1737,18 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 <li><span class="math inline">a</span> is a location-dependent coefficient</li>
 </ul>
 <p>From df, make a new dataframe, df_th, that stores monthly temperatures means. Use <code>resample</code> function.</p>
-<div id="cell-18" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># monthly data</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>df_th <span class="op">=</span> (df[<span class="st">'Temperature (°C)'</span>].resample(<span class="st">'MS'</span>)  <span class="co"># MS assigns mean to first day in the month</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>                               .mean()</span>
-<span id="cb12-4"><a href="#cb12-4"></a>                               .to_frame()</span>
-<span id="cb12-5"><a href="#cb12-5"></a>        )</span>
-<span id="cb12-6"><a href="#cb12-6"></a>        </span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># we now add 14 days to the index, so that all monthly data is in the middle of the month</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="co"># not really necessary, makes plot look better</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a>df_th.index <span class="op">=</span> df_th.index <span class="op">+</span> pd.DateOffset(days<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb12-10"><a href="#cb12-10"></a>df_th</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="cell-19" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># monthly data</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>df_th <span class="op">=</span> (df[<span class="st">'Temperature (°C)'</span>].resample(<span class="st">'MS'</span>)  <span class="co"># MS assigns mean to first day in the month</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>                               .mean()</span>
+<span id="cb11-4"><a href="#cb11-4"></a>                               .to_frame()</span>
+<span id="cb11-5"><a href="#cb11-5"></a>        )</span>
+<span id="cb11-6"><a href="#cb11-6"></a>        </span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># we now add 14 days to the index, so that all monthly data is in the middle of the month</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co"># not really necessary, makes plot look better</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>df_th.index <span class="op">=</span> df_th.index <span class="op">+</span> pd.DateOffset(days<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb11-10"><a href="#cb11-10"></a>df_th</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <div>
 
@@ -1841,7 +1815,7 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-15</td>
-<td>14.980992</td>
+<td>11.600000</td>
 </tr>
 </tbody>
 </table>
@@ -1851,28 +1825,28 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 </div>
 </div>
 <p>Calculate <span class="math inline">I</span>, then <span class="math inline">a</span>, and finally <span class="math inline">E_p</span>. Add <span class="math inline">E_p</span> as a new column in df_th.</p>
-<div id="cell-20" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Preparing "I" for the Thornthwaite equation</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>I <span class="op">=</span> np.<span class="bu">sum</span>(</span>
-<span id="cb13-3"><a href="#cb13-3"></a>             (</span>
-<span id="cb13-4"><a href="#cb13-4"></a>               df_th[<span class="st">'Temperature (°C)'</span>] <span class="op">/</span> <span class="dv">5</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>             ) <span class="op">**</span> (<span class="fl">1.514</span>)</span>
-<span id="cb13-6"><a href="#cb13-6"></a>          )</span>
-<span id="cb13-7"><a href="#cb13-7"></a></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="co"># Preparing "a" for the Thornthwaite equation</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a>a <span class="op">=</span> (<span class="op">+</span><span class="fl">6.75e-7</span> <span class="op">*</span> I<span class="op">**</span><span class="dv">3</span> </span>
-<span id="cb13-10"><a href="#cb13-10"></a>     <span class="op">-</span><span class="fl">7.71e-5</span> <span class="op">*</span> I<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a>     <span class="op">+</span><span class="fl">1.792e-2</span> <span class="op">*</span> I</span>
-<span id="cb13-12"><a href="#cb13-12"></a>     <span class="op">+</span> <span class="fl">0.49239</span>)</span>
-<span id="cb13-13"><a href="#cb13-13"></a></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="co"># The final Thornthwaite model for monthly potential ET (mm)</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a>df_th[<span class="st">'Ep (mm/month)'</span>] <span class="op">=</span> <span class="dv">16</span><span class="op">*</span>(</span>
-<span id="cb13-16"><a href="#cb13-16"></a>                               (</span>
-<span id="cb13-17"><a href="#cb13-17"></a>                                  <span class="dv">10</span> <span class="op">*</span> df_th[<span class="st">'Temperature (°C)'</span>] <span class="op">/</span> I</span>
-<span id="cb13-18"><a href="#cb13-18"></a>                               ) <span class="op">**</span> a</span>
-<span id="cb13-19"><a href="#cb13-19"></a>                            )</span>
-<span id="cb13-20"><a href="#cb13-20"></a>df_th</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div id="cell-21" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Preparing "I" for the Thornthwaite equation</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>I <span class="op">=</span> np.<span class="bu">sum</span>(</span>
+<span id="cb12-3"><a href="#cb12-3"></a>             (</span>
+<span id="cb12-4"><a href="#cb12-4"></a>               df_th[<span class="st">'Temperature (°C)'</span>] <span class="op">/</span> <span class="dv">5</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>             ) <span class="op">**</span> (<span class="fl">1.514</span>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>          )</span>
+<span id="cb12-7"><a href="#cb12-7"></a></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co"># Preparing "a" for the Thornthwaite equation</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>a <span class="op">=</span> (<span class="op">+</span><span class="fl">6.75e-7</span> <span class="op">*</span> I<span class="op">**</span><span class="dv">3</span> </span>
+<span id="cb12-10"><a href="#cb12-10"></a>     <span class="op">-</span><span class="fl">7.71e-5</span> <span class="op">*</span> I<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>     <span class="op">+</span><span class="fl">1.792e-2</span> <span class="op">*</span> I</span>
+<span id="cb12-12"><a href="#cb12-12"></a>     <span class="op">+</span> <span class="fl">0.49239</span>)</span>
+<span id="cb12-13"><a href="#cb12-13"></a></span>
+<span id="cb12-14"><a href="#cb12-14"></a><span class="co"># The final Thornthwaite model for monthly potential ET (mm)</span></span>
+<span id="cb12-15"><a href="#cb12-15"></a>df_th[<span class="st">'Ep (mm/month)'</span>] <span class="op">=</span> <span class="dv">16</span><span class="op">*</span>(</span>
+<span id="cb12-16"><a href="#cb12-16"></a>                               (</span>
+<span id="cb12-17"><a href="#cb12-17"></a>                                  <span class="dv">10</span> <span class="op">*</span> df_th[<span class="st">'Temperature (°C)'</span>] <span class="op">/</span> I</span>
+<span id="cb12-18"><a href="#cb12-18"></a>                               ) <span class="op">**</span> a</span>
+<span id="cb12-19"><a href="#cb12-19"></a>                            )</span>
+<span id="cb12-20"><a href="#cb12-20"></a>df_th</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <div>
 
@@ -1894,67 +1868,67 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-01-15</td>
 <td>12.484812</td>
-<td>20.018337</td>
+<td>20.695370</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-02-15</td>
 <td>14.044349</td>
-<td>26.999656</td>
+<td>27.765987</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-03-15</td>
 <td>16.371381</td>
-<td>39.865158</td>
+<td>40.716009</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-04-15</td>
 <td>18.476339</td>
-<td>54.213825</td>
+<td>55.071668</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-05-15</td>
 <td>23.177769</td>
-<td>96.461505</td>
+<td>96.997621</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-06-15</td>
 <td>24.666423</td>
-<td>112.997152</td>
+<td>113.308714</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-07-15</td>
 <td>27.380466</td>
-<td>147.331024</td>
+<td>147.047919</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-08-15</td>
 <td>28.099328</td>
-<td>157.362480</td>
+<td>156.877841</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-09-15</td>
 <td>28.421644</td>
-<td>161.990981</td>
+<td>161.409587</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-10-15</td>
 <td>25.058944</td>
-<td>117.623700</td>
+<td>117.864618</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2020-11-15</td>
 <td>19.266082</td>
-<td>60.299205</td>
+<td>61.138581</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2020-12-15</td>
 <td>15.915031</td>
-<td>37.101123</td>
+<td>37.941007</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2021-01-15</td>
-<td>14.980992</td>
-<td>31.814464</td>
+<td>11.600000</td>
+<td>17.225130</td>
 </tr>
 </tbody>
 </table>
@@ -1963,16 +1937,16 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 </div>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
-<span id="cb14-2"><a href="#cb14-2"></a>ax.plot(penm, label<span class="op">=</span><span class="st">"penman"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3"></a>ax.plot(df_pan[<span class="st">"Daily evaporation type A (mm)"</span>], label<span class="op">=</span><span class="st">"pan"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4"></a>ax.plot(df_th[<span class="st">'Ep (mm/month)'</span>]<span class="op">/</span><span class="dv">30</span>, label<span class="op">=</span><span class="st">"thornthwaite"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5"></a></span>
-<span id="cb14-6"><a href="#cb14-6"></a>ax.legend()</span>
-<span id="cb14-7"><a href="#cb14-7"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slated dates</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a>ax.set_ylabel(<span class="st">"ET (mm/day)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div id="cell-22" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>ax.plot(penm, label<span class="op">=</span><span class="st">"penman"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>ax.plot(df_pan[<span class="st">"Daily evaporation type A (mm)"</span>], label<span class="op">=</span><span class="st">"pan"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a>ax.plot(df_th[<span class="st">'Ep (mm/month)'</span>]<span class="op">/</span><span class="dv">30</span>, label<span class="op">=</span><span class="st">"thornthwaite"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a>ax.legend()</span>
+<span id="cb13-7"><a href="#cb13-7"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slated dates</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>ax.set_ylabel(<span class="st">"ET (mm/day)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Text(0, 0.5, 'ET (mm/day)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1986,11 +1960,11 @@ a &amp;= 6.75\times 10^{-7}I^3 \\
 </section>
 <section id="data-from-noaa" class="level2" data-number="10.8">
 <h2 data-number="10.8" class="anchored" data-anchor-id="data-from-noaa"><span class="header-section-number">10.8</span> Data from NOAA</h2>
-<p>Let’s download data from a different repository. More specifically, we will retrieve sub-hourly data from the U.S. Climate Reference Network. We can see all the sites in <a href="https://www.atdd.noaa.gov/u-s-crn-groups-map/">this map</a>. Besides the sub-hourly data, we can find <a href="https://www.ncei.noaa.gov/access/crn/qcdatasets.html">other datasets</a> (monthly, daily, etc).</p>
-<p>As an example, we will choose the statin in <a href="https://www.atdd.noaa.gov/u-s-crn-groups-map/middlesouth_group_map/tx-austin/">Austin, Texas</a>. In order to download, we will access the data from the FTP client using the python package <code>noaa_ftp</code>.</p>
+<p>Let’s download data from a different repository. More specifically, we will retrieve sub-hourly data from the U.S. Climate Reference Network. We can see all the sites in <a href="https://www.ncei.noaa.gov/access/crn/">this map</a>. Besides the sub-hourly data, we can find <a href="https://www.ncei.noaa.gov/access/crn/qcdatasets.html">other datasets</a> (monthly, daily, etc).</p>
+<p>As an example, we will choose the statin in <a href="https://www.ncei.noaa.gov/access/crn/sensors.htm?stationId=1386">Austin, Texas</a>. In order to download, we will access the data from the FTP client using the python package <code>noaa_ftp</code>.</p>
 <p>The <code>dir</code> command list everything in the folder:</p>
-<div id="cell-23" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>noaa_dir <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01'</span>).<span class="bu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-24" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>noaa_dir <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01'</span>).<span class="bu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>drwxrwsr-x   2 ftp      ftp          8192 Oct  7  2020 2006
 drwxrwsr-x   2 ftp      ftp          8192 Nov 10  2021 2007
@@ -2009,186 +1983,51 @@ drwxrwsr-x   2 ftp      ftp         12288 Nov 24  2021 2019
 drwxrwsr-x   2 ftp      ftp         12288 Nov 30  2021 2020
 drwxrwsr-x   2 ftp      ftp         12288 Jan 29  2022 2021
 drwxrwsr-x   2 ftp      ftp         12288 Aug 23  2022 2022
-drwxrwsr-x   2 ftp      ftp         12288 Feb  2 16:55 2023
--rw-rw-r--   1 ftp      ftp          2157 Feb 18  2022 headers.txt
--rw-rw-r--   1 ftp      ftp           456 Oct  7  2020 HEADERS.txt
--rw-rw-r--   1 ftp      ftp         14892 Feb 18  2022 readme.txt
--rw-rw-r--   1 ftp      ftp         14936 Sep 21  2021 README.txt
-drwxrwsr-x   2 ftp      ftp          4096 Apr 24 01:50 snapshots</code></pre>
+drwxrwsr-x   2 ftp      ftp         12288 Nov 29  2023 2023
+drwxrwsr-x   2 ftp      ftp         12288 Apr  9 16:53 2024
+-rw-rw-r-x   1 ftp      ftp          2157 Feb 18  2022 headers.txt
+-rw-rw-r-x   1 ftp      ftp           456 Oct  7  2020 HEADERS.txt
+-rw-rw-r-x   1 ftp      ftp         14892 Feb 18  2022 readme.txt
+-rw-rw-r-x   1 ftp      ftp         14936 Sep 21  2021 README.txt
+drwxrwsr-x   2 ftp      ftp          8192 May 27 01:50 snapshots</code></pre>
 </div>
 </div>
-<p>Let’s download two files: * sub-hourly data for the year 2022 for Austin, TX. * the <code>HEADERS.txt</code> contains the names of the columns in the csv.</p>
-<div id="cell-25" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>noaa <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01'</span>).download(<span class="st">'HEADERS.txt'</span>)</span>
-<span id="cb18-2"><a href="#cb18-2"></a>noaa <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01/2022'</span>).download(<span class="st">'CRNS0101-05-2022-TX_Austin_33_NW.txt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Downloading:   0% [                                  ] ETA:  --:--:--   0.0 s/B
-Downloading: 100% [##################################] ETA:  00:00:00 505.2 B/s
-Downloading:   0% [                                  ] ETA:  --:--:--   0.0 s/B
-Downloading:   0% [                                ] ETA:   0:32:21   7.1 KiB/s
-Downloading:   0% [                                ] ETA:   0:22:44  10.1 KiB/s
-Downloading:   0% [                                ] ETA:   0:10:06  22.8 KiB/s
-Downloading:   0% [                                ] ETA:   0:08:11  28.1 KiB/s
-Downloading:   0% [                                ] ETA:   0:07:16  31.6 KiB/s
-Downloading:   0% [                                ] ETA:   0:06:41  34.2 KiB/s
-Downloading:   0% [                                ] ETA:   0:06:27  35.5 KiB/s
-Downloading:   1% [                                ] ETA:   0:06:10  37.1 KiB/s
-Downloading:   1% [                                ] ETA:   0:06:17  36.3 KiB/s
-Downloading:   1% [                                ] ETA:   0:06:14  36.5 KiB/s
-Downloading:   1% [                                ] ETA:   0:06:05  37.5 KiB/s
-Downloading:   1% [                                ] ETA:   0:06:03  37.6 KiB/s
-Downloading:   1% [                                ] ETA:   0:05:45  39.5 KiB/s
-Downloading:   1% [                                ] ETA:   0:05:34  40.8 KiB/s
-Downloading:   1% [                                ] ETA:   0:05:24  42.0 KiB/s
-Downloading:   1% [                                ] ETA:   0:05:17  42.9 KiB/s
-Downloading:   1% [                                ] ETA:   0:05:13  43.3 KiB/s
-Downloading:   2% [                                ] ETA:   0:05:00  45.2 KiB/s
-Downloading:   2% [                                ] ETA:   0:05:02  44.9 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:52  46.3 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:53  46.2 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:44  47.6 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:43  47.8 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:35  49.1 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:28  50.2 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:29  50.2 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:20  51.7 KiB/s
-Downloading:   2% [                                ] ETA:   0:04:13  53.0 KiB/s
-Downloading:   3% [                                ] ETA:   0:04:07  54.2 KiB/s
-Downloading:   3% [#                               ] ETA:   0:03:57  56.4 KiB/s
-Downloading:   3% [#                               ] ETA:   0:03:52  57.5 KiB/s
-Downloading:   3% [#                               ] ETA:   0:03:43  59.6 KiB/s
-Downloading:   3% [#                               ] ETA:   0:03:36  61.6 KiB/s
-Downloading:   3% [#                               ] ETA:   0:03:36  61.6 KiB/s
-Downloading:   4% [#                               ] ETA:   0:03:26  64.3 KiB/s
-Downloading:   4% [#                               ] ETA:   0:03:23  65.2 KiB/s
-Downloading:   4% [#                               ] ETA:   0:03:17  67.1 KiB/s
-Downloading:   4% [#                               ] ETA:   0:03:16  67.2 KiB/s
-Downloading:   4% [#                               ] ETA:   0:03:08  70.0 KiB/s
-Downloading:   5% [#                               ] ETA:   0:02:59  73.4 KiB/s
-Downloading:   5% [#                               ] ETA:   0:02:59  73.3 KiB/s
-Downloading:   5% [#                               ] ETA:   0:02:49  77.2 KiB/s
-Downloading:   5% [#                               ] ETA:   0:02:49  77.2 KiB/s
-Downloading:   5% [#                               ] ETA:   0:02:39  81.5 KiB/s
-Downloading:   6% [#                               ] ETA:   0:02:39  81.6 KiB/s
-Downloading:   6% [##                              ] ETA:   0:02:31  85.8 KiB/s
-Downloading:   6% [##                              ] ETA:   0:02:30  86.2 KiB/s
-Downloading:   6% [##                              ] ETA:   0:02:22  90.5 KiB/s
-Downloading:   7% [##                              ] ETA:   0:02:21  91.0 KiB/s
-Downloading:   7% [##                              ] ETA:   0:02:14  95.7 KiB/s
-Downloading:   7% [##                              ] ETA:   0:02:13  96.2 KiB/s
-Downloading:   7% [##                              ] ETA:   0:02:06 100.8 KiB/s
-Downloading:   8% [##                              ] ETA:   0:02:05 101.4 KiB/s
-Downloading:   8% [##                              ] ETA:   0:01:59 106.1 KiB/s
-Downloading:   8% [##                              ] ETA:   0:01:58 106.8 KiB/s
-Downloading:   9% [##                              ] ETA:   0:01:53 111.3 KiB/s
-Downloading:   9% [##                              ] ETA:   0:01:52 111.4 KiB/s
-Downloading:   9% [###                             ] ETA:   0:01:46 117.3 KiB/s
-Downloading:  10% [###                             ] ETA:   0:01:45 117.8 KiB/s
-Downloading:  10% [###                             ] ETA:   0:01:39 124.0 KiB/s
-Downloading:  10% [###                             ] ETA:   0:01:38 124.9 KiB/s
-Downloading:  11% [###                             ] ETA:   0:01:33 131.3 KiB/s
-Downloading:  11% [###                             ] ETA:   0:01:32 131.9 KiB/s
-Downloading:  12% [###                             ] ETA:   0:01:27 139.0 KiB/s
-Downloading:  12% [####                            ] ETA:   0:01:26 139.7 KiB/s
-Downloading:  13% [####                            ] ETA:   0:01:21 146.7 KiB/s
-Downloading:  13% [####                            ] ETA:   0:01:18 152.7 KiB/s
-Downloading:  14% [####                            ] ETA:   0:01:16 154.5 KiB/s
-Downloading:  15% [####                            ] ETA:   0:01:11 163.5 KiB/s
-Downloading:  15% [####                            ] ETA:   0:01:12 162.6 KiB/s
-Downloading:  16% [#####                           ] ETA:   0:01:07 170.8 KiB/s
-Downloading:  17% [#####                           ] ETA:   0:01:03 180.1 KiB/s
-Downloading:  18% [######                          ] ETA:   0:00:59 189.5 KiB/s
-Downloading:  19% [######                          ] ETA:   0:00:58 192.1 KiB/s
-Downloading:  20% [######                          ] ETA:   0:00:55 198.7 KiB/s
-Downloading:  20% [######                          ] ETA:   0:00:55 199.5 KiB/s
-Downloading:  21% [######                          ] ETA:   0:00:52 207.9 KiB/s
-Downloading:  21% [######                          ] ETA:   0:00:52 208.0 KiB/s
-Downloading:  22% [#######                         ] ETA:   0:00:48 218.6 KiB/s
-Downloading:  22% [#######                         ] ETA:   0:00:49 215.6 KiB/s
-Downloading:  24% [#######                         ] ETA:   0:00:46 224.9 KiB/s
-Downloading:  25% [########                        ] ETA:   0:00:44 233.9 KiB/s
-Downloading:  26% [########                        ] ETA:   0:00:41 242.9 KiB/s
-Downloading:  28% [#########                       ] ETA:   0:00:39 250.9 KiB/s
-Downloading:  29% [#########                       ] ETA:   0:00:37 259.9 KiB/s
-Downloading:  31% [#########                       ] ETA:   0:00:35 268.5 KiB/s
-Downloading:  32% [##########                      ] ETA:   0:00:33 277.3 KiB/s
-Downloading:  34% [##########                      ] ETA:   0:00:31 286.4 KiB/s
-Downloading:  35% [###########                     ] ETA:   0:00:30 295.8 KiB/s
-Downloading:  35% [###########                     ] ETA:   0:00:30 295.4 KiB/s
-Downloading:  36% [###########                     ] ETA:   0:00:29 298.8 KiB/s
-Downloading:  37% [############                    ] ETA:   0:00:28 305.8 KiB/s
-Downloading:  38% [############                    ] ETA:   0:00:27 308.5 KiB/s
-Downloading:  39% [############                    ] ETA:   0:00:26 315.9 KiB/s
-Downloading:  39% [############                    ] ETA:   0:00:26 318.1 KiB/s
-Downloading:  41% [#############                   ] ETA:   0:00:25 325.2 KiB/s
-Downloading:  41% [#############                   ] ETA:   0:00:24 328.1 KiB/s
-Downloading:  42% [#############                   ] ETA:   0:00:23 333.2 KiB/s
-Downloading:  43% [#############                   ] ETA:   0:00:23 336.6 KiB/s
-Downloading:  45% [##############                  ] ETA:   0:00:21 347.1 KiB/s
-Downloading:  46% [##############                  ] ETA:   0:00:20 355.8 KiB/s
-Downloading:  47% [###############                 ] ETA:   0:00:20 357.9 KiB/s
-Downloading:  49% [###############                 ] ETA:   0:00:18 370.3 KiB/s
-Downloading:  49% [###############                 ] ETA:   0:00:18 369.1 KiB/s
-Downloading:  51% [################                ] ETA:   0:00:17 380.5 KiB/s
-Downloading:  53% [#################               ] ETA:   0:00:16 389.4 KiB/s
-Downloading:  53% [#################               ] ETA:   0:00:16 392.2 KiB/s
-Downloading:  55% [#################               ] ETA:   0:00:15 403.1 KiB/s
-Downloading:  56% [#################               ] ETA:   0:00:15 403.9 KiB/s
-Downloading:  56% [##################              ] ETA:   0:00:14 408.3 KiB/s
-Downloading:  58% [##################              ] ETA:   0:00:13 416.2 KiB/s
-Downloading:  59% [###################             ] ETA:   0:00:13 421.4 KiB/s
-Downloading:  61% [###################             ] ETA:   0:00:12 429.2 KiB/s
-Downloading:  62% [###################             ] ETA:   0:00:12 434.6 KiB/s
-Downloading:  63% [####################            ] ETA:   0:00:11 442.5 KiB/s
-Downloading:  64% [####################            ] ETA:   0:00:10 447.5 KiB/s
-Downloading:  66% [#####################           ] ETA:   0:00:10 456.3 KiB/s
-Downloading:  67% [#####################           ] ETA:   0:00:09 459.6 KiB/s
-Downloading:  69% [######################          ] ETA:   0:00:09 469.8 KiB/s
-Downloading:  69% [######################          ] ETA:   0:00:08 471.9 KiB/s
-Downloading:  71% [#######################         ] ETA:   0:00:08 484.1 KiB/s
-Downloading:  72% [#######################         ] ETA:   0:00:07 484.3 KiB/s
-Downloading:  74% [#######################         ] ETA:   0:00:07 499.3 KiB/s
-Downloading:  75% [########################        ] ETA:   0:00:06 498.8 KiB/s
-Downloading:  75% [########################        ] ETA:   0:00:06 503.6 KiB/s
-Downloading:  78% [#########################       ] ETA:   0:00:05 514.8 KiB/s
-Downloading:  78% [#########################       ] ETA:   0:00:05 515.7 KiB/s
-Downloading:  79% [#########################       ] ETA:   0:00:05 522.2 KiB/s
-Downloading:  81% [##########################      ] ETA:   0:00:04 529.8 KiB/s
-Downloading:  83% [##########################      ] ETA:   0:00:04 541.1 KiB/s
-Downloading:  84% [###########################     ] ETA:   0:00:03 547.3 KiB/s
-Downloading:  86% [###########################     ] ETA:   0:00:03 552.2 KiB/s
-Downloading:  87% [###########################     ] ETA:   0:00:03 559.2 KiB/s
-Downloading:  88% [############################    ] ETA:   0:00:02 563.3 KiB/s
-Downloading:  89% [############################    ] ETA:   0:00:02 570.2 KiB/s
-Downloading:  92% [#############################   ] ETA:   0:00:01 580.3 KiB/s
-Downloading:  93% [#############################   ] ETA:   0:00:01 588.3 KiB/s
-Downloading:  95% [##############################  ] ETA:   0:00:00 598.3 KiB/s
-Downloading:  97% [############################### ] ETA:   0:00:00 604.1 KiB/s
-Downloading:  99% [############################### ] ETA:   0:00:00 616.4 KiB/s</code></pre>
-</div>
-</div>
-<div id="cell-26" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Read column names from another file</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>column_names <span class="op">=</span> pd.read_csv(<span class="st">'HEADERS.txt'</span>,</span>
-<span id="cb20-3"><a href="#cb20-3"></a>                           header<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb20-4"><a href="#cb20-4"></a>                           delim_whitespace<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb20-5"><a href="#cb20-5"></a>                           )</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="co"># Read CSV file using column names from another file</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"CRNS0101-05-2022-TX_Austin_33_NW.txt"</span>,  <span class="co"># file to read</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>                 delim_whitespace<span class="op">=</span><span class="va">True</span>,  <span class="co"># use (any number of) white spaces as delimiter between columns</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a>                 names<span class="op">=</span>column_names.iloc[<span class="dv">1</span>],  <span class="co"># column names from row i=1 of "column_names"</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>                 na_values<span class="op">=</span>[<span class="op">-</span><span class="dv">99</span>, <span class="op">-</span><span class="dv">9999</span>, <span class="op">-</span><span class="dv">99999</span>],  <span class="co"># substitute these values by NaN</span></span>
-<span id="cb20-11"><a href="#cb20-11"></a>                 )</span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="co"># make integer column LST_DATE as string</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a>df[<span class="st">'LST_DATE'</span>] <span class="op">=</span> df[<span class="st">'LST_DATE'</span>].astype(<span class="bu">str</span>)<span class="co">#.apply(lambda x: f'{x:0&gt;4}')</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="co"># make integer column LST_DATE as string</span></span>
-<span id="cb20-15"><a href="#cb20-15"></a><span class="co"># pad numbers with 0 from the left, such that 15 becomes 0015</span></span>
-<span id="cb20-16"><a href="#cb20-16"></a>df[<span class="st">'LST_TIME'</span>] <span class="op">=</span> df[<span class="st">'LST_TIME'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="ss">f'</span><span class="sc">{</span>x<span class="sc">:0&gt;4}</span><span class="ss">'</span>)</span>
-<span id="cb20-17"><a href="#cb20-17"></a><span class="co"># combine both DATE and TIME </span></span>
-<span id="cb20-18"><a href="#cb20-18"></a>df[<span class="st">'datetime'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'LST_DATE'</span>] <span class="op">+</span> df[<span class="st">'LST_TIME'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%Y%m</span><span class="sc">%d</span><span class="st">%H%M'</span>)</span>
-<span id="cb20-19"><a href="#cb20-19"></a>df <span class="op">=</span> df.set_index(<span class="st">'datetime'</span>)</span>
-<span id="cb20-20"><a href="#cb20-20"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<p>It’s worth clicking <a href="https://www.ncei.noaa.gov/pub/data/uscrn/products/subhourly01/">here</a> to see this directory with your own eyes. You can use your browser to explore this. Click on <code>readme.txt</code> and, well, read it.</p>
+<p>Let’s download two files:</p>
+<ul>
+<li>sub-hourly data for the year 2022 for Austin, TX.</li>
+<li>the <code>HEADERS.txt</code> contains the names of the columns in the csv.</li>
+</ul>
+<p>Type the following lines:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>noaa <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01'</span>).download(<span class="st">'HEADERS.txt'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>noaa <span class="op">=</span> NOAA(<span class="st">"ftp.ncdc.noaa.gov"</span>, <span class="st">'pub/data/uscrn/products/subhourly01/2022'</span>).download(<span class="st">'CRNS0101-05-2022-TX_Austin_33_NW.txt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If for some reason you can’t download directly from NOAA, click here to get the files:</p>
+<ul>
+<li><a href="HEADERS.txt" download="">HEADERS.txt</a></li>
+<li><a href="CRNS0101-05-2022-TX_Austin_33_NW.txt" download="">CRNS0101-05-2022-TX_Austin_33_NW.txt</a></li>
+</ul>
+<div id="cell-26" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Read column names from another file</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>column_names <span class="op">=</span> pd.read_csv(<span class="st">'HEADERS.txt'</span>,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>                           header<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>                           sep<span class="op">=</span><span class="st">'\s+'</span>,</span>
+<span id="cb18-5"><a href="#cb18-5"></a>                           )</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co"># Read CSV file using column names from another file</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"CRNS0101-05-2022-TX_Austin_33_NW.txt"</span>,  <span class="co"># file to read</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a>                 sep<span class="op">=</span><span class="st">'\s+'</span>,  <span class="co"># use (any number of) white spaces as delimiter between columns</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>                 names<span class="op">=</span>column_names.iloc[<span class="dv">1</span>],  <span class="co"># column names from row i=1 of "column_names"</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>                 na_values<span class="op">=</span>[<span class="op">-</span><span class="dv">99</span>, <span class="op">-</span><span class="dv">9999</span>, <span class="op">-</span><span class="dv">99999</span>],  <span class="co"># substitute these values by NaN</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a>                 )</span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="co"># make integer column LST_DATE as string</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a>df[<span class="st">'LST_DATE'</span>] <span class="op">=</span> df[<span class="st">'LST_DATE'</span>].astype(<span class="bu">str</span>)<span class="co">#.apply(lambda x: f'{x:0&gt;4}')</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="co"># make integer column LST_DATE as string</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="co"># pad numbers with 0 from the left, such that 15 becomes 0015</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a>df[<span class="st">'LST_TIME'</span>] <span class="op">=</span> df[<span class="st">'LST_TIME'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="ss">f'</span><span class="sc">{</span>x<span class="sc">:0&gt;4}</span><span class="ss">'</span>)</span>
+<span id="cb18-17"><a href="#cb18-17"></a><span class="co"># combine both DATE and TIME </span></span>
+<span id="cb18-18"><a href="#cb18-18"></a>df[<span class="st">'datetime'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'LST_DATE'</span>] <span class="op">+</span> df[<span class="st">'LST_TIME'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%Y%m</span><span class="sc">%d</span><span class="st">%H%M'</span>)</span>
+<span id="cb18-19"><a href="#cb18-19"></a>df <span class="op">=</span> df.set_index(<span class="st">'datetime'</span>)</span>
+<span id="cb18-20"><a href="#cb18-20"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 <div>
 
@@ -2532,12 +2371,12 @@ x \frac{W}{m^{-2}}\times 5\, min = x \frac{J}{m^{-2}\cdot s}\times 5\cdot 60\, s
 \sum_{day}x \cdot 5 \cdot 60 \frac{J}{m^{-2}\cdot day} = \sum_{day}x \cdot 5 \cdot 60\cdot 10^{-6} \frac{MJ}{m^{-2}\cdot day}
 </span></p>
 <p>Make a new dataframe with daily means for temperature, relative humidity and wind speed.</p>
-<div id="cell-29" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>df_TX <span class="op">=</span> df[[<span class="st">'AIR_TEMPERATURE'</span>,</span>
-<span id="cb21-2"><a href="#cb21-2"></a>            <span class="st">'RELATIVE_HUMIDITY'</span>,</span>
-<span id="cb21-3"><a href="#cb21-3"></a>            <span class="st">'WIND_1_5'</span>]].resample(<span class="st">'D'</span>).mean()</span>
-<span id="cb21-4"><a href="#cb21-4"></a>df_TX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="cell-29" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df_TX <span class="op">=</span> df[[<span class="st">'AIR_TEMPERATURE'</span>,</span>
+<span id="cb19-2"><a href="#cb19-2"></a>            <span class="st">'RELATIVE_HUMIDITY'</span>,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>            <span class="st">'WIND_1_5'</span>]].resample(<span class="st">'D'</span>).mean()</span>
+<span id="cb19-4"><a href="#cb19-4"></a>df_TX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 <div>
 
@@ -2632,11 +2471,11 @@ x \frac{W}{m^{-2}}\times 5\, min = x \frac{J}{m^{-2}\cdot s}\times 5\cdot 60\, s
 </div>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>X <span class="op">=</span> df[<span class="st">'SOLAR_RADIATION'</span>].resample(<span class="st">'D'</span>).<span class="bu">sum</span>()</span>
-<span id="cb22-2"><a href="#cb22-2"></a>df_TX[<span class="st">'SOLAR_RADIATION'</span>] <span class="op">=</span> X <span class="op">*</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="fl">1e-6</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>df_TX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div id="cell-30" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>X <span class="op">=</span> df[<span class="st">'SOLAR_RADIATION'</span>].resample(<span class="st">'D'</span>).<span class="bu">sum</span>()</span>
+<span id="cb20-2"><a href="#cb20-2"></a>df_TX[<span class="st">'SOLAR_RADIATION'</span>] <span class="op">=</span> X <span class="op">*</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="fl">1e-6</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>df_TX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 <div>
 
@@ -2744,37 +2583,61 @@ x \frac{W}{m^{-2}}\times 5\, min = x \frac{J}{m^{-2}\cdot s}\times 5\cdot 60\, s
 </div>
 </div>
 </div>
-<div id="cell-31" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>tmean <span class="op">=</span> df_TX[<span class="st">"AIR_TEMPERATURE"</span>]</span>
-<span id="cb23-2"><a href="#cb23-2"></a>wind <span class="op">=</span> df_TX[<span class="st">"WIND_1_5"</span>]</span>
-<span id="cb23-3"><a href="#cb23-3"></a>rh <span class="op">=</span> df_TX[<span class="st">"RELATIVE_HUMIDITY"</span>]</span>
-<span id="cb23-4"><a href="#cb23-4"></a>rn <span class="op">=</span> df_TX[<span class="st">"SOLAR_RADIATION"</span>]</span>
-<span id="cb23-5"><a href="#cb23-5"></a>elevation <span class="op">=</span> <span class="dv">358</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a>penm2 <span class="op">=</span> pyet.combination.penman(tmean<span class="op">=</span>tmean,</span>
-<span id="cb23-7"><a href="#cb23-7"></a>                                wind<span class="op">=</span>wind,</span>
-<span id="cb23-8"><a href="#cb23-8"></a>                                elevation<span class="op">=</span>elevation,</span>
-<span id="cb23-9"><a href="#cb23-9"></a>                                rh<span class="op">=</span>rh,</span>
-<span id="cb23-10"><a href="#cb23-10"></a>                                rn<span class="op">=</span>rn,</span>
-<span id="cb23-11"><a href="#cb23-11"></a>                                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s use PYET to calculate the potential ET. This is the time to go to the library’s GitHub page and read the functions: <a href="https://github.com/pyet-org/pyet/tree/master" class="uri">https://github.com/pyet-org/pyet/tree/master</a></p>
+<div id="cell-32" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>elevation <span class="op">=</span> <span class="dv">358</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>penm2 <span class="op">=</span> pyet.combination.penman(tmean<span class="op">=</span>df_TX[<span class="st">"AIR_TEMPERATURE"</span>],</span>
+<span id="cb21-3"><a href="#cb21-3"></a>                                wind<span class="op">=</span>df_TX[<span class="st">"WIND_1_5"</span>],</span>
+<span id="cb21-4"><a href="#cb21-4"></a>                                elevation<span class="op">=</span>elevation,</span>
+<span id="cb21-5"><a href="#cb21-5"></a>                                rh<span class="op">=</span>df_TX[<span class="st">"RELATIVE_HUMIDITY"</span>],</span>
+<span id="cb21-6"><a href="#cb21-6"></a>                                rn<span class="op">=</span>df_TX[<span class="st">"SOLAR_RADIATION"</span>],</span>
+<span id="cb21-7"><a href="#cb21-7"></a>                                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a>ax.plot(penm2, label<span class="op">=</span><span class="st">"penman"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="co"># ax.legend()</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slated dates</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>ax.set_ylabel(<span class="st">"ET (mm/day)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>Text(0, 0.5, 'ET (mm/day)')</code></pre>
-</div>
+<div id="cell-33" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>ax.plot(penm2, label<span class="op">=</span><span class="st">"penman"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slanted dates</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>ax.set_ylabel(<span class="st">"ET (mm/day)"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="evapotranspiration-exercises_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="evapotranspiration-exercises_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Does this make sense? How can we know?</p>
+<p>What happens if we download data from a station, and we’re missing Solar Radiation? What to do? The library PYET can infer solar ratiation given the station latitude and the number of daylight hours in the day.</p>
+<div id="cell-35" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>lat <span class="op">=</span> <span class="fl">30.62</span>  <span class="co"># degrees</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>lat <span class="op">=</span> pyet.utils.deg_to_rad(lat)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>df_TX[<span class="st">'daylight_hours'</span>] <span class="op">=</span> pyet.meteo_utils.daylight_hours(tmean.index, lat)</span>
+<span id="cb23-4"><a href="#cb23-4"></a>penm3 <span class="op">=</span> pyet.combination.penman(tmean<span class="op">=</span>df_TX[<span class="st">"AIR_TEMPERATURE"</span>],</span>
+<span id="cb23-5"><a href="#cb23-5"></a>                                wind<span class="op">=</span>df_TX[<span class="st">"WIND_1_5"</span>],</span>
+<span id="cb23-6"><a href="#cb23-6"></a>                                elevation<span class="op">=</span>elevation,</span>
+<span id="cb23-7"><a href="#cb23-7"></a>                                rh<span class="op">=</span>df_TX[<span class="st">"RELATIVE_HUMIDITY"</span>],</span>
+<span id="cb23-8"><a href="#cb23-8"></a>                                lat<span class="op">=</span>lat,</span>
+<span id="cb23-9"><a href="#cb23-9"></a>                                n<span class="op">=</span>df_TX[<span class="st">'daylight_hours'</span>],</span>
+<span id="cb23-10"><a href="#cb23-10"></a>                                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>ax.plot(penm2, label<span class="op">=</span><span class="st">"with radiation data"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a>ax.plot(penm3, label<span class="op">=</span><span class="st">"without radiation data"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a>ax.legend()</span>
+<span id="cb24-5"><a href="#cb24-5"></a>plt.gcf().autofmt_xdate()  <span class="co"># makes slated dates</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>ax.set_ylabel(<span class="st">"ET (mm/day)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>Text(0, 0.5, 'ET (mm/day)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="evapotranspiration-exercises_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
