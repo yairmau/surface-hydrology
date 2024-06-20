@@ -442,8 +442,13 @@ window.Quarto = {
   <ul>
   <li><a href="#tasks" id="toc-tasks" class="nav-link active" data-scroll-target="#tasks"><span class="header-section-number">12.1</span> Tasks</a></li>
   <li><a href="#hortons-equation" id="toc-hortons-equation" class="nav-link" data-scroll-target="#hortons-equation"><span class="header-section-number">12.2</span> Horton’s equation</a></li>
-  <li><a href="#green-ampt" id="toc-green-ampt" class="nav-link" data-scroll-target="#green-ampt"><span class="header-section-number">12.3</span> Green &amp; Ampt</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">12.4</span> Homework</a></li>
+  <li><a href="#what-does-fit-really-mean" id="toc-what-does-fit-really-mean" class="nav-link" data-scroll-target="#what-does-fit-really-mean"><span class="header-section-number">12.3</span> What does fit really mean?</a>
+  <ul class="collapse">
+  <li><a href="#learning-rate" id="toc-learning-rate" class="nav-link" data-scroll-target="#learning-rate"><span class="header-section-number">12.3.1</span> learning rate</a></li>
+  <li><a href="#local-and-global-minima" id="toc-local-and-global-minima" class="nav-link" data-scroll-target="#local-and-global-minima"><span class="header-section-number">12.3.2</span> local and global minima</a></li>
+  </ul></li>
+  <li><a href="#green-ampt" id="toc-green-ampt" class="nav-link" data-scroll-target="#green-ampt"><span class="header-section-number">12.4</span> Green &amp; Ampt</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">12.5</span> Homework</a></li>
   </ul>
 </nav>
     </div>
@@ -452,7 +457,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../infiltration/infiltration.html">Infiltration</a></li><li class="breadcrumb-item"><a href="../infiltration/infiltration-exercises.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/yairmau/surface-hydrology/blob/main/infiltration/infiltration-exercises.ipynb"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/yairmau/surface-hydrology/blob/main/infiltration/infiltration-exercises.ipynb">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -472,46 +477,68 @@ window.Quarto = {
 <section id="tasks" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="tasks"><span class="header-section-number">12.1</span> Tasks</h2>
 <ol type="1">
-<li>Google the following: web plot digitizer</li>
-<li>Load image “nassif-16percent-slope.png” (see below)</li>
-<li>Create four csv files, one for each data set. Call them whatever you want. Legend: white circle = 312 mm/h, triangle = 234 mm/h, x = 156 mm/h, black circle = 78 mm/h.</li>
+<li><p>Download the paper<br>
+<a href="../archive/data/nassif-1975-THE-INFLUENCE-OF-SLOPE-AND-RAIN-INTENSITY-ON-RUNOFF-AND-INFILTRATION.pdf" download="">Nassif, S. H., and E. M. Wilson, 1975, “The influence of slope and rain intensity on runoff and infiltration”, Hydrological Sciences Journal.</a></p></li>
+<li><p>Google the following: <code>plot digitizer</code></p></li>
+<li><p>Load image “nassif-16percent-slope.png” (see below)</p></li>
+<li><p>Digitize data points from left to right. Create 4 csv files, one for each data set. Call them whatever you want.<br>
+Legend:</p>
+<pre><code> * white circle = 312 mm/h,
+ * triangle = 234 mm/h,
+ * x = 156 mm/h,
+ * black circle = 78 mm/h.</code></pre></li>
 </ol>
-<p>The image is the second panel of Fig. 8, from</p>
-<blockquote class="blockquote">
-<p>Nassif, S. H., and E. M. Wilson, 1975, “THE INFLUENCE OF SLOPE AND RAIN INTENSITY ON RUNOFF AND INFILTRATION”, Hydrological Sciences Journal. <a href="../archive/data/nassif-1975-THE-INFLUENCE-OF-SLOPE-AND-RAIN-INTENSITY-ON-RUNOFF-AND-INFILTRATION.pdf">download here</a></p>
-</blockquote>
+<p>The image is the second panel of Fig. 8, from the paper you downloaded.</p>
 <p><img src="../archive/figures/nassif-16percent-slope.png" class="img-fluid"></p>
+<p>If for any reason you’re having trouble digitizing the data from the graph, download here each csv file I have already prepared.</p>
+<ul>
+<li><a href="input_rate_078mm_per_h_16percent_slope.csv" download="">input_rate_078mm_per_h_16percent_slope.csv</a></li>
+<li><a href="input_rate_156mm_per_h_16percent_slope.csv" download="">input_rate_156mm_per_h_16percent_slope.csv</a></li>
+<li><a href="input_rate_234mm_per_h_16percent_slope.csv" download="">input_rate_234mm_per_h_16percent_slope.csv</a></li>
+<li><a href="input_rate_312mm_per_h_16percent_slope.csv" download="">input_rate_312mm_per_h_16percent_slope.csv</a></li>
+</ul>
 <p>Import relevant packages</p>
-<div id="incoming-marijuana" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-4"><a href="#cb1-4"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="incoming-marijuana" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-4"><a href="#cb2-4"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>, font_scale<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Load all four files you created. Use numpy’s function <code>loadtxt</code>. Make sure that the first point in each table corresponds to the appropriate rainfall rate. You can normalize the data if it is not.</p>
-<div id="weekly-tender" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>d1 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_078mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>d2 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_156mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>d3 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_234mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a>d4 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_312mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a>d1[:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">78</span>  <span class="op">*</span> d1[:,<span class="dv">1</span>] <span class="op">/</span> d1[:,<span class="dv">1</span>].<span class="bu">max</span>()</span>
-<span id="cb2-6"><a href="#cb2-6"></a>d2[:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">156</span> <span class="op">*</span> d2[:,<span class="dv">1</span>] <span class="op">/</span> d2[:,<span class="dv">1</span>].<span class="bu">max</span>()</span>
-<span id="cb2-7"><a href="#cb2-7"></a>d3[:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">234</span> <span class="op">*</span> d3[:,<span class="dv">1</span>] <span class="op">/</span> d3[:,<span class="dv">1</span>].<span class="bu">max</span>()</span>
-<span id="cb2-8"><a href="#cb2-8"></a>d4[:,<span class="dv">1</span>] <span class="op">=</span> <span class="dv">312</span> <span class="op">*</span> d4[:,<span class="dv">1</span>] <span class="op">/</span> d4[:,<span class="dv">1</span>].<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="weekly-tender" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>d1 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_078mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>d2 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_156mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>d3 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_234mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>d4 <span class="op">=</span> np.loadtxt(<span class="st">"input_rate_312mm_per_h_16percent_slope.csv"</span>, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">"""</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">In the digitization process, not all points are necessarily</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">located in the "correct" location. Because we know the initial</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">infiltration rate for each data series, we can correct that and</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">rescale the data so that the first point is exactly where we</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">expect it to be</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">"""</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>d1[:,<span class="dv">1</span>] <span class="op">=</span> d1[:,<span class="dv">1</span>] <span class="op">*</span> <span class="dv">78</span>  <span class="op">/</span> d1[:,<span class="dv">1</span>].<span class="bu">max</span>()</span>
+<span id="cb3-14"><a href="#cb3-14"></a>d2[:,<span class="dv">1</span>] <span class="op">=</span> d2[:,<span class="dv">1</span>] <span class="op">*</span> <span class="dv">156</span> <span class="op">/</span> d2[:,<span class="dv">1</span>].<span class="bu">max</span>()</span>
+<span id="cb3-15"><a href="#cb3-15"></a>d3[:,<span class="dv">1</span>] <span class="op">=</span> d3[:,<span class="dv">1</span>] <span class="op">*</span> <span class="dv">234</span> <span class="op">/</span> d3[:,<span class="dv">1</span>].<span class="bu">max</span>()</span>
+<span id="cb3-16"><a href="#cb3-16"></a>d4[:,<span class="dv">1</span>] <span class="op">=</span> d4[:,<span class="dv">1</span>] <span class="op">*</span> <span class="dv">312</span> <span class="op">/</span> d4[:,<span class="dv">1</span>].<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Reproduce the original figure, make it look good, something like this:</p>
 <!-- ![](hydrology_figures/infiltration_rate_1_nassif1975.png) -->
-<div id="forty-arena" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb3-2"><a href="#cb3-2"></a>ax.plot(d4[:,<span class="dv">0</span>], d4[:,<span class="dv">1</span>], <span class="st">'o'</span>, markerfacecolor<span class="op">=</span><span class="st">"None"</span>, label<span class="op">=</span><span class="vs">r"water input = 312 mm h$^{-1}$"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a>ax.plot(d3[:,<span class="dv">0</span>], d3[:,<span class="dv">1</span>], <span class="st">'^'</span>, label<span class="op">=</span><span class="vs">r"water input = 234 mm h$^{-1}$"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>ax.plot(d2[:,<span class="dv">0</span>], d2[:,<span class="dv">1</span>], <span class="st">'x'</span>, label<span class="op">=</span><span class="vs">r"water input = 156 mm h$^{-1}$"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>ax.plot(d1[:,<span class="dv">0</span>], d1[:,<span class="dv">1</span>], <span class="st">'o'</span>, label<span class="op">=</span><span class="vs">r"water input = 78 mm h$^{-1}$"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"Time (min)"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7"></a>       ylabel<span class="op">=</span><span class="vs">r"Infiltration rate (mm h$^{-1}$)"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="forty-arena" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a>ax.plot(d4[:,<span class="dv">0</span>], d4[:,<span class="dv">1</span>], <span class="st">'o'</span>, markerfacecolor<span class="op">=</span><span class="st">"None"</span>, label<span class="op">=</span><span class="vs">r"water input = 312 mm h$^{-1}$"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>ax.plot(d3[:,<span class="dv">0</span>], d3[:,<span class="dv">1</span>], <span class="st">'^'</span>, label<span class="op">=</span><span class="vs">r"water input = 234 mm h$^{-1}$"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>ax.plot(d2[:,<span class="dv">0</span>], d2[:,<span class="dv">1</span>], <span class="st">'x'</span>, label<span class="op">=</span><span class="vs">r"water input = 156 mm h$^{-1}$"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>ax.plot(d1[:,<span class="dv">0</span>], d1[:,<span class="dv">1</span>], <span class="st">'o'</span>, label<span class="op">=</span><span class="vs">r"water input = 78 mm h$^{-1}$"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (min)"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>       ylabel<span class="op">=</span><span class="vs">r"infiltration rate (mm h$^{-1}$)"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -533,19 +560,20 @@ f = f_c+(f_0-f_c)e^{-\beta t}
 <li><span class="math inline">\beta</span>: best fit empirical parameter</li>
 </ul>
 <p>Write a function called <code>horton</code>, that receives time <code>t</code> and the three parameters, and returns the right-hand side of the equation above. Plot one of the data sets, together with a guess of the parameters that should <strong>roughly</strong> fit the data.</p>
-<div id="coordinated-gather" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> horton(t, fc, f0, beta):</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">return</span> fc <span class="op">+</span> (f0 <span class="op">-</span> fc)<span class="op">*</span>np.exp(<span class="op">-</span>beta<span class="op">*</span>t)</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb4-5"><a href="#cb4-5"></a>t <span class="op">=</span> d1[:,<span class="dv">0</span>]</span>
-<span id="cb4-6"><a href="#cb4-6"></a>t <span class="op">=</span> t <span class="op">-</span> t[<span class="dv">0</span>]</span>
-<span id="cb4-7"><a href="#cb4-7"></a>f <span class="op">=</span> d1[:,<span class="dv">1</span>]</span>
-<span id="cb4-8"><a href="#cb4-8"></a>ax.plot(t, f, <span class="st">'o'</span>, label<span class="op">=</span><span class="st">"data"</span>)</span>
-<span id="cb4-9"><a href="#cb4-9"></a>ax.plot(t, horton(t, <span class="dv">35</span>, <span class="dv">80</span>, <span class="fl">0.5</span>), <span class="st">'-'</span>, label<span class="op">=</span><span class="st">"horton"</span>)</span>
-<span id="cb4-10"><a href="#cb4-10"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (min)"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11"></a>       ylabel<span class="op">=</span><span class="st">"infiltration rate (mm/h)"</span>)</span>
-<span id="cb4-12"><a href="#cb4-12"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="coordinated-gather" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> horton(t, fc, f0, beta):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">return</span> fc <span class="op">+</span> (f0 <span class="op">-</span> fc) <span class="op">*</span> np.exp(<span class="op">-</span>beta<span class="op">*</span>t)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb5-5"><a href="#cb5-5"></a>t <span class="op">=</span> d1[:,<span class="dv">0</span>]</span>
+<span id="cb5-6"><a href="#cb5-6"></a>t <span class="op">=</span> t <span class="op">-</span> t[<span class="dv">0</span>]</span>
+<span id="cb5-7"><a href="#cb5-7"></a>f <span class="op">=</span> d1[:,<span class="dv">1</span>]</span>
+<span id="cb5-8"><a href="#cb5-8"></a>ax.plot(t, f, <span class="st">'o'</span>, label<span class="op">=</span><span class="st">"data"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>param_guess <span class="op">=</span> [<span class="dv">35</span>, <span class="dv">80</span>, <span class="fl">0.5</span>]</span>
+<span id="cb5-10"><a href="#cb5-10"></a>ax.plot(t, horton(t, <span class="op">*</span>param_guess), <span class="st">'-'</span>, label<span class="op">=</span><span class="st">"horton"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (min)"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12"></a>       ylabel<span class="op">=</span><span class="st">"infiltration rate (mm/h)"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>ax.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -556,57 +584,53 @@ f = f_c+(f_0-f_c)e^{-\beta t}
 </div>
 <p>Find the best fit for the parameters <span class="math inline">f_c, f_0, \beta</span>. Calculate the <span class="math inline">R^2</span> for each data set.</p>
 <p>For the best fit, use scipy’s <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html"><code>curve_fit</code></a>. Write a function to compute the R-squared of your fit.</p>
-<div id="difficult-polls" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> horton(t, fc, f0, beta):</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">return</span> fc <span class="op">+</span> (f0 <span class="op">-</span> fc)<span class="op">*</span>np.exp(<span class="op">-</span>beta<span class="op">*</span>t)</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">def</span> best_fit(data):</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    t <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    t0 <span class="op">=</span> t[<span class="dv">0</span>]</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    t <span class="op">=</span> t <span class="op">-</span> t0</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    f <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    <span class="co"># best fit</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>    popt, pcov <span class="op">=</span> curve_fit(f<span class="op">=</span>horton,             <span class="co"># model function</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>                           xdata<span class="op">=</span>t,              <span class="co"># x data</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>                           ydata<span class="op">=</span>f,              <span class="co"># y data</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a>                           p0<span class="op">=</span>(<span class="dv">130</span>, <span class="dv">800</span>, <span class="fl">0.5</span>),   <span class="co"># initial guess of the parameters</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a>                          )</span>
-<span id="cb5-15"><a href="#cb5-15"></a>    <span class="cf">return</span> [popt, pcov]</span>
-<span id="cb5-16"><a href="#cb5-16"></a></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="kw">def</span> calculate_r_squared(data, popt):</span>
-<span id="cb5-18"><a href="#cb5-18"></a>    t <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
-<span id="cb5-19"><a href="#cb5-19"></a>    t <span class="op">=</span> t <span class="op">-</span> t[<span class="dv">0</span>]</span>
-<span id="cb5-20"><a href="#cb5-20"></a>    f <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
-<span id="cb5-21"><a href="#cb5-21"></a>    <span class="co"># Calculate residuals</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a>    residuals <span class="op">=</span> f <span class="op">-</span> horton(t, <span class="op">*</span>popt)</span>
-<span id="cb5-23"><a href="#cb5-23"></a>    <span class="co"># You can get the residual sum of squares (ss_res) with</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a>    ss_res <span class="op">=</span> np.<span class="bu">sum</span>(residuals<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb5-25"><a href="#cb5-25"></a>    <span class="co"># You can get the total sum of squares (ss_tot) with</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a>    ss_tot <span class="op">=</span> np.<span class="bu">sum</span>((f <span class="op">-</span> np.mean(f))<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb5-27"><a href="#cb5-27"></a>    <span class="co"># And finally, the r_squared-value with,</span></span>
-<span id="cb5-28"><a href="#cb5-28"></a>    r_squared <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (ss_res <span class="op">/</span> ss_tot)</span>
-<span id="cb5-29"><a href="#cb5-29"></a>    <span class="cf">return</span> r_squared</span>
-<span id="cb5-30"><a href="#cb5-30"></a></span>
-<span id="cb5-31"><a href="#cb5-31"></a><span class="kw">def</span> plot_best_fit(data, axis, marker, markercolor):</span>
-<span id="cb5-32"><a href="#cb5-32"></a>    <span class="co"># calculate best fit parameters</span></span>
-<span id="cb5-33"><a href="#cb5-33"></a>    popt, pcov <span class="op">=</span> best_fit(data)</span>
-<span id="cb5-34"><a href="#cb5-34"></a>    t <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
-<span id="cb5-35"><a href="#cb5-35"></a>    f <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
-<span id="cb5-36"><a href="#cb5-36"></a>    <span class="co"># plot data points</span></span>
-<span id="cb5-37"><a href="#cb5-37"></a>    ax.plot(t, f, marker, markerfacecolor<span class="op">=</span>markercolor, markeredgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
-<span id="cb5-38"><a href="#cb5-38"></a>    <span class="co"># plot best fit line</span></span>
-<span id="cb5-39"><a href="#cb5-39"></a>    r_squared <span class="op">=</span> calculate_r_squared(data, popt)</span>
-<span id="cb5-40"><a href="#cb5-40"></a>    labeltext <span class="op">=</span> <span class="vs">r"$f_c=$ </span><span class="sc">{:.2f}</span><span class="vs">, $f_0=$ </span><span class="sc">{:.2f}</span><span class="vs">, $\beta=$ </span><span class="sc">{:.2f}</span><span class="vs">, $R^2=$ </span><span class="sc">{:.2f}</span><span class="vs">"</span>.<span class="bu">format</span>(popt[<span class="dv">0</span>],popt[<span class="dv">1</span>],popt[<span class="dv">2</span>], r_squared)</span>
-<span id="cb5-41"><a href="#cb5-41"></a>    ax.plot(t, horton(t<span class="op">-</span>t[<span class="dv">0</span>], <span class="op">*</span>popt), color<span class="op">=</span>markercolor, label<span class="op">=</span>labeltext)    </span>
-<span id="cb5-42"><a href="#cb5-42"></a></span>
-<span id="cb5-43"><a href="#cb5-43"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb5-44"><a href="#cb5-44"></a>plot_best_fit(d1, ax, <span class="st">'o'</span>, <span class="st">"tab:red"</span>)</span>
-<span id="cb5-45"><a href="#cb5-45"></a>plot_best_fit(d2, ax, <span class="st">'x'</span>, <span class="st">"tab:blue"</span>)</span>
-<span id="cb5-46"><a href="#cb5-46"></a>plot_best_fit(d3, ax, <span class="st">'^'</span>, <span class="st">"tab:orange"</span>)</span>
-<span id="cb5-47"><a href="#cb5-47"></a>plot_best_fit(d4, ax, <span class="st">'d'</span>, <span class="st">"tab:green"</span>)</span>
-<span id="cb5-48"><a href="#cb5-48"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (min)"</span>,</span>
-<span id="cb5-49"><a href="#cb5-49"></a>       ylabel<span class="op">=</span><span class="st">"infiltration rate (mm/h)"</span>)</span>
-<span id="cb5-50"><a href="#cb5-50"></a>ax.legend()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="difficult-polls" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> best_fit(data):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    t <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    t <span class="op">=</span> t <span class="op">-</span> t[<span class="dv">0</span>]</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    f <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="co"># best fit</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>    popt, pcov <span class="op">=</span> curve_fit(f<span class="op">=</span>horton,             <span class="co"># model function</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>                           xdata<span class="op">=</span>t,              <span class="co"># x data</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>                           ydata<span class="op">=</span>f,              <span class="co"># y data</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>                           p0<span class="op">=</span>(<span class="dv">130</span>, <span class="dv">800</span>, <span class="fl">0.5</span>),   <span class="co"># initial guess of the parameters</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>                          )</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="cf">return</span> [popt, pcov]</span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="kw">def</span> calculate_r_squared(data, popt):</span>
+<span id="cb6-14"><a href="#cb6-14"></a>    t <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
+<span id="cb6-15"><a href="#cb6-15"></a>    t <span class="op">=</span> t <span class="op">-</span> t[<span class="dv">0</span>]</span>
+<span id="cb6-16"><a href="#cb6-16"></a>    f <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
+<span id="cb6-17"><a href="#cb6-17"></a>    <span class="co"># Calculate residuals</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a>    residuals <span class="op">=</span> f <span class="op">-</span> horton(t, <span class="op">*</span>popt)</span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="co"># You can get the residual sum of squares (ss_res) with</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a>    ss_res <span class="op">=</span> np.<span class="bu">sum</span>(residuals<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb6-21"><a href="#cb6-21"></a>    <span class="co"># You can get the total sum of squares (ss_tot) with</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a>    ss_tot <span class="op">=</span> np.<span class="bu">sum</span>((f <span class="op">-</span> np.mean(f))<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb6-23"><a href="#cb6-23"></a>    <span class="co"># And finally, the r_squared-value with,</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>    r_squared <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (ss_res <span class="op">/</span> ss_tot)</span>
+<span id="cb6-25"><a href="#cb6-25"></a>    <span class="cf">return</span> r_squared</span>
+<span id="cb6-26"><a href="#cb6-26"></a></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="kw">def</span> plot_best_fit(data, axis, marker, markercolor):</span>
+<span id="cb6-28"><a href="#cb6-28"></a>    <span class="co"># calculate best fit parameters</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a>    popt, pcov <span class="op">=</span> best_fit(data)</span>
+<span id="cb6-30"><a href="#cb6-30"></a>    t <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
+<span id="cb6-31"><a href="#cb6-31"></a>    f <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
+<span id="cb6-32"><a href="#cb6-32"></a>    <span class="co"># plot data points</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a>    ax.plot(t, f, marker, markerfacecolor<span class="op">=</span>markercolor, markeredgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb6-34"><a href="#cb6-34"></a>    <span class="co"># plot best fit line</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a>    r_squared <span class="op">=</span> calculate_r_squared(data, popt)</span>
+<span id="cb6-36"><a href="#cb6-36"></a>    labeltext <span class="op">=</span> <span class="vs">r"$f_c=$ </span><span class="sc">{:.2f}</span><span class="vs">, $f_0=$ </span><span class="sc">{:.2f}</span><span class="vs">, $\beta=$ </span><span class="sc">{:.2f}</span><span class="vs">, $R^2=$ </span><span class="sc">{:.2f}</span><span class="vs">"</span>.<span class="bu">format</span>(popt[<span class="dv">0</span>],popt[<span class="dv">1</span>],popt[<span class="dv">2</span>], r_squared)</span>
+<span id="cb6-37"><a href="#cb6-37"></a>    ax.plot(t, horton(t<span class="op">-</span>t[<span class="dv">0</span>], <span class="op">*</span>popt), color<span class="op">=</span>markercolor, label<span class="op">=</span>labeltext)    </span>
+<span id="cb6-38"><a href="#cb6-38"></a></span>
+<span id="cb6-39"><a href="#cb6-39"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb6-40"><a href="#cb6-40"></a>plot_best_fit(d1, ax, <span class="st">'o'</span>, <span class="st">"tab:red"</span>)</span>
+<span id="cb6-41"><a href="#cb6-41"></a>plot_best_fit(d2, ax, <span class="st">'x'</span>, <span class="st">"tab:blue"</span>)</span>
+<span id="cb6-42"><a href="#cb6-42"></a>plot_best_fit(d3, ax, <span class="st">'^'</span>, <span class="st">"tab:orange"</span>)</span>
+<span id="cb6-43"><a href="#cb6-43"></a>plot_best_fit(d4, ax, <span class="st">'d'</span>, <span class="st">"tab:green"</span>)</span>
+<span id="cb6-44"><a href="#cb6-44"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"time (min)"</span>,</span>
+<span id="cb6-45"><a href="#cb6-45"></a>       ylabel<span class="op">=</span><span class="st">"infiltration rate (mm/h)"</span>)</span>
+<span id="cb6-46"><a href="#cb6-46"></a>ax.legend()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -616,20 +640,20 @@ f = f_c+(f_0-f_c)e^{-\beta t}
 </div>
 </div>
 <p>Make a graph of the infiltration rate and of the runoff, as a function of time. Use any of the four data sets you have.</p>
-<div id="limited-mixer" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a>data <span class="op">=</span> d4</span>
-<span id="cb6-3"><a href="#cb6-3"></a>t <span class="op">=</span> data[:, <span class="dv">0</span>]</span>
-<span id="cb6-4"><a href="#cb6-4"></a>f <span class="op">=</span> data[:, <span class="dv">1</span>]</span>
-<span id="cb6-5"><a href="#cb6-5"></a>t <span class="op">=</span> np.concatenate([ [<span class="dv">0</span>], t])</span>
-<span id="cb6-6"><a href="#cb6-6"></a>f <span class="op">=</span> np.concatenate([ [f[<span class="dv">0</span>]], f])</span>
-<span id="cb6-7"><a href="#cb6-7"></a>runoff <span class="op">=</span> f[<span class="dv">0</span>] <span class="op">-</span> f</span>
-<span id="cb6-8"><a href="#cb6-8"></a>ax.plot(t, f<span class="op">*</span><span class="dv">0</span> <span class="op">+</span> f[<span class="dv">0</span>], ls<span class="op">=</span><span class="st">"--"</span>, color<span class="op">=</span><span class="st">"black"</span>, label<span class="op">=</span><span class="st">"rainfall"</span>)</span>
-<span id="cb6-9"><a href="#cb6-9"></a>ax.plot(t, f, color<span class="op">=</span><span class="st">"tab:blue"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="vs">r"infiltration"</span>)</span>
-<span id="cb6-10"><a href="#cb6-10"></a>ax.plot(t, runoff, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="vs">r"runoff"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"Time (min)"</span>,</span>
-<span id="cb6-12"><a href="#cb6-12"></a>       ylabel<span class="op">=</span><span class="vs">r"Rate (mm h$^{-1}$)"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13"></a>ax.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="limited-mixer" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a>data <span class="op">=</span> d4</span>
+<span id="cb7-3"><a href="#cb7-3"></a>t <span class="op">=</span> data[:, <span class="dv">0</span>]</span>
+<span id="cb7-4"><a href="#cb7-4"></a>f <span class="op">=</span> data[:, <span class="dv">1</span>]</span>
+<span id="cb7-5"><a href="#cb7-5"></a>t <span class="op">=</span> np.concatenate([ [<span class="dv">0</span>], t])</span>
+<span id="cb7-6"><a href="#cb7-6"></a>f <span class="op">=</span> np.concatenate([ [f[<span class="dv">0</span>]], f])</span>
+<span id="cb7-7"><a href="#cb7-7"></a>runoff <span class="op">=</span> f[<span class="dv">0</span>] <span class="op">-</span> f</span>
+<span id="cb7-8"><a href="#cb7-8"></a>ax.plot(t, f<span class="op">*</span><span class="dv">0</span> <span class="op">+</span> f[<span class="dv">0</span>], ls<span class="op">=</span><span class="st">"--"</span>, color<span class="op">=</span><span class="st">"black"</span>, label<span class="op">=</span><span class="st">"rainfall"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>ax.plot(t, f, color<span class="op">=</span><span class="st">"tab:blue"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="vs">r"infiltration"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10"></a>ax.plot(t, runoff, color<span class="op">=</span><span class="st">"tab:orange"</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="vs">r"runoff"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"Time (min)"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12"></a>       ylabel<span class="op">=</span><span class="vs">r"Rate (mm h$^{-1}$)"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>ax.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -639,8 +663,318 @@ f = f_c+(f_0-f_c)e^{-\beta t}
 </div>
 </div>
 </section>
-<section id="green-ampt" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="green-ampt"><span class="header-section-number">12.3</span> Green &amp; Ampt</h2>
+<section id="what-does-fit-really-mean" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="what-does-fit-really-mean"><span class="header-section-number">12.3</span> What does fit really mean?</h2>
+<p>Let’s take as an example data <span class="math inline">(x,y)</span> that look to be organized in a linear trend.</p>
+<div id="98bd9394" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>plot synthetic data</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>N <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>x_data <span class="op">=</span> np.arange(N)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>a <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>b <span class="op">=</span> <span class="fl">30.0</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>noise <span class="op">=</span> <span class="dv">6</span> <span class="op">*</span> (np.random.random(N)<span class="op">-</span><span class="fl">0.5</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>y_data <span class="op">=</span> a <span class="op">*</span> x_data <span class="op">+</span> b <span class="op">+</span> noise</span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb8-9"><a href="#cb8-9"></a>ax.plot(x_data, y_data, <span class="st">'o'</span>, label<span class="op">=</span><span class="st">"data"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>ax.plot(x_data, <span class="op">-</span><span class="fl">0.5</span><span class="op">*</span>x_data <span class="op">+</span> <span class="dv">40</span>, label<span class="op">=</span><span class="st">"first guess of a linear model"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a>ax.annotate(<span class="st">""</span>,</span>
+<span id="cb8-13"><a href="#cb8-13"></a>            xy<span class="op">=</span>(x_data[<span class="dv">20</span>], y_data[<span class="dv">20</span>]), xycoords<span class="op">=</span><span class="st">'data'</span>,</span>
+<span id="cb8-14"><a href="#cb8-14"></a>            xytext<span class="op">=</span>(x_data[<span class="dv">20</span>], <span class="dv">29</span>), textcoords<span class="op">=</span><span class="st">'data'</span>,</span>
+<span id="cb8-15"><a href="#cb8-15"></a>            size<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb8-16"><a href="#cb8-16"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">"&lt;-&gt;"</span>,</span>
+<span id="cb8-17"><a href="#cb8-17"></a>                            color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb8-18"><a href="#cb8-18"></a>                            connectionstyle<span class="op">=</span><span class="st">"arc3"</span>),</span>
+<span id="cb8-19"><a href="#cb8-19"></a>            )</span>
+<span id="cb8-20"><a href="#cb8-20"></a>ax.text(<span class="fl">20.5</span>, <span class="dv">50</span>, <span class="st">"error"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-22"><a href="#cb8-22"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"x"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23"></a>       ylabel<span class="op">=</span><span class="st">"y"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24"></a>       ylim<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">120</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="infiltration-exercises_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Our guess doesn’t look good. We used the model</p>
+<p><span class="math display">
+y = ax + b
+</span></p>
+<p>where <span class="math inline">a=-0.5</span> and <span class="math inline">b=40</span>.</p>
+<p>We will adjust these two parameters by minimizing the mean error between each data point and the model (straight line). We need to minimize the following expression:</p>
+<p><span class="math display">
+\begin{split}
+MSE &amp;= \text{mean}(\text{error}^2) \\
+MSE &amp;= \frac{1}{N}\sum_{i=1}^N\text{error}^2 \\
+MSE &amp;= \frac{1}{N}\sum_{i=1}^N\large( \text{measured} - \text{modelled} \large)^2 \\
+MSE &amp;=  \frac{1}{N}\sum_{i=1}^N \large[ y_i - (a\cdot x_i +b) \large]^2
+\end{split}
+</span></p>
+<p>The <span class="math inline">MSE</span> is a function of <span class="math inline">a</span> and <span class="math inline">b</span>. For every set of values <span class="math inline">(a,b)</span>, <span class="math inline">MSE</span> has value, so you can imagine a surface in the <span class="math inline">(a,b)</span> plane.</p>
+<div id="b36971d0" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>define useful funcitons</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> compute_mse(y_measured, y_predicted):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    MSE <span class="op">=</span> np.mean(</span>
+<span id="cb9-3"><a href="#cb9-3"></a>        (y_measured <span class="op">-</span> y_predicted)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    )</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="cf">return</span> MSE</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="kw">def</span> linear_model(x, a, b):</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="cf">return</span> a<span class="op">*</span>x <span class="op">+</span> b</span>
+<span id="cb9-9"><a href="#cb9-9"></a></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="kw">def</span> gradient_descent(x, y, a, b, learning_rate):</span>
+<span id="cb9-11"><a href="#cb9-11"></a>    <span class="co"># linear model</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>    y_predicted <span class="op">=</span> a <span class="op">*</span> x <span class="op">+</span> b</span>
+<span id="cb9-13"><a href="#cb9-13"></a>    error <span class="op">=</span> y <span class="op">-</span> y_predicted</span>
+<span id="cb9-14"><a href="#cb9-14"></a>    <span class="co"># partial derivatives</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>    da <span class="op">=</span> np.mean(<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> x <span class="op">*</span> error)</span>
+<span id="cb9-16"><a href="#cb9-16"></a>    db <span class="op">=</span> np.mean(<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> error)</span>
+<span id="cb9-17"><a href="#cb9-17"></a>    <span class="co"># update a and b. minus sign because gradient points to direction</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a>    <span class="co"># of maximal growth, we want to minimize MSE, not maximize</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a>    a <span class="op">=</span> a <span class="op">-</span> da <span class="op">*</span> learning_rate</span>
+<span id="cb9-20"><a href="#cb9-20"></a>    b <span class="op">=</span> b <span class="op">-</span> db <span class="op">*</span> learning_rate</span>
+<span id="cb9-21"><a href="#cb9-21"></a>    mse <span class="op">=</span> compute_mse(y, y_predicted)</span>
+<span id="cb9-22"><a href="#cb9-22"></a>    <span class="cf">return</span> a, b, mse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="499d143f" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>compute MSE landscape</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>A_vec <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">100</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>B_vec <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">100</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>A_mesh, B_mesh <span class="op">=</span> np.meshgrid(A_vec, B_vec)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>MSE_mesh <span class="op">=</span> np.zeros_like(A_mesh)</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb10-7"><a href="#cb10-7"></a>        Y_predicted_mesh <span class="op">=</span> linear_model(x_data,</span>
+<span id="cb10-8"><a href="#cb10-8"></a>                                        A_mesh[i, j],</span>
+<span id="cb10-9"><a href="#cb10-9"></a>                                        B_mesh[i, j])</span>
+<span id="cb10-10"><a href="#cb10-10"></a>        MSE_mesh[i, j] <span class="op">=</span> compute_mse(y_data, Y_predicted_mesh)</span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a>MSE_mesh_log <span class="op">=</span> np.log(MSE_mesh)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="cd399805" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>plot landscape</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb11-2"><a href="#cb11-2"></a>A_min <span class="op">=</span> A_vec[<span class="dv">0</span>]<span class="op">;</span> A_max <span class="op">=</span> A_vec[<span class="op">-</span><span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>B_min <span class="op">=</span> B_vec[<span class="dv">0</span>]<span class="op">;</span> B_max <span class="op">=</span> B_vec[<span class="op">-</span><span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>asp <span class="op">=</span> (A_max <span class="op">-</span> A_min) <span class="op">/</span> (B_max <span class="op">-</span> B_min)</span>
+<span id="cb11-5"><a href="#cb11-5"></a>cax <span class="op">=</span> ax.imshow(MSE_mesh_log, extent<span class="op">=</span>[A_min, A_max, B_min, B_max],</span>
+<span id="cb11-6"><a href="#cb11-6"></a>                origin<span class="op">=</span><span class="st">'lower'</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>, aspect <span class="op">=</span> asp)</span>
+<span id="cb11-7"><a href="#cb11-7"></a>fig.colorbar(cax)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="vs">r"parameter $a$"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9"></a>       ylabel<span class="op">=</span><span class="vs">r"parameter $b$"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10"></a>       title<span class="op">=</span><span class="st">"log(MSE)"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="infiltration-exercises_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The gradient of <span class="math inline">MSE</span> is:</p>
+<p><span class="math display">
+\nabla MSE = \frac{\partial}{\partial a}MSE\; \widehat{a} + \frac{\partial}{\partial b}MSE\; \widehat{b}
+</span></p>
+<p>Taking the partial derivatives:</p>
+<p><span class="math display">
+\begin{split}
+\frac{\partial}{\partial a}MSE &amp;= \frac{1}{N}\sum_{i=1}^N (-2x_i)\large[ y_i - (a\cdot x_i +b)\large] \\
+&amp;= \text{mean}\large[ (-2x_i) \cdot \large( \text{measured} - \text{modelled} \large) \large]  \\
+\frac{\partial}{\partial b}MSE &amp;= \frac{1}{N}\sum_{i=1}^N (-2) \large[y_i - (a\cdot x_i +b)\large] \\
+&amp;= \text{mean}\large[ (-2) \cdot \large( \text{measured} - \text{modelled} \large) \large]
+\end{split}
+</span></p>
+<div id="f1ea11f2" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>optimize parameters using gradient descent</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>lr <span class="op">=</span> <span class="fl">1.0e-3</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>n_iterations <span class="op">=</span> <span class="dv">30000</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>a_fit <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>b_fit <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>mse_fit <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>a_fit[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>b_fit[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">40.0</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">1</span>, n_iterations):</span>
+<span id="cb12-9"><a href="#cb12-9"></a>    a_fit[i], b_fit[i], mse_fit[i] <span class="op">=</span> gradient_descent(x<span class="op">=</span>x_data, y<span class="op">=</span>y_data, a<span class="op">=</span>a_fit[i<span class="op">-</span><span class="dv">1</span>], b<span class="op">=</span>b_fit[i<span class="op">-</span><span class="dv">1</span>], learning_rate<span class="op">=</span>lr)</span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="bu">print</span>(<span class="ss">f"best fit: a=</span><span class="sc">{</span>a_fit[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.2f}</span><span class="ss">, b=</span><span class="sc">{</span>b_fit[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>best fit: a=2.03, b=29.60</code></pre>
+</div>
+</div>
+<div id="882a8dee" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>plot landscape and optimization path</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb14-2"><a href="#cb14-2"></a>A_min <span class="op">=</span> A_vec[<span class="dv">0</span>]<span class="op">;</span> A_max <span class="op">=</span> A_vec[<span class="op">-</span><span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>B_min <span class="op">=</span> B_vec[<span class="dv">0</span>]<span class="op">;</span> B_max <span class="op">=</span> B_vec[<span class="op">-</span><span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>asp <span class="op">=</span> (A_max <span class="op">-</span> A_min) <span class="op">/</span> (B_max <span class="op">-</span> B_min)</span>
+<span id="cb14-5"><a href="#cb14-5"></a>cax <span class="op">=</span> ax.imshow(MSE_mesh_log, extent<span class="op">=</span>[A_min, A_max, B_min, B_max],</span>
+<span id="cb14-6"><a href="#cb14-6"></a>                origin<span class="op">=</span><span class="st">'lower'</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>, aspect <span class="op">=</span> asp)</span>
+<span id="cb14-7"><a href="#cb14-7"></a>fig.colorbar(cax)</span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a>ax.plot(a_fit, b_fit, color<span class="op">=</span><span class="st">"xkcd:hot pink"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>ax.plot(a_fit[<span class="dv">0</span>], b_fit[<span class="dv">0</span>], linestyle<span class="op">=</span><span class="st">'None'</span>, marker<span class="op">=</span><span class="st">'&gt;'</span>, markerfacecolor<span class="op">=</span><span class="st">'none'</span>, markeredgecolor<span class="op">=</span><span class="st">'xkcd:hot pink'</span>, markersize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>ax.plot(a_fit[<span class="op">-</span><span class="dv">1</span>], b_fit[<span class="op">-</span><span class="dv">1</span>], linestyle<span class="op">=</span><span class="st">'None'</span>, marker<span class="op">=</span><span class="st">'s'</span>, markerfacecolor<span class="op">=</span><span class="st">'none'</span>, markeredgecolor<span class="op">=</span><span class="st">'xkcd:hot pink'</span>, markersize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="vs">r"parameter $a$"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14"></a>       ylabel<span class="op">=</span><span class="vs">r"parameter $b$"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15"></a>       title<span class="op">=</span><span class="st">"log(MSE)"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="infiltration-exercises_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="dfc6c4c4" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>plot incremental improvement of the model</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb15-2"><a href="#cb15-2"></a>ax.plot(x_data, y_data, <span class="st">'o'</span>, label<span class="op">=</span><span class="st">"data"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a>iter_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">1000</span>, <span class="dv">30000</span>]</span>
+<span id="cb15-5"><a href="#cb15-5"></a>color_list <span class="op">=</span> np.linspace(<span class="fl">0.8</span>, <span class="fl">0.1</span>, <span class="bu">len</span>(iter_list))</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(iter_list)):    </span>
+<span id="cb15-8"><a href="#cb15-8"></a>    ax.plot(x_data, a_fit[iter_list[i]<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> x_data <span class="op">+</span> b_fit[iter_list[i]<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb15-9"><a href="#cb15-9"></a>            label<span class="op">=</span><span class="ss">f"iteration=</span><span class="sc">{</span>iter_list[i]<span class="sc">:d}</span><span class="ss">"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10"></a>            color<span class="op">=</span>[color_list[i]]<span class="op">*</span><span class="dv">3</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>            )</span>
+<span id="cb15-12"><a href="#cb15-12"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"x"</span>,</span>
+<span id="cb15-13"><a href="#cb15-13"></a>       ylabel<span class="op">=</span><span class="st">"y"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>, fontsize<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="infiltration-exercises_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="learning-rate" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="learning-rate"><span class="header-section-number">12.3.1</span> learning rate</h3>
+<p>The learning rate multiplies the gradient (partial derivatives in each parameter direction), therefore by playing with its values, we can converge slower or faster to the optimal solution we are seeking. There is a tradeoff in play here. If the learning curve is too small, we will have to run a lot of simulations steps to converge to the desired solution. On the other hand, if the learning rate is too large, the algorithm might not be able to converge to the region of the parameter space with the lowest MSE.</p>
+<div id="01eceb29" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>optimize parameters using gradient descent</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>lr <span class="op">=</span> <span class="fl">1.4e-3</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>n_iterations <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>a_fit_2 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb16-4"><a href="#cb16-4"></a>b_fit_2 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb16-5"><a href="#cb16-5"></a>mse_fit_2 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>a_fit_2[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>b_fit_2[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">40.0</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">1</span>, n_iterations):</span>
+<span id="cb16-9"><a href="#cb16-9"></a>    a_fit_2[i], b_fit_2[i], mse_fit_2[i] <span class="op">=</span> gradient_descent(x<span class="op">=</span>x_data, y<span class="op">=</span>y_data, a<span class="op">=</span>a_fit_2[i<span class="op">-</span><span class="dv">1</span>], b<span class="op">=</span>b_fit_2[i<span class="op">-</span><span class="dv">1</span>], learning_rate<span class="op">=</span>lr)</span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co"># print(f"best fit: a={a_fit_2[-1]:.2f}, b={b_fit_2[-1]:.2f}")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>best fit: a=2.01, b=29.87</code></pre>
+</div>
+</div>
+<div id="e174a880" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>optimize parameters using gradient descent</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>lr <span class="op">=</span> <span class="fl">5e-4</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>n_iterations <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>a_fit_3 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb18-4"><a href="#cb18-4"></a>b_fit_3 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb18-5"><a href="#cb18-5"></a>mse_fit_3 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb18-6"><a href="#cb18-6"></a>a_fit_3[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>b_fit_3[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">40.0</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">1</span>, n_iterations):</span>
+<span id="cb18-9"><a href="#cb18-9"></a>    a_fit_3[i], b_fit_3[i], mse_fit_3[i] <span class="op">=</span> gradient_descent(x<span class="op">=</span>x_data, y<span class="op">=</span>y_data, a<span class="op">=</span>a_fit_3[i<span class="op">-</span><span class="dv">1</span>], b<span class="op">=</span>b_fit_3[i<span class="op">-</span><span class="dv">1</span>], learning_rate<span class="op">=</span>lr)</span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="co"># print(f"best fit: a={a_fit_3[-1]:.2f}, b={b_fit_3[-1]:.2f}")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>best fit: a=1.88, b=32.44</code></pre>
+</div>
+</div>
+<div id="f30de35d" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>optimize parameters using gradient descent</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>lr <span class="op">=</span> <span class="fl">3.5e-3</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>n_iterations <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>a_fit_4 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb20-4"><a href="#cb20-4"></a>b_fit_4 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb20-5"><a href="#cb20-5"></a>mse_fit_4 <span class="op">=</span> np.zeros(n_iterations)</span>
+<span id="cb20-6"><a href="#cb20-6"></a>a_fit_4[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>b_fit_4[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">40.0</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">1</span>, n_iterations):</span>
+<span id="cb20-9"><a href="#cb20-9"></a>    a_fit_4[i], b_fit_4[i], mse_fit_4[i] <span class="op">=</span> gradient_descent(x<span class="op">=</span>x_data, y<span class="op">=</span>y_data, a<span class="op">=</span>a_fit_4[i<span class="op">-</span><span class="dv">1</span>], b<span class="op">=</span>b_fit_4[i<span class="op">-</span><span class="dv">1</span>], learning_rate<span class="op">=</span>lr)</span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="co"># print(f"best fit: a={a_fit_4[-1]:.2f}, b={b_fit_4[-1]:.2f}")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>best fit: a=1551.68, b=108.47</code></pre>
+</div>
+</div>
+<div id="e3a23304" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>cmap <span class="op">=</span> plt.cm.Blues</span>
+<span id="cb22-4"><a href="#cb22-4"></a>colors <span class="op">=</span> [cmap(<span class="fl">0.9</span>), cmap(<span class="fl">0.6</span>), cmap(<span class="fl">0.3</span>)]</span>
+<span id="cb22-5"><a href="#cb22-5"></a></span>
+<span id="cb22-6"><a href="#cb22-6"></a>ax.plot((mse_fit_3), label<span class="op">=</span><span class="ss">f"learning rate = </span><span class="sc">{</span><span class="fl">5e-4</span><span class="sc">:.2e}</span><span class="ss">"</span>, color<span class="op">=</span>colors[<span class="dv">0</span>])</span>
+<span id="cb22-7"><a href="#cb22-7"></a>ax.plot((mse_fit), label<span class="op">=</span><span class="ss">f"learning rate = </span><span class="sc">{</span><span class="fl">1.0e-3</span><span class="sc">:.2e}</span><span class="ss">"</span>, color<span class="op">=</span>colors[<span class="dv">1</span>])</span>
+<span id="cb22-8"><a href="#cb22-8"></a>ax.plot((mse_fit_2), label<span class="op">=</span><span class="ss">f"learning rate = </span><span class="sc">{</span><span class="fl">1.4e-3</span><span class="sc">:.2e}</span><span class="ss">"</span>, color<span class="op">=</span>colors[<span class="dv">2</span>])</span>
+<span id="cb22-9"><a href="#cb22-9"></a>ax.plot([], [], label<span class="op">=</span><span class="ss">f"learning rate = </span><span class="sc">{</span><span class="fl">3.5e-3</span><span class="sc">:.2e}</span><span class="ss">"</span>, color<span class="op">=</span><span class="st">"tab:red"</span>)</span>
+<span id="cb22-10"><a href="#cb22-10"></a></span>
+<span id="cb22-11"><a href="#cb22-11"></a>ax.set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb22-12"><a href="#cb22-12"></a>ax.<span class="bu">set</span>(ylim<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">50</span>],</span>
+<span id="cb22-13"><a href="#cb22-13"></a>       xlim<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">5000</span>],</span>
+<span id="cb22-14"><a href="#cb22-14"></a>       xlabel<span class="op">=</span><span class="st">"iteration"</span>,</span>
+<span id="cb22-15"><a href="#cb22-15"></a>       ylabel<span class="op">=</span><span class="st">"MSE"</span>,</span>
+<span id="cb22-16"><a href="#cb22-16"></a>       title<span class="op">=</span><span class="st">"larger learning rates converge faster!...</span><span class="ch">\n</span><span class="st">until they explode"</span>)</span>
+<span id="cb22-17"><a href="#cb22-17"></a></span>
+<span id="cb22-18"><a href="#cb22-18"></a>ax2 <span class="op">=</span> ax.twinx()</span>
+<span id="cb22-19"><a href="#cb22-19"></a>ax2.plot((mse_fit_4), color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb22-20"><a href="#cb22-20"></a>ax2.set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb22-21"><a href="#cb22-21"></a>ax2.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'tab:red'</span>)</span>
+<span id="cb22-22"><a href="#cb22-22"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_86050/3729129073.py:12: UserWarning: Attempt to set non-positive ylim on a log-scaled axis will be ignored.
+  ax.set(ylim=[0, 50],</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="infiltration-exercises_files/figure-html/cell-18-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This way of finding the optimal set of parameters is the first and very simplest method. Much more sophisticated methods were developed throughout the years. This basic idea of finding the optimal values for a list of parameters is the basic idea behind machine learning methods.</p>
+</section>
+<section id="local-and-global-minima" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="local-and-global-minima"><span class="header-section-number">12.3.2</span> local and global minima</h3>
+<p>The landscape we saw in the example above was well behaved, and we easily converged to a reasonable solution. Sometimes the landscape is more convoluted, and we might get stuck on local minima, depending on the initial conditions for the parameters. In that case, we need to help the algorithm by providing it with other initial guesses for the parameters.</p>
+<iframe src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*47skUygd3tWf3yB9A10QHg.gif" width="500" height="500" frameborder="0" allowfullscreen="">
+</iframe>
+<iframe src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Gradient_descent.gif" width="500" height="500" frameborder="0" allowfullscreen="">
+</iframe>
+</section>
+</section>
+<section id="green-ampt" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="green-ampt"><span class="header-section-number">12.4</span> Green &amp; Ampt</h2>
 <p><span class="math display">f = \frac{A}{F} + B</span></p>
 <p>where</p>
 <ul>
@@ -653,88 +987,88 @@ F(t) = \int_0^t f(t) \text{ d}t
 </span></p>
 <p>Use numpy’s <code>trapz</code> function, that implements the “trapezoidal rule”</p>
 <p><img src="640px-Composite_trapezoidal_rule_illustration.png" class="img-fluid"></p>
-<div id="unable-update" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> cumulative_F(t, f):</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    F <span class="op">=</span> np.array([<span class="dv">0</span>])</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    t <span class="op">=</span> t<span class="op">/</span><span class="dv">60</span> <span class="co"># convert minute to hour</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">2</span>,<span class="bu">len</span>(t)<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb7-5"><a href="#cb7-5"></a>        area <span class="op">=</span> np.trapz(f[:i], t[:i])</span>
-<span id="cb7-6"><a href="#cb7-6"></a>        F <span class="op">=</span> np.concatenate([F, [area]])</span>
-<span id="cb7-7"><a href="#cb7-7"></a>    <span class="cf">return</span> F</span>
-<span id="cb7-8"><a href="#cb7-8"></a></span>
-<span id="cb7-9"><a href="#cb7-9"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb7-10"><a href="#cb7-10"></a>t, f <span class="op">=</span> d1[:,<span class="dv">0</span>], d1[:,<span class="dv">1</span>]</span>
-<span id="cb7-11"><a href="#cb7-11"></a>F <span class="op">=</span> cumulative_F(t, f)</span>
-<span id="cb7-12"><a href="#cb7-12"></a>ax1.plot(t, f, label<span class="op">=</span><span class="st">"f, rate"</span>)</span>
-<span id="cb7-13"><a href="#cb7-13"></a>ax2.plot(t, F, label<span class="op">=</span><span class="st">"F, cumulative"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14"></a>ax1.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"t (min)"</span>,</span>
-<span id="cb7-15"><a href="#cb7-15"></a>        ylabel<span class="op">=</span><span class="st">"f (mm/h)"</span>)</span>
-<span id="cb7-16"><a href="#cb7-16"></a>ax2.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"t (min)"</span>,</span>
-<span id="cb7-17"><a href="#cb7-17"></a>        ylabel<span class="op">=</span><span class="st">"F (mm)"</span>)</span>
-<span id="cb7-18"><a href="#cb7-18"></a>ax2.yaxis.set_label_position(<span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="unable-update" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">def</span> cumulative_F(t, f):</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    F <span class="op">=</span> np.array([<span class="dv">0</span>])</span>
+<span id="cb24-3"><a href="#cb24-3"></a>    t <span class="op">=</span> t<span class="op">/</span><span class="dv">60</span> <span class="co"># convert minute to hour</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">2</span>,<span class="bu">len</span>(t)<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb24-5"><a href="#cb24-5"></a>        area <span class="op">=</span> np.trapz(f[:i], t[:i])</span>
+<span id="cb24-6"><a href="#cb24-6"></a>        F <span class="op">=</span> np.concatenate([F, [area]])</span>
+<span id="cb24-7"><a href="#cb24-7"></a>    <span class="cf">return</span> F</span>
+<span id="cb24-8"><a href="#cb24-8"></a></span>
+<span id="cb24-9"><a href="#cb24-9"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb24-10"><a href="#cb24-10"></a>t, f <span class="op">=</span> d1[:,<span class="dv">0</span>], d1[:,<span class="dv">1</span>]</span>
+<span id="cb24-11"><a href="#cb24-11"></a>F <span class="op">=</span> cumulative_F(t, f)</span>
+<span id="cb24-12"><a href="#cb24-12"></a>ax1.plot(t, f, label<span class="op">=</span><span class="st">"f, rate"</span>)</span>
+<span id="cb24-13"><a href="#cb24-13"></a>ax2.plot(t, F, label<span class="op">=</span><span class="st">"F, cumulative"</span>)</span>
+<span id="cb24-14"><a href="#cb24-14"></a>ax1.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"t (min)"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15"></a>        ylabel<span class="op">=</span><span class="st">"f (mm/h)"</span>)</span>
+<span id="cb24-16"><a href="#cb24-16"></a>ax2.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"t (min)"</span>,</span>
+<span id="cb24-17"><a href="#cb24-17"></a>        ylabel<span class="op">=</span><span class="st">"F (mm)"</span>)</span>
+<span id="cb24-18"><a href="#cb24-18"></a>ax2.yaxis.set_label_position(<span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infiltration-exercises_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="infiltration-exercises_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Plot <span class="math inline">f</span> as a function of <span class="math inline">F</span>. Try to guess <span class="math inline">A</span> and <span class="math inline">B</span> that give reasonable results.</p>
-<div id="based-climate" class="cell" data-hide_input="false" data-scrolled="false" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb8-2"><a href="#cb8-2"></a>t, f <span class="op">=</span> d1[:,<span class="dv">0</span>], d1[:,<span class="dv">1</span>]</span>
-<span id="cb8-3"><a href="#cb8-3"></a>F <span class="op">=</span> cumulative_F(t, f)</span>
-<span id="cb8-4"><a href="#cb8-4"></a>ax.plot(F, f)</span>
-<span id="cb8-5"><a href="#cb8-5"></a>A<span class="op">=</span><span class="dv">50</span><span class="op">;</span> B<span class="op">=</span><span class="dv">30</span><span class="op">;</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>ax.plot(F, A<span class="op">/</span>F <span class="op">+</span> B, <span class="st">'o'</span>)</span>
-<span id="cb8-7"><a href="#cb8-7"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"F"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8"></a>       ylabel<span class="op">=</span><span class="st">"f"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="based-climate" class="cell" data-hide_input="false" data-scrolled="false" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb25-2"><a href="#cb25-2"></a>t, f <span class="op">=</span> d1[:,<span class="dv">0</span>], d1[:,<span class="dv">1</span>]</span>
+<span id="cb25-3"><a href="#cb25-3"></a>F <span class="op">=</span> cumulative_F(t, f)</span>
+<span id="cb25-4"><a href="#cb25-4"></a>ax.plot(F, f)</span>
+<span id="cb25-5"><a href="#cb25-5"></a>A<span class="op">=</span><span class="dv">50</span><span class="op">;</span> B<span class="op">=</span><span class="dv">30</span><span class="op">;</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>ax.plot(F, A<span class="op">/</span>F <span class="op">+</span> B, <span class="st">'o'</span>)</span>
+<span id="cb25-7"><a href="#cb25-7"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"F"</span>,</span>
+<span id="cb25-8"><a href="#cb25-8"></a>       ylabel<span class="op">=</span><span class="st">"f"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/Users/yairmau/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:8: RuntimeWarning: divide by zero encountered in true_divide
-  </code></pre>
+<pre><code>/var/folders/c3/7hp0d36n6vv8jc9hm2440__00000gn/T/ipykernel_86050/768544551.py:7: RuntimeWarning: divide by zero encountered in divide
+  ax.plot(F, A/F + B, 'o')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infiltration-exercises_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="infiltration-exercises_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Use the <code>curve_fit</code> to find the optimal values for <span class="math inline">A</span> and <span class="math inline">B</span>.</p>
-<div id="demonstrated-respect" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">def</span> G_and_A(F, A, B):</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="cf">return</span> A<span class="op">/</span>F <span class="op">+</span> B</span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a>popt, pcov <span class="op">=</span> curve_fit(f<span class="op">=</span>G_and_A,     <span class="co"># model function</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>                       xdata<span class="op">=</span>F[<span class="dv">1</span>:],       <span class="co"># x data</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>                       ydata<span class="op">=</span>f[<span class="dv">1</span>:],       <span class="co"># y data</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>                       p0<span class="op">=</span>(<span class="dv">50</span>, <span class="dv">30</span>),   <span class="co"># initial guess of the parameters</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>                      )</span>
-<span id="cb10-9"><a href="#cb10-9"></a></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># popt, pcov = curve_fit(G_and_A, F[1:], f[1:], p0=(50, 30))  # p0 = initial guess</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="bu">print</span>(popt)</span>
-<span id="cb10-12"><a href="#cb10-12"></a></span>
-<span id="cb10-13"><a href="#cb10-13"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
-<span id="cb10-14"><a href="#cb10-14"></a>ax.plot(F, f)</span>
-<span id="cb10-15"><a href="#cb10-15"></a>ax.plot(F[<span class="dv">1</span>:], popt[<span class="dv">0</span>]<span class="op">/</span>F[<span class="dv">1</span>:] <span class="op">+</span> popt[<span class="dv">1</span>], <span class="st">'o'</span>)</span>
-<span id="cb10-16"><a href="#cb10-16"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"F"</span>,</span>
-<span id="cb10-17"><a href="#cb10-17"></a>       ylabel<span class="op">=</span><span class="st">"f"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="demonstrated-respect" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">def</span> G_and_A(F, A, B):</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="cf">return</span> A<span class="op">/</span>F <span class="op">+</span> B</span>
+<span id="cb27-3"><a href="#cb27-3"></a></span>
+<span id="cb27-4"><a href="#cb27-4"></a>popt, pcov <span class="op">=</span> curve_fit(f<span class="op">=</span>G_and_A,     <span class="co"># model function</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>                       xdata<span class="op">=</span>F[<span class="dv">1</span>:],       <span class="co"># x data</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>                       ydata<span class="op">=</span>f[<span class="dv">1</span>:],       <span class="co"># y data</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a>                       p0<span class="op">=</span>(<span class="dv">50</span>, <span class="dv">30</span>),   <span class="co"># initial guess of the parameters</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a>                      )</span>
+<span id="cb27-9"><a href="#cb27-9"></a></span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="co"># popt, pcov = curve_fit(G_and_A, F[1:], f[1:], p0=(50, 30))  # p0 = initial guess</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="bu">print</span>(popt)</span>
+<span id="cb27-12"><a href="#cb27-12"></a></span>
+<span id="cb27-13"><a href="#cb27-13"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<span id="cb27-14"><a href="#cb27-14"></a>ax.plot(F, f)</span>
+<span id="cb27-15"><a href="#cb27-15"></a>ax.plot(F[<span class="dv">1</span>:], popt[<span class="dv">0</span>]<span class="op">/</span>F[<span class="dv">1</span>:] <span class="op">+</span> popt[<span class="dv">1</span>], <span class="st">'o'</span>)</span>
+<span id="cb27-16"><a href="#cb27-16"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"F"</span>,</span>
+<span id="cb27-17"><a href="#cb27-17"></a>       ylabel<span class="op">=</span><span class="st">"f"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[24.12368526 36.34242813]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infiltration-exercises_files/figure-html/cell-10-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="infiltration-exercises_files/figure-html/cell-21-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="homework" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="homework"><span class="header-section-number">12.4</span> Homework</h2>
+<section id="homework" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="homework"><span class="header-section-number">12.5</span> Homework</h2>
 <p>Go to <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_054167">Soil Texture Calculator</a>, estimate the texture of “standard soil” in Nassif &amp; Wilson, 1975.</p>
 
 
