@@ -41,14 +41,14 @@ book:
         - summing-up/spatial-distribution.qmd
     - part: assignments/assignments-general.qmd
       chapters:
-        - assignments/assignment0-first-graphs.ipynb
+        # - assignments/assignment0-first-graphs.ipynb
         - assignments/assignment1-return-period.ipynb
-        - assignments/assignment2-ET-NOAA.ipynb
+        # - assignments/assignment2-ET-NOAA.ipynb
         # - assignments/assignment2-ET.ipynb
         # - assignments/assignment3-streamflow.ipynb
         # - assignments/assignment-FINAL.ipynb
         # - assignments/assignment-FINAL2.qmd
-        - assignments/assignment-FINAL2024.qmd
+        # - assignments/assignment-FINAL2024.qmd
     - part: appendix/index.qmd
       chapters:    
         - appendix/date_formatting.ipynb
