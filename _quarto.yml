@@ -46,7 +46,7 @@ book:
         - assignments/assignment-return-period.ipynb
         - assignments/assignment-ET-NOAA.ipynb
         # - assignments/assignment2-ET.ipynb
-        # - assignments/assignment3-streamflow.ipynb
+        - assignments/assignment-streamflow.ipynb
         # - assignments/assignment-FINAL.ipynb
         # - assignments/assignment-FINAL2.qmd
         # - assignments/assignment-FINAL2024.qmd
