@@ -23,10 +23,14 @@ All your assignments will be evaluated according to the following criteria:
 
 ## 🤖 AI Policy
 
-The guidelines below are an adaptation of [Ethan Mollick's extremely useful ideas on AI](https://oneusefulthing.substack.com/p/all-my-classes-suddenly-became-ai) as an assistant tool for teaching.
+The guidelines below are an adaptation of [Ethan Mollick's extremely useful ideas on AI](https://oneusefulthing.substack.com/p/all-my-classes-suddenly-became-ai){target="_blank"} as an assistant tool for teaching.
 
-**I EXPECT YOU** to use LLMs (large language models) such as ChatGPT, Bing AI, Google Bard, Lex, or whatever else springs up since the time of this writing.
+**I EXPECT YOU** to use LLMs (large language models) such as ChatGPT, Gemini, Perplexity, Claude, or whatever else springs up since the time of this writing.
 You should familiarize yourself with the AI's capabilities and limitations.
+
+<div class="alert alert-info">
+Get GitHub Copilot Pro for free, using your university email.  
+[Getting free access to Copilot Pro as a student, teacher, or maintainer](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer){target="_blank"}</div>
 
 At a minimum, you should use AI to check the quality of your English text, and make the text pleasant to read.
 
@@ -35,6 +39,7 @@ Consider the following important points:
 * Ultimately, **you**, the student, are responsible for the assignment.
 * Don't trust anything the LLM says. Assume everything is wrong unless you either know the answer of can check with another source. You will be responsible for any errors or omissions provided by the tool.
 * You can use LLMs to help you write both the text and the code. If you provide minimum effort prompts to the model, you will probably get low quality results. You will need to refine your prompts in order to get good outcomes. Practice a lot.
+* LLMs are great at producing lengthy, well-written text that may lack substance. Don't submit this kind of content. I want you to think and learn, so use LLMs to help you do that.
 * Acknowledge the use of AI in your assignment. Be transparent about your use of the tool and the extent of assistance it provided.
 
 <div class="alert alert-success">
