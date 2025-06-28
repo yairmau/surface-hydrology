@@ -1063,6 +1063,83 @@
     ]
   },
   {
+    "objectID": "assignments/assignment-FINAL2025.html",
+    "href": "assignments/assignment-FINAL2025.html",
+    "title": "22  Final Assignment 2025",
+    "section": "",
+    "text": "22.1 📒 instructions\nThis is where learning happens, not during a lecture. You’ll learn a ton of things by doing them yourself. Much success! 😄\nYou will hand in a Jupyter Notebook with all your code, and a report in pdf format with text and figures:\nwhere IDNUMBER is your 9-digit ID.\nMake a zip file that includes these files and any other data needed to run your code (e.g. csv files).",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-FINAL2025.html#instructions",
+    "href": "assignments/assignment-FINAL2025.html#instructions",
+    "title": "22  Final Assignment 2025",
+    "section": "",
+    "text": "assignment-FINAL-CODE-IDNUMBER.ipynb, and\nassignment-FINAL-REPORT-IDNUMBER.pdf,",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-FINAL2025.html#locations-and-data",
+    "href": "assignments/assignment-FINAL2025.html#locations-and-data",
+    "title": "22  Final Assignment 2025",
+    "section": "22.2 📌 locations and data",
+    "text": "22.2 📌 locations and data\nChoose one location in the US.\nDownload relevant data from NOAA’s Global Summary of the Month, NOAA’s Climate Reference Network Data, and from the USGS’s National Water Information System.\nTry to find locations with many years of data, the more the better. Take some time to choose your station, plan well. Choose a location you have not worked with in past assignments.\nThere is nothing special about the USA, it’s just that we have easy access to good quality data. If you have access to equally good data from other countries, you can use it as well.\nWhen you submit your report, don’t forget to include all the necessary csv files, we will not download the data ourselves.",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-FINAL2025.html#tasks",
+    "href": "assignments/assignment-FINAL2025.html#tasks",
+    "title": "22  Final Assignment 2025",
+    "section": "22.3 🛠 tasks",
+    "text": "22.3 🛠 tasks\nIn this final project, we will integrate the various topics we learned throughout the semester. You will tell a story about the location you chose, and describe the changes it experienced in the past many decades. You can focus on any kind of changes that would influence the hydrological fluxes we learned about. Here are a few examples of changes that you might work on:\n\nsevere droughts in part of the studied period, or an increasing trend in drought severity.\nsame as above for rainfall/floods, high temperatures, low temperatures, etc.\nsignificant changes in land use, such as urbanization, deforestation, agricultural practices, etc.\n\nThe list above is not comprehensive, you can choose other factors.\n\nIMPORTANT:\nYou will have to formulate a hypothesis or to clearly state your expectations regarding the changes in the hydrological cycle.\nFor example, it is not ok to write “I will check if the construction of the dam in this river changed the streamflow characteristics.” The hydrological cycle changes all the time, you are guaranteed to find “changes”. Instead, I want you to tell me what kind of changes you would expect. You might say, “extreme floodings are less likely after the dam construction, because…”\n\nFind in scientific papers evidence for the change you are focusing on. Cite at least one peer-reviewed scientific paper.\nCan you see the same when analyzing data for the location you chose? Do your findings corroborate the expectation you had when you started this project? If they don’t, can you explain why? Did you reach interesting or surprising conclusions in your analysis?\n\nObligatory part: Analyze your location’s history with respect to the following:\n\nPrecipitation: seasonality, inter-annual variability, extreme precipitation events and return periods.\nPotential evapotranspiration: Calculate PET using Penman’s equation for at least 5 different years of interest (not necessarily contiguous years).\n\n\nTry to connect the dots: how do your different findings fit together? Discuss what you are trying to show, tell your story with the help of the data and your analyses. If you find things that go contrary to your expectations, can you raise hypotheses of why you see what you see?",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-FINAL2025.html#report-proposal",
+    "href": "assignments/assignment-FINAL2025.html#report-proposal",
+    "title": "22  Final Assignment 2025",
+    "section": "22.4 report proposal",
+    "text": "22.4 report proposal\nYou will write your idea for your final project in one half or one third of a page, and submit it on moodle. The deadline is July 6, 2024. You will NOT be able to submit your final report if you haven’t received an email by me saying that I approve your project idea.",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-FINAL2025.html#presentation",
+    "href": "assignments/assignment-FINAL2025.html#presentation",
+    "title": "22  Final Assignment 2025",
+    "section": "22.5 🌅 presentation",
+    "text": "22.5 🌅 presentation\nAll the assignment must be in one Jupyter Notebook for the code, and a report in pdf format for text and figures.\nThe notebook called CODE will contain all the code for the analyses you made. It must be fully functional, i.e., we must be able to Run All and not get any errors. Explain what you are doing in each step. Comment your code. Use markdown cells to split the notebook into subsections, one for each analysis (e.g.: ## Precipitation Analysis, ### Inter-annual variability, etc).\nThe pdf document called Report will contain graphs and relevant data from the CODE notebook. It is here where you will introduce the location you chose, what you are trying to see. Here you will write all the results and discussion, as supported by the graphs and results you produced. Divide this notebook into sections: Introduction, Results and Discussion, Conclusion. Subdivide the sections into subsections when needed. In this file there should be no code at all.",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-FINAL2025.html#deadline",
+    "href": "assignments/assignment-FINAL2025.html#deadline",
+    "title": "22  Final Assignment 2025",
+    "section": "22.6 🔜 deadline",
+    "text": "22.6 🔜 deadline\nThe submission deadline is July 31, 2025. You should not hand in a dry report: I’m expecting some text before and after each code/graph cell explaining what you did, why you did it, and how it fits the story you are telling. Don’t forget to put labels on your plot axes, title, legend, etc. Please refer to the main Assignments page for more details on how to write this report.\nYour Jupyter Notebook should be fully functional: if we press Kernel &gt; Restart & Run All, all the code must work without any errors.",
+    "crumbs": [
+      "Assignments",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Final Assignment 2025</span>"
+    ]
+  },
+  {
     "objectID": "appendix/index.html",
     "href": "appendix/index.html",
     "title": "Appendix",
@@ -1075,55 +1152,55 @@
   {
     "objectID": "appendix/date_formatting.html",
     "href": "appendix/date_formatting.html",
-    "title": "22  Gain full control of date formatting",
+    "title": "23  Gain full control of date formatting",
     "section": "",
     "text": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport datetime\nfrom datetime import timedelta\nimport seaborn as sns\nsns.set(style=\"ticks\", font_scale=1.5)\nimport matplotlib.gridspec as gridspec\nfrom matplotlib.dates import DateFormatter\nimport matplotlib.dates as mdates\nimport matplotlib.ticker as ticker\n\n\nimport pandas as pd\n\nstart_date = '2018-01-01'\nend_date = '2018-04-30'\n\n# create date range with 1-hour intervals\ndates = pd.date_range(start_date, end_date, freq='1H')\n# create a random variable to plot\nvar = np.random.randint(low=-10, high=11, size=len(dates)).cumsum()\nvar = var - var.min()\n# create dataframe, make \"date\" the index\ndf = pd.DataFrame({'date': dates, 'variable': var})\ndf.set_index(df['date'], inplace=True)\ndf\n\n\n\n\n\n\n\n\ndate\nvariable\n\n\ndate\n\n\n\n\n\n\n2018-01-01 00:00:00\n2018-01-01 00:00:00\n856\n\n\n2018-01-01 01:00:00\n2018-01-01 01:00:00\n863\n\n\n2018-01-01 02:00:00\n2018-01-01 02:00:00\n867\n\n\n2018-01-01 03:00:00\n2018-01-01 03:00:00\n874\n\n\n2018-01-01 04:00:00\n2018-01-01 04:00:00\n864\n\n\n...\n...\n...\n\n\n2018-04-29 20:00:00\n2018-04-29 20:00:00\n20\n\n\n2018-04-29 21:00:00\n2018-04-29 21:00:00\n20\n\n\n2018-04-29 22:00:00\n2018-04-29 22:00:00\n27\n\n\n2018-04-29 23:00:00\n2018-04-29 23:00:00\n23\n\n\n2018-04-30 00:00:00\n2018-04-30 00:00:00\n32\n\n\n\n\n2857 rows × 2 columns\n\n\n\ndefine a useful function to plot the graphs below\n\ndef explanation(ax, text, letter):\n    ax.text(0.99, 0.97, text,\n            transform=ax.transAxes,\n            horizontalalignment='right', verticalalignment='top',\n            fontweight=\"bold\")\n    ax.text(0.01, 0.01, letter,\n            transform=ax.transAxes,\n            horizontalalignment='left', verticalalignment='bottom',\n            fontweight=\"bold\")\n    ax.set(ylabel=\"variable (units)\")\n    ax.spines['top'].set_visible(False)\n    ax.spines['right'].set_visible(False)\n\n\nfig, ax = plt.subplots(1, 1, figsize=(8, 6))\nax.plot(df['variable'])\nplt.gcf().autofmt_xdate()  # makes slated dates\nexplanation(ax, \"slanted dates\", \"\")\nfig.savefig(\"dates1.png\")\n\n\n\n\n\n\n\n\n\nfig, ax = plt.subplots(4, 1, figsize=(10, 16),\n                       gridspec_kw={'hspace': 0.3})\n\n### plot a ###\nax[0].plot(df['variable'])\ndate_form = DateFormatter(\"%b\")\nax[0].xaxis.set_major_locator(mdates.MonthLocator(interval=2))\nax[0].xaxis.set_major_formatter(date_form)\n\n### plot b ###\nax[1].plot(df['variable'])\ndate_form = DateFormatter(\"%B\")\nax[1].xaxis.set_major_locator(mdates.MonthLocator(interval=1))\nax[1].xaxis.set_major_formatter(date_form)\n\n### plot c ###\nax[2].plot(df['variable'])\nax[2].xaxis.set_major_locator(mdates.MonthLocator())\n# 16 is a slight approximation for the center, since months differ in number of days.\nax[2].xaxis.set_minor_locator(mdates.MonthLocator(bymonthday=16))\nax[2].xaxis.set_major_formatter(ticker.NullFormatter())\nax[2].xaxis.set_minor_formatter(DateFormatter('%B'))\nfor tick in ax[2].xaxis.get_minor_ticks():\n    tick.tick1line.set_markersize(0)\n    tick.tick2line.set_markersize(0)\n    tick.label1.set_horizontalalignment('center')\n\n### plot d ###\nax[3].plot(df['variable'])\ndate_form = DateFormatter(\"%d %b\")\nax[3].xaxis.set_major_locator(mdates.DayLocator(interval=15))\nax[3].xaxis.set_major_formatter(date_form)\n\nexplanation(ax[0], \"month abbreviations, every 2 months\", \"a\")\nexplanation(ax[1], \"full month names\", \"b\")\nexplanation(ax[2], \"full month names centered between the 1st of the month\", \"c\")\nexplanation(ax[3], \"day + month abbr. --- every 15 days\", \"d\")\n\nfig.savefig(\"dates2.png\")\n\n\n\n\n\n\n\n\n\nfig, ax = plt.subplots(4, 1, figsize=(10, 16),\n                       gridspec_kw={'hspace': 0.3})\n\n### plot e ###\nax[0].plot(df['variable'])\ndate_form = DateFormatter(\"%d/%m\")\nax[0].xaxis.set_major_locator(mdates.DayLocator(bymonthday=[5, 20]))\nax[0].xaxis.set_major_formatter(date_form)\n\n### plot f ###\nax[1].plot(df['variable'])\nlocator = mdates.AutoDateLocator(minticks=11, maxticks=17)\nformatter = mdates.ConciseDateFormatter(locator)\nax[1].xaxis.set_major_locator(locator)\nax[1].xaxis.set_major_formatter(formatter)\n\n### plot g ###\nax[2].plot(df.loc['2018-01-01':'2018-03-01', 'variable'])\nlocator = mdates.AutoDateLocator(minticks=6, maxticks=14)\nformatter = mdates.ConciseDateFormatter(locator)\nax[2].xaxis.set_major_locator(locator)\nax[2].xaxis.set_major_formatter(formatter)\n\n### plot h ###\nax[3].plot(df.loc['2018-01-01':'2018-01-02', 'variable'])\nlocator = mdates.AutoDateLocator(minticks=6, maxticks=10)\nformatter = mdates.ConciseDateFormatter(locator)\nax[3].xaxis.set_major_locator(locator)\nax[3].xaxis.set_major_formatter(formatter)\n\nexplanation(ax[0], \"exactly on days 05 and 20 of each month\", \"e\")\nexplanation(ax[1], \"ConciseDateFormatter\", \"f\")\nexplanation(ax[2], \"ConciseDateFormatter\", \"g\")\nexplanation(ax[3], \"ConciseDateFormatter\", \"h\")\n\nfig.savefig(\"dates3.png\")\n\n\n\n\n\n\n\n\n\nfig, ax = plt.subplots(1, 1, figsize=(10, 4),\n                       gridspec_kw={'hspace': 0.3})\n\n# import constants for the days of the week\nfrom matplotlib.dates import MO, TU, WE, TH, FR, SA, SU\nax.plot(df['variable'])\n# tick on sundays every third week\nloc = mdates.WeekdayLocator(byweekday=SU, interval=3)\nax.xaxis.set_major_locator(loc)\ndate_form = DateFormatter(\"%a, %b %d\")\nax.xaxis.set_major_formatter(date_form)\nfig.autofmt_xdate(bottom=0.2, rotation=30, ha='right')\nexplanation(ax, \"every 3 Sundays, rotate labels\", \"\")\n\n\n\n\n\n\n\n\n\n\n\nCode\nExplanation\n\n\n\n\n%Y\n4-digit year (e.g., 2022)\n\n\n%y\n2-digit year (e.g., 22)\n\n\n%m\n2-digit month (e.g., 12)\n\n\n%B\nFull month name (e.g., December)\n\n\n%b\nAbbreviated month name (e.g., Dec)\n\n\n%d\n2-digit day of the month (e.g., 09)\n\n\n%A\nFull weekday name (e.g., Tuesday)\n\n\n%a\nAbbreviated weekday name (e.g., Tue)\n\n\n%H\n24-hour clock hour (e.g., 23)\n\n\n%I\n12-hour clock hour (e.g., 11)\n\n\n%M\n2-digit minute (e.g., 59)\n\n\n%S\n2-digit second (e.g., 59)\n\n\n%p\n“AM” or “PM”\n\n\n%Z\nTime zone name\n\n\n%z\nTime zone offset from UTC (e.g., -0500)",
     "crumbs": [
       "Appendix",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Gain full control of date formatting</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Gain full control of date formatting</span>"
     ]
   },
   {
     "objectID": "appendix/plotting-guidelines.html",
     "href": "appendix/plotting-guidelines.html",
-    "title": "23  Plotting guidelines",
+    "title": "24  Plotting guidelines",
     "section": "",
-    "text": "23.1 increase fontsize to legible sizes\nimport stuff\nimport matplotlib.pyplot as plt\nimport matplotlib.colors as mcolors\nimport matplotlib\nimport numpy as np\nimport pandas as pd\nGraph with default matplotlib values:\nplot with default matplotlib values\nt = np.linspace(0, 10, 101)\ny = np.sin(2.0*np.pi*t/3) + np.random.random(len(t)) + 4.0\nfig, ax = plt.subplots()\nax.plot(t, y)\nax.set(title=\"This is a title\",\n       xlabel=\"time (days)\",\n       ylabel=\"price (US$)\"\n      );\nYou can use seaborn to easily change plot style and font size:\nimport seaborn as sns\nsns.set_theme(style=\"ticks\", font_scale=1.5)\nplot after seaborn theme changes\nt = np.linspace(0, 10, 101)\ny = np.sin(2.0*np.pi*t/3) + np.random.random(len(t)) + 4.0\nfig, ax = plt.subplots()\nax.plot(t, y)\nax.set(title=\"This is a title\",\n       xlabel=\"time (days)\",\n       ylabel=\"price (US$)\"\n      );\nI recommend that you read seaborn’s Controlling figure aesthetics.",
+    "text": "24.1 increase fontsize to legible sizes\nimport stuff\nimport matplotlib.pyplot as plt\nimport matplotlib.colors as mcolors\nimport matplotlib\nimport numpy as np\nimport pandas as pd\nGraph with default matplotlib values:\nplot with default matplotlib values\nt = np.linspace(0, 10, 101)\ny = np.sin(2.0*np.pi*t/3) + np.random.random(len(t)) + 4.0\nfig, ax = plt.subplots()\nax.plot(t, y)\nax.set(title=\"This is a title\",\n       xlabel=\"time (days)\",\n       ylabel=\"price (US$)\"\n      );\nYou can use seaborn to easily change plot style and font size:\nimport seaborn as sns\nsns.set_theme(style=\"ticks\", font_scale=1.5)\nplot after seaborn theme changes\nt = np.linspace(0, 10, 101)\ny = np.sin(2.0*np.pi*t/3) + np.random.random(len(t)) + 4.0\nfig, ax = plt.subplots()\nax.plot(t, y)\nax.set(title=\"This is a title\",\n       xlabel=\"time (days)\",\n       ylabel=\"price (US$)\"\n      );\nI recommend that you read seaborn’s Controlling figure aesthetics.",
     "crumbs": [
       "Appendix",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Plotting guidelines</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Plotting guidelines</span>"
     ]
   },
   {
     "objectID": "appendix/plotting-guidelines.html#choose-colors-wisely",
     "href": "appendix/plotting-guidelines.html#choose-colors-wisely",
-    "title": "23  Plotting guidelines",
-    "section": "23.2 choose colors wisely",
-    "text": "23.2 choose colors wisely\n\n\ndefine useful functions\nimport math\nimport matplotlib.colors as mcolors\nfrom matplotlib.patches import Rectangle\n\n\ndef plot_colortable(colors, *, ncols=4, sort_colors=True):\n\n    cell_width = 212\n    cell_height = 22\n    swatch_width = 48\n    margin = 12\n\n    # Sort colors by hue, saturation, value and name.\n    if sort_colors is True:\n        names = sorted(\n            colors, key=lambda c: tuple(mcolors.rgb_to_hsv(mcolors.to_rgb(c))))\n    else:\n        names = list(colors)\n\n    n = len(names)\n    nrows = math.ceil(n / ncols)\n\n    width = cell_width * ncols + 2 * margin\n    height = cell_height * nrows + 2 * margin\n    dpi = 72\n\n    fig, ax = plt.subplots(figsize=(width / dpi, height / dpi), dpi=dpi)\n    fig.subplots_adjust(margin/width, margin/height,\n                        (width-margin)/width, (height-margin)/height)\n    ax.set_xlim(0, cell_width * ncols)\n    ax.set_ylim(cell_height * (nrows-0.5), -cell_height/2.)\n    ax.yaxis.set_visible(False)\n    ax.xaxis.set_visible(False)\n    ax.set_axis_off()\n\n    for i, name in enumerate(names):\n        row = i % nrows\n        col = i // nrows\n        y = row * cell_height\n\n        swatch_start_x = cell_width * col\n        text_pos_x = cell_width * col + swatch_width + 7\n\n        ax.text(text_pos_x, y, name, fontsize=14,\n                horizontalalignment='left',\n                verticalalignment='center')\n\n        ax.add_patch(\n            Rectangle(xy=(swatch_start_x, y-9), width=swatch_width,\n                      height=18, facecolor=colors[name], edgecolor='0.7')\n        )\n\n    return fig\n\n\nWhen you plot with matplotlib, the default color order is the following. You can always specify a plot’s color by typing something like color=\"tab:red.\n\n\nShow the code\nplot_colortable(mcolors.TABLEAU_COLORS, ncols=2, sort_colors=False);\n\n\n\n\n\n\n\n\n\nYou can write other words as color names, see below.\n\n\nShow the code\nplot_colortable(mcolors.CSS4_COLORS)\nplt.show()\n\n\n\n\n\n\n\n\n\nThis reminds me of this cartoon:\n\nFor almost all purposes, all these colors should be more than enough.\nBe consistent!: if in one plot precipitation is blue and temperature is red, make sure you keep the same colors throughout your assignment.\nBe mindful of blind-color people: A good rule of thumb is to avoid red and green shades in the same graph.\nI’ll put a bunch of links below, this is for my own reference, but you are more than welcome to take a look.\n\nColorBrewer\nPalettable\nxkcd colors\nColormaps in Matplotlib",
+    "title": "24  Plotting guidelines",
+    "section": "24.2 choose colors wisely",
+    "text": "24.2 choose colors wisely\n\n\ndefine useful functions\nimport math\nimport matplotlib.colors as mcolors\nfrom matplotlib.patches import Rectangle\n\n\ndef plot_colortable(colors, *, ncols=4, sort_colors=True):\n\n    cell_width = 212\n    cell_height = 22\n    swatch_width = 48\n    margin = 12\n\n    # Sort colors by hue, saturation, value and name.\n    if sort_colors is True:\n        names = sorted(\n            colors, key=lambda c: tuple(mcolors.rgb_to_hsv(mcolors.to_rgb(c))))\n    else:\n        names = list(colors)\n\n    n = len(names)\n    nrows = math.ceil(n / ncols)\n\n    width = cell_width * ncols + 2 * margin\n    height = cell_height * nrows + 2 * margin\n    dpi = 72\n\n    fig, ax = plt.subplots(figsize=(width / dpi, height / dpi), dpi=dpi)\n    fig.subplots_adjust(margin/width, margin/height,\n                        (width-margin)/width, (height-margin)/height)\n    ax.set_xlim(0, cell_width * ncols)\n    ax.set_ylim(cell_height * (nrows-0.5), -cell_height/2.)\n    ax.yaxis.set_visible(False)\n    ax.xaxis.set_visible(False)\n    ax.set_axis_off()\n\n    for i, name in enumerate(names):\n        row = i % nrows\n        col = i // nrows\n        y = row * cell_height\n\n        swatch_start_x = cell_width * col\n        text_pos_x = cell_width * col + swatch_width + 7\n\n        ax.text(text_pos_x, y, name, fontsize=14,\n                horizontalalignment='left',\n                verticalalignment='center')\n\n        ax.add_patch(\n            Rectangle(xy=(swatch_start_x, y-9), width=swatch_width,\n                      height=18, facecolor=colors[name], edgecolor='0.7')\n        )\n\n    return fig\n\n\nWhen you plot with matplotlib, the default color order is the following. You can always specify a plot’s color by typing something like color=\"tab:red.\n\n\nShow the code\nplot_colortable(mcolors.TABLEAU_COLORS, ncols=2, sort_colors=False);\n\n\n\n\n\n\n\n\n\nYou can write other words as color names, see below.\n\n\nShow the code\nplot_colortable(mcolors.CSS4_COLORS)\nplt.show()\n\n\n\n\n\n\n\n\n\nThis reminds me of this cartoon:\n\nFor almost all purposes, all these colors should be more than enough.\nBe consistent!: if in one plot precipitation is blue and temperature is red, make sure you keep the same colors throughout your assignment.\nBe mindful of blind-color people: A good rule of thumb is to avoid red and green shades in the same graph.\nI’ll put a bunch of links below, this is for my own reference, but you are more than welcome to take a look.\n\nColorBrewer\nPalettable\nxkcd colors\nColormaps in Matplotlib",
     "crumbs": [
       "Appendix",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Plotting guidelines</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Plotting guidelines</span>"
     ]
   },
   {
     "objectID": "appendix/plotting-guidelines.html#the-best-legend-is-no-legend",
     "href": "appendix/plotting-guidelines.html#the-best-legend-is-no-legend",
-    "title": "23  Plotting guidelines",
-    "section": "23.3 the best legend is no legend",
-    "text": "23.3 the best legend is no legend\n\n\nplot after seaborn theme changes\nt = np.linspace(0, 10, 101)\ny1 = np.sin(2.0*np.pi*t/3) + np.random.random(len(t)) + 5.0\ny2 = 0.7*np.sin(2.0*np.pi*t/1+1.0) + np.random.random(len(t)) + 2.0\ny3 = 0.2*np.sin(2.0*np.pi*t/5+2.0) + 0.2*np.random.random(len(t)) + 3.5\n\nfig, ax = plt.subplots(3, 1, figsize=(8,14))\nfig.subplots_adjust(hspace=0.7)\n\n# you can use legends\nax[0].plot(t, y1, color=\"darkblue\", label=\"signal A\")\nax[0].plot(t, y2, color=\"blue\", label=\"signal B\")\nax[0].plot(t, y3, color=\"xkcd:hot pink\", label=\"signal C\")\nax[0].set(title=\"you can have a legend\",\n          xlabel=\"time (days)\",\n          ylabel=\"signal (a.u.)\"\n         )\nax[0].legend()\n\n# you can use an extra y axes\np1, = ax[1].plot(t, y1, color=\"darkblue\")\nax[1].yaxis.label.set_color(p1.get_color())\nax[1].tick_params(axis='y', colors=p1.get_color())\nax[1].set(xlabel=\"time (days)\",\n          ylabel=\"signal A (a.u.)\",\n          title=\"you can have two y axes with different colors\"\n         )\nax1b = plt.twinx(ax[1])\np2, = ax1b.plot(t, y3, color=\"xkcd:hot pink\", label=\"signal C\")\nax1b.set(ylabel=\"signal B (a.u.)\"\n        )\nax1b.yaxis.label.set_color(p2.get_color())\nax1b.tick_params(axis='y', colors=p2.get_color())\n\n# you can write directly on the graph\nax[2].plot(t, y1, color=\"darkblue\", label=\"signal A\")\nax[2].plot(t, y2, color=\"blue\", label=\"signal B\")\nax[2].plot(t, y3, color=\"xkcd:hot pink\", label=\"signal C\")\nax[2].set(xlabel=\"time (days)\",\n          ylabel=\"signal (a.u.)\",\n          ylim=[0.5,7],\n          title=\"you can write directly on the graph\"\n         )\nax[2].text(-0.5, 5, \"signal A\", color=\"darkblue\", ha=\"left\")\nax[2].text(-0.5, 1, \"signal B\", color=\"blue\", ha=\"left\")\nax[2].text(-0.5, 4, \"signal C\", color=\"xkcd:hot pink\", ha=\"left\")\n\n\nText(-0.5, 4, 'signal C')\n\n\n\n\n\n\n\n\n\nYou can also make a colorbar to substitute a legend.\n\n\nmake a discrete colorbar\nnum_lines = 6\n\nt = np.linspace(0, 2, 101)\n\n# Get truncated colormap\ncmap = plt.colormaps.get_cmap('jet')\nbottom = 0.6; top = 1.0\ntruncated_cmap = mcolors.LinearSegmentedColormap.from_list(\"truncated_viridis\", cmap(np.linspace(bottom, top, num_lines)))\n\n# Create a figure and axis\nfig, ax = plt.subplots()\n\n# Plot the lines with increasing frequency\nfor i in range(num_lines):\n    freq = i + 1\n    y = np.sin(2.0 * np.pi * t * freq) + 2*freq\n    ax.plot(t, y, color=truncated_cmap(i / (num_lines - 1)), label=f'Slope {slope}')\n\nax.set(xlabel=\"time (s)\",\n       ylabel=\"signal\")\n\n# Create a discrete colorbar\nboundaries = np.linspace(0.5, num_lines + 0.5, num_lines + 1)\nticks = np.arange(num_lines) + 1\nnorm = mcolors.BoundaryNorm(boundaries, truncated_cmap.N)\nsm = plt.cm.ScalarMappable(cmap=truncated_cmap, norm=norm)\nsm.set_array([])  # fake up the array of the scalar mappable\ncbar = plt.colorbar(sm, ticks=ticks, boundaries=boundaries, label='frequency', ax=ax)\ncbar.ax.tick_params(which='both', size=0)\nfreq_list = [f\"{x+1} Hz\" for x in range(num_lines)]\ncbar.set_ticklabels(freq_list)",
+    "title": "24  Plotting guidelines",
+    "section": "24.3 the best legend is no legend",
+    "text": "24.3 the best legend is no legend\n\n\nplot after seaborn theme changes\nt = np.linspace(0, 10, 101)\ny1 = np.sin(2.0*np.pi*t/3) + np.random.random(len(t)) + 5.0\ny2 = 0.7*np.sin(2.0*np.pi*t/1+1.0) + np.random.random(len(t)) + 2.0\ny3 = 0.2*np.sin(2.0*np.pi*t/5+2.0) + 0.2*np.random.random(len(t)) + 3.5\n\nfig, ax = plt.subplots(3, 1, figsize=(8,14))\nfig.subplots_adjust(hspace=0.7)\n\n# you can use legends\nax[0].plot(t, y1, color=\"darkblue\", label=\"signal A\")\nax[0].plot(t, y2, color=\"blue\", label=\"signal B\")\nax[0].plot(t, y3, color=\"xkcd:hot pink\", label=\"signal C\")\nax[0].set(title=\"you can have a legend\",\n          xlabel=\"time (days)\",\n          ylabel=\"signal (a.u.)\"\n         )\nax[0].legend()\n\n# you can use an extra y axes\np1, = ax[1].plot(t, y1, color=\"darkblue\")\nax[1].yaxis.label.set_color(p1.get_color())\nax[1].tick_params(axis='y', colors=p1.get_color())\nax[1].set(xlabel=\"time (days)\",\n          ylabel=\"signal A (a.u.)\",\n          title=\"you can have two y axes with different colors\"\n         )\nax1b = plt.twinx(ax[1])\np2, = ax1b.plot(t, y3, color=\"xkcd:hot pink\", label=\"signal C\")\nax1b.set(ylabel=\"signal B (a.u.)\"\n        )\nax1b.yaxis.label.set_color(p2.get_color())\nax1b.tick_params(axis='y', colors=p2.get_color())\n\n# you can write directly on the graph\nax[2].plot(t, y1, color=\"darkblue\", label=\"signal A\")\nax[2].plot(t, y2, color=\"blue\", label=\"signal B\")\nax[2].plot(t, y3, color=\"xkcd:hot pink\", label=\"signal C\")\nax[2].set(xlabel=\"time (days)\",\n          ylabel=\"signal (a.u.)\",\n          ylim=[0.5,7],\n          title=\"you can write directly on the graph\"\n         )\nax[2].text(-0.5, 5, \"signal A\", color=\"darkblue\", ha=\"left\")\nax[2].text(-0.5, 1, \"signal B\", color=\"blue\", ha=\"left\")\nax[2].text(-0.5, 4, \"signal C\", color=\"xkcd:hot pink\", ha=\"left\")\n\n\nText(-0.5, 4, 'signal C')\n\n\n\n\n\n\n\n\n\nYou can also make a colorbar to substitute a legend.\n\n\nmake a discrete colorbar\nnum_lines = 6\n\nt = np.linspace(0, 2, 101)\n\n# Get truncated colormap\ncmap = plt.colormaps.get_cmap('jet')\nbottom = 0.6; top = 1.0\ntruncated_cmap = mcolors.LinearSegmentedColormap.from_list(\"truncated_viridis\", cmap(np.linspace(bottom, top, num_lines)))\n\n# Create a figure and axis\nfig, ax = plt.subplots()\n\n# Plot the lines with increasing frequency\nfor i in range(num_lines):\n    freq = i + 1\n    y = np.sin(2.0 * np.pi * t * freq) + 2*freq\n    ax.plot(t, y, color=truncated_cmap(i / (num_lines - 1)), label=f'Slope {slope}')\n\nax.set(xlabel=\"time (s)\",\n       ylabel=\"signal\")\n\n# Create a discrete colorbar\nboundaries = np.linspace(0.5, num_lines + 0.5, num_lines + 1)\nticks = np.arange(num_lines) + 1\nnorm = mcolors.BoundaryNorm(boundaries, truncated_cmap.N)\nsm = plt.cm.ScalarMappable(cmap=truncated_cmap, norm=norm)\nsm.set_array([])  # fake up the array of the scalar mappable\ncbar = plt.colorbar(sm, ticks=ticks, boundaries=boundaries, label='frequency', ax=ax)\ncbar.ax.tick_params(which='both', size=0)\nfreq_list = [f\"{x+1} Hz\" for x in range(num_lines)]\ncbar.set_ticklabels(freq_list)",
     "crumbs": [
       "Appendix",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Plotting guidelines</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Plotting guidelines</span>"
     ]
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "24  Summary",
+    "title": "25  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\nThis is Yair making changes to summary.",
     "crumbs": [
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
   {

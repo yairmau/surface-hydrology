@@ -49,7 +49,7 @@ book:
         - assignments/assignment-streamflow.ipynb
         # - assignments/assignment-FINAL.ipynb
         # - assignments/assignment-FINAL2.qmd
-        # - assignments/assignment-FINAL2024.qmd
+        - assignments/assignment-FINAL2025.qmd
     - part: appendix/index.qmd
       chapters:    
         - appendix/date_formatting.ipynb
