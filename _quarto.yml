@@ -7,6 +7,8 @@ book:
   author: "Yair Mau"
   repo-url: https://github.com/yairmau/surface-hydrology/
   favicon: archive/cloud-rain.png
+  google-analytics: "G-CN9JE5G8BN"
+
   # date: "10/18/2022"
   chapters:
     - index.qmd
