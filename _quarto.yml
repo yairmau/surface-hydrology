@@ -61,9 +61,7 @@ book:
   # repo-url: https://github.com/agrotech-lab/my-book-test
   # repo-actions: [source]
   sidebar:
-    tools:
-      - icon: house
-        href: https://yairmau.com/
+    header: "[← Back to yairmau.com](https://yairmau.com/){.back-home}"
     logo: archive/cloud-rain.png
   #   style: "docked"
   #   collapse-level: 2
